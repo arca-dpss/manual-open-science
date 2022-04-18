@@ -1,0 +1,26 @@
+# don't push local rendered files in master branch
+_book/
+_bookdown_files/
+libs/
+**/*.html
+
+# ignore all html files except:
+!**/mathjax_header.html
+!assets/*.html
+!docs/libs/
+!docs/*.html
+
+# R and Rstudio specific files
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# bookdown build file
+*.rds
+*.log
+
+# Other folders
+
+# Mac-auxiliary files
+.DS_Store

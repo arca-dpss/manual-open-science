@@ -1,0 +1,13 @@
+book_filename: "manual-open-science"
+repo: "https://github.com/arca-dpss/manual-open-science"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+
+rmd_files:
+  html: ["index.Rmd", "chapters/01-intro.Rmd"]
+  latex: ["index.Rmd", "chapters/01-intro.Rmd"]
+
+# output_dir: "docs/"
+

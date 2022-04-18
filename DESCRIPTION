@@ -1,0 +1,35 @@
+Package: manualOpenScience
+Type: Package
+Title: The Open Science Manual: Make Your Scientific Research Accesible and Reproducible
+Version: 0.1.0
+Authors@R: 
+  c(person(given = "Claudio",
+           family = "Zandonella Callegher",
+           role = c("aut", "cre"),
+           email = "claudiozandonella@gmail.com",
+           comment = c(ORCID = "0000-0001-7721-6318")),
+    person(given = "Davide",
+           family = "Massidda",
+           role = c("aut")))
+Maintainer: The package maintainer <myself@somewhere.net>
+Description: The aim of the present book is to describe programming good 
+  practices and introduce common tools used in software development to 
+  guarantee reproducibility of the analysis results. We want to make scientific 
+  research an open-source knowledge development.
+License: What license is it under?
+Depends:
+    devtools,
+Imports:
+    bookdown,
+    kableExtra,
+    renv,
+    rmarkdown,
+    targets,
+    tidyverse,
+    trackdown,
+    visNetwork
+Encoding: UTF-8
+LazyData: true
+URL: https://arca-dpss.github.io/manual-open-science/, https://github.com/arca-dpss/manual-open-science
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2

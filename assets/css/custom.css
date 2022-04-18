@@ -1,0 +1,195 @@
+/* Adapted rom Rstudio4edu https://github.com/rstudio4edu/rstudio4edu-book/blob/master/assets/style.css */
+/*------------ TOC --------------*/
+
+.book .book-summary {
+  background: white;
+  border-right: none;
+}
+/*
+summary{
+  font-family: 'Karla', sans-serif;
+}
+*/
+
+/* all TOC list items, basically */
+.book .book-summary ul.summary li a,
+.book .book-summary ul.summary li span {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-left: 15px;
+  padding-right: 15px;
+  color: #324748;
+}
+
+.summary a:hover {
+  color: #8C3031d9 !important;
+}
+
+.book .book-summary ul.summary li.active>a { /*active TOC links*/
+  color: #fff !important;
+  background-color: #8C3031;
+  border-radius: 10px;
+  border-left: solid 4px;
+  border-color: #8C3031;
+  padding-left: 11px !important;
+}
+
+
+li.appendix span, li.part span { /* for TOC part names */
+  margin-top: 1em;
+  color: #000000;
+  opacity: .9 !important;
+  text-transform: uppercase;
+}
+
+.part + li[data-level=""] { /* grabs first .chapter immediately after .part...but only those ch without numbers */
+ text-transform: uppercase;
+}
+
+
+/* The next two rules make the horizontal line go straight across in top navbar */
+
+.summary > li:first-child {
+	height: 50px;
+	padding-top: 10px;
+	border-bottom: 1px solid rgba(0,0,0,.07);
+}
+
+.book .book-summary ul.summary li.divider {
+	height: 0px;
+}
+
+
+
+/*--- LOGO ---*/
+
+.toc-logo {
+  width: 200px !important;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.toc-logo img {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.summary > li:first-child {
+  height: auto !important;
+}
+
+
+/*----------Color links---------*/
+a {
+    color: #8C3031;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal a {
+    color: #8C3031;
+    font-weight: bold;
+}
+
+
+/*---------- Custom Blocks --------*/
+/* Adapted from r-pkgs.org         */
+
+/* general */
+div.tip, div.warning, div.deffun, div.design, div.trick{
+  border: 4px #aed6d963;
+  border-style: dashed solid;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 1em 0;
+  background-size: auto 45px;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-position: 1.5em .85em;
+  min-height: 120px;
+  background-color: #fcfcfc;
+}
+
+div.tip:before, div.warning:before, div.deffun:before, div.design:before, div.trick:before{
+    content: "Inf-Box: " attr(title);
+    font-size: 1.25em;
+    font-weight: bold;
+    padding-left: 60px;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    display: block;
+}
+
+/* specific */
+
+div.tip:before {
+    content: "Tip-Box: " attr(title);
+    color: #e7b002;
+}
+div.tip {
+  background-image: url("images/lightbulb.png");
+  border-color: #fdce38;
+}
+
+div.warning:before {
+    content: "Warning-Box: " attr(title);
+    color: #b06336 ;
+}
+div.warning {
+  background-image: url("images/gotcha.png");
+  border-color: #c97d50 ;
+}
+
+div.deffun:before {
+    content: "Definition-Box: " attr(title);
+    color: #0b797e;
+}
+div.deffun {
+  background-image: url("images/gears.png");
+  border-color: #6CC2C9;
+}
+
+div.design:before {
+    content: "Design-Box: " attr(title);
+    color: #7c972e;
+}
+div.design {
+  background-image: url("images/design.png");
+  border-color: #a7c84a;
+}
+
+div.trick:before {
+    content: "Trick-Box: " attr(title);
+    color: #8c3031;
+}
+div.trick {
+  background-image: url("images/hat.png");
+  border-color: #A3595A;
+}
+
+/*---------------Banner Image------------------*/
+
+/* next 3 rules are for setting large image at top of each page and pushing down the book content to appear beneath the image */
+
+.hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #8C3031;
+}
+
+.hero-image {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+}
+
+.page-inner {
+  padding-top: 80px !important;
+}
+
+/*----    Footer    ----*/
+
+.footer {
+  font-size: .85em;
+}

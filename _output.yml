@@ -1,0 +1,36 @@
+bookdown::gitbook:
+  css: ["assets/css/style.css", "assets/css/toc.css", "assets/css/custom.css"]
+  includes:
+    before_body: "assets/html/banner.html"
+    after_body: "assets/html/footer.html"
+  config:
+    toc:
+      collapse: section
+      scroll_highlight: yes
+      toc_float: true
+      before: |
+        <li class="toc-logo"><a href="./"><img src="assets/images/arca-logo.png"></a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    edit: https://github.com/arca-dpsss/template-bookdown/edit/master/%s
+    download: ["pdf"]
+    sharing:
+      github: yes
+      facebook: no
+      twitter: yes
+      all: yes
+
+
+bookdown::pdf_book:
+  includes:
+    in_header: "assets/tex/preamble.tex"
+    before_body: "assets/tex/frontpage.tex"
+  latex_engine: xelatex
+  # citation_package: biblatex
+  # biblio-style: apa
+  # bib-latex-options: "style=apa, sorting=nyt, backend=biber, maxcitenames=2, useprefix, doi=true, isbn=false, uniquename=false"
+
+  # keep_tex: yes
+
+
+# bookdown::epub_book: default

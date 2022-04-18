@@ -1,62 +1,57 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# The Open Science Manual:Make Your Scientific Research Accesible and Reproducible
+# The Open Science Manual: Make Your Scientific Research Accessible and Reproducible
 
 <!-- badges: start -->
 <!-- badges: end -->
 
 <img src="assets/images/banner.png" height="70px" width="100%">
 
-The aim of the present book is to describe programming good practices
-and introduce common tools used in software development to guarantee
+The present book aims to describe programming good practices and
+introduce common tools used in software development to guarantee the
 reproducibility of the analysis results. We want to make scientific
-research an open-source knowledge development.
+research open-source knowledge development.
 
 The book is available at
 <https://arca-dpss.github.io/manual-open-science/>.
 
-## Book Structure
+## Book Content
 
-The book is structured as follow.
+In the book, we will learn to:
 
--   In Chapter \[TODO: add ref\], we present th eaim of the book.
--   In Chapter \[TODO: add ref\], we introduce the Open Science
-    Framework (OSF), a free, open source web application that allows
-    researchers to collaborate, document, archive, share, and register
-    research projects, materials, and data.
--   In Chapter \[TODO: add ref\], we describe recommended practices to
-    organize all the materials and files of our projects and which are
-    the advantages of creating a well structured, documented, and
-    licensed repository.
--   In Chapter \[TODO: add ref\], we discuss main guidelines regarding
-    organizing, documenting, and sharing data.
--   In Chapter \[TODO: add ref\], we provide general good practices to
-    create readable and maintainable code and we describe the functional
-    style approach.
--   In Chapter \[TODO: add ref\], we introduce version control, a
-    powerful system for managing the development of our project. In
-    particular, first we provide a basic tutorial about the use of the
-    terminal. Next, we introduce Git and GitHub for managing and
-    tracking our projects during the development.
--   In Chapter \[TODO: add ref\], we discuss how to manage the analysis
-    workflow to enhance results reproducibility and code
-    maintainability.
--   In Chapter \[TODO: add ref\], we introduce the main tools to create
-    dynamic documents that integrate narrative text and code describing
-    the advantages.
--   In Chapter \[TODO: add ref\], we discuss how to manage our project
-    requirements and dependencies (software and package versions) to
-    enhance results reproducibility.
--   In Chapter \[TODO: add ref\], we introduce Docker and the container
-    technology that allow us creating and sharing an isolated,
-    controlled, standardized environment for our project.
+-   Share our materials using the Open Science Framework (**OSF**)
+-   Learn how appropriately to structure and organize our maeerials in a
+    **repository**
+-   Follow recommendations about data organization and data sharing
+-   Improve code readability and maintainability using a **Functional
+    Style**
+-   Learn version control tools and collaborations using **Git** and
+    **Github**
+-   Manage analysis workflow with dedicated tools
+-   Create dynamic documents
+-   Manage project requirements and dependencies using dedicated tools
+-   Create a container to guarantee reproducibility using **Docker**
+
+This book provides useful recommendations and guidelines that apply
+independently of the specific programming language. However, examples
+and specific applications are based on the R programming language.
+Readers working with programming languages other than R can still find
+valuable guidelines and information and can later apply the same
+workflow and ideas using dedicated tools specific to their preferred
+programming language.
+
+Finally, as most researchers have no formal training in programming and
+software development, we provide a very gentle introduction to many
+programming concepts and tools without assuming any previous knowledge.
+Note, however, that we assume that the reader is already familiar with
+the R programming language for specific examples and applications.
 
 ## About the Authors
 
-During our careers, we both move towards Data Science after our PhD
-Psychological Sciences. This book is our attempt to bring back into
-scientific research what we have learned about outside academia.
+During our careers, we both moved into the field of Data Science after
+our PhD in Psychological Sciences. This book is our attempt to bring
+back into scientific research what we have learned outside of academia.
 
 -   [Claudio Zandonella
     Callegher](https://claudiozandonella.netlify.app/). During my PhD, I
@@ -64,8 +59,8 @@ scientific research what we have learned about outside academia.
     that affect our lives by exploring data, formulating hypotheses,
     building models, and validating them. I find this whole process
     extremely challenging and motivating. Moreover, I am excited about
-    new tools and solution to enhance replicability and transparency of
-    scientific results.
+    new tools and solutions to enhance the replicability and
+    transparency of scientific results.
 -   [Davide Massidda](https://www.linkedin.com/in/davidemassidda/).
 
 ## ARCA
@@ -74,15 +69,13 @@ scientific research what we have learned about outside academia.
 
 ARCA courses are advanced and highly applicable courses on modern tools
 for research in Psychology. They are organised by the Department of
-Developmental and Social Psychology at the University of Padua. At the
-link dpss.unipd.it/arca it is possible to have detailed information on
-all active courses.
+Developmental and Social Psychology at the University of Padua.
 
 ## Contribute
 
 Surely there are many typos to fix and new arguments to include. Anyone
 is welcome to contribute to this book. For small typos just send a pull
-request with all the corrections. To propose new chapters or paragraph,
+request with all the corrections. To propose new chapters or paragraphs,
 instead, open an issue to discuss and plan them.
 
 ## Acknowledgements

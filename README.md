@@ -16,7 +16,8 @@ research open-source knowledge development.
 The book is available online at
 <https://arca-dpss.github.io/manual-open-science/>.
 
-A PDF copy is available at \[TODO: add link\].
+A PDF copy is available at
+<https://arca-dpss.github.io/manual-open-science/manual-open-science.pdf>.
 
 ## Book Content
 

@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The Open Science Manual</title>
+  <title>References | The Open Science Manual</title>
   <meta name="description" content="<p>The present book aims to describe programming good practices and introduce common tools
 used in software development to guarantee reproducibility of the analysis results.
 We want to make scientific research an open-source knowledge development.</p>" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The Open Science Manual" />
+  <meta property="og:title" content="References | The Open Science Manual" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
   <meta property="og:description" content="<p>The present book aims to describe programming good practices and introduce common tools
@@ -19,7 +19,7 @@ We want to make scientific research an open-source knowledge development.</p>" /
   <meta name="github-repo" content="arca-dpss/template-bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Open Science Manual" />
+  <meta name="twitter:title" content="References | The Open Science Manual" />
   
   <meta name="twitter:description" content="<p>The present book aims to describe programming good practices and introduce common tools
 used in software development to guarantee reproducibility of the analysis results.
@@ -34,8 +34,8 @@ We want to make scientific research an open-source knowledge development.</p>" /
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="introduction.html"/>
 
-<link rel="next" href="introduction.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -152,65 +152,13 @@ div.csl-indent {
 <div class="hero-image-container">
   <img class= "hero-image" src="assets/images/banner.png">
 </div>
-<div id="header">
-<h1 class="title">The Open Science Manual</h1>
-<h2 class="subtitle"><em>Make Your Scientific Research Accessible and Reproducible</em></h2>
-<p class="author"><em><p><a href="https://claudiozandonella.netlify.app/">Claudio Zandonella Callegher</a> and
-<a href="https://www.linkedin.com/in/davidemassidda/">Davide Massidda</a></p></em></p>
-<p class="date"><em>18 April, 2022 [last-updated]</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered hasAnchor">
-<h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The present book aims to describe programming good practices and introduce common tools used in software development to guarantee the reproducibility of the analysis results. We want to make scientific research open-source knowledge development.</p>
-<p>The book is available online at <a href="https://arca-dpss.github.io/manual-open-science/" class="uri">https://arca-dpss.github.io/manual-open-science/</a>.</p>
-<p>A PDF copy is available at [TODO: add link].</p>
-<div id="book-content" class="section level2 unnumbered hasAnchor">
-<h2>Book Content<a href="index.html#book-content" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In the book, we will learn to:</p>
-<ul>
-<li>Share our materials using the Open Science Framework (<strong>OSF</strong>)</li>
-<li>Learn how appropriately to structure and organize our materials in a <strong>repository</strong></li>
-<li>Follow recommendations about data organization and data sharing</li>
-<li>Improve code readability and maintainability using a <strong>Functional Style</strong></li>
-<li>Learn version control and collaboration using <strong>Git</strong> and <strong>Github</strong></li>
-<li>Manage analysis workflow with dedicated tools</li>
-<li>Create dynamic documents</li>
-<li>Manage project requirements and dependencies using dedicated tools</li>
-<li>Create a container to guarantee reproducibility using <strong>Docker</strong></li>
-</ul>
-<p>This book provides useful recommendations and guidelines that can be applied independently of the specific programming language. However, examples and specific applications are based on the R programming language. Readers working with programming languages other than R can still find valuable guidelines and information and can later apply the same workflow and ideas using dedicated tools specific to their preferred programming language.</p>
-<p>Finally, as most researchers have no formal training in programming and software development, we provide a very gentle introduction to many programming concepts and tools without assuming any previous knowledge. Note, however, that we assume that the reader is already familiar with the R programming language for specific examples and applications.</p>
-</div>
-<div id="about-the-authors" class="section level2 unnumbered hasAnchor">
-<h2>About the Authors<a href="index.html#about-the-authors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>During our careers, we both moved into the field of Data Science after our PhD in Psychological Sciences. This book is our attempt to bring back into scientific research what we have learned outside of academia.</p>
-<ul>
-<li><a href="https://claudiozandonella.netlify.app/">Claudio Zandonella Callegher</a>. During my PhD, I fell in love with data science. Understanding the complex phenomena that affect our lives by exploring data, formulating hypotheses, building models, and validating them. I find this whole process extremely challenging and motivating. Moreover, I am excited about new tools and solutions to enhance the replicability and transparency of scientific results.</li>
-<li><a href="https://www.linkedin.com/in/davidemassidda/">Davide Massidda</a>.</li>
-</ul>
-</div>
-<div id="arca" class="section level2 unnumbered hasAnchor">
-<h2>ARCA<a href="index.html#arca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img style = "margin-left: 20px;" align="right" width="150" height="150" src="assets/images/arca-logo.png"></p>
-<p>ARCA courses are advanced and highly applicable courses on modern tools for research in Psychology. They are organised by the Department of Developmental and Social Psychology at the University of Padua.</p>
-</div>
-<div id="contribute" class="section level2 unnumbered hasAnchor">
-<h2>Contribute<a href="index.html#contribute" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Surely there are many typos to fix and new arguments to include. Anyone is welcome to contribute to this book. For small typos just send a pull request with all the corrections. To propose new chapters or paragraphs, instead, open an issue to discuss and plan them.</p>
-</div>
-<div id="acknowledgements" class="section level2 unnumbered hasAnchor">
-<h2>Acknowledgements<a href="index.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This book was inspired by Richard McElreath’s talk <em>“Science as Amateur Software Development”</em> <a href="https://youtu.be/zwRdO9_GGhY">https://youtu.be/zwRdO9_GGhY</a>. Talk abstract:</p>
-<blockquote>
-<p>Science is one of humanity’s greatest inventions. Academia, on the other hand, is not. It is remarkable how successful science has been, given the often chaotic habits of scientists. In contrast to other fields, like say landscaping or software engineering, science as a profession is largely <em>unprofessional</em> - apprentice scientists are taught less about how to work responsibly than about how to earn promotions. This results in ubiquitous and costly errors. Software development has become indispensable to scientific work. I want to playfully ask how it can become even more useful by transferring some aspects of its professionalism, the day-to-day tracking and back-tracking and testing that is especially part of distributed, open-source software development. Science, after all, aspires to be distributed, open-source knowledge development.</p>
-</blockquote>
-</div>
-<div id="license" class="section level2 unnumbered hasAnchor">
-<h2>License<a href="index.html#license" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This book is released under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.</p>
-<p>This book is based on the <a href="https://github.com/arca-dpss/template-bookdown">ARCA Bookown Template</a> released under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.</p>
-<p>The icons used belong to <a href="https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> and are licensed under under <a href="https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC 2.0 License</a>.</p>
+<div id="references" class="section level1 unnumbered hasAnchor">
+<h1>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div class="csl-entry">
+Nosek, B. A., &amp; Errington, T. M. (2020). What is replication? <em>PLOS Biology</em>, <em>18</em>(3), e3000691. <a href="https://doi.org/10.1371/journal.pbio.3000691">https://doi.org/10.1371/journal.pbio.3000691</a>
+</div>
 </div>
 </div>
 <hr>
@@ -228,8 +176,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
+<a href="introduction.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -260,7 +208,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/arca-dpsss/template-bookdown/edit/master/index.Rmd",
+"link": "https://github.com/arca-dpsss/template-bookdown/edit/master/chapters/99-references.Rmd",
 "text": "Edit"
 },
 "history": {

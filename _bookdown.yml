@@ -6,8 +6,8 @@ language:
 delete_merged_file: true
 
 rmd_files:
-  html: ["index.Rmd", "chapters/01-intro.Rmd"]
-  latex: ["index.Rmd", "chapters/01-intro.Rmd"]
+  html: ["index.Rmd", "chapters/01-intro.Rmd", "chapters/99-references.Rmd"]
+  latex: ["index.Rmd", "chapters/01-intro.Rmd", "chapters/99-references.Rmd"]
 
 # output_dir: "docs/"
 

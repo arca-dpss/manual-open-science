@@ -13,16 +13,18 @@ introduce common tools used in software development to guarantee the
 reproducibility of the analysis results. We want to make scientific
 research open-source knowledge development.
 
-The book is available at
+The book is available online at
 <https://arca-dpss.github.io/manual-open-science/>.
+
+A PDF copy is available at \[TODO: add link\].
 
 ## Book Content
 
 In the book, we will learn to:
 
 -   Share our materials using the Open Science Framework (**OSF**)
--   Learn how appropriately to structure and organize our maeerials in a
-    **repository**
+-   Learn how appropriately to structure and organize our matserials in
+    a **repository**
 -   Follow recommendations about data organization and data sharing
 -   Improve code readability and maintainability using a **Functional
     Style**

@@ -28,20 +28,19 @@ In the book, we will learn to:
 -   Follow recommendations about data organization and data sharing
 -   Improve code readability and maintainability using a **Functional
     Style**
--   Learn version control tools and collaborations using **Git** and
-    **Github**
+-   Learn version control and collaboration using **Git** and **Github**
 -   Manage analysis workflow with dedicated tools
 -   Create dynamic documents
 -   Manage project requirements and dependencies using dedicated tools
 -   Create a container to guarantee reproducibility using **Docker**
 
-This book provides useful recommendations and guidelines that apply
-independently of the specific programming language. However, examples
-and specific applications are based on the R programming language.
-Readers working with programming languages other than R can still find
-valuable guidelines and information and can later apply the same
-workflow and ideas using dedicated tools specific to their preferred
-programming language.
+This book provides useful recommendations and guidelines that can be
+applied independently of the specific programming language. However,
+examples and specific applications are based on the R programming
+language. Readers working with programming languages other than R can
+still find valuable guidelines and information and can later apply the
+same workflow and ideas using dedicated tools specific to their
+preferred programming language.
 
 Finally, as most researchers have no formal training in programming and
 software development, we provide a very gentle introduction to many

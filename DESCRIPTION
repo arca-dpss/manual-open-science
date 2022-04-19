@@ -30,6 +30,8 @@ Imports:
     visNetwork
 Encoding: UTF-8
 LazyData: true
-URL: https://arca-dpss.github.io/manual-open-science/, https://github.com/arca-dpss/manual-open-science
+URL: 
+  https://arca-dpss.github.io/manual-open-science/, 
+  https://github.com/arca-dpss/manual-open-science
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2

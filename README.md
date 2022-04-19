@@ -24,8 +24,8 @@ A PDF copy is available at
 In the book, we will learn to:
 
 -   Share our materials using the Open Science Framework (**OSF**)
--   Learn how appropriately to structure and organize our matserials in
-    a **repository**
+-   Learn how appropriately to structure and organize our materials in a
+    **repository**
 -   Follow recommendations about data organization and data sharing
 -   Improve code readability and maintainability using a **Functional
     Style**

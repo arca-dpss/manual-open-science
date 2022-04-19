@@ -32,32 +32,6 @@ make_package_bib <- function(){
 #' @return builded bookdown is returned in "docs/" folder
 #'
 
-make_my_book <- function(subdir = "Documents/Bookdown/") {
-
-  origwd <- setwd(file.path(subdir))
-  on.exit(setwd(origwd))
-  bookdown::render_book(input='_bookdown.yml', config_file='_bookdown.yml',
-                        output_format = "bookdown::gitbook",
-                        params = list(format = "html"))
-  bookdown::render_book(input='_bookdown.yml', config_file='_bookdown.yml',
-                        output_format = "bookdown::pdf_book",
-                        params = list(format = "latex"))
-}
-
-
-#----    make_my_book    ----
-
-#' Make My Bookdown
-#'
-#' Render Bookdown html and pdf. It allows setting the correct working directory
-#' to build the documents.
-#'
-#' @param subdir string indicating the path to the bookdown main file. It is
-#'   used as working directory.
-#'
-#' @return builded bookdown is returned in "docs/" folder
-#'
-
 make_my_book <- function(subdir = ".", output_dir = "docs") {
 
   origwd <- setwd(file.path(subdir))
@@ -77,5 +51,6 @@ make_my_book <- function(subdir = ".", output_dir = "docs") {
 update_readme <- function(){
   rmarkdown::render("README.Rmd", output_format = "github_document")
 }
+
 #----
 

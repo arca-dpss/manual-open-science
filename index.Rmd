@@ -53,6 +53,8 @@ output_format <- ifelse(knitr::is_html_output(),
 options(knitr.kable.NA = '')
 options(knitr.table.format = output_format)
 
+# Load custom functions
+devtools::load_all()
 
 
 ## ggplot settings

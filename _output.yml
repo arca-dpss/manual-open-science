@@ -3,6 +3,7 @@ bookdown::gitbook:
   includes:
     before_body: "assets/html/banner.html"
     after_body: "assets/html/footer.html"
+  toc_depth: 4
   config:
     toc:
       collapse: section
@@ -22,6 +23,7 @@ bookdown::gitbook:
 
 
 bookdown::pdf_book:
+  toc_depth: 4
   includes:
     in_header: "assets/tex/preamble.tex"
     before_body: "assets/tex/frontpage.tex"
@@ -30,7 +32,7 @@ bookdown::pdf_book:
   # biblio-style: apa
   # bib-latex-options: "style=apa, sorting=nyt, backend=biber, maxcitenames=2, useprefix, doi=true, isbn=false, uniquename=false"
 
-  # keep_tex: yes
+  keep_tex: yes
 
 
 # bookdown::epub_book: default

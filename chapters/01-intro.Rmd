@@ -21,7 +21,7 @@ The aim of the present book is to describe programming good practices and introd
 
 The book is structured as follows.
 
-- In Chapter [TODO: add ref], we introduce the Open Science Framework (OSF), a free, open-source web application that allows researchers to collaborate, document, archive, share, and register research projects, materials, and data.
+- In Chapter \@ref(osf-chapter) [work in progress], we introduce the Open Science Framework (OSF), a free, open-source web application that allows researchers to collaborate, document, archive, share, and register research projects, materials, and data.
 - In Chapter [TODO: add ref], we describe recommended practices to organize all the materials and files of our projects and which are the advantages of creating a well structured, documented, and licensed repository.
 - In Chapter [TODO: add ref], we discuss the main guidelines regarding organizing, documenting, and sharing data.
 - In Chapter [TODO: add ref], we provide general good practices to create readable and maintainable code and we describe the functional style approach.
@@ -61,7 +61,7 @@ The book is structured to facilitate this process, as each chapter is an indepen
 - Manage project requirements and dependencies using dedicated tools
 - Create a container to guarantee reproducibility using Docker
    
-Learning advanced tools such as Git, pipeline tools, and Docker still requires a lot of time and practice. They may even seem excessive complex at first. However, we should consider them as an investment. As soon as our analyses will become more complex than a few lines e of code, these tools will allow us to safely develop and manage our project.
+Learning advanced tools such as Git, pipeline tools, and Docker still requires a lot of time and practice. They may even seem excessively complex at first. However, we should consider them as an investment. As soon as our analyses will become more complex than a few lines e of code, these tools will allow us to safely develop and manage our project.
 
 ### Non-Programmer Friendly
 

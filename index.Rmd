@@ -10,7 +10,7 @@ documentclass: book
 bibliography: ["assets/bib/manual-open-science.bib", "assets/bib/packages.bib"]
 csl: "assets/bib/apa.csl"
 link-citations: yes
-github-repo: "arca-dpss/template-bookdown"
+github-repo: "arca-dpss/manual-open-science"
 description: |
   The present book aims to describe programming good practices and introduce common tools 
   used in software development to guarantee reproducibility of the analysis results. 
@@ -25,7 +25,7 @@ fontsize: 11pt
 \mainmatter
 \pagestyle{myfancy}
 
-```{r settings, echo=FALSE}
+```{r settings, echo=FALSE, message=FALSE}
 library(kableExtra)
 library(ggplot2)
 

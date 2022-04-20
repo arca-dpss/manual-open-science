@@ -22,6 +22,7 @@
 \textheight 590pt
 \usepackage{layout}% http://ctan.org/pkg/layouts
 
+% caption
 \usepackage[labelfont=bf]{caption}
 
 
@@ -84,6 +85,7 @@
   \color{chaptergrey}%
 }
 \makeatother
+
 
 %----    define infoboxes    ----%
 \usepackage[skins, most]{tcolorbox}
@@ -175,6 +177,39 @@
   \end{mybox}
   }
 
+%----    quote
+
+
+\definecolor{block-gray}{gray}{0.95}
+
+
+\newtcolorbox{line-left}{%
+    colback=white,
+    % grow to right by=-10mm,
+    % grow to left by=-10mm,
+    boxrule=0pt,
+    boxsep=0pt,
+    breakable,
+    enhanced jigsaw,
+    borderline west={2pt}{0pt}{gray},
+    borderline north={0pt}{0pt}{white},
+    borderline south={0pt}{0pt}{white},
+    % title={#2\par},
+    % colbacktitle={block-gray},
+    % coltitle={black},
+    % fonttitle={\large\bfseries},
+    % attach title to upper={},
+    % #1,
+}
+
+% \renewenvironment{quote}
+%                {\begin{line-left}}
+%                {\end{line-left}}
+
+\renewenvironment{quote}
+               {\list{}{\rightmargin\leftmargin}%
+                \item\relax\begin{line-left}\setlength{\parskip}{1em}}
+               {\end{line-left}\endlist}
 %----
 
 \usepackage{hyperref}

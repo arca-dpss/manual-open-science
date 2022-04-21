@@ -28,3 +28,22 @@ break_line <- function(format = "html"){
   res
 }
 
+#----    package_logo    ----#
+
+package_logo <- function(img, format = "html", tex_width = .25){
+
+  if(format == "html"){
+    res <- glue::glue('<div class="packages-logo-box"><img src="{img}"></div>')
+  } else {
+    res <- glue::glue(
+    '\\begin{wrapfigure}{r}{^tex_width^\\textwidth}
+  \\begin{center}
+    \\includegraphics[width=^tex_width-.02^\\textwidth]{^img^}
+  \\end{center}
+\\end{wrapfigure}',.open = "^", .close = "^")
+
+  }
+  res
+}
+
+

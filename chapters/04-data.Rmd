@@ -1,6 +1,6 @@
 # Data {#data-chapter}
 
-In the previous chapter, we learned to share our materials through the Open Science Framework (OSF) and to organize all our files in a well structured and documented project.
+In the previous chapters, we learned to share our materials through the Open Science Framework (OSF) and to organize all our files in a well structured and documented project.
 
 In this chapter, we focus on data. In particular, in Section \@ref(organizing) we provide main guidelines regarding how to organize data inside our project and, in Section \@ref(sharing), we discuss main issues related to sharing data.
 

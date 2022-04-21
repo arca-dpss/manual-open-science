@@ -38,17 +38,27 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.pos = "h", dpi = 300,
 
                       # Code output width
-                      tidy=TRUE, tidy.opts = list(width.cutoff = 75),
-                      # comment = NA, prompt = TRUE
+                      # tidy=TRUE, tidy.opts = list(width.cutoff = 75),
+                      # comment = NA, prompt = TRUE,
+                      
+                      collapse = TRUE,
 
                       # Cache options
                       cache = FALSE, autodep=TRUE)
 
-# Console output width
-options(width = 75)
 
+# Format
 output_format <- ifelse(knitr::is_html_output(), 
                         yes = "html", no = "latex")
+
+# Console output width
+
+if(output_format == "latex"){
+  options(width = 75)
+} else {
+  options(width = 200)
+}
+
 
 # Option KableExtra
 options(knitr.kable.NA = '')

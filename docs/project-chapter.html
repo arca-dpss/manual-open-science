@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Projects | The Open Science Manual</title>
+  <meta name="description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Projects | The Open Science Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+  <meta property="og:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="github-repo" content="arca-dpss/manual-open-science" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Projects | The Open Science Manual" />
+  
+  <meta name="twitter:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="twitter:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="osf-chapter.html"/>
+<link rel="next" href="data-chapter.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="assets/images/arca-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#book-structure"><i class="fa fa-check"></i><b>1.1</b> Book Structure</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#instructions"><i class="fa fa-check"></i><b>1.2</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
+<li class="chapter" data-level="3" data-path="project-chapter.html"><a href="project-chapter.html"><i class="fa fa-check"></i><b>3</b> Projects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project-chapter.html"><a href="project-chapter.html#project-structure"><i class="fa fa-check"></i><b>3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="project-chapter.html"><a href="project-chapter.html#project-elements"><i class="fa fa-check"></i><b>3.1.1</b> Project Elements</a>
+<ul>
+<li class="chapter" data-level="3.1.1.1" data-path="project-chapter.html"><a href="project-chapter.html#data"><i class="fa fa-check"></i><b>3.1.1.1</b> <code>data/</code></a></li>
+<li class="chapter" data-level="3.1.1.2" data-path="project-chapter.html"><a href="project-chapter.html#analysis-code"><i class="fa fa-check"></i><b>3.1.1.2</b> <code>analysis/</code> and <code>code/</code></a></li>
+<li class="chapter" data-level="3.1.1.3" data-path="project-chapter.html"><a href="project-chapter.html#outputs"><i class="fa fa-check"></i><b>3.1.1.3</b> <code>outputs/</code></a></li>
+<li class="chapter" data-level="3.1.1.4" data-path="project-chapter.html"><a href="project-chapter.html#documents"><i class="fa fa-check"></i><b>3.1.1.4</b> <code>documents/</code></a></li>
+<li class="chapter" data-level="3.1.1.5" data-path="project-chapter.html"><a href="project-chapter.html#readme"><i class="fa fa-check"></i><b>3.1.1.5</b> <code>README</code></a></li>
+<li class="chapter" data-level="3.1.1.6" data-path="project-chapter.html"><a href="project-chapter.html#license-section"><i class="fa fa-check"></i><b>3.1.1.6</b> <code>LICENSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.1.2" data-path="project-chapter.html"><a href="project-chapter.html#project-advantages"><i class="fa fa-check"></i><b>3.1.2</b> Project Advantages</a>
+<ul>
+<li class="chapter" data-level="3.1.2.1" data-path="project-chapter.html"><a href="project-chapter.html#wd-file-path"><i class="fa fa-check"></i><b>3.1.2.1</b> Working Directory and File Paths</a></li>
+<li class="chapter" data-level="3.1.2.2" data-path="project-chapter.html"><a href="project-chapter.html#centralize-analysis"><i class="fa fa-check"></i><b>3.1.2.2</b> Centralize the Analysis</a></li>
+<li class="chapter" data-level="3.1.2.3" data-path="project-chapter.html"><a href="project-chapter.html#ready-to-share-and-collaborate"><i class="fa fa-check"></i><b>3.1.2.3</b> Ready to Share and Collaborate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-chapter.html"><a href="data-chapter.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-chapter.html"><a href="data-chapter.html#organizing"><i class="fa fa-check"></i><b>4.1</b> Organizing Data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-chapter.html"><a href="data-chapter.html#data-structure"><i class="fa fa-check"></i><b>4.1.1</b> Data Structure</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-chapter.html"><a href="data-chapter.html#data-docs"><i class="fa fa-check"></i><b>4.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-chapter.html"><a href="data-chapter.html#data-good-practices"><i class="fa fa-check"></i><b>4.1.3</b> Data Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-chapter.html"><a href="data-chapter.html#sharing"><i class="fa fa-check"></i><b>4.2</b> Sharing Data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-chapter.html"><a href="data-chapter.html#when-where-who"><i class="fa fa-check"></i><b>4.2.1</b> When, Where, Who?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-chapter.html"><a href="data-chapter.html#legal-aspects"><i class="fa fa-check"></i><b>4.2.2</b> Legal Aspects</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-chapter.html"><a href="data-chapter.html#license-data"><i class="fa fa-check"></i><b>4.2.3</b> License</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-chapter.html"><a href="data-chapter.html#metadata"><i class="fa fa-check"></i><b>4.2.4</b> Metadata</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Open Science Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="assets/images/banner.png">
+</div>
+<div id="project-chapter" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Projects<a href="project-chapter.html#project-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the previous chapter, we learned to share our materials through the Open Science Framework (OSF). However, if we simply collect all our files together without a clear structure and organisation, our repository will be messy and useless. In fact, it will be difficult for anyone to make sense of the different files and use them.</p>
+<p>In this chapter, we describe recommended practices to organize all the materials and files into a structured project and which are the advantages of creating a well documented, and licensed repository.</p>
+<div id="project-structure" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Project Structure<a href="project-chapter.html#project-structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To facilitate the reproducibility of our study results, it is important to organize our analysis into a project. A project is simply a directory where to collect all the analysis files and materials. So, instead of having all our files spread around the computer, it is a good practice to create a separate directory for each new analysis.</p>
+<p>However, collecting all the files in the same directory without any order will only create a mess. We need to organize the files according to some logic, we need a structure for our project. A possible general project template is,</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="project-chapter.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> my-project/</span>
+<span id="cb1-2"><a href="project-chapter.html#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span></span>
+<span id="cb1-3"><a href="project-chapter.html#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
+<span id="cb1-4"><a href="project-chapter.html#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> analysis/</span>
+<span id="cb1-5"><a href="project-chapter.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> code/</span>
+<span id="cb1-6"><a href="project-chapter.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> outputs/</span>
+<span id="cb1-7"><a href="project-chapter.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> documents/</span>
+<span id="cb1-8"><a href="project-chapter.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> README</span>
+<span id="cb1-9"><a href="project-chapter.html#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> LICENSE</span></code></pre></div>
+<p>Of course, this is just indicative, as project structures could vary according to the specific aims and needs. However, this can help us to start organizing our files (and also our ideas). A well structured and documented project will allow other collaborators to easily navigate around all the files and reproduce the analysis. Remember, our best collaborator is the future us!</p>
+<div id="project-elements" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Project Elements<a href="project-chapter.html#project-elements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s discuss the different directories and files of our project. Again, these are just general recommendations.</p>
+<div id="data" class="section level4 hasAnchor" number="3.1.1.1">
+<h4><span class="header-section-number">3.1.1.1</span> <code>data/</code><a href="project-chapter.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A directory in which to store all the data used in the analysis. These files should be considered <code>read-only</code>. In the case of analyses that required some preprocessing of the data, it is important to include both the raw data and the actual data used in the analysis.</p>
+<p>Moreover, it is a good practice to always add a file with useful information about the data and a description of the variables (see Chapter [TODO: add ref]). We do not want to share uninterpretable, useless files full of 0-1 values, right?</p>
+<p>For example, in the <code>data/</code> directory we could have:</p>
+<ul>
+<li><code>data_raw</code>: The initial raw data (before preprocessing) to allow anyone to reproduce the analysis from the beginning.</li>
+<li><code>data</code>: The actual data used in the analysis (obtained after preprocessing).</li>
+<li><code>data-README</code>: A file with information regarding the data and variables description.</li>
+</ul>
+<p>In Chapter [TODO: add ref], we describe good practices in data organization and data sharing. In particular, we discuss possible data structures (i.e., wide format, long format, and relational structure), data documentation, and issues to take into account when sharing the data. [TODO: check coherence with actual chapter]</p>
+</div>
+<div id="analysis-code" class="section level4 hasAnchor" number="3.1.1.2">
+<h4><span class="header-section-number">3.1.1.2</span> <code>analysis/</code> and <code>code/</code><a href="project-chapter.html#analysis-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To allow analysis reproducibility, we need to write some code. In the beginning, we usually start to collect all the analysis steps into a single script. We start by importing the data and doing some data manipulation. Next, we move to descriptive analysis and finally to inferential analyses. While running the analysis, we are likely jumping back and forward in the code adding lines, changing parts, and fixing problems to make everything work. This interactive approach is absolutely normal in the first stages of a project, but it can easily introduce several errors.</p>
+<p>As we may have experienced, very quickly this script becomes a long, disordered, incomprehensible collection of command lines. Unintentionally, we could overwrite objects values or, maybe, the actual code execution order is not respected. At this point, it may be not possible to reproduce the results and debugging would be slow and inefficient. We need a better approach to organising our code and automatizing code execution. Ready to become a true developer?</p>
+<p>The idea is simple. Instead of having a unique, very long script with all the code required to run the analysis, we break down the code into small pieces. First, we define in a separate script our functions to execute each step of the analysis. Next, we use these functions in another script to run the analysis. For example, we could define in a separate script a function <code>data_wrangling()</code> with all the code required to prepare our data for the analysis. This function could be very long and complex, however, we simply need to call the function <code>data_wrangling()</code> in our analysis script to execute all the required steps.</p>
+<p>This approach is named <strong>Functional Style</strong>: we break down large problems into smaller pieces and we define functions or combinations of functions to solve each piece. This approach is discussed in detail in Chapter [TODO: add ref]. To summarise, Functional Style has several advantages: it enhances code readability, avoids repetition of code chunks, and facilitates debugging.</p>
+<p>In our project we can organize our scripts into two different directories:</p>
+<ul>
+<li><code>analysis/</code>: Collecting the scripts needed to run all the steps of the analysis.</li>
+<li><code>code/</code>: Collecting all the scripts in which we defined the functions used in the analysis.</li>
+</ul>
+<p>This division allows us to keep everything organized and in order. We can easily move back and forward between scripts, defining new functions when required and using them in the analysis. Moreover, adequate documentation (both for the functions and for the analysis scripts) allows other collaborators to easily navigate the code and understand the purpose of each function.</p>
+<p>In Chapter [TODO: add ref], we discuss in detail the functional style approach, considering general good practices to write tidy, documented, and efficient code. In Chapter [TODO: add ref], we describe possible methods to manage the analysis workflow.</p>
+</div>
+<div id="outputs" class="section level4 hasAnchor" number="3.1.1.3">
+<h4><span class="header-section-number">3.1.1.3</span> <code>outputs/</code><a href="project-chapter.html#outputs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can store all the analysis outputs in a separate directory. These outputs can be later used in all other documents of our project (e.g., scientific papers, reports, or presentations). Depending on the specific needs, we could organize outputs into different sub-directories according to the type of output (e.g., fitted models, figures, and tables) or, in case of multiple analyses, we could create different dedicated sub-directories.</p>
+<p>Moreover, it may be useful to save intermediate steps of the analysis to avoid re-running very expensive computational processes (e.g., fitting Bayesian models). Therefore, we could have a <code>cache/</code> sub-directory with all the intermediate results saved allowing us to save time.</p>
+<p>However, we should ensure that all outputs can be obtained starting from scratch (i.e., deleting previous results as well as cached results). Ideally, other colleagues should be able to replicate all the results starting from an empty directory and re-running the whole analysis process on their computer.</p>
+<p>In Chapter [TODO: add ref], we describe possible methods to manage the analysis workflow. In particular, we present the R package <code>trackdown</code> that enhances results reproducibility and introduces an automatic caching system for the analysis results.</p>
+</div>
+<div id="documents" class="section level4 hasAnchor" number="3.1.1.4">
+<h4><span class="header-section-number">3.1.1.4</span> <code>documents/</code><a href="project-chapter.html#documents" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A directory with all the documents and other materials relevant to the project. These may include, for example, the paper we are working on, some reports about the analysis to share with the colleagues, slides for a presentation, or other relevant materials used in the experiment.</p>
+<p>To allow reproducibility, all documents that include analysis results should be dynamic documents. These are special documents that combine code and prose to obtain the rendered outputs. In this way, figures, tables, and values in the text are obtained directly from the analysis results avoiding possible copying and paste errors. Moreover, if the analysis is changed, the newly obtained results will be automatically updated in the documents as well when the output is rendered.</p>
+<p>Note that it is preferable to keep the code used to run the analysis in a separate script other than the dynamic documents used to communicate the results. This issue is further discussed in Section <a href="project-chapter.html#centralize-analysis">3.1.2.2</a>.</p>
+<p>In Chapter [TODO: add ref], we briefly introduce dynamic documents using Quarto. In particular, we discuss how to smoothly integrate dynamic documents in our project structure and workflow to enhance reproducibility.</p>
+</div>
+<div id="readme" class="section level4 hasAnchor" number="3.1.1.5">
+<h4><span class="header-section-number">3.1.1.5</span> <code>README</code><a href="project-chapter.html#readme" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>All projects should have a <code>README</code> file with the general information about the project. This is the first file any colleague will look at and many online repositories automatically display it on the project homepage.</p>
+<p>A <code>README</code> file should provide enough information so anyone can understand the project aims and project structure, navigate through the project files, and reproduce the analysis. Therefore, a <code>README</code> file could include:</p>
+<ul>
+<li><strong>Project Title and Authors:</strong> The project title and list of main authors.</li>
+<li><strong>Project Description:</strong> A brief description of the project aims.</li>
+<li><strong>Project Structure:</strong> A description of the project structures and content. We may list the main files included in the project.</li>
+<li><strong>Getting Started:</strong> Depending on the type of project, this section provides instructions on how to install the project locally and how to reproduce the analysis results. We need to specify both,
+<ul>
+<li><em>Requirements</em>: The prerequisites required to install the project and reproduce the analysis. This may include software versions and other dependencies (see Chapter [TODO: add ref]).</li>
+<li><em>Installation/Run Analysis</em>: A step-by-step guide on how to install the project/reproduce the analysis results.</li>
+</ul></li>
+<li><strong>Contributing:</strong> Indications on how other users can contribute to the project or open an issue. Contributions are what make the open-source community amazing.</li>
+<li><strong>License:</strong> All projects should specify under which license they are released. This clarifies under which conditions other users can copy, share, and use our project. See Section <a href="project-chapter.html#license-section">3.1.1.6</a> for more information about licenses.</li>
+<li><strong>Citation:</strong> Instructions on how to cite the project. We could provide both, a plain text citation or a <code>.bib</code> format citation (see <a href="https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#The_bibliography_file" class="uri">https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#The_bibliography_file</a>).</li>
+<li><strong>Acknowledgements:</strong> Possible acknowledgements to recognize other contributions to the project.</li>
+</ul>
+<p><code>README</code> files are usually written in Markdown. Markdown is a lightweight markup language with a simple syntax for style formatting. Therefore, to edit a <code>README</code>, we do not need specific software but only a plain-text editor. Moreover, another advantage of Markdown files is that they can be easily rendered by a web browser and online repositories will automatically present the rendered output. For an introduction to the Markdown syntax, consider the <em>“Markdown Guide”</em> available at <a href="https://www.markdownguide.org/" class="uri">https://www.markdownguide.org/</a>.</p>
+<p>The information included in the <code>README</code> and its structure will vary according to the project’s specific needs. Ideally, however, there should always be enough details to allow other researchers not familiar with the project to understand the materials and reproduce the results. For examples of <code>README</code> files, consider <a href="https://github.com/ClaudioZandonella/trackdown" class="uri">https://github.com/ClaudioZandonella/trackdown</a> or <a href="https://github.com/ClaudioZandonella/Attachment" class="uri">https://github.com/ClaudioZandonella/Attachment</a>.</p>
+</div>
+<div id="license-section" class="section level4 hasAnchor" number="3.1.1.6">
+<h4><span class="header-section-number">3.1.1.6</span> <code>LICENSE</code><a href="project-chapter.html#license-section" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Specifying a license is important to clarify under which conditions other colleagues can copy, share, and use our project. Without a license, our project is under exclusive copyright by default so other colleagues can not use it for their own needs although the project may be “publicly available” (for further notes see <a href="https://opensource.stackexchange.com/q/1720" class="uri">https://opensource.stackexchange.com/q/1720</a>). Therefore, we should always add a license to our project.</p>
+<p>Considering open science practices, our project should be available under an open license allowing others colleagues to copy, share, and use the data, with attribution and copyright as applicable. Specific conditions, however, may change according to the different licenses.</p>
+<p>In the case of <strong>software</strong> or <strong>code releasing</strong> the most popular open-source license are:</p>
+<ul>
+<li><p><strong>MIT License:</strong> A simple and permissive license that allows other users to copy, modify and distribute our code with conditions only requiring preservation of copyright and license notices. This could be done for private use and commercial use as well. Moreover, users can distribute their code under different terms and without source code.</p></li>
+<li><p><strong>Apache License 2.0:</strong> Similar to the MIT license, this is a permissive license that allows other users to copy, modify and distribute our code (for private use and commercial use) with conditions requiring preservation of copyright and license notices. Differently from the MIT license, users are also required to state any change. As before, however, users can distribute their code under different terms and without source code.</p></li>
+<li><p><strong>GNU General Public License v3.0 (GPL):</strong> This is a strong copyleft license that allows other users to copy, modify and distribute our code (for private use and commercial use) with conditions requiring preservation of copyright and license notices. In addition, however, users are also required to state any change and make available complete source code under the same license (GPL v3.0).</p></li>
+</ul>
+<p>Note that these licenses follow a hierarchical order that affects the license of derivative products. Let’s suppose we are working on a project based on someone else code distributed under the GPL v3.0 license. In this case, we are required again to make the code available under the GPL v3.0 license. Instead, if another project is based on someone else code distributed under the MIT license, we are only required to indicate that part of our project contains someone’s MIT licensed code. We do not have to provide further information and we can decide whether or not to publish the code and under which license. See <a href="https://www.quora.com/What-are-the-key-differences-between-the-GNU-General-Public-license-and-the-MIT-License" class="uri">https://www.quora.com/What-are-the-key-differences-between-the-GNU-General-Public-license-and-the-MIT-License</a> for further discussion.</p>
+<p>In the case of <strong>publishing materials</strong> other than code (e.g., data, documents, images, or videos), we can choose one of the <strong>Creative Commons License</strong> (CC; see <a href="https://creativecommons.org/about/cclicenses/" class="uri">https://creativecommons.org/about/cclicenses/</a>). These licenses allow authors to retain copyright over their published material specifying under which conditions other users can reuse the materials:s</p>
+<ul>
+<li><strong>Attribution (BY)</strong> <img src=images/projects/by-credits.png width="2.5em" class="img-inline">: Credit must be given to the creator</li>
+<li><strong>Share Alike (SA)</strong> <img src=images/projects/share-alike.png width="2.5em" class="img-inline">: Adaptations must be shared under the same terms</li>
+<li><strong>Non-Commercial (NC)</strong> <img src=images/projects/non-commercial.png width="2.5em" class="img-inline">: Only non-commercial uses of the work are permitted</li>
+<li><strong>No Derivatives (ND)</strong> <img src=images/projects/no-derivatives.png width="2.5em" class="img-inline">: No derivatives or adaptations of the work are permitted</li>
+</ul>
+<p>For example, if we want to publish materials allowing other users to reuse and adapt them (also for commercial use) but requiring them to give credit to the creator and keeping the same license, we can choose the <strong>CC BY-SA</strong> license <img src=images/projects/cc-by-sa.png width="8.5em" class="img-inline">.</p>
+<p>This is not an exhaustive discussion about licenses. We should pay particular attention when choosing an appropriate license for a project if patents or privacy issues are involved. In Chapter [TODO: add ref], we discuss specific licenses related to sharing data/databases. Further information about licenses can be found at:</p>
+<ul>
+<li>Open Science Framework documentation: <a href="https://help.osf.io/hc/en-us/articles/360019739014-Licensing" class="uri">https://help.osf.io/hc/en-us/articles/360019739014-Licensing</a></li>
+<li>GitHub documentation: <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" class="uri">https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository</a></li>
+<li>GitHub license chooser: <a href="https://choosealicense.com/" class="uri">https://choosealicense.com/</a></li>
+<li>Creative Commons website: <a href="https://creativecommons.org/" class="uri">https://creativecommons.org/</a></li>
+</ul>
+<div id="adding-a-license" class="section level5 unnumbered hasAnchor">
+<h5>Adding a License<a href="project-chapter.html#adding-a-license" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>To add a license to our project:</p>
+<ol style="list-style-type: decimal">
+<li><p>Copy the selected license template in a plain-text file (i.e., <code>.txt</code> or <code>.md</code>) named <code>LICENSE</code> at the root of our project. Many online repositories allow us to select from common license directly through their online interface (e.g., <a href="https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository" class="uri">https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository</a>).</p></li>
+<li><p>Indicate the selected license also in the <code>README</code> specifying possible other information (e.g., different materials could be released under different conditions).</p></li>
+<li><p>In the case of software, it is a good practice to attach a short notice at the beginning of each source file. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="project-chapter.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copyright (C) &lt;year&gt;  &lt;name of author&gt;</span></span>
+<span id="cb2-2"><a href="project-chapter.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This file is part of &lt;project&gt; which is released under &lt;license&gt;.</span></span>
+<span id="cb2-3"><a href="project-chapter.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># See file &lt;filename&gt; or go to &lt;url&gt; for full license details.</span></span></code></pre></div></li>
+</ol>
+<p>Now that we have added a license, other colleagues can use our project according to the specified conditions.</p>
+</div>
+</div>
+</div>
+<div id="project-advantages" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Project Advantages<a href="project-chapter.html#project-advantages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Organizing all our files into a well structured and documented project will allow other colleagues to easily navigate around all the files and reproduce the analysis. Remember that this may be the future us when, after several months, reviewer #2 will require us to revise the analysis.</p>
+<p>Structuring our analysis into a project, however, has also other general advantages. Let’s discuss them.</p>
+<div id="wd-file-path" class="section level4 hasAnchor" number="3.1.2.1">
+<h4><span class="header-section-number">3.1.2.1</span> Working Directory and File Paths<a href="project-chapter.html#wd-file-path" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When writing code, there are two important concepts to always keep in mind:</p>
+<ul>
+<li><strong>Working Directory:</strong> The location on our computer from where a process is executed. We can think of it as our current location when executing a task.</li>
+<li><strong>File Paths:</strong> A character string that indicates the location of a given file on our computer. We can think of it as the instruction to reach a specific file.</li>
+</ul>
+<p>When pointing to a file during our analysis (for example to load the data or to save the results), we need to provide a valid file path for the command to be executed correctly. Suppose we want to point to a data file (<code>my-data.csv</code>) that is on the Desktop in the project directory (<code>my-project/</code>).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="project-chapter.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Desktop/</span></span>
+<span id="cb3-2"><a href="project-chapter.html#cb3-2" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span></span>
+<span id="cb3-3"><a href="project-chapter.html#cb3-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span><span class="ex">-</span>  my-project/</span>
+<span id="cb3-4"><a href="project-chapter.html#cb3-4" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span>    <span class="kw">|</span></span>
+<span id="cb3-5"><a href="project-chapter.html#cb3-5" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span>    <span class="kw">|</span><span class="ex">-</span> data/</span>
+<span id="cb3-6"><a href="project-chapter.html#cb3-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span>    <span class="kw">|</span>   <span class="kw">|</span><span class="ex">-</span> my-data.csv</span></code></pre></div>
+<p>There are two different possibilities:</p>
+<ul>
+<li><p><strong>Absolute Paths:</strong> Files location is specified relative to the computer root directory. Absolute paths work regardless of the current working directory specification. However, they depend on the computer’s exact directories configuration. Thus, they do not work on someone else’s computer. Considering our example, we would have</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="project-chapter.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mac</span></span>
+<span id="cb4-2"><a href="project-chapter.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span>
+<span id="cb4-3"><a href="project-chapter.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="project-chapter.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux</span></span>
+<span id="cb4-5"><a href="project-chapter.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/home/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span>
+<span id="cb4-6"><a href="project-chapter.html#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="project-chapter.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
+<span id="cb4-8"><a href="project-chapter.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;c:\Users\&lt;username&gt;\Desktop\my-project\data\my-data.csv&quot;</span></span></code></pre></div></li>
+<li><p><strong>Relative Paths:</strong> Files location is specified relative to the current working directory. They do not depend on the computer’s whole directories configuration but only on the directories configuration relative to the current working directory. Therefore, if the working directory is set to the root of our project (<code>my-project/</code>), we would have</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="project-chapter.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mac and Linux</span></span>
+<span id="cb5-2"><a href="project-chapter.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;data/my-data.csv&quot;</span></span>
+<span id="cb5-3"><a href="project-chapter.html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="project-chapter.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
+<span id="cb5-5"><a href="project-chapter.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;data\my-data.csv&quot;</span></span></code></pre></div></li>
+</ul>
+<p>Absolute paths hinder reproducibility as they do not work on someone else’s computer. We should always set the working directory at the root of our project and then use relative paths to point to any file in the project.</p>
+<p>When opening a project directory, many programs automatically set the working directory at the root of the project but this is not guaranteed. Therefore, we should always ensure that our IDE (Integrated Development Environment; e.g. Rstudio, Visual Studio Code, PyCharm) is doing that automatically or we should do it manually.</p>
+<p>Once the working directory is correctly set (automatically or manually), relative paths will work on any computer (up to the operative system; see <em>“Details-Box: Garden of Forking Paths”</em> below). This is one of the great advantages of using projects and relative paths: all the files are referred to relative to the project structure and independently of the specific computer directories configuration.</p>
+<p>[TODO: check paths windows]</p>
+<div class="design" title="Garden of Forking Paths">
+<p>The syntax to define file paths differs according to the operative system used. In particular, the main differences are between Unix systems (macOS and Linux) and Windows. Fortunately, main programming languages have ad hoc solutions to allow the same file path to work on different operating systems (e.g. for R see Section [TODO: add ref]; for Python see <a href="https://medium.com/@ageitgey/python-3-quick-tip-the-easy-way-to-deal-with-file-paths-on-windows-mac-and-linux-11a072b58d5f" class="uri">https://medium.com/@ageitgey/python-3-quick-tip-the-easy-way-to-deal-with-file-paths-on-windows-mac-and-linux-11a072b58d5f</a> ). Therefore, by using adequate solutions, we do not have to bother about the operative system being used while coding.</p>
+<div id="unix-systems" class="section level5 unnumbered hasAnchor">
+<h5>Unix Systems<a href="project-chapter.html#unix-systems" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li><p>The forward slash <code>"/"</code> is used to separate directories in the file paths.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="project-chapter.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
+<li><p>The computer <em>root-directory</em> is indicated by starting the file path with a forward slash <code>"/"</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="project-chapter.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mac</span></span>
+<span id="cb7-2"><a href="project-chapter.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span>
+<span id="cb7-3"><a href="project-chapter.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="project-chapter.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux</span></span>
+<span id="cb7-5"><a href="project-chapter.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/home/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
+<li><p>The user <em>home-directory</em> (<code>""/Users/&lt;username&gt;/"</code> in MacOS and <code>""/home/&lt;username&gt;/"</code> in Linux ) is indicated starting the file path with a tilde character <code>"~"</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="project-chapter.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;~/Desktop/my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
+</ul>
+</div>
+<div id="windows-systems" class="section level5 unnumbered hasAnchor">
+<h5>Windows Systems<a href="project-chapter.html#windows-systems" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li><p>The backslash <code>"\"</code> is used to separate directories in the file paths.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="project-chapter.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
+<li><p>The computer <em>root-directory</em> is indicated by starting the file path with <code>"C:\"</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="project-chapter.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;C:\Users\&lt;username&gt;\Desktop\my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
+<li><p>Window does not define a user’s <em>home-directory</em>. Therefore, the tilde character <code>"~"</code> actually points to the <code>Documents</code> directory.</p></li>
+</ul>
+</div>
+<div id="other-path-commands" class="section level5 unnumbered hasAnchor">
+<h5>Other Path Commands<a href="project-chapter.html#other-path-commands" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Two other common commands used in path definition are:</p>
+<ul>
+<li><code>"./"</code> to indicate the current working directory.</li>
+<li><code>"../"</code> to indicate the parent folder of the current working directory. Note that we can combine it multiple times to reach the desired file location (e.g., <code>"../../&lt;path-to-file&gt;"</code> to go back to two folder levels).</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="centralize-analysis" class="section level4 hasAnchor" number="3.1.2.2">
+<h4><span class="header-section-number">3.1.2.2</span> Centralize the Analysis<a href="project-chapter.html#centralize-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Another advantage of the proposed project structure is the idea to keep separating the actual analysis from the communication of the results. This is not an advantage of using a project per se, but it pertains to the way we structure the project. Let’s clarify this point.</p>
+<p>It often happens that in the first stages of a project, we do some preliminary analysis in a separate script. Usually, at these stages, the code is pretty raw and we go forward and backwards between code lines making changes to run the analysis and obtain some initial results. Next, probably we want to create an internal report for our research group to discuss the initial results. We create a new script, or we use some dynamic documents (e.g., Quarto or Rmarkdown). We copy and paste the code from the initial raw script trying to organize the analysis a little bit better, making some changes, and adding new parts. After discussing the results, we are going to write a scientific paper, a conclusive report, or a presentation to communicate the final results. Again, we would probably create a new script or use some dynamic documents. Again, we would copy and paste parts of the code while continuing to make changes and add new parts.</p>
+<p>At the end of this process, our analysis would be spread between multiple files and everything would be very messy. We would have multiple versions of our analysis with some scripts and reports with outdated code or with slightly different analyses. In this situation, reproducing the analysis, making some adjustments, or even just reviewing the code, would be really difficult.</p>
+<p>In the proposed approach, instead, we suggest keeping the actual analysis separate from the other parts of the project (e.g., communication of the results). As introduced in Section <a href="project-chapter.html#analysis-code">3.1.1.2</a>, a good practice is to follow a functional style approach (i.e., defining functions to execute the analysis steps) and to organize all the code required to run the analysis in a sequence of tidy and well-documented scripts. In this way, everything that is needed to obtain the analysis results is collected together and kept separate from the other parts of the project. With this approach we avoid having multiple copies or versions of the analysis and reproducing the analysis, reviewing the code, or making changes would be much easier. Subsequently, analysis results can be used in reports, papers, or presentations to communicate our findings.</p>
+<p>Of course, this is not an imperative rule. In the case of small projects, a simple report with the whole analysis included in it may be enough. However, in the case of bigger and more complex projects, the proposed approach allows to easily maintain the project and develop the code keeping control of the analysis and enhancing results reproducibility.</p>
+<p>In Chapter [TODO: add ref] and Chapter [TODO: add ref], we describe how to adopt the functional style approach and how to manage the analysis workflow, respectively. In Chapter [TODO: add ref], we discuss how to smoothly integrate dynamic documents in our project structure and workflow to enhance reproducibility.</p>
+</div>
+<div id="ready-to-share-and-collaborate" class="section level4 hasAnchor" number="3.1.2.3">
+<h4><span class="header-section-number">3.1.2.3</span> Ready to Share and Collaborate<a href="project-chapter.html#ready-to-share-and-collaborate" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finally, one of the advantages of organizing our analysis into a well structured and documented project is that everything required for the analysis is contained in a single directory. We do not have to run around our computer trying to remember where some files were saved. All materials are in the same directory and we can easily share the whole directory with our colleagues or other users.</p>
+<p>This aspect may seem trivial at the beginning. Overall we are just creating a directory, right?. Actually, this is the first step towards integrating into our workflow modern tools and solutions for collaborative software development, such as web services for hosting projects relying on version control systems. We are talking about Git and GitHub, two very powerful and useful tools that are becoming popular in scientific research as well.</p>
+<p>In particular, Git is a software for tracking changes in any file of our project and for coordinating the collaboration during the development. Github integrates the Git workflow with online shared repositories adding several features and useful services (e.g., GitHub Pages and GitHub Actions). Combining online repositories (e.g., GitHub, GitLab, or other providers) with version control systems, such as Git, we can collaborate with other colleagues and share our project in a very efficient way. They may seem overwhelming at first, however, once we will get used to them, we will never stop using them.</p>
+<p>In Chapter [TODO: add ref], we introduce the use of Git and GitHub to track changes and collaborate with others on the development of our project.</p>
+</div>
+</div>
+</div>
+<div id="rstudio-projects" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> RStudio Projects<a href="project-chapter.html#rstudio-projects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>RStudio has built-in support for projects that allows us to create independent RStudio sessions with their own settings, environment, and history. Let’s see how to create a project directly from RStudio and discuss some specific features.</p>
+<div id="create-proj" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Creating a New Project<a href="project-chapter.html#create-proj" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To create a new RStudio project:</p>
+<ol style="list-style-type: decimal">
+<li><p>From the top bar menu, click <em>“File -&gt; New Project”</em>. Note that from this menu, we can also open already created projects or see a list of recent projects by clicking <em>“Open Project…”</em> or <em>“Recent Projects”</em>, respectively.</p>
+<p><img src="images/projects/new-proj-1.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p>When creating a new project, we can decide between starting from a new directory (<em>“New Directory”</em>; the most common approach), associating a project with an already existing directory (<em>“Existing Directory”</em>), or associating a project to an online repository (<em>“Version Control”</em>; for more information see Chapter [TODO: add ref]).</p>
+<p><img src="images/projects/new-proj-2.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p>Selecting <em>“New Directory”</em>, then we can specify the desired project template. Different templates are available also depending on the installed packages. The default option is <em>“New Project”</em>.</p>
+<p><img src="images/projects/new-proj-3.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p>Finally, we can indicate the location where to create the project directory and specify the directory name. This will be used also as the project name. Note that two more options are available <em>“Create a git repository”</em> and <em>“Use renv with this project”</em>. We discuss these options in Chapter [TODO: add ref]) and Chapter [TODO: add ref], respectively.</p>
+<p><img src="images/projects/new-proj-4.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p>Selecting <em>“Crete Project”</em>, the project directory is created in the specified location and a new RStudio session is opened. Note that the Rstudio icon now displays the project name currently open <img src=images/projects/proj-icon.png width="6.5em" class="img-inline">. The current project is also indicated in the top right corner. Click on it to see other project options and to close the project (<em>“Close Project”</em>; or from the top bar menu <em>“File -&gt; Close Project”</em>).</p>
+<p><img src="images/projects/proj-menu.png" width="40%" style="display: block; margin: auto;" /></p></li>
+</ol>
+</div>
+<div id="project-features" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Project Features<a href="project-chapter.html#project-features" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We now discuss the main features of RStudio Projects:</p>
+<ul>
+<li><p><strong>Working Directory and File Paths.</strong> When opening a project, RStudio automatically sets the working directory at the project root. We can check the current working directory by looking at the top of the console panel or using the R command <code>getwd()</code>.</p>
+<p><img src="images/projects/proj-wd.png" width="90%" style="display: block; margin: auto;" />
+As discussed in Section <a href="project-chapter.html#wd-file-path">3.1.2.1</a>, this is a very useful feature because now we no longer have to bother about setting the working directory manually (we can finally forget about the <code>setwd()</code> command). Moreover, we can refer to any file using relative paths considering as reference the project root.</p></li>
+</ul>
+<div class="design" title="File Paths in R">
+<p>In R, we can specify file path using forward slash <code>"/"</code> or backslash <code>"\"</code> independently of the operative system we are currently using. However, the backslash has a special meaning in R as it is used as <em>escape character</em>. Thus, to specify a file path using backslash we have to double them (e.g., “my-project\\data\\my-data.csv”). All this leads to a simple solution:</p>
+<blockquote>
+<p>Always use forward slash <code>"/"</code> to specify file paths to avoid any troubles (e.g., “my-project/data/my-data.csv”).</p>
+</blockquote>
+</div>
+<ul>
+<li><p><strong><code>&lt;project-name&gt;.Rproj</code> File.</strong> The default Project template creates an empty directory with a single file named <code>&lt;project-name&gt;.Rproj</code> (plus some hidden files). Clicking on the <code>&lt;project-name&gt;.Rproj</code> file from the file manager (not from RStudio), we can open the selected project in a new RStudio session. Clicking on the <code>&lt;project-name&gt;.Rproj</code> file from the file panel in RStudio, instead, we can change the project settings (see the next point). Moreover, from the file panel in RStudio, if we click the Project icon on the top right corner (orange arrow in the image below), we are automatically redirected to the project root.</p>
+<p><img src="images/projects/proj-files.png" width="60%" style="display: block; margin: auto;" />
+The <code>&lt;project-name&gt;.Rproj</code> file is simply a text file with the project settings. Using a text editor, we can see the actual content.</p>
+<p><img src="images/projects/rproj-file.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Project Settings.</strong> We can specify specific settings for each project. From the top bar menu, select <em>“Tools -&gt; Project Options”</em> and specify the required options according to our needs.</p>
+<p><img src="images/projects/proj-options.png" width="40%" style="display: block; margin: auto;" />
+Some recommended settings should be applied as default to all projects. To do that, select from the top bar menu <em>“Tools -&gt; Global Options”</em>. From the panel <em>“General”</em> in the <em>“Workspace”</em> section, ensure the box <em>“Restore…”</em> is <strong>not</strong> selected and the option <em>“Save…”</em> is set to <strong>Never</strong> (see figure below). This ensures that the workspace is not saved between sessions and every time we start from a new empty environment. The reason for doing this is that it forces us to write everything needed for our project in scripts and then we use scripts to create the required objects. It is a short-term pain for a long-term winning, as it enhances reproducibility and avoids bugs due to overwritten objects in the environment. Moreover, we can finally say goodbye to the horrible <code>rm(list=ls())</code> line of code found at the top of many scripts.</p>
+<p><img src="images/projects/general-options.png" width="60%" style="display: block; margin: auto;" />
+Another important setting is the encoding. From the panel <em>“Code”</em> ensure that the default text encoding is set to <em>“UTF-8”</em>. Encoding defines how the characters are represented by the computer. This could be problematic for different alphabets or special characters (e.g., accented characters). The UTF-8 encoding is becoming the modern standard as it covers all the possibilities.</p>
+<p><img src="images/projects/settings-UTF8.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong><code>.Rprofile</code> File.</strong> This file is a special script that is automatically executed at the beginning of each session (or when the session is restarted). This file is not available by default but we can create it by naming an R script as <code>.Rprofile</code> (<strong>without extension!</strong>) [TODO: check in windows <a href="https://stackoverflow.com/questions/28664852/saving-a-file-as-rprofile-in-windows" class="uri">https://stackoverflow.com/questions/28664852/saving-a-file-as-rprofile-in-windows</a>]. Note that names that begin with a dot <code>"."</code> are reserved for the system and are hidden from the file manager. To see the hidden files, select from the files panel in RStudio the option <em>“Show Hidden Files”</em>.</p>
+<p><img src="images/projects/hidden-files.png" width="60%" style="display: block; margin: auto;" />
+This file can be used to automate the execution of recurrent operations such as loading the required packages, setting R global options, or other package settings (e.g., ggplot themes). In the example below, we simply set a welcome message.</p>
+<p><img src="images/projects/rprofile.png" width="60%" style="display: block; margin: auto;" />
+These commands are executed at the beginning of each session or when the session is restarted (<code>Ctrl</code> + <code>Shift</code> + <code>F10</code> on Windows and Linux; <code>Cmd/Ctrl</code> + <code>Shift</code> + <code>0</code> on macOS).</p>
+<p><img src="images/projects/restart-session.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Like Multiple Office Desks.</strong> Another advantage of RStudio projects is that we can quickly move from one project to another. When opening a former project, all panels, tabs, and scripts are restored in the same configuration as we left them. This allows us to go straight back into our workflow without wasting any time.</p>
+<p>We can think of it as having a dedicated office desk for each of our projects. On the table, we can leave everything that is required to work on that project and we simply move between different office desks according to the current project we are working on.</p></li>
+</ul>
+<p>To know more about RStudio projects, see <a href="https://r4ds.had.co.nz/workflow-projects.html" class="uri">https://r4ds.had.co.nz/workflow-projects.html</a>.</p>
+</div>
+<div id="advanced-features" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Advanced features<a href="project-chapter.html#advanced-features" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We briefly point out some other advanced features of RStudio projects. These are covered in more detail in the following Chapters.</p>
+<ul>
+<li><p><strong>R Package Template.</strong> As presented in Section <a href="project-chapter.html#create-proj">3.2.1</a>, when creating a new project we can choose different templates. These templates automatically structure the project according to specific needs (e.g., creating a Shiny App or a Bookdown). In particular, one very interesting template is the <em>R Package Template</em>.</p>
+<p>The R Package Template is used to create<span class="math inline">\(\ldots\)</span> guess what? R packages. This template introduces some advanced features of R that become very handy when following a functional style approach. For example, we can manage our project package dependencies, easily load all our functions, document them, and create unit tests. We could go all the way and create a proper R package out of our project that other users can install. This requires some extra work and it may not be worth the effort, but of course, this will depend on the specific project aims.</p>
+<p>Anyway, the R package template is very useful when writing our functions. For this reason, we discuss further details about the R package template in Chapter [TODO: add ref] when discussing the functional style approach.</p></li>
+<li><p><strong>Git.</strong> We can use version control systems such as Git to track changes on our RStudio projects. We can decide to create a git repository when creating our new project (see Section <a href="project-chapter.html#create-proj">3.2.1</a>) or to associate the project to an existing repository. This is really a huge step forward in the quality of our workflow and it is absolutely worth the initial pain. All the required information to get familiar with Git and how to integrate the git workflow within RStudio projects is presented in Chapter [TODO: add ref].</p></li>
+<li><p><strong><code>renv</code>.</strong> To allow reproducibility of the result, everyone must use the same project dependencies. This includes not only the specific software and relative packages but also their specific version number. The R packages ecosystem changes quite rapidly, new packages are released every month and already available packages are updated from time to time. This means that in a year or two, our code may fail due to some changes in the underlying dependencies. To avoid these issues, it is important to ensure that the same package versions are always used.</p>
+<p>We could list the required packages in a file and their versions manually or find a way to automate this process. As always, in R there is a package for almost everything and in this case, the answer is <code>renv</code>. <code>renv</code> allows us to manage all the R packages dependencies of our projects in a very smooth workflow. We can include <code>renv</code> in our project when creating a new project (see Section <a href="project-chapter.html#create-proj">3.2.1</a>) or add it later. In Chapter [TODO: add ref], we introduce all the details about integrating the <code>renv</code> workflow in our projects.</p></li>
+</ul>
+<div class="doclinks">
+<div id="bibtex" class="section level4 unnumbered hasAnchor">
+<h4>Bibtex<a href="project-chapter.html#bibtex" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Standard bibtex syntax for bibliography files<br>
+<a href="https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#The_bibliography_file" class="uri">https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#The_bibliography_file</a></li>
+</ul>
+</div>
+<div id="markown-syntax" class="section level4 unnumbered hasAnchor">
+<h4>Markown Syntax<a href="project-chapter.html#markown-syntax" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Markdown Guide<br>
+<a href="https://www.markdownguide.org/" class="uri">https://www.markdownguide.org/</a></li>
+</ul>
+</div>
+<div id="license-1" class="section level4 unnumbered hasAnchor">
+<h4>License<a href="project-chapter.html#license-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Projects with no license<br>
+<a href="https://opensource.stackexchange.com/q/1720" class="uri">https://opensource.stackexchange.com/q/1720</a></li>
+<li>Differences between GNU and MIT Licenses<br>
+<a href="https://www.quora.com/What-are-the-key-differences-between-the-GNU-General-Public-license-and-the-MIT-License" class="uri">https://www.quora.com/What-are-the-key-differences-between-the-GNU-General-Public-license-and-the-MIT-License</a></li>
+<li>Creative Commons license<br>
+<a href="https://creativecommons.org/about/cclicenses/" class="uri">https://creativecommons.org/about/cclicenses/</a></li>
+<li>Open Science Framework documentation<br>
+<a href="https://help.osf.io/hc/en-us/articles/360019739014-Licensing" class="uri">https://help.osf.io/hc/en-us/articles/360019739014-Licensing</a></li>
+<li>GitHub documentation<br>
+<a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" class="uri">https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository</a></li>
+<li>GitHub license chooser<br>
+<a href="https://choosealicense.com/" class="uri">https://choosealicense.com/</a></li>
+<li>Creative Commons website<br>
+<a href="https://creativecommons.org/" class="uri">https://creativecommons.org/</a></li>
+<li>GitHub Setting a License guide<br>
+<a href="https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository" class="uri">https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository</a></li>
+</ul>
+</div>
+<div id="paths" class="section level4 unnumbered hasAnchor">
+<h4>Paths<a href="project-chapter.html#paths" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Paths in Python<br>
+<a href="https://medium.com/@ageitgey/python-3-quick-tip-the-easy-way-to-deal-with-file-paths-on-windows-mac-and-linux-11a072b58d5f" class="uri">https://medium.com/@ageitgey/python-3-quick-tip-the-easy-way-to-deal-with-file-paths-on-windows-mac-and-linux-11a072b58d5f</a></li>
+</ul>
+<div id="rstudio-projects-1" class="section level5 unnumbered hasAnchor">
+<h5>RStudio Projects<a href="project-chapter.html#rstudio-projects-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>RStudio projects general introduction<br>
+<a href="https://r4ds.had.co.nz/workflow-projects.html" class="uri">https://r4ds.had.co.nz/workflow-projects.html</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
+    <br>
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    <br>
+    To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="osf-chapter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-chapter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/arca-dpss/manual-open-science/edit/master/chapters/03-projects.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["manual-open-science.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

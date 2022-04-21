@@ -16,7 +16,7 @@ We want to make scientific research an open-source knowledge development.</p>" /
   <meta property="og:description" content="<p>The present book aims to describe programming good practices and introduce common tools
 used in software development to guarantee reproducibility of the analysis results.
 We want to make scientific research an open-source knowledge development.</p>" />
-  <meta name="github-repo" content="arca-dpss/template-bookdown" />
+  <meta name="github-repo" content="arca-dpss/manual-open-science" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 1 Introduction | The Open Science Manual" />
@@ -35,7 +35,7 @@ We want to make scientific research an open-source knowledge development.</p>" /
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="osf-chapter.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -56,8 +56,74 @@ We want to make scientific research an open-source knowledge development.</p>" /
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -119,6 +185,50 @@ div.csl-indent {
 <li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
+<li class="chapter" data-level="3" data-path="project-chapter.html"><a href="project-chapter.html"><i class="fa fa-check"></i><b>3</b> Projects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project-chapter.html"><a href="project-chapter.html#project-structure"><i class="fa fa-check"></i><b>3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="project-chapter.html"><a href="project-chapter.html#project-elements"><i class="fa fa-check"></i><b>3.1.1</b> Project Elements</a>
+<ul>
+<li class="chapter" data-level="3.1.1.1" data-path="project-chapter.html"><a href="project-chapter.html#data"><i class="fa fa-check"></i><b>3.1.1.1</b> <code>data/</code></a></li>
+<li class="chapter" data-level="3.1.1.2" data-path="project-chapter.html"><a href="project-chapter.html#analysis-code"><i class="fa fa-check"></i><b>3.1.1.2</b> <code>analysis/</code> and <code>code/</code></a></li>
+<li class="chapter" data-level="3.1.1.3" data-path="project-chapter.html"><a href="project-chapter.html#outputs"><i class="fa fa-check"></i><b>3.1.1.3</b> <code>outputs/</code></a></li>
+<li class="chapter" data-level="3.1.1.4" data-path="project-chapter.html"><a href="project-chapter.html#documents"><i class="fa fa-check"></i><b>3.1.1.4</b> <code>documents/</code></a></li>
+<li class="chapter" data-level="3.1.1.5" data-path="project-chapter.html"><a href="project-chapter.html#readme"><i class="fa fa-check"></i><b>3.1.1.5</b> <code>README</code></a></li>
+<li class="chapter" data-level="3.1.1.6" data-path="project-chapter.html"><a href="project-chapter.html#license-section"><i class="fa fa-check"></i><b>3.1.1.6</b> <code>LICENSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.1.2" data-path="project-chapter.html"><a href="project-chapter.html#project-advantages"><i class="fa fa-check"></i><b>3.1.2</b> Project Advantages</a>
+<ul>
+<li class="chapter" data-level="3.1.2.1" data-path="project-chapter.html"><a href="project-chapter.html#wd-file-path"><i class="fa fa-check"></i><b>3.1.2.1</b> Working Directory and File Paths</a></li>
+<li class="chapter" data-level="3.1.2.2" data-path="project-chapter.html"><a href="project-chapter.html#centralize-analysis"><i class="fa fa-check"></i><b>3.1.2.2</b> Centralize the Analysis</a></li>
+<li class="chapter" data-level="3.1.2.3" data-path="project-chapter.html"><a href="project-chapter.html#ready-to-share-and-collaborate"><i class="fa fa-check"></i><b>3.1.2.3</b> Ready to Share and Collaborate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-chapter.html"><a href="data-chapter.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-chapter.html"><a href="data-chapter.html#organizing"><i class="fa fa-check"></i><b>4.1</b> Organizing Data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-chapter.html"><a href="data-chapter.html#data-structure"><i class="fa fa-check"></i><b>4.1.1</b> Data Structure</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-chapter.html"><a href="data-chapter.html#data-docs"><i class="fa fa-check"></i><b>4.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-chapter.html"><a href="data-chapter.html#data-good-practices"><i class="fa fa-check"></i><b>4.1.3</b> Data Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-chapter.html"><a href="data-chapter.html#sharing"><i class="fa fa-check"></i><b>4.2</b> Sharing Data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-chapter.html"><a href="data-chapter.html#when-where-who"><i class="fa fa-check"></i><b>4.2.1</b> When, Where, Who?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-chapter.html"><a href="data-chapter.html#legal-aspects"><i class="fa fa-check"></i><b>4.2.2</b> Legal Aspects</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-chapter.html"><a href="data-chapter.html#license-data"><i class="fa fa-check"></i><b>4.2.3</b> License</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-chapter.html"><a href="data-chapter.html#metadata"><i class="fa fa-check"></i><b>4.2.4</b> Metadata</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -171,10 +281,10 @@ div.csl-indent {
 <h2><span class="header-section-number">1.1</span> Book Structure<a href="introduction.html#book-structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The book is structured as follows.</p>
 <ul>
-<li>In Chapter [TODO: add ref], we introduce the Open Science Framework (OSF), a free, open-source web application that allows researchers to collaborate, document, archive, share, and register research projects, materials, and data.</li>
-<li>In Chapter [TODO: add ref], we describe recommended practices to organize all the materials and files of our projects and which are the advantages of creating a well structured, documented, and licensed repository.</li>
-<li>In Chapter [TODO: add ref], we discuss the main guidelines regarding organizing, documenting, and sharing data.</li>
-<li>In Chapter [TODO: add ref], we provide general good practices to create readable and maintainable code and we describe the functional style approach.</li>
+<li>In Chapter <a href="osf-chapter.html#osf-chapter">2</a> [work in progress], we introduce the Open Science Framework (OSF), a free, open-source web application that allows researchers to collaborate, document, archive, share, and register research projects, materials, and data.</li>
+<li>In Chapter <a href="project-chapter.html#project-chapter">3</a>, we describe recommended practices to organize all the materials and files of our projects and which are the advantages of creating a well structured, documented, and licensed repository.</li>
+<li>In Chapter <a href="data-chapter.html#data-chapter">4</a>, we discuss the main guidelines regarding organizing, documenting, and sharing data.</li>
+<li>In Chapter <a href="#coding-chapter"><strong>??</strong></a>, we provide general good practices to create readable and maintainable code and we describe the functional style approach.</li>
 <li>In Chapter [TODO: add ref], we introduce version control, a powerful system for managing the development of our project. In particular, first, we provide a basic tutorial about the use of the terminal. Next, we introduce Git and GitHub for managing and tracking our projects during the development.</li>
 <li>In Chapter [TODO: add ref], we discuss how to manage the analysis workflow to enhance results reproducibility and code maintainability.</li>
 <li>In Chapter [TODO: add ref], we introduce the main tools to create dynamic documents that integrate narrative text and code describing the advantages.</li>
@@ -207,7 +317,7 @@ div.csl-indent {
 <li>Manage project requirements and dependencies using dedicated tools</li>
 <li>Create a container to guarantee reproducibility using Docker</li>
 </ul>
-<p>Learning advanced tools such as Git, pipeline tools, and Docker still requires a lot of time and practice. They may even seem excessive complex at first. However, we should consider them as an investment. As soon as our analyses will become more complex than a few lines e of code, these tools will allow us to safely develop and manage our project.</p>
+<p>Learning advanced tools such as Git, pipeline tools, and Docker still requires a lot of time and practice. They may even seem excessively complex at first. However, we should consider them as an investment. As soon as our analyses will become more complex than a few lines e of code, these tools will allow us to safely develop and manage our project.</p>
 </div>
 <div id="non-programmer-friendly" class="section level3 hasAnchor" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> Non-Programmer Friendly<a href="introduction.html#non-programmer-friendly" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -250,7 +360,7 @@ Nosek, B. A., &amp; Errington, T. M. (2020). What is replication? <em>PLOS Biolo
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="osf-chapter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -281,7 +391,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/arca-dpsss/template-bookdown/edit/master/chapters/01-intro.Rmd",
+"link": "https://github.com/arca-dpss/manual-open-science/edit/master/chapters/01-intro.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -306,6 +416,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

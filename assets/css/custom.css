@@ -243,3 +243,39 @@ img {
     padding-left: 1.5em;
     text-indent:-1.5em;
 }
+
+/*----    Code Chunks    ----*/
+
+.bad-code {
+  border-left: 10px solid #FF6961 !important;
+  border-radius: 5px;
+}
+
+.good-code {
+  border-left: 10px solid #77DD77 !important;
+  border-radius: 5px;
+}
+
+.warn-code {
+  border-left: 10px solid #FFC55C !important;
+  border-radius: 5px;
+}
+
+/*----    packages-logo-box    ----*/
+
+.packages-logo-box {
+  float: right;
+  width: 200px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+/*----    list-images    ----*/
+
+.list-images li{
+  display: inline-block;
+}
+
+/*----------scrool code---------*/
+pre, code {white-space:pre !important; overflow-x:scroll !important}
+

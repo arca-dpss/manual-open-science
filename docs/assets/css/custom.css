@@ -94,7 +94,7 @@ a {
 /* Adapted from r-pkgs.org         */
 
 /* general */
-div.tip, div.warning, div.deffun, div.design, div.trick{
+div.tip, div.warning, div.deffun, div.doclinks, div.design, div.trick{
   border: 4px #aed6d963;
   border-style: dashed solid;
   border-radius: 10px;
@@ -108,13 +108,13 @@ div.tip, div.warning, div.deffun, div.design, div.trick{
   background-color: #fcfcfc;
 }
 
-div.tip:before, div.warning:before, div.deffun:before, div.design:before, div.trick:before{
+div.tip:before, div.warning:before, div.deffun:before, div.doclinks:before, div.design:before, div.trick:before{
     content: "Inf-Box: " attr(title);
     font-size: 1.25em;
     font-weight: bold;
     padding-left: 60px;
     padding-top: 2px;
-    padding-bottom: 4px;
+    padding-bottom: 15px;
     display: block;
 }
 
@@ -125,7 +125,7 @@ div.tip:before {
     color: #e7b002;
 }
 div.tip {
-  background-image: url("images/lightbulb.png");
+  background-image: url("../images/lightbulb.png");
   border-color: #fdce38;
 }
 
@@ -134,7 +134,7 @@ div.warning:before {
     color: #b06336 ;
 }
 div.warning {
-  background-image: url("images/gotcha.png");
+  background-image: url("../images/gotcha.png");
   border-color: #c97d50 ;
 }
 
@@ -143,16 +143,25 @@ div.deffun:before {
     color: #0b797e;
 }
 div.deffun {
-  background-image: url("images/gears.png");
+  background-image: url("../images/gears.png");
+  border-color: #6CC2C9;
+}
+
+div.doclinks:before {
+    content: "Documentation-Box" attr(title);
+    color: #0b797e;
+}
+div.doclinks {
+  background-image: url("../images/doc-links.png");
   border-color: #6CC2C9;
 }
 
 div.design:before {
-    content: "Design-Box: " attr(title);
+    content: "Details-Box: " attr(title);
     color: #7c972e;
 }
 div.design {
-  background-image: url("images/design.png");
+  background-image: url("../images/design.png");
   border-color: #a7c84a;
 }
 
@@ -161,7 +170,7 @@ div.trick:before {
     color: #8c3031;
 }
 div.trick {
-  background-image: url("images/hat.png");
+  background-image: url("../images/hat.png");
   border-color: #A3595A;
 }
 
@@ -193,3 +202,80 @@ div.trick {
 .footer {
   font-size: .85em;
 }
+
+/*---------- image ------------*/
+
+img {
+  padding-bottom: 15px;
+  padding-top: 5px;
+}
+
+.inline-img {
+  padding: 5px;
+  vertical-align: middle;
+}
+
+/*----    double-table    ----*/
+
+.double-table {
+  text-align: center
+}
+
+.double-table table {
+      display: inline-block !important;
+      vertical-align: top;
+      padding-right: 30pt;
+}
+
+/*----    repo-list    ----*/
+
+.repo-list {
+  margin-bottom: 10pt;
+}
+
+.repo-list img{
+  padding-bottom: 0px;
+}
+
+/*----    refs    ----*/
+
+.references {
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}
+
+/*----    Code Chunks    ----*/
+
+.bad-code {
+  border-left: 10px solid #FF6961 !important;
+  border-radius: 5px;
+}
+
+.good-code {
+  border-left: 10px solid #77DD77 !important;
+  border-radius: 5px;
+}
+
+.warn-code {
+  border-left: 10px solid #FFC55C !important;
+  border-radius: 5px;
+}
+
+/*----    packages-logo-box    ----*/
+
+.packages-logo-box {
+  float: right;
+  width: 200px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+/*----    list-images    ----*/
+
+.list-images li{
+  display: inline-block;
+}
+
+/*----------scrool code---------*/
+pre, code {white-space:pre !important; overflow-x:scroll !important}
+

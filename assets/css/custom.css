@@ -215,3 +215,31 @@ img {
   vertical-align: middle;
 }
 
+/*----    double-table    ----*/
+
+.double-table {
+  text-align: center
+}
+
+.double-table table {
+      display: inline-block !important;
+      vertical-align: top;
+      padding-right: 30pt;
+}
+
+/*----    repo-list    ----*/
+
+.repo-list {
+  margin-bottom: 10pt;
+}
+
+.repo-list img{
+  padding-bottom: 0px;
+}
+
+/*----    refs    ----*/
+
+.references {
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}

@@ -88,18 +88,18 @@ All projects should have a `README` file with the general information about the 
 
 A `README` file should provide enough information so anyone can understand the project aims and project structure, navigate through the project files, and reproduce the analysis. Therefore, a `README` file could include: 
 
-- **Project Title and Authors**: The project title and list of main authors.
-- **Project Description**: A brief description of the project aims.
-- **Project Structure**: A description of the project structures and content. We may list the main files included in the project.
-- **Getting Started**: Depending on the type of project, this section provides instructions on how to install the project locally and how to reproduce the analysis results. We need to specify both,
+- **Project Title and Authors:** The project title and list of main authors.
+- **Project Description:** A brief description of the project aims.
+- **Project Structure:** A description of the project structures and content. We may list the main files included in the project.
+- **Getting Started:** Depending on the type of project, this section provides instructions on how to install the project locally and how to reproduce the analysis results. We need to specify both,
     - *Requirements*: The prerequisites required to install the project and reproduce the analysis. This may include software versions and other dependencies (see Chapter [TODO: add ref]).
     - *Installation/Run Analysis*: A step-by-step guide on how to install the project/reproduce the analysis results.
-- **Contributing**: Indications on how other users can contribute to the project or open an issue. Contributions are what make the open-source community amazing.
-- **License**: All projects should specify under which license they are released. This clarifies under which conditions other users can copy, share, and use our project. See Section \@ref(license-section) for more information about licenses.
-- **Citation**: Instructions on how to cite the project. We could provide both, a plain text citation or a `.bib` format citation (see https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#The_bibliography_file).
-- **Acknowledgements**: Possible acknowledgements to recognize other contributions to the project.
+- **Contributing:** Indications on how other users can contribute to the project or open an issue. Contributions are what make the open-source community amazing.
+- **License:** All projects should specify under which license they are released. This clarifies under which conditions other users can copy, share, and use our project. See Section \@ref(license-section) for more information about licenses.
+- **Citation:** Instructions on how to cite the project. We could provide both, a plain text citation or a `.bib` format citation (see https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#The_bibliography_file).
+- **Acknowledgements:** Possible acknowledgements to recognize other contributions to the project.
 
-`README` files are usually written in Markdown. Markdown is a lightweight markup language with a simple syntax for style formatting. Therefore, to edit a `README`, we do not need specific software but only a plain-text editor. Moreover, another advantage of Markdown files is that they can be easily rendered by a web browser and online repositories will automatically present the rendered output. For an introduction to the Markdown syntax, consider the *Markdown Guide* available at https://www.markdownguide.org/.
+`README` files are usually written in Markdown. Markdown is a lightweight markup language with a simple syntax for style formatting. Therefore, to edit a `README`, we do not need specific software but only a plain-text editor. Moreover, another advantage of Markdown files is that they can be easily rendered by a web browser and online repositories will automatically present the rendered output. For an introduction to the Markdown syntax, consider the *“Markdown Guide”* available at https://www.markdownguide.org/.
 
 The information included in the `README` and its structure will vary according to the project's specific needs. Ideally, however, there should always be enough details to allow other researchers not familiar with the project to understand the materials and reproduce the results. For examples of `README` files, consider https://github.com/ClaudioZandonella/trackdown or https://github.com/ClaudioZandonella/Attachment.
 
@@ -111,11 +111,11 @@ Considering open science practices, our project should be available under an ope
 
 In the case of **software** or **code releasing** the most popular open-source license are:
 
-- **MIT License**: A simple and permissive license that allows other users to copy, modify and distribute our code with conditions only requiring preservation of copyright and license notices. This could be done for private use and commercial use as well. Moreover, users can distribute their code under different terms and without source code.
+- **MIT License:** A simple and permissive license that allows other users to copy, modify and distribute our code with conditions only requiring preservation of copyright and license notices. This could be done for private use and commercial use as well. Moreover, users can distribute their code under different terms and without source code.
 
-- **Apache License 2.0**: Similar to the MIT license, this is a permissive license that allows other users to copy, modify and distribute our code (for private use and commercial use) with conditions requiring preservation of copyright and license notices. Differently from the MIT license, users are also required to state any change. As before, however, users can distribute their code under different terms and without source code.
+- **Apache License 2.0:** Similar to the MIT license, this is a permissive license that allows other users to copy, modify and distribute our code (for private use and commercial use) with conditions requiring preservation of copyright and license notices. Differently from the MIT license, users are also required to state any change. As before, however, users can distribute their code under different terms and without source code.
 
-- **GNU General Public License v3.0** (GPL): This is a strong copyleft license that allows other users to copy, modify and distribute our code (for private use and commercial use) with conditions requiring preservation of copyright and license notices. In addition, however, users are also required to state any change and make available complete source code under the same license (GPL v3.0).
+- **GNU General Public License v3.0 (GPL):** This is a strong copyleft license that allows other users to copy, modify and distribute our code (for private use and commercial use) with conditions requiring preservation of copyright and license notices. In addition, however, users are also required to state any change and make available complete source code under the same license (GPL v3.0).
 
 Note that these licenses follow a hierarchical order that affects the license of derivative products. Let's suppose we are working on a project based on someone else code distributed under the GPL v3.0 license. In this case, we are required again to make the code available under the GPL v3.0 license. Instead, if another project is based on someone else code distributed under the MIT license, we are only required to indicate that part of our project contains someone's MIT licensed code. We do not have to provide further information and we can decide whether or not to publish the code and under which license. See https://www.quora.com/What-are-the-key-differences-between-the-GNU-General-Public-license-and-the-MIT-License for further discussion.
 
@@ -160,8 +160,8 @@ Structuring our analysis into a project, however, has also other general advanta
 
 When writing code, there are two important concepts to always keep in mind:
 
-- **Working Directory**: The location on our computer from where a process is executed. We can think of it as our current location when executing a task.
-- **File Paths**: A character string that indicates the location of a given file on our computer. We can think of it as the instruction to reach a specific file.
+- **Working Directory:** The location on our computer from where a process is executed. We can think of it as our current location when executing a task.
+- **File Paths:** A character string that indicates the location of a given file on our computer. We can think of it as the instruction to reach a specific file.
 
 When pointing to a file during our analysis (for example to load the data or to save the results), we need to provide a valid file path for the command to be executed correctly. Suppose we want to point to a data file (`my-data.csv`) that is on the Desktop in the project directory (`my-project/`).
 
@@ -176,7 +176,7 @@ Desktop/
 
 There are two different possibilities:
 
-- **Absolute Paths**: Files location is specified relative to the computer root directory. Absolute paths work regardless of the current working directory specification. However, they depend on the computer's exact directories configuration. Thus, they do not work on someone else's computer. Considering our example, we would have
+- **Absolute Paths:** Files location is specified relative to the computer root directory. Absolute paths work regardless of the current working directory specification. However, they depend on the computer's exact directories configuration. Thus, they do not work on someone else's computer. Considering our example, we would have
 
     ```bash
     # Mac
@@ -189,7 +189,7 @@ There are two different possibilities:
     "c:\Users\<username>\Desktop\my-project\data\my-data.csv"
     ```
   
-- **Relative Paths**: Files location is specified relative to the current working directory. They do not depend on the computer's whole directories configuration but only on the directories configuration relative to the current working directory. Therefore, if the working directory is set to the root of our project (`my-project/`), we would have
+- **Relative Paths:** Files location is specified relative to the current working directory. They do not depend on the computer's whole directories configuration but only on the directories configuration relative to the current working directory. Therefore, if the working directory is set to the root of our project (`my-project/`), we would have
 
     ```bash
     # Mac and Linux
@@ -203,7 +203,7 @@ Absolute paths hinder reproducibility as they do not work on someone else's comp
 
 When opening a project directory, many programs automatically set the working directory at the root of the project but this is not guaranteed. Therefore, we should always ensure that our IDE (Integrated Development Environment; e.g. Rstudio, Visual Studio Code, PyCharm) is doing that automatically or we should do it manually. 
 
-Once the working directory is correctly set (automatically or manually), relative paths will work on any computer (up to the operative system; see *Details-Box: Garden of Forking Paths* below). This is one of the great advantages of using projects and relative paths: all the files are referred to relative to the project structure and independently of the specific computer directories configuration.
+Once the working directory is correctly set (automatically or manually), relative paths will work on any computer (up to the operative system; see *“Details-Box: Garden of Forking Paths”* below). This is one of the great advantages of using projects and relative paths: all the files are referred to relative to the project structure and independently of the specific computer directories configuration.
 
 [TODO: check paths windows]
 
@@ -286,31 +286,31 @@ RStudio has built-in support for projects that allows us to create independent R
 
 To create a new RStudio project:
 
-1. From the top bar menu, click *File > New Project*. Note that from this menu, we can also open already created projects or see a list of recent projects by clicking *Open Project...* or *Recent Projects*, respectively.
+1. From the top bar menu, click *“File -> New Project”*. Note that from this menu, we can also open already created projects or see a list of recent projects by clicking *“Open Project...”* or *“Recent Projects”*, respectively.
 
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/new-proj-1.png")
     ```
 
-1. When creating a new project, we can decide between starting from a new directory (*New Directory*; the most common approach), associating a project with an already existing directory (*Existing Directory*), or associating a project to an online repository (*Version Control*; for more information see Chapter [TODO: add ref]).
+1. When creating a new project, we can decide between starting from a new directory (*“New Directory”*; the most common approach), associating a project with an already existing directory (*“Existing Directory”*), or associating a project to an online repository (*“Version Control”*; for more information see Chapter [TODO: add ref]).
   
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/new-proj-2.png")
     ```
 
-1. Selecting *New Directory*, then we can specify the desired project template. Different templates are available also depending on the installed packages. The default option is *New Project*.
+1. Selecting *“New Directory”*, then we can specify the desired project template. Different templates are available also depending on the installed packages. The default option is *“New Project”*.
 
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/new-proj-3.png")
     ```
 
-1. Finally, we can indicate the location where to create the project directory and specify the directory name.  This will be used also as the project name. Note that two more options are available *Create a git repository* and *Use renv with this project*. We discuss these options in Chapter [TODO: add ref]) and Chapter [TODO: add ref], respectively. 
+1. Finally, we can indicate the location where to create the project directory and specify the directory name.  This will be used also as the project name. Note that two more options are available *“Create a git repository”* and *“Use renv with this project”*. We discuss these options in Chapter [TODO: add ref]) and Chapter [TODO: add ref], respectively. 
 
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/new-proj-4.png")
     ```
 
-4. Selecting *Crete Project*, the project directory is created in the specified location and a new RStudio session is opened. Note that the Rstudio icon now displays the project name currently open `r inline_image("images/projects/proj-icon.png", width = "6.5em", format = output_format)`. The current project is also indicated in the top right corner. Click on it to see other project options and to close the project (*Close Project*; or from the top bar menu *File > Close Project*).
+4. Selecting *“Crete Project”*, the project directory is created in the specified location and a new RStudio session is opened. Note that the Rstudio icon now displays the project name currently open `r inline_image("images/projects/proj-icon.png", width = "6.5em", format = output_format)`. The current project is also indicated in the top right corner. Click on it to see other project options and to close the project (*“Close Project”*; or from the top bar menu *“File -> Close Project”*).
 
     ```{r, out.width="40%"}
     knitr::include_graphics("images/projects/proj-menu.png")
@@ -320,7 +320,7 @@ To create a new RStudio project:
 
 We now discuss the main features of RStudio Projects:
 
-- **Working Directory and File Paths**. When opening a project, RStudio automatically sets the working directory at the project root.  We can check the current working directory by looking at the top of the console panel or using the R command `getwd()`.
+- **Working Directory and File Paths.** When opening a project, RStudio automatically sets the working directory at the project root.  We can check the current working directory by looking at the top of the console panel or using the R command `getwd()`.
 
     ```{r, out.width="90%"}
     knitr::include_graphics("images/projects/proj-wd.png")
@@ -333,7 +333,7 @@ In R, we can specify file path using forward slash `"/"` or backslash `"\"` inde
 > Always use forward slash `"/"` to specify file paths to avoid any troubles (e.g., "my-project/data/my-data.csv").
 :::
     
-- **`<project-name>.Rproj` File**. The default Project template creates an empty directory with a single file named `<project-name>.Rproj` (plus some hidden files). Clicking on the `<project-name>.Rproj` file from the file manager (not from RStudio), we can open the selected project in a new RStudio session. Clicking on the `<project-name>.Rproj` file from the file panel in RStudio, instead, we can change the project settings (see the next point). Moreover, from the file panel in RStudio, if we click the Project icon on the top right corner (orange arrow in the image below), we are automatically redirected to the project root.
+- **`<project-name>.Rproj` File.** The default Project template creates an empty directory with a single file named `<project-name>.Rproj` (plus some hidden files). Clicking on the `<project-name>.Rproj` file from the file manager (not from RStudio), we can open the selected project in a new RStudio session. Clicking on the `<project-name>.Rproj` file from the file panel in RStudio, instead, we can change the project settings (see the next point). Moreover, from the file panel in RStudio, if we click the Project icon on the top right corner (orange arrow in the image below), we are automatically redirected to the project root.
 
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/proj-files.png")
@@ -344,23 +344,23 @@ In R, we can specify file path using forward slash `"/"` or backslash `"\"` inde
     knitr::include_graphics("images/projects/rproj-file.png")
     ```
 
-- **Project Settings**. We can specify specific settings for each project. From the top bar menu, select *Tools > Project Options* and specify the required options according to our needs.
+- **Project Settings.** We can specify specific settings for each project. From the top bar menu, select *“Tools -> Project Options”* and specify the required options according to our needs.
 
     ```{r, out.width="40%"}
     knitr::include_graphics("images/projects/proj-options.png")
     ```
-    Some recommended settings should be applied as default to all projects. To do that, select from the top bar menu *Tools > Global Options*. From the panel *General* in the *Workspace* section, ensure the box *“Restore...”* is **not** selected and the option *“Save...”* is set to **Never** (see figure below). This ensures that the workspace is not saved between sessions and every time we start from a new empty environment. The reason for doing this is that it forces us to write everything needed for our project in scripts and then we use scripts to create the required objects. It is a short-term pain for a long-term winning, as it enhances reproducibility and avoids bugs due to overwritten objects in the environment. Moreover, we can finally say goodbye to the horrible `rm(list=ls())` line of code found at the top of many scripts. 
+    Some recommended settings should be applied as default to all projects. To do that, select from the top bar menu *“Tools -> Global Options”*. From the panel *“General”* in the *“Workspace”* section, ensure the box *“Restore...”* is **not** selected and the option *“Save...”* is set to **Never** (see figure below). This ensures that the workspace is not saved between sessions and every time we start from a new empty environment. The reason for doing this is that it forces us to write everything needed for our project in scripts and then we use scripts to create the required objects. It is a short-term pain for a long-term winning, as it enhances reproducibility and avoids bugs due to overwritten objects in the environment. Moreover, we can finally say goodbye to the horrible `rm(list=ls())` line of code found at the top of many scripts. 
     
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/general-options.png")
     ```
-    Another important setting is the encoding. From the panel *Code* ensure that the default text encoding is set to *UTF-8*. Encoding defines how the characters are represented by the computer. This could be problematic for different alphabets or special characters (e.g., accented characters). The UTF-8 encoding is becoming the modern standard as it covers all the possibilities.
+    Another important setting is the encoding. From the panel *“Code”* ensure that the default text encoding is set to *“UTF-8”*. Encoding defines how the characters are represented by the computer. This could be problematic for different alphabets or special characters (e.g., accented characters). The UTF-8 encoding is becoming the modern standard as it covers all the possibilities.
     
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/settings-UTF8.png")
     ```
     
-- **`.Rprofile` File**. This file is a special script that is automatically executed at the beginning of each session (or when the session is restarted). This file is not available by default but we can create it by naming an R script as `.Rprofile` (**without extension!**) [TODO: check in windows https://stackoverflow.com/questions/28664852/saving-a-file-as-rprofile-in-windows]. Note that names that begin with a dot `"."` are reserved for the system and are hidden from the file manager. To see the hidden files, select from the files panel in RStudio the option “*Show Hidden Files*”.   
+- **`.Rprofile` File.** This file is a special script that is automatically executed at the beginning of each session (or when the session is restarted). This file is not available by default but we can create it by naming an R script as `.Rprofile` (**without extension!**) [TODO: check in windows https://stackoverflow.com/questions/28664852/saving-a-file-as-rprofile-in-windows]. Note that names that begin with a dot `"."` are reserved for the system and are hidden from the file manager. To see the hidden files, select from the files panel in RStudio the option *“Show Hidden Files”*.   
 
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/hidden-files.png")
@@ -376,7 +376,7 @@ In R, we can specify file path using forward slash `"/"` or backslash `"\"` inde
     knitr::include_graphics("images/projects/restart-session.png")
     ```
 
-- **Like Multiple Office Desks**. Another advantage of RStudio projects is that we can quickly move from one project to another. When opening a former project, all panels, tabs, and scripts are restored in the same configuration as we left them. This allows us to go straight back into our workflow without wasting any time.
+- **Like Multiple Office Desks.** Another advantage of RStudio projects is that we can quickly move from one project to another. When opening a former project, all panels, tabs, and scripts are restored in the same configuration as we left them. This allows us to go straight back into our workflow without wasting any time.
 
   We can think of it as having a dedicated office desk for each of our projects. On the table, we can leave everything that is required to work on that project and we simply move between different office desks according to the current project we are working on.
 
@@ -386,15 +386,15 @@ To know more about RStudio projects, see https://r4ds.had.co.nz/workflow-project
 
 We briefly point out some other advanced features of RStudio projects. These are covered in more detail in the following Chapters.
 
-- **R Package Template**. As presented in Section \@ref(create-proj), when creating a new project we can choose different templates. These templates automatically structure the project according to specific needs (e.g., creating a Shiny App or a Bookdown). In particular, one very interesting template is the *R Package Template*.
+- **R Package Template.** As presented in Section \@ref(create-proj), when creating a new project we can choose different templates. These templates automatically structure the project according to specific needs (e.g., creating a Shiny App or a Bookdown). In particular, one very interesting template is the *R Package Template*.
 
   The R Package Template is used to create$\ldots$ guess what? R packages. This template introduces some advanced features of R that become very handy when following a functional style approach. For example, we can manage our project package dependencies, easily load all our functions, document them, and create unit tests. We could go all the way and create a proper R package out of our project that other users can install. This requires some extra work and it may not be worth the effort, but of course, this will depend on the specific project aims.
     
   Anyway, the R package template is very useful when writing our functions. For this reason, we discuss further details about the R package template in Chapter [TODO: add ref] when discussing the functional style approach.
 
-- **Git**. We can use version control systems such as Git to track changes on our RStudio projects. We can decide to create a git repository when creating our new project (see Section \@ref(create-proj)) or to associate the project to an existing repository. This is really a huge step forward in the quality of our workflow and it is absolutely worth the initial pain. All the required information to get familiar with Git and how to integrate the git workflow within RStudio projects is presented in Chapter [TODO: add ref].
+- **Git.** We can use version control systems such as Git to track changes on our RStudio projects. We can decide to create a git repository when creating our new project (see Section \@ref(create-proj)) or to associate the project to an existing repository. This is really a huge step forward in the quality of our workflow and it is absolutely worth the initial pain. All the required information to get familiar with Git and how to integrate the git workflow within RStudio projects is presented in Chapter [TODO: add ref].
 
-- **`renv`**. To allow reproducibility of the result, everyone must use the same project dependencies. This includes not only the specific software and relative packages but also their specific version number. The R packages ecosystem changes quite rapidly, new packages are released every month and already available packages are updated from time to time. This means that in a year or two, our code may fail due to some changes in the underlying dependencies. To avoid these issues, it is important to ensure that the same package versions are always used. 
+- **`renv`.** To allow reproducibility of the result, everyone must use the same project dependencies. This includes not only the specific software and relative packages but also their specific version number. The R packages ecosystem changes quite rapidly, new packages are released every month and already available packages are updated from time to time. This means that in a year or two, our code may fail due to some changes in the underlying dependencies. To avoid these issues, it is important to ensure that the same package versions are always used. 
 
   We could list the required packages in a file and their versions manually or find a way to automate this process. As always, in R there is a package for almost everything and in this case, the answer is `renv`. `renv` allows us to manage all the R packages dependencies of our projects in a very smooth workflow. We can include `renv` in our project when creating a new project (see Section \@ref(create-proj)) or add it later. In Chapter [TODO: add ref], we introduce all the details about integrating the `renv` workflow in our projects.
 

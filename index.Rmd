@@ -26,6 +26,7 @@ fontsize: 11pt
 \pagestyle{myfancy}
 
 ```{r settings, echo=FALSE, message=FALSE}
+library(tidyverse)
 library(kableExtra)
 library(ggplot2)
 
@@ -37,14 +38,14 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.pos = "h", dpi = 300,
 
                       # Code output width
-                      # tidy=TRUE, tidy.opts = list(width.cutoff = 80),
+                      tidy=TRUE, tidy.opts = list(width.cutoff = 75),
                       # comment = NA, prompt = TRUE
 
                       # Cache options
                       cache = FALSE, autodep=TRUE)
 
 # Console output width
-options(width = 80)
+options(width = 75)
 
 output_format <- ifelse(knitr::is_html_output(), 
                         yes = "html", no = "latex")

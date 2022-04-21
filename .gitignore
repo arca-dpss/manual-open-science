@@ -2,11 +2,12 @@
 _book/
 _bookdown_files/
 libs/
-**/*.html
+404.html
+README.html
 
 # ignore all html files except:
 !**/mathjax_header.html
-!assets/*.html
+!assets/html/*.html
 !docs/libs/
 !docs/*.html
 

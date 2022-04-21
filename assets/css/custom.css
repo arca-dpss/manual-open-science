@@ -139,7 +139,7 @@ div.warning {
 }
 
 div.deffun:before {
-    content: "Definition-Box: " attr(title);
+    content: "Instructions-Box: " attr(title);
     color: #0b797e;
 }
 div.deffun {
@@ -173,6 +173,9 @@ div.trick {
   background-image: url("../images/hat.png");
   border-color: #A3595A;
 }
+
+/*------*/
+
 
 /*---------------Banner Image------------------*/
 

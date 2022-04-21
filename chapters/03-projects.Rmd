@@ -31,7 +31,7 @@ Let's discuss the different directories and files of our project. Again, these a
 
 #### `data/`
 
-A directory in which to store all the data used in the analysis. These files should be considered `read-only`. In the case of analyses that required some preprocessing of the data, it is important to include both the raw data and the actual data used in the analysis. 
+A directory in which to store all the data used in the analysis. These files should be considered `read-only`. In the case of analyses that require some preprocessing of the data, it is important to include both the raw data and the actual data used in the analysis. 
 
 Moreover, it is a good practice to always add a file with useful information about the data and a description of the variables (see Chapter [TODO: add ref]). We do not want to share uninterpretable, useless files full of 0-1 values, right?
 
@@ -135,7 +135,7 @@ This is not an exhaustive discussion about licenses. We should pay particular at
 - GitHub license chooser: https://choosealicense.com/
 - Creative Commons website: https://creativecommons.org/
 
-##### Adding a License {-}
+:::{.deffun title="Adding a License" data-latex="[Adding a License]"}
 
 To add a license to our project:
 
@@ -149,6 +149,64 @@ To add a license to our project:
     ```
 
 Now that we have added a license, other colleagues can use our project according to the specified conditions.
+:::
+
+### Naming Files and Directories
+
+To create a well organized project that other colleagues can easily explore, it is also important to name directories and files appropriately. When naming a directory or a file, we should follow these general guidelines:
+
+- **Use Meaningful Names.** Provide clear names that describe the content and aim of the file (or directory).
+
+  :::{.code-tex-bad  data-latex=""}
+    ```{r class.source="bad-code", echo = TRUE, eval = FALSE}
+    "untitled.R" # not meaningful name
+    ```
+  :::
+  
+  :::{.code-tex-good  data-latex=""}
+    ```{r class.source="good-code", echo = TRUE, eval = FALSE}
+    "analysis-experiment-A.R"        # clear descriptive name
+    ```
+  :::
+  
+  Note that prefix numbers can be used if files (or directories) are required to appear in a specific order.
+  
+  :::{.code-tex-good  data-latex=""}
+    ```{r class.source="good-code", echo = TRUE, eval = FALSE}
+    # ordered list of files
+    "01-data-cleaning.R"        
+    "02-descriptive-analysis.R"
+    "03-statistical-models.R"
+    ```
+  :::
+- **Prefer *lower-case* Names.** There is nothing wrong with capital letters. However, case sensitivity depends on the specific operative system. For example, in macOS and Linux systems, the files `my-file.txt` and `My-File.txt` can not coexist in the same directory. Therefore, it is recommended to always use lower-case names.
+- **Specify Files Extension.** Always indicate the specific file extension.
+- **Avoid Spaces.** In many programming languages, spaces are used to separate arguments or variable names. We should always use underscores (`"_"`) or dashes (`"-"`) instead of spaces.
+
+  :::{.code-tex-bad  data-latex=""}
+    ```{r class.source="bad-code", echo = TRUE, eval = FALSE}
+    "I like to/mess things up.txt" # Your machine is gonna hate you 
+    ```
+  :::
+  
+  :::{.code-tex-good  data-latex=""}
+    ```{r class.source="good-code", echo = TRUE, eval = FALSE}
+    "path-to/my-file.txt"
+    ```
+  :::
+- **Avoid Special Characters.** Character encoding (i.e., how the characters are represented by the computer) can become a problematic issue when files are shared between different systems. We should always name files and directories using only basic Latin characters and avoiding any special character (accented characters or other symbols). This would save us from lots of troubles.
+
+  :::{.code-tex-bad  data-latex=""}
+    ```{r class.source="bad-code", echo = TRUE, eval = FALSE}
+    "brûlée-recipe.txt" # surely a good recipe for troubles
+    ```
+  :::
+  
+  :::{.code-tex-good  data-latex=""}
+    ```{r class.source="good-code", echo = TRUE, eval = FALSE}
+    "brulee-reciepe.txt" # use only basic Latin characters
+    ```
+  :::
 
 ###  Project Advantages
 
@@ -304,7 +362,7 @@ To create a new RStudio project:
     knitr::include_graphics("images/projects/new-proj-3.png")
     ```
 
-1. Finally, we can indicate the location where to create the project directory and specify the directory name.  This will be used also as the project name. Note that two more options are available *“Create a git repository”* and *“Use renv with this project”*. We discuss these options in Chapter [TODO: add ref]) and Chapter [TODO: add ref], respectively. 
+1. Finally, we can indicate the location where to create the project directory and specify the sdirectory name.  This will be used also as the project name. Note that two more options are available *“Create a git repository”* and *“Use renv with this project”*. We discuss these options in Chapter [TODO: add ref]) and Chapter [TODO: add ref], respectively. 
 
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/new-proj-4.png")
@@ -398,7 +456,6 @@ We briefly point out some other advanced features of RStudio projects. These are
 
   We could list the required packages in a file and their versions manually or find a way to automate this process. As always, in R there is a package for almost everything and in this case, the answer is `renv`. `renv` allows us to manage all the R packages dependencies of our projects in a very smooth workflow. We can include `renv` in our project when creating a new project (see Section \@ref(create-proj)) or add it later. In Chapter [TODO: add ref], we introduce all the details about integrating the `renv` workflow in our projects.
 
-
 :::{.doclinks data-latex=""}
 
 #### Bibtex {-}
@@ -406,7 +463,7 @@ We briefly point out some other advanced features of RStudio projects. These are
 - Standard bibtex syntax for bibliography files`r break_line(format = output_format)`
   https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#The_bibliography_file
 
-#### Markown Syntax  {-}
+#### Markdown Syntax  {-}
 
 - Markdown Guide`r break_line(format = output_format)`
   https://www.markdownguide.org/

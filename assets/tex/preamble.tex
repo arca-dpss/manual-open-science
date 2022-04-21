@@ -138,7 +138,7 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[deffun-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gears.png}} \large \textcolor{deffun-text}{Definition-Box: #1\\\vspace*{.5em}}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gears.png}} \large \textcolor{deffun-text}{Instructions-Box: #1\\\vspace*{.5em}}\normalsize
     }
     {
   \end{mybox}
@@ -210,6 +210,22 @@
                {\list{}{\rightmargin\leftmargin}%
                 \item\relax\begin{line-left}\setlength{\parskip}{1em}}
                {\end{line-left}\endlist}
+
+%----    code-tex-*    ----%
+
+\newenvironment{code-tex-bad}
+  {\begingroup\definecolor{shadecolor}{RGB}{255, 189, 185}}
+  {\endgroup}
+
+\newenvironment{code-tex-good}
+  {\begingroup\definecolor{shadecolor}{RGB}{224, 240, 227}}
+  {\endgroup}
+
+\newenvironment{code-tex-warn}
+  {\begingroup\definecolor{shadecolor}{RGB}{249, 249, 154}}
+  {\endgroup}
+
+
 %----
 
 \usepackage{hyperref}

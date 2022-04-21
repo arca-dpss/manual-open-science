@@ -24,7 +24,7 @@ The book is structured as follows.
 - In Chapter \@ref(osf-chapter) [work in progress], we introduce the Open Science Framework (OSF), a free, open-source web application that allows researchers to collaborate, document, archive, share, and register research projects, materials, and data.
 - In Chapter \@ref(project-chapter), we describe recommended practices to organize all the materials and files of our projects and which are the advantages of creating a well structured, documented, and licensed repository.
 - In Chapter \@ref(data-chapter), we discuss the main guidelines regarding organizing, documenting, and sharing data.
-- In Chapter [TODO: add ref], we provide general good practices to create readable and maintainable code and we describe the functional style approach.
+- In Chapter \@ref(coding-chapter), we provide general good practices to create readable and maintainable code and we describe the functional style approach.
 - In Chapter [TODO: add ref], we introduce version control, a powerful system for managing the development of our project. In particular, first, we provide a basic tutorial about the use of the terminal. Next, we introduce Git and GitHub for managing and tracking our projects during the development.
 - In Chapter [TODO: add ref], we discuss how to manage the analysis workflow to enhance results reproducibility and code maintainability.
 - In Chapter [TODO: add ref], we introduce the main tools to create dynamic documents that integrate narrative text and code describing the advantages.

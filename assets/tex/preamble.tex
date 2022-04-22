@@ -102,6 +102,8 @@
 \definecolor{design-line}{HTML}{a7c84a}
 \definecolor{trick-text}{HTML}{8c3031}
 \definecolor{trick-line}{HTML}{A3595A}
+\definecolor{foil-text}{HTML}{717171}
+\definecolor{foil-line}{HTML}{C0C0C0}
 
 \newtcolorbox{mybox}[1][black]{
   colback=background,
@@ -127,7 +129,7 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[warning-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gotcha.png}} \large \textcolor{warning-text}{Warning-Box: #1\\\vspace*{.5em}}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gotcha.png}} \large \textcolor{warning-text}{Warning-Box: #1\\~\\}\normalsize
     }
     {
   \end{mybox}
@@ -138,7 +140,7 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[deffun-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gears.png}} \large \textcolor{deffun-text}{Instructions-Box: #1\\\vspace*{.5em}}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/gears.png}} \large \textcolor{deffun-text}{Instructions-Box: #1\\~\\}\normalsize
     }
     {
   \end{mybox}
@@ -160,7 +162,7 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[design-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/design.png}} \large \textcolor{design-text}{Details-Box: #1\\\vspace*{.5em}}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/design.png}} \large \textcolor{design-text}{Details-Box: #1\\~\\}\normalsize
     }
     {
   \end{mybox}
@@ -171,7 +173,18 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[trick-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/hat.png}} \large \textcolor{trick-text}{Trick-Box: #1\\\vspace*{.5em}}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/hat.png}} \large \textcolor{trick-text}{Trick-Box: #1\\~\\}\normalsize
+    }
+    {
+  \end{mybox}
+  }
+
+% foil
+\newenvironment{foil}[1][Title]
+  {
+  \setlength{\fboxsep}{1em}
+  \begin{mybox}[foil-line]
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/hat.png}} \large \textcolor{foil-text}{Command Cheatsheet: #1\\~\\}\normalsize
     }
     {
   \end{mybox}

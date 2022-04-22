@@ -30,10 +30,10 @@ break_line <- function(format = "html"){
 
 #----    package_logo    ----#
 
-package_logo <- function(img, format = "html", tex_width = .25, h_adjust = -15){
+package_logo <- function(img, format = "html", css_width = 200, tex_width = .25, h_adjust = -15){
 
   if(format == "html"){
-    res <- glue::glue('<div class="packages-logo-box"><img src="{img}"></div>')
+    res <- glue::glue('<div class="packages-logo-box", style="width: {css_width}px;"><img src="{img}"></div>')
   } else {
     res <- glue::glue('
 \\begin{wrapfigure}{r}{^tex_width^\\textwidth}

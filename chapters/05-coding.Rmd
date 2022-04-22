@@ -1,6 +1,6 @@
 # Coding {#coding-chapter} 
 
-In the previous chapters, we learned to share our materials and data using the Open Science Framework (OSF) and to organize all our files in a well structured and documented repository.
+In the previous chapters, we learned to share our materials using the Open Science Framework (OSF) and to organize all our files in a well structured and documented repository. Moreover we learned recommended practices to organize and share our data.
 
 However, if we want our analysis to be reproducible, we need to write code, actually, we need to write good code. In this chapter, we provide some main guidelines about coding. In particular, in Section \@ref(coding-style), we describe general coding good practices and introduce the functional style approach. Note that, although examples are in R, these general recommendations are valid for all programming languages. In Section \@ref(R-coding), we further discuss specific elements related to R and we introduce more advanced R packages that can be useful when developing code in R.
 
@@ -138,7 +138,6 @@ Finally, we should avoid any name that could lead to possible errors or conflict
 - Avoid using similar names for multiple objects that could easily be confused (e.g., `lm_fit`, `lm_Fit`).
 
 :::{.design title="Temporary Variables" data-latex="[Temporary Variables]"}
-
 Some extra tips concern the names of temporary variables that are commonly used in `for` loops or other data manipulation processes. 
 
 - **Position Index `i`.** To refer to some position indexes, the variable `i` is commonly used. Alternatively, we could use other custom names to indicate explicitly the specific selection operation. For example, we could use `row_i` or `col_i` to indicate that we refer to row index or column index respectively.

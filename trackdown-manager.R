@@ -25,7 +25,12 @@ trackdown::download_file("chapters/04-data.Rmd", gpath = "trackdown/ARCA")
 trackdown::update_file("chapters/05-coding.Rmd", gpath = "trackdown/ARCA")
 trackdown::download_file("chapters/05-coding.Rmd", gpath = "trackdown/ARCA")
 
+#----    06-terminal    ----
+trackdown::update_file("chapters/06-terminal.Rmd", gpath = "trackdown/ARCA")
+trackdown::download_file("chapters/06-terminal.Rmd", gpath = "trackdown/ARCA")
+
+
 #----    make_book    ----
 make_my_book()
 
-bookdown::preview_chapter("chapters/05-coding.Rmd", 'bookdown::pdf_book')
+bookdown::preview_chapter("chapters/06-terminal.Rmd", 'bookdown::pdf_book')

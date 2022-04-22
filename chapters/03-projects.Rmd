@@ -139,7 +139,7 @@ This is not an exhaustive discussion about licenses. We should pay particular at
 
 To add a license to our project:
 
-1. Copy the selected license template in a plain-text file (i.e., `.txt` or `.md`) named `LICENSE` at the root of our project. Many online repositories allow us to select from common license directly through their online interface (e.g., https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). 
+1. Copy the selected license template in a plain-text file (i.e., `.txt` or `.md`) named `LICENSE` at the root of our project. Many online repositories allow us to select from common license directly through their online interface. In Chapter \@ref(github-add-license), we describe how to add a License on GitHub (see also https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). 
 2. Indicate the selected license also in the `README` specifying possible other information (e.g., different materials could be released under different conditions). 
 3. In the case of software, it is a good practice to attach a short notice at the beginning of each source file. For example:
     ```{r, echo = TRUE, eval=FALSE}
@@ -151,7 +151,7 @@ To add a license to our project:
 Now that we have added a license, other colleagues can use our project according to the specified conditions.
 :::
 
-### Naming Files and Directories
+### Naming Files and Directories {#naming-files-dir}
 
 To create a well organized project that other colleagues can easily explore, it is also important to name directories and files appropriately. When naming a directory or a file, we should follow these general guidelines:
 

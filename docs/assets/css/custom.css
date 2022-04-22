@@ -94,7 +94,7 @@ a {
 /* Adapted from r-pkgs.org         */
 
 /* general */
-div.tip, div.warning, div.deffun, div.doclinks, div.design, div.trick{
+div.tip, div.warning, div.deffun, div.doclinks, div.design, div.trick, div.foil{
   border: 4px #aed6d963;
   border-style: dashed solid;
   border-radius: 10px;
@@ -108,7 +108,7 @@ div.tip, div.warning, div.deffun, div.doclinks, div.design, div.trick{
   background-color: #fcfcfc;
 }
 
-div.tip:before, div.warning:before, div.deffun:before, div.doclinks:before, div.design:before, div.trick:before{
+div.tip:before, div.warning:before, div.deffun:before, div.doclinks:before, div.design:before, div.trick:before, div.foil:before{
     content: "Inf-Box: " attr(title);
     font-size: 1.25em;
     font-weight: bold;
@@ -172,6 +172,15 @@ div.trick:before {
 div.trick {
   background-image: url("../images/hat.png");
   border-color: #A3595A;
+}
+
+div.foil:before {
+    content: "Command Cheatsheet: " attr(title);
+    color: #717171;
+}
+div.foil {
+  background-image: url("../images/foil-machine.png");
+  border-color: #C0C0C0;
 }
 
 /*------*/

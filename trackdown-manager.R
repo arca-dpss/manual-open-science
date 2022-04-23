@@ -33,6 +33,10 @@ trackdown::download_file("chapters/06-terminal.Rmd", gpath = "trackdown/ARCA")
 trackdown::update_file("chapters/07-git.Rmd", gpath = "trackdown/ARCA")
 trackdown::download_file("chapters/06-terminal.Rmd", gpath = "trackdown/ARCA")
 
+#----    08-github    ----
+trackdown::update_file("chapters/08-github.Rmd", gpath = "trackdown/ARCA")
+trackdown::download_file("chapters/08-github.Rmd", gpath = "trackdown/ARCA")
+
 
 #----    make_book    ----
 make_my_book()

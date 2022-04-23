@@ -14,7 +14,7 @@ rmd_files:
          "chapters/05-coding.Rmd",
          "chapters/06-terminal.Rmd",
          "chapters/07-git.Rmd",
-         # "chapters/08-github.Rmd",
+         "chapters/08-github.Rmd",
          "chapters/99-references.Rmd"]
   latex: ["index.Rmd",
          "chapters/01-intro.Rmd",
@@ -24,7 +24,7 @@ rmd_files:
          "chapters/05-coding.Rmd",
          "chapters/06-terminal.Rmd",
          "chapters/07-git.Rmd",
-         # "chapters/08-github.Rmd",
+         "chapters/08-github.Rmd",
          "chapters/99-references.Rmd"]
 
 output_dir: "docs/"

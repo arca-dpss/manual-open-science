@@ -157,7 +157,7 @@ Finally, let's consider two other general aspects regarding data that are import
     
   **UTF-8** is becoming the standard method for encoding files, as it allows to encode efficiently all characters from any alphabet. We should always save our data and any other file using the UTF-8 encoding. If for some reason we need to use a different encoding, remember to explicitly state the used encoding. This will save our colleagues from lots of trouble.
     
-  From RStudio, we can set UTF-8 as default text encoding from *“Tools -> Global Options -> Code -> Saving”*.
+  From RStudio, we can set UTF-8 as default text encoding from *“Tools > Global Options > Code > Saving”*.
     ```{r, out.width="70%"}
     knitr::include_graphics("images/data/encoding.png")
     ```
@@ -271,6 +271,8 @@ In particular, they cover the use of:
 - **Schema.org** (https://schema.org/), a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet. 
 
 The combination of JSON-LD and Schema.org allows the creation of machine-readable data optimized for search engines.
+
+\newpage
 
 :::{.doclinks data-latex=""}
 

@@ -111,14 +111,15 @@
   colframe=#1,
   boxsep=5pt,
   arc=4pt,
-  breakable}
+  breakable,
+  before upper={\parindent17pt\noindent}}
 
 % tip
 \newenvironment{tip}[1][Title]
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[tip-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/lightbulb.png}} \large \textcolor{tip-text}{Tip-Box: #1\\\vspace*{.5em}}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/lightbulb.png}} \large \textcolor{tip-text}{Tip-Box: #1\\~\\}\normalsize
     }
     {
   \end{mybox}
@@ -151,7 +152,7 @@
   {
   \setlength{\fboxsep}{1em}
   \begin{mybox}[deffun-line]
-    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/doc-links.png}} \large \textcolor{deffun-text}{Documentation-Box}\vspace*{.5em}\normalsize
+    \raisebox{-.2\height}{\includegraphics[height=.6cm]{assets/images/doc-links.png}} \large \textcolor{deffun-text}{Documentation-Box}\\\vspace*{.5em}\normalsize
     }
     {
   \end{mybox}

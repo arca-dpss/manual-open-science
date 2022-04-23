@@ -344,7 +344,7 @@ RStudio has built-in support for projects that allows us to create independent R
 
 To create a new RStudio project:
 
-1. From the top bar menu, click *“File -> New Project”*. Note that from this menu, we can also open already created projects or see a list of recent projects by clicking *“Open Project...”* or *“Recent Projects”*, respectively.
+1. From the top bar menu, click *“File > New Project”*. Note that from this menu, we can also open already created projects or see a list of recent projects by clicking *“Open Project...”* or *“Recent Projects”*, respectively.
 
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/new-proj-1.png")
@@ -368,7 +368,7 @@ To create a new RStudio project:
     knitr::include_graphics("images/projects/new-proj-4.png")
     ```
 
-4. Selecting *“Crete Project”*, the project directory is created in the specified location and a new RStudio session is opened. Note that the Rstudio icon now displays the project name currently open `r inline_image("images/projects/proj-icon.png", width = "6.5em", format = output_format)`. The current project is also indicated in the top right corner. Click on it to see other project options and to close the project (*“Close Project”*; or from the top bar menu *“File -> Close Project”*).
+4. Selecting *“Crete Project”*, the project directory is created in the specified location and a new RStudio session is opened. Note that the Rstudio icon now displays the project name currently open `r inline_image("images/projects/proj-icon.png", width = "6.5em", format = output_format)`. The current project is also indicated in the top right corner. Click on it to see other project options and to close the project (*“Close Project”*; or from the top bar menu *“File > Close Project”*).
 
     ```{r, out.width="40%"}
     knitr::include_graphics("images/projects/proj-menu.png")
@@ -402,12 +402,12 @@ In R, we can specify file path using forward slash `"/"` or backslash `"\"` inde
     knitr::include_graphics("images/projects/rproj-file.png")
     ```
 
-- **Project Settings.** We can specify specific settings for each project. From the top bar menu, select *“Tools -> Project Options”* and specify the required options according to our needs.
+- **Project Settings.** We can specify specific settings for each project. From the top bar menu, select *“Tools > Project Options”* and specify the required options according to our needs.
 
     ```{r, out.width="40%"}
     knitr::include_graphics("images/projects/proj-options.png")
     ```
-    Some recommended settings should be applied as default to all projects. To do that, select from the top bar menu *“Tools -> Global Options”*. From the panel *“General”* in the *“Workspace”* section, ensure the box *“Restore...”* is **not** selected and the option *“Save...”* is set to **Never** (see figure below). This ensures that the workspace is not saved between sessions and every time we start from a new empty environment. The reason for doing this is that it forces us to write everything needed for our project in scripts and then we use scripts to create the required objects. It is a short-term pain for a long-term winning, as it enhances reproducibility and avoids bugs due to overwritten objects in the environment. Moreover, we can finally say goodbye to the horrible `rm(list=ls())` line of code found at the top of many scripts. 
+    Some recommended settings should be applied as default to all projects. To do that, select from the top bar menu *“Tools > Global Options”*. From the panel *“General”* in the *“Workspace”* section, ensure the box *“Restore...”* is **not** selected and the option *“Save...”* is set to **Never** (see figure below). This ensures that the workspace is not saved between sessions and every time we start from a new empty environment. The reason for doing this is that it forces us to write everything needed for our project in scripts and then we use scripts to create the required objects. It is a short-term pain for a long-term winning, as it enhances reproducibility and avoids bugs due to overwritten objects in the environment. Moreover, we can finally say goodbye to the horrible `rm(list=ls())` line of code found at the top of many scripts. 
     
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/general-options.png")
@@ -455,6 +455,8 @@ We briefly point out some other advanced features of RStudio projects. These are
 - **`renv`.** To allow reproducibility of the result, everyone must use the same project dependencies. This includes not only the specific software and relative packages but also their specific version number. The R packages ecosystem changes quite rapidly, new packages are released every month and already available packages are updated from time to time. This means that in a year or two, our code may fail due to some changes in the underlying dependencies. To avoid these issues, it is important to ensure that the same package versions are always used. 
 
   We could list the required packages in a file and their versions manually or find a way to automate this process. As always, in R there is a package for almost everything and in this case, the answer is `renv`. `renv` allows us to manage all the R packages dependencies of our projects in a very smooth workflow. We can include `renv` in our project when creating a new project (see Section \@ref(create-proj)) or add it later. In Chapter [TODO: add ref], we introduce all the details about integrating the `renv` workflow in our projects.
+
+\newpage
 
 :::{.doclinks data-latex=""}
 

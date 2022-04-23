@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Git | The Open Science Manual</title>
+  <meta name="description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Git | The Open Science Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+  <meta property="og:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="github-repo" content="arca-dpss/manual-open-science" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Git | The Open Science Manual" />
+  
+  <meta name="twitter:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="twitter:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="terminal-chapter.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="assets/images/arca-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#book-structure"><i class="fa fa-check"></i><b>1.1</b> Book Structure</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#instructions"><i class="fa fa-check"></i><b>1.2</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
+<li class="chapter" data-level="3" data-path="project-chapter.html"><a href="project-chapter.html"><i class="fa fa-check"></i><b>3</b> Projects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project-chapter.html"><a href="project-chapter.html#project-structure"><i class="fa fa-check"></i><b>3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="project-chapter.html"><a href="project-chapter.html#project-elements"><i class="fa fa-check"></i><b>3.1.1</b> Project Elements</a>
+<ul>
+<li class="chapter" data-level="3.1.1.1" data-path="project-chapter.html"><a href="project-chapter.html#data"><i class="fa fa-check"></i><b>3.1.1.1</b> <code>data/</code></a></li>
+<li class="chapter" data-level="3.1.1.2" data-path="project-chapter.html"><a href="project-chapter.html#analysis-code"><i class="fa fa-check"></i><b>3.1.1.2</b> <code>analysis/</code> and <code>code/</code></a></li>
+<li class="chapter" data-level="3.1.1.3" data-path="project-chapter.html"><a href="project-chapter.html#outputs"><i class="fa fa-check"></i><b>3.1.1.3</b> <code>outputs/</code></a></li>
+<li class="chapter" data-level="3.1.1.4" data-path="project-chapter.html"><a href="project-chapter.html#documents"><i class="fa fa-check"></i><b>3.1.1.4</b> <code>documents/</code></a></li>
+<li class="chapter" data-level="3.1.1.5" data-path="project-chapter.html"><a href="project-chapter.html#readme"><i class="fa fa-check"></i><b>3.1.1.5</b> <code>README</code></a></li>
+<li class="chapter" data-level="3.1.1.6" data-path="project-chapter.html"><a href="project-chapter.html#license-section"><i class="fa fa-check"></i><b>3.1.1.6</b> <code>LICENSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.1.2" data-path="project-chapter.html"><a href="project-chapter.html#naming-files-dir"><i class="fa fa-check"></i><b>3.1.2</b> Naming Files and Directories</a></li>
+<li class="chapter" data-level="3.1.3" data-path="project-chapter.html"><a href="project-chapter.html#project-advantages"><i class="fa fa-check"></i><b>3.1.3</b> Project Advantages</a>
+<ul>
+<li class="chapter" data-level="3.1.3.1" data-path="project-chapter.html"><a href="project-chapter.html#wd-file-path"><i class="fa fa-check"></i><b>3.1.3.1</b> Working Directory and File Paths</a></li>
+<li class="chapter" data-level="3.1.3.2" data-path="project-chapter.html"><a href="project-chapter.html#centralize-analysis"><i class="fa fa-check"></i><b>3.1.3.2</b> Centralize the Analysis</a></li>
+<li class="chapter" data-level="3.1.3.3" data-path="project-chapter.html"><a href="project-chapter.html#ready-to-share-and-collaborate"><i class="fa fa-check"></i><b>3.1.3.3</b> Ready to Share and Collaborate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-chapter.html"><a href="data-chapter.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-chapter.html"><a href="data-chapter.html#organizing"><i class="fa fa-check"></i><b>4.1</b> Organizing Data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-chapter.html"><a href="data-chapter.html#data-structure"><i class="fa fa-check"></i><b>4.1.1</b> Data Structure</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-chapter.html"><a href="data-chapter.html#data-docs"><i class="fa fa-check"></i><b>4.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-chapter.html"><a href="data-chapter.html#data-good-practices"><i class="fa fa-check"></i><b>4.1.3</b> Data Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-chapter.html"><a href="data-chapter.html#sharing"><i class="fa fa-check"></i><b>4.2</b> Sharing Data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-chapter.html"><a href="data-chapter.html#when-where-who"><i class="fa fa-check"></i><b>4.2.1</b> When, Where, Who?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-chapter.html"><a href="data-chapter.html#legal-aspects"><i class="fa fa-check"></i><b>4.2.2</b> Legal Aspects</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-chapter.html"><a href="data-chapter.html#license-data"><i class="fa fa-check"></i><b>4.2.3</b> License</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-chapter.html"><a href="data-chapter.html#metadata"><i class="fa fa-check"></i><b>4.2.4</b> Metadata</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="coding-chapter.html"><a href="coding-chapter.html"><i class="fa fa-check"></i><b>5</b> Coding</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="coding-chapter.html"><a href="coding-chapter.html#coding-style"><i class="fa fa-check"></i><b>5.1</b> Coding Style</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="coding-chapter.html"><a href="coding-chapter.html#good-practices"><i class="fa fa-check"></i><b>5.1.1</b> General Good Practices</a>
+<ul>
+<li class="chapter" data-level="5.1.1.1" data-path="coding-chapter.html"><a href="coding-chapter.html#variable-names"><i class="fa fa-check"></i><b>5.1.1.1</b> Variable Names</a></li>
+<li class="chapter" data-level="5.1.1.2" data-path="coding-chapter.html"><a href="coding-chapter.html#spacing-and-indentation"><i class="fa fa-check"></i><b>5.1.1.2</b> Spacing and Indentation</a></li>
+<li class="chapter" data-level="5.1.1.3" data-path="coding-chapter.html"><a href="coding-chapter.html#comments"><i class="fa fa-check"></i><b>5.1.1.3</b> Comments</a></li>
+<li class="chapter" data-level="5.1.1.4" data-path="coding-chapter.html"><a href="coding-chapter.html#other-tips"><i class="fa fa-check"></i><b>5.1.1.4</b> Other Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.2" data-path="coding-chapter.html"><a href="coding-chapter.html#functional-style"><i class="fa fa-check"></i><b>5.1.2</b> Functional Style</a>
+<ul>
+<li class="chapter" data-level="5.1.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#functions-good-practices"><i class="fa fa-check"></i><b>5.1.2.1</b> Functions Good Practices</a></li>
+<li class="chapter" data-level="5.1.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#documentation-coding"><i class="fa fa-check"></i><b>5.1.2.2</b> Documentation</a></li>
+<li class="chapter" data-level="5.1.2.3" data-path="coding-chapter.html"><a href="coding-chapter.html#unit-tests"><i class="fa fa-check"></i><b>5.1.2.3</b> Unit Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.3" data-path="coding-chapter.html"><a href="coding-chapter.html#advanced"><i class="fa fa-check"></i><b>5.1.3</b> Advanced</a>
+<ul>
+<li class="chapter" data-level="5.1.3.1" data-path="coding-chapter.html"><a href="coding-chapter.html#performance"><i class="fa fa-check"></i><b>5.1.3.1</b> Performance</a></li>
+<li class="chapter" data-level="5.1.3.2" data-path="coding-chapter.html"><a href="coding-chapter.html#environments"><i class="fa fa-check"></i><b>5.1.3.2</b> Environments</a></li>
+<li class="chapter" data-level="5.1.3.3" data-path="coding-chapter.html"><a href="coding-chapter.html#classes-methods"><i class="fa fa-check"></i><b>5.1.3.3</b> Classes and Methods</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="coding-chapter.html"><a href="coding-chapter.html#R-coding"><i class="fa fa-check"></i><b>5.2</b> R Coding</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#coding-style-1"><i class="fa fa-check"></i><b>5.2.1</b> Coding Style</a></li>
+<li class="chapter" data-level="5.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#r-package"><i class="fa fa-check"></i><b>5.2.2</b> R Package Project</a>
+<ul>
+<li class="chapter" data-level="5.2.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#r-package-structure"><i class="fa fa-check"></i><b>5.2.2.1</b> R Package Structure</a></li>
+<li class="chapter" data-level="5.2.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#the-devtools-workflow"><i class="fa fa-check"></i><b>5.2.2.2</b> The <code>devtools</code> Workflow</a></li>
+<li class="chapter" data-level="5.2.2.3" data-path="coding-chapter.html"><a href="coding-chapter.html#description"><i class="fa fa-check"></i><b>5.2.2.3</b> DESCRIPTION</a></li>
+<li class="chapter" data-level="5.2.2.4" data-path="coding-chapter.html"><a href="coding-chapter.html#documentation-roxygen"><i class="fa fa-check"></i><b>5.2.2.4</b> Documentation with <code>roxygen2</code></a></li>
+<li class="chapter" data-level="5.2.2.5" data-path="coding-chapter.html"><a href="coding-chapter.html#testthat"><i class="fa fa-check"></i><b>5.2.2.5</b> Unit Tests with <code>testthat</code></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="terminal-chapter.html"><a href="terminal-chapter.html"><i class="fa fa-check"></i><b>6</b> Terminal</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#what-is-a-terminal"><i class="fa fa-check"></i><b>6.1</b> What is a Terminal?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#different-shells"><i class="fa fa-check"></i><b>6.1.1</b> Different Shells</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#install-bash"><i class="fa fa-check"></i><b>6.2</b> Install Bash</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#install-windows-terminal"><i class="fa fa-check"></i><b>6.2.1</b> On Windows</a></li>
+<li class="chapter" data-level="6.2.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#on-macos"><i class="fa fa-check"></i><b>6.2.2</b> On macOS</a></li>
+<li class="chapter" data-level="6.2.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#on-linux"><i class="fa fa-check"></i><b>6.2.3</b> On Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#get-started-terminal"><i class="fa fa-check"></i><b>6.3</b> Get Started</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#prompt-and-commands"><i class="fa fa-check"></i><b>6.3.1</b> Prompt and Commands</a></li>
+<li class="chapter" data-level="6.3.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#navigating-the-file-system"><i class="fa fa-check"></i><b>6.3.2</b> Navigating the File System</a></li>
+<li class="chapter" data-level="6.3.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#modifying-files"><i class="fa fa-check"></i><b>6.3.3</b> Modifying Files</a></li>
+<li class="chapter" data-level="6.3.4" data-path="terminal-chapter.html"><a href="terminal-chapter.html#text-editors"><i class="fa fa-check"></i><b>6.3.4</b> Text Editors</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="terminal-chapter.html"><a href="terminal-chapter.html#terminal-in-rstudio"><i class="fa fa-check"></i><b>6.4</b> Terminal in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-chapter.html"><a href="git-chapter.html"><i class="fa fa-check"></i><b>7</b> Git</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="git-chapter.html"><a href="git-chapter.html#version-control"><i class="fa fa-check"></i><b>7.1</b> Version Control</a></li>
+<li class="chapter" data-level="7.2" data-path="git-chapter.html"><a href="git-chapter.html#git-elements"><i class="fa fa-check"></i><b>7.2</b> Git Elements</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files"><i class="fa fa-check"></i><b>7.2.1</b> Tracking Files</a></li>
+<li class="chapter" data-level="7.2.2" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration"><i class="fa fa-check"></i><b>7.2.2</b> Managing Collaboration</a></li>
+<li class="chapter" data-level="7.2.3" data-path="git-chapter.html"><a href="git-chapter.html#branching-merging"><i class="fa fa-check"></i><b>7.2.3</b> Branching and Merging</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="git-chapter.html"><a href="git-chapter.html#install-git"><i class="fa fa-check"></i><b>7.3</b> Install Git</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="git-chapter.html"><a href="git-chapter.html#on-windows"><i class="fa fa-check"></i><b>7.3.1</b> On Windows</a></li>
+<li class="chapter" data-level="7.3.2" data-path="git-chapter.html"><a href="git-chapter.html#on-macos-1"><i class="fa fa-check"></i><b>7.3.2</b> On macOS</a></li>
+<li class="chapter" data-level="7.3.3" data-path="git-chapter.html"><a href="git-chapter.html#on-linux-1"><i class="fa fa-check"></i><b>7.3.3</b> On Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="git-chapter.html"><a href="git-chapter.html#get-started"><i class="fa fa-check"></i><b>7.4</b> Get Started</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="git-chapter.html"><a href="git-chapter.html#configure-settings"><i class="fa fa-check"></i><b>7.4.1</b> Configure Settings</a></li>
+<li class="chapter" data-level="7.4.2" data-path="git-chapter.html"><a href="git-chapter.html#initialize-a-git-repository"><i class="fa fa-check"></i><b>7.4.2</b> Initialize a Git Repository</a></li>
+<li class="chapter" data-level="7.4.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files-1"><i class="fa fa-check"></i><b>7.4.3</b> Tracking Files</a>
+<ul>
+<li class="chapter" data-level="7.4.3.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-files-to-staging-area"><i class="fa fa-check"></i><b>7.4.3.1</b> Adding Files to Staging Area</a></li>
+<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#commiting-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Commiting Changes</a></li>
+<li class="chapter" data-level="7.4.3.3" data-path="git-chapter.html"><a href="git-chapter.html#checking-commit-history"><i class="fa fa-check"></i><b>7.4.3.3</b> Checking Commit History</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.4" data-path="git-chapter.html"><a href="git-chapter.html#undoing-commits"><i class="fa fa-check"></i><b>7.4.4</b> Undoing Commits</a>
+<ul>
+<li class="chapter" data-level="7.4.4.1" data-path="git-chapter.html"><a href="git-chapter.html#checkout"><i class="fa fa-check"></i><b>7.4.4.1</b> Checkout</a></li>
+<li class="chapter" data-level="7.4.4.2" data-path="git-chapter.html"><a href="git-chapter.html#revert"><i class="fa fa-check"></i><b>7.4.4.2</b> Revert</a></li>
+<li class="chapter" data-level="7.4.4.3" data-path="git-chapter.html"><a href="git-chapter.html#reset"><i class="fa fa-check"></i><b>7.4.4.3</b> Reset</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.5" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration-1"><i class="fa fa-check"></i><b>7.4.5</b> Managing Collaboration</a>
+<ul>
+<li class="chapter" data-level="7.4.5.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-a-remote-repository"><i class="fa fa-check"></i><b>7.4.5.1</b> Adding a Remote Repository</a></li>
+<li class="chapter" data-level="7.4.5.2" data-path="git-chapter.html"><a href="git-chapter.html#pulling-commits"><i class="fa fa-check"></i><b>7.4.5.2</b> Pulling Commits</a></li>
+<li class="chapter" data-level="7.4.5.3" data-path="git-chapter.html"><a href="git-chapter.html#pushing-commits"><i class="fa fa-check"></i><b>7.4.5.3</b> Pushing Commits</a></li>
+<li class="chapter" data-level="7.4.5.4" data-path="git-chapter.html"><a href="git-chapter.html#setting-upstream"><i class="fa fa-check"></i><b>7.4.5.4</b> Setting Upstream</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.6" data-path="git-chapter.html"><a href="git-chapter.html#branching-merging-2"><i class="fa fa-check"></i><b>7.4.6</b> Branching and Merging</a>
+<ul>
+<li class="chapter" data-level="7.4.6.1" data-path="git-chapter.html"><a href="git-chapter.html#creating-branches"><i class="fa fa-check"></i><b>7.4.6.1</b> Creating Branches</a></li>
+<li class="chapter" data-level="7.4.6.2" data-path="git-chapter.html"><a href="git-chapter.html#selecting-branches"><i class="fa fa-check"></i><b>7.4.6.2</b> Selecting Branches</a></li>
+<li class="chapter" data-level="7.4.6.3" data-path="git-chapter.html"><a href="git-chapter.html#merging-branches"><i class="fa fa-check"></i><b>7.4.6.3</b> Merging Branches</a></li>
+<li class="chapter" data-level="7.4.6.4" data-path="git-chapter.html"><a href="git-chapter.html#solving-conflicts"><i class="fa fa-check"></i><b>7.4.6.4</b> Solving Conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.7" data-path="git-chapter.html"><a href="git-chapter.html#summary"><i class="fa fa-check"></i><b>7.4.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="git-chapter.html"><a href="git-chapter.html#git-workflow"><i class="fa fa-check"></i><b>7.5</b> Git Workflow</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="git-chapter.html"><a href="git-chapter.html#two-branches-approach"><i class="fa fa-check"></i><b>7.5.1</b> Two Branches Approach</a></li>
+<li class="chapter" data-level="7.5.2" data-path="git-chapter.html"><a href="git-chapter.html#multiple-branches-approach"><i class="fa fa-check"></i><b>7.5.2</b> Multiple Branches Approach</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="git-chapter.html"><a href="git-chapter.html#git-rstudio"><i class="fa fa-check"></i><b>7.6</b> RStudio Git GUI</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="git-chapter.html"><a href="git-chapter.html#configure-git-in-rstudio"><i class="fa fa-check"></i><b>7.6.1</b> Configure Git in RStudio</a></li>
+<li class="chapter" data-level="7.6.2" data-path="git-chapter.html"><a href="git-chapter.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>7.6.2</b> Using Git in Rstudio</a>
+<ul>
+<li class="chapter" data-level="7.6.2.1" data-path="git-chapter.html"><a href="git-chapter.html#create-a-git-repository"><i class="fa fa-check"></i><b>7.6.2.1</b> Create a Git Repository</a></li>
+<li class="chapter" data-level="7.6.2.2" data-path="git-chapter.html"><a href="git-chapter.html#git-panel"><i class="fa fa-check"></i><b>7.6.2.2</b> Git Panel</a></li>
+<li class="chapter" data-level="7.6.2.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-changes"><i class="fa fa-check"></i><b>7.6.2.3</b> Tracking Changes</a></li>
+<li class="chapter" data-level="7.6.2.4" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration-2"><i class="fa fa-check"></i><b>7.6.2.4</b> Managing Collaboration</a></li>
+<li class="chapter" data-level="7.6.2.5" data-path="git-chapter.html"><a href="git-chapter.html#branching-and-merging"><i class="fa fa-check"></i><b>7.6.2.5</b> Branching and Merging</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Open Science Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="assets/images/banner.png">
+</div>
+<div id="git-chapter" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Git<a href="git-chapter.html#git-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the previous chapters, we learned to use the Open Science Framework (OSF) and to organize all our files in a well structured and documented repository. Moreover we learned recommended practices to organize and share our data and to write readable and maintainable code.</p>
+<p>However, as the number of files and lines of code increase, it is more and more difficult to maintain full control of our project. We need some tools to help us managing this process. In this chapter, we introduce Git, a software for tracking changes in any file during the development of our project. In Chapter <a href="#github-chapter"><strong>??</strong></a>, instead, we introduce GitHub, a dedicated Git hosting services that allow us to collaborate with other colleagues using shared remote repositories.</p>
+<div id="version-control" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Version Control<a href="git-chapter.html#version-control" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As our projects get more complex, we quickly end up writing thousands of lines of code. During the development, we create several scripts and define many functions; we continuously revise the code, adding new parts, removing others, and making any sort of changes. In particular, when collaborating with other colleagues, this whole process can quickly became very chaotic. We will likely end up with a messy project with multiple copies of the same files (e.g, <code>my-script-2</code>, <code>my-script-5-rev</code>, <code>my-script-10b-rev-adjust</code> and other crazy names). In this scenario, any file conflict or error in the code would results in endless hours trying to figure out the problem and restoring the project to the previous working state could become a real adventure. We need something that helps us managing and tracking our projects during their development.</p>
+<p>Fortunately, we do not need to invent anything. Programmers have already faced these issues for years and their answer is <em>“version control”</em>. Version control software allow us to track the files in our project saving all changes and managing collaboration with other colleagues. In particular, version control have the following advantages:</p>
+<ul>
+<li><strong>Tracking Files.</strong> All changes to the project files (creation, deletion or modification) are recorded keeping track of which were the specific changes, who made them, when, and why. In this way, we obtain a detailed history and complete traceability of the project development. Moreover, we can easily check earlier version of the project and if something goes wrong we can restore the project to any previous status (see Section <a href="git-chapter.html#tracking-files">7.2.1</a>).</li>
+<li><strong>Managing Collaboration.</strong> By sharing an online repository, multiple colleagues can contribute to the development of the same project concurrently. They can work independently on their local machine and then add their own contributions to the shared repository. Version control software manage this whole process in a smooth and efficient way, ensuring no conflicts between the different contributions. A conflict occurs when two colleagues modify the same line in a file (see Section <a href="git-chapter.html#managing-collaboration">7.2.2</a>).</li>
+<li><strong>Branching.</strong> During the development, we can create different branches (like the branches of a tree) that diverge from the main line of development. Each branch is independent allowing us to make changes without affecting the other branches or the main line of development. When ready, we can integrate all changes into the main line by merging the desired branch. Branches are commonly used to develop new features, solve issues, or make experiments safely without worrying about braking the code. Only when a only when a stable solution is obtained, we integrate branches into the main line of development (see Section <a href="git-chapter.html#branching-merging">7.2.3</a>).</li>
+</ul>
+<p>Version control software are the solution for managing projects development in an efficient and secure way and <em>Git</em> (<a href="https://git-scm.com/" class="uri">https://git-scm.com/</a>) is the most popular version control software. Therefore, let’s learn how to use Git.</p>
+</div>
+<div id="git-elements" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Git Elements<a href="git-chapter.html#git-elements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="packages-logo-box", style="width: 250px;"><img src="images/git/git-logo.png"></div>
+<p>First, we describe the main idea behind the git workflow introducing all the elements, concepts, and technical terms.</p>
+<div id="tracking-files" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Tracking Files<a href="git-chapter.html#tracking-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using Git, we can track the files in our project saving all changes. In Git terms, we define this process as <em>creating a commit</em> (or <em>committing</em>). Note that creating a commit is much more than simply <em>saving</em> in the traditional terms (i.e., overwriting existing files or creating new files). Creating a commit, we keep record of the exact changes (creation, deletion or modification) to each file. We can think of a commit as a snapshot of all the files in our project at that exact point in time.</p>
+<p>Creating a commit requires a two step process:</p>
+<ol style="list-style-type: decimal">
+<li><strong><code>add</code>.</strong> First, we need to add the desired files to the <em>staging area</em>. We can think of the staging area as a waiting room for the files ready to be committed. This is used to indicate to Git which files from our local directory we want to include in the next commit. In this way, we can group together in the same commit only related files, logically splitting changes into different commits.</li>
+<li><strong><code>commit</code>.</strong> Next, we proceed creating the actual commit. Git captures a snapshot of the currently staged files and adds the commit to the timeline in our <em>local Git repository</em>. The local Git repository is simply an hidden directory (i.e., <code>.git/</code>) within our project used by Git to store all information and files required for version control.</li>
+</ol>
+<p><img src="images/git/local-work-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Commit by commit, we create a timeline with the whole history of our project. We can visualize this process as in the following figure, where each circle represents a commit and we called the principal timeline <code>master</code> (more on this in Section <a href="git-chapter.html#branching-merging">7.2.3</a>).</p>
+<p><img src="images/git/history.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><strong><code>HEAD</code></strong> indicates the current commit we are viewing, in our case, the last commit in the timeline. Moreover, each commit is identified by a unique SHA-1 hash ID (i.e., an alpha-numeric sequence). We can use these IDs to move along the project timeline as if we had a time machine.</p>
+<p>Imagine we have found some unexpected issues in our code and we want to move back to a previous commit to check if at that point in time everything was fine. We can move our <code>HEAD</code> to the desired commit and, as if by magic, all files in our project will be restored to their previous versions at that exact point in time. Of course, we can subsequently move again the <code>HEAD</code> to the last commit restoring the files to their present version.</p>
+<p><img src="images/git/checkout.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>In Git terms, we define the process of moving the <code>HEAD</code> to restore a specific commit status as:</p>
+<ul>
+<li><strong><code>checkout</code>.</strong> We can restore any commit status in our timeline. Git uses the information in the local repository to restore all files in our local directory to their versions at that exact point in time.</li>
+</ul>
+<p><img src="images/git/local-work-2.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="managing-collaboration" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Managing Collaboration<a href="git-chapter.html#managing-collaboration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>So far we described the workflow of a single user working only on his/her local machine. Even if we work on our own only on our local machine, using Git is always highly recommended as allows us to keep track of our project development. However, when we collaborate with other colleagues, Git show all of its power.</p>
+<p>To collaborate with other colleagues, we need to share the Git repository. Therefore, we will have:</p>
+<ul>
+<li><strong>Remote Git Repository.</strong> The Git repository shared between all colleagues that is used as reference. This is usually available on a online service (e.g., GitHub, GitLab, or Bitbucket; see Chapter <a href="#github-chapter"><strong>??</strong></a>) or a private server. Note that, for Git to work, we need to share the repositories on dedicated Git hosting services. We can not use common cloud storage services (e.g., Google Drive or Drop Box) as they do not have Git running behind.</li>
+<li><strong>Local Git Repository.</strong> Each colleagues has his/her own copy of the remote Git repository on his/her own local machine.</li>
+</ul>
+<p>Colleagues can work independently on their own local repository as usual, making all sort of changes and create multiple new commits. Once finished, they can share their work with other colleagues by uploading their new commits to the remote repository. Next, other colleagues can updated their local repository by downloading the new changes from the remote repository. In particular, we have two actions:</p>
+<ul>
+<li><strong><code>pull</code>.</strong> Download the new commits in the local repository from the remote repository.</li>
+<li><strong><code>push</code>.</strong> Upload the new commits from the local repository to the remote repository.</li>
+</ul>
+<p><img src="images/git/collaborate.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Git automatically manages this whole process in a smooth and efficient way. In particular, Git checks for:</p>
+<ul>
+<li><strong>Pull First.</strong> Git do not allows us to push our commits if detects in the remote repository new commits that are not available in our local repository. This is usually due to other colleagues pushing their commits. Git force us to integrate these commits by pulling from the remote repository and next push our commits. In this way, Git ensure that there are no conflicts between our commits and the new commits from other colleagues.</li>
+<li><strong>Solve Conflicts.</strong> A conflict con occur when we integrate changes from other colleagues (or merging branches; see Section <a href="git-chapter.html#branching-merging">7.2.3</a>) and two different commits modify the same line in a file (or one commit deletes the file and the other edit the same file). In this case, Git is not able to automatically integrate the changes. Therefore, before pushing our commits, Git ask us to explicitly solve any conflict by choosing which of the two versions to keep.</li>
+</ul>
+<p>Summarizing, when collaborating with other colleagues on a shared repository, the workflow proceed as follow. First, we pull latest commits from the remote repository to our local repository. Next, we keep working as usual developing the project and creating new commits in the local repository. Finally, when we reach some stable point in the development, we push our new commits to the remote repository.</p>
+<p><img src="images/git/workflow.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Remember,</p>
+<blockquote>
+<p><strong><em>Always pull first!</em></strong></p>
+</blockquote>
+<p>This must be the first thing we do at each session as it is important to always work with the latest project version. If we forget about it, we may end up relying on old code versions introducing several issues.</p>
+</div>
+<div id="branching-merging" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> Branching and Merging<a href="git-chapter.html#branching-merging" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Imagine we are working with other colleagues on the development of different features. Ideally, we would be able to develop each feature independently of each other and integrate everything together when ready. In this way, we could avoid continuously running into conflicts or other issues. Alternatively, suppose we got a wonderful idea to improve our project but this would require some drastic changes and we are not sure if this idea would be successful. Ideally, we would like to work on a separate copy of our project allowing us to shift back to the original project if something goes irremediably wrong.</p>
+<p>Git has two incredibly useful features designed to facilitate the workflow in both scenarios described above:</p>
+<ul>
+<li><p><strong><code>branch</code>.</strong> We can create independent streams of development. In Git terms, these are called <em>branches</em> (like the branches of a tree). Branches allows us to work concurrently on different features (or projects ideas) without letting changes in one branch to affect the other branches. We need to assign a name to each branch and a standard convention is to name the principal branch <code>master</code> ( or <code>main</code>; these are just names without any special meaning per se). We can subsequently move our <code>HEAD</code> to shift from one branch to another. Files in our local directory will be restored according to the specific branch stream of changes. In the figure below, we can see an example of a Git history with three branches where the <code>HEAD</code> is currently pointing to <code>branch1</code>.
+<img src="images/git/branch.png" width="90%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong><code>merge</code>.</strong> At some point, we may want to integrate changes from different branches. In Git terms, we <em>merge</em> one branch into another. In this way, we can develop different features (or projects ideas) independently and merge them when ready. Before merging, Git will check for conflicts between the different branch commits. In case of conflicts, Git will require us to explicitly solve them by choosing which of the two versions to keep. In the figure below, we can see an example of a Git history where the <code>branch1</code> is merged back into <code>master</code>.
+<img src="images/git/merge-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Note that the directionality is important. Branches are not mixed together creating a single branch, but commits in the timeline of one branch are integrated in the timeline of the other branch. Therefore, considering the previous example, we would obtain the following timelines for the two branches.
+<img src="images/git/merge-2.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Finally, even after merging, the two branches still exist and they are independent. This means that we can keep working on <code>branch1</code> and new commits will not affect <code>master</code>. Only the merging operation allows to integrate commits from one branch to another.</p></li>
+</ul>
+<p>Branching and merging may require some practice and experience before to properly use them. However, they are extremely useful tools to organize and manage projects development workflow both when collaboration with other colleagues or when working on our own. In Section <a href="git-chapter.html#git-workflow">7.5</a>, we describe suggested practices and more advanced workflows to efficiently organize and use multiple branches during the project development.</p>
+</div>
+</div>
+<div id="install-git" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Install Git<a href="git-chapter.html#install-git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can check whether Git is installed on our machine by running the following command in the terminal.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb97-1"><a href="git-chapter.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git <span class="at">--version</span></span></code></pre></div>
+<p>The Git version is returned. If Git is not available, we can install it following the Operative System specific instructions. See also <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a>.</p>
+<div id="on-windows" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> On Windows<a href="git-chapter.html#on-windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have two main scenarios:</p>
+<ul>
+<li><p><strong>Git Bash.</strong> <em>Git for Windows</em> (<a href="https://gitforwindows.org/" class="uri">https://gitforwindows.org/</a>) is a project that provides us the required tools to work with Git on Windows. In particular, it includes <em>Git Bash</em> (a Bash terminal to run Git from the command line), <em>Git GUI</em> (a graphical user interface for Git), and other integration tools. Install Git for Windows following the instructions at <a href="https://git-scm.com/download/win" class="uri">https://git-scm.com/download/win</a>.</p></li>
+<li><p><strong>WLS.</strong> We can use the Windows Subsystem for Linux (see Section <a href="#install-windows"><strong>??</strong></a>) opening the dedicated terminal. Git is already installed in most Linux distributions. if this is not the case (or if we want to update the Git version), we can run the command (for Ubuntu/Debian)</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb98-1"><a href="git-chapter.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt-get update</span>
+<span id="cb98-2"><a href="git-chapter.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt-get install git</span></code></pre></div></li>
+</ul>
+<p>Depending on our preferred solution, we need to use the correct terminal (Git Bash or WLS) to run Git command lines.</p>
+</div>
+<div id="on-macos-1" class="section level3 hasAnchor" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> On macOS<a href="git-chapter.html#on-macos-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have two main scenarios:</p>
+<ul>
+<li><strong>XCode Command Line Tools.</strong> Git is automatically installed with the XCode Command Line Tools (<code>xcode-select —install</code>). If not already available, when running <code>git --version</code> command, the system will automatically ask us if we want to install it. However, this is not the latest version of Git.</li>
+<li><strong>Brew.</strong> If we are using Brew to manage packages (highly recommended), we can install the latest Git version running the command
+<code>bash     $ brew install git</code></li>
+</ul>
+</div>
+<div id="on-linux-1" class="section level3 hasAnchor" number="7.3.3">
+<h3><span class="header-section-number">7.3.3</span> On Linux<a href="git-chapter.html#on-linux-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Git is already installed in most Linux distributions. If this is not the case (or if we want to update the Git version), we can run the command (for Ubuntu/Debian).</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb99-1"><a href="git-chapter.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt-get update</span>
+<span id="cb99-2"><a href="git-chapter.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt-get install git</span></code></pre></div>
+</div>
+</div>
+<div id="get-started" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Get Started<a href="git-chapter.html#get-started" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Yep! Finally, we are ready to put our hands on Git and enjoy all of it power (and madness). In this introduction to Git, we describe the basic features and commands. For more details and advanced features, we suggest the the following resources:</p>
+<ul>
+<li><em>Bitbucket Git Tutorial:</em> <a href="https://www.atlassian.com/git/tutorials" class="uri">https://www.atlassian.com/git/tutorials</a></li>
+<li><em>Pro Git Book:</em> <a href="https://git-scm.com/book/en/v2" class="uri">https://git-scm.com/book/en/v2</a></li>
+<li><em>Git Official Manual:</em> <a href="https://git-scm.com/doc" class="uri">https://git-scm.com/doc</a></li>
+</ul>
+<p>Now we can open our terminal and start to play.</p>
+<div id="configure-settings" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Configure Settings<a href="git-chapter.html#configure-settings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First of all, we need to configure Git providing our username and email. These will be used by Git to identify the author of each commit. To configure the username and email, run the following commands,</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb100-1"><a href="git-chapter.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.name <span class="st">&quot;&lt;My Name&gt;&quot;</span></span>
+<span id="cb100-2"><a href="git-chapter.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.email <span class="st">&quot;&lt;user@email.com&gt;&quot;</span></span></code></pre></div>
+<p>Using the flag <code>--global</code>, we configure username and email for all projects for the current user. Configuration settings are stored in <code>~/.gitconfig</code>.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb101-1"><a href="git-chapter.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    .gitconfig    ----#</span></span>
+<span id="cb101-2"><a href="git-chapter.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[user]</span></span>
+<span id="cb101-3"><a href="git-chapter.html#cb101-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">name</span> = My Name</span>
+<span id="cb101-4"><a href="git-chapter.html#cb101-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">email</span> = user@email.com</span></code></pre></div>
+<p>To check the current settings, run he following command,</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb102-1"><a href="git-chapter.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--list</span></span></code></pre></div>
+<p>Perfect! Now Git knows who we are.</p>
+<div class="trick" title="Three Levels of Configuration">
+<p>We can configure Git settings at three levels:</p>
+<ul>
+<li><p><strong>System.</strong> These settings are available for all users and are stored in <code>/etc/gitconfig</code>. To set system settings, use the flag <code>--system</code>, for example</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb103-1"><a href="git-chapter.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--system</span> user.name <span class="st">&quot;My Name&quot;</span></span></code></pre></div></li>
+<li><p><strong>Global.</strong> These settings are available for all projects of the current user and are stored in <code>~/.gitconfig</code>. To set global settings, use the flag <code>--global</code>, for example</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb104-1"><a href="git-chapter.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.name <span class="st">&quot;My Name&quot;</span></span></code></pre></div></li>
+<li><p><strong>Project.</strong> These settings are available only for the current project and are stored in <code>.git/config</code> (within the project directory). We do not need flags to set project settings.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb105-1"><a href="git-chapter.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config user.name <span class="st">&quot;My Name&quot;</span></span></code></pre></div></li>
+</ul>
+<p>Of course, project settings over-rides global settings and global settings over-rides system settings (see <a href="https://stackoverflow.com/questions/8801729/is-it-possible-to-have-different-git-configuration-for-different-projects/54125961" class="uri">https://stackoverflow.com/questions/8801729/is-it-possible-to-have-different-git-configuration-for-different-projects/54125961</a>).</p>
+</div>
+</div>
+<div id="initialize-a-git-repository" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Initialize a Git Repository<a href="git-chapter.html#initialize-a-git-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When starting a project with Git, there are two main scenarios:</p>
+<ul>
+<li><p><strong><code>init</code>.</strong> We have an already existing project on our local machine and we want to start using Git for that project. To do that, we run the command <code>git init</code> from the project directory.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb106-1"><a href="git-chapter.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd <span class="op">&lt;</span>path-to/project-directory<span class="op">&gt;</span></span>
+<span id="cb106-2"><a href="git-chapter.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git init</span></code></pre></div>
+<p>This command will create an hidden folder <code>.git/</code> within the project directory where Git stores all the information and files required for version control. Moreover, Git also initialize the principal branch using the name <code>master</code> (or <code>main</code>).</p></li>
+<li><p><strong><code>clone</code>.</strong> The project is already under version control and is available in a remote repository. To obtain a local copy of the repository, we run the command <code>git clone</code> indicating the repository URL.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb107-1"><a href="git-chapter.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone <span class="op">&lt;</span>repository-URL<span class="op">&gt;</span></span></code></pre></div>
+<p>This command creates a copy of the remote repository at the current working directory. Note that we can easily clone any public repositories. However, we need specific authorization or authentication protocol (e.g., login credentials or SSH keys) to clone private repositories. We discuss authentication procedures in Chapter <a href="#authentication"><strong>??</strong></a>.</p></li>
+</ul>
+</div>
+<div id="tracking-files-1" class="section level3 hasAnchor" number="7.4.3">
+<h3><span class="header-section-number">7.4.3</span> Tracking Files<a href="git-chapter.html#tracking-files-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now our project is under version control. Suppose we have the following project structure,</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb108-1"><a href="git-chapter.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="ex">my-project/</span></span>
+<span id="cb108-2"><a href="git-chapter.html#cb108-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> README</span>
+<span id="cb108-3"><a href="git-chapter.html#cb108-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
+<span id="cb108-4"><a href="git-chapter.html#cb108-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> raw-data.csv</span>
+<span id="cb108-5"><a href="git-chapter.html#cb108-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> documents/</span>
+<span id="cb108-6"><a href="git-chapter.html#cb108-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> code/</span>
+<span id="cb108-7"><a href="git-chapter.html#cb108-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> my-functions-1</span>
+<span id="cb108-8"><a href="git-chapter.html#cb108-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> my-functions-2</span></code></pre></div>
+<p>We can run the command <code>git status</code> the check the project state.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb109-1"><a href="git-chapter.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb109-2"><a href="git-chapter.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch master</span>
+<span id="cb109-3"><a href="git-chapter.html#cb109-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="git-chapter.html#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="ex">No</span> commits yet</span>
+<span id="cb109-5"><a href="git-chapter.html#cb109-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="git-chapter.html#cb109-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Untracked</span> files:</span>
+<span id="cb109-7"><a href="git-chapter.html#cb109-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">&quot;git add &lt;file&gt;...&quot;</span> to include in what will be committed<span class="kw">)</span></span>
+<span id="cb109-8"><a href="git-chapter.html#cb109-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">code/</span></span>
+<span id="cb109-9"><a href="git-chapter.html#cb109-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">data/</span></span>
+<span id="cb109-10"><a href="git-chapter.html#cb109-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">README</span></span>
+<span id="cb109-11"><a href="git-chapter.html#cb109-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-12"><a href="git-chapter.html#cb109-12" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> added to commit but untracked files present <span class="er">(</span><span class="ex">use</span> <span class="st">&quot;git add&quot;</span> to track<span class="kw">)</span></span></code></pre></div>
+<p>We are on the principal branch <code>master</code> and at the moment all files are untracked. Note that <code>documents/</code> is not listed as Git does not track empty directories.</p>
+<div class="tip" title=".git-track File">
+<p>As just pointed out, Git do not track empty directories. However, if we need to track an empty directory, we can add an hidden file. For example, we can create and hidden empty file named <code>.git-track</code> using the command</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb110-1"><a href="git-chapter.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> touch <span class="op">&lt;</span>path-to-empty-dir<span class="op">&gt;</span>/.git-track</span></code></pre></div>
+<p>Note that the name has no special meaning per se. We can use any name.</p>
+</div>
+<div id="adding-files-to-staging-area" class="section level4 hasAnchor" number="7.4.3.1">
+<h4><span class="header-section-number">7.4.3.1</span> Adding Files to Staging Area<a href="git-chapter.html#adding-files-to-staging-area" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>As suggested by Git, we can add untracked files using the command <code>git add</code> listing the desire files.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb111-1"><a href="git-chapter.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add README <span class="op">&lt;</span>other-files<span class="op">&gt;</span></span></code></pre></div>
+<p>We can also use the flag <code>--all</code> to add automatically all untracked files.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb112-1"><a href="git-chapter.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add <span class="at">--all</span></span>
+<span id="cb112-2"><a href="git-chapter.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb112-3"><a href="git-chapter.html#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch master</span>
+<span id="cb112-4"><a href="git-chapter.html#cb112-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-5"><a href="git-chapter.html#cb112-5" aria-hidden="true" tabindex="-1"></a><span class="ex">No</span> commits yet</span>
+<span id="cb112-6"><a href="git-chapter.html#cb112-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-7"><a href="git-chapter.html#cb112-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Changes</span> to be committed:</span>
+<span id="cb112-8"><a href="git-chapter.html#cb112-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage<span class="kw">)</span></span>
+<span id="cb112-9"><a href="git-chapter.html#cb112-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">new</span> file:   code/my-functions-1</span>
+<span id="cb112-10"><a href="git-chapter.html#cb112-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">new</span> file:   code/my-functions-2</span>
+<span id="cb112-11"><a href="git-chapter.html#cb112-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">new</span> file:   data/raw-data.csv</span>
+<span id="cb112-12"><a href="git-chapter.html#cb112-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">new</span> file:   README</span></code></pre></div>
+<p>Note that using <code>git add --all</code> is not recommended as we may end up adding a lot of not useful files (e.g., system files or build artefacts). If we added some unwanted files, we can use the command <code>git rm --cached &lt;file&gt;</code> to remove a specific file from the staging area (or <code>git reset</code> to remove all files). We should always aim to keep our repository as clean as possible tracking only relevant files. To help us with this, we can specify which files to ignore listing them in the <code>.gitignore</code> file.</p>
+<div class="design" title=".gitignore File">
+<p>The <code>.gitignore</code> file is used to list all files we want to ignore. These files will be not tracked by Git. The <code>.gitignore</code> file is usually saved in the project root.</p>
+<p>We can specifay the exact file name or we can use matching patterns (i.e., globbing patterns, see <a href="https://linux.die.net/man/7/glob" class="uri">https://linux.die.net/man/7/glob</a>) to exclude specific subset of files. For example:</p>
+<ul>
+<li><strong><code>note.txt</code></strong>: ignore all files named <code>"note.txt"</code> in any directory (e.g., <code>"my-folder/note.txt"</code>)</li>
+<li><strong><code>folder-A/note.txt</code></strong>: ignore files named <code>"note.txt"</code> in <code>"folder-A"</code>. In this case the file <code>"folder-B/note.txt"</code> is not ignored.</li>
+<li><strong><code>folder-A/</code></strong>: ignore files in any directory named <code>"folder-A"</code>. For example also files in <code>"folder-B/folder-A/"</code> are ignored.</li>
+<li><strong><code>*.log</code></strong>: ignore files that ends with <code>".log"</code> in any directory.</li>
+<li><strong><code>folder-A/*.log</code></strong>: ignore files that ends with <code>".log"</code> in <code>"folder-A"</code>.</li>
+<li><strong><code>!important.log</code></strong>: the exclamation mark is used to create exceptions to previously define patterns. In this case the file <code>"important.log"</code> will not be ignored.</li>
+</ul>
+<p>When creating or editing the <code>.gitignore</code> file, it is important to remember that:</p>
+<ul>
+<li>Each file or pattern has to be defined on a new line</li>
+<li>The character <code>#</code> is used to create comments</li>
+<li>Defined patterns are evaluated according to the <code>.gitignore</code> file position.</li>
+</ul>
+<p>Moreover, the <code>.gitignore</code> file is usually saved in the project root but we can also define multiple <code>.gitignore</code> files and save them in different locations. Remember patterns are evaluated according to the <code>.gitignore</code> file position.</p>
+<p>Finally, note that if we want to ignore a file that has been already tracked, first we need to remove it form the list of tracked files by Git. To do that, we can use the command <code>git rm --cached &lt;file&gt;</code>. Note that it is important to specify the <code>--cached</code> flag otherwise the file will be removed also from the working directory. Next, we can include it into the <code>.gitignore</code> file and commit the changes. Now the file will be ignored by Git.</p>
+<p>To learn more about the <code>.gitignore</code> file and all the other exclusion rules, see <a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore" class="uri">https://www.atlassian.com/git/tutorials/saving-changes/gitignore</a></p>
+</div>
+</div>
+<div id="commiting-changes" class="section level4 hasAnchor" number="7.4.3.2">
+<h4><span class="header-section-number">7.4.3.2</span> Commiting Changes<a href="git-chapter.html#commiting-changes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now all files are in the staging area and we are ready for our first commit. To create a commit, run the command</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb113-1"><a href="git-chapter.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit</span></code></pre></div>
+<p>This will open our preferred text editor asking us for a commit message. Each commit requires a message describing the content of the commit. In this case, we can add the following message</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb114-1"><a href="git-chapter.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Init</span> Repo</span>
+<span id="cb114-2"><a href="git-chapter.html#cb114-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb114-3"><a href="git-chapter.html#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> add data and scripts</span>
+<span id="cb114-4"><a href="git-chapter.html#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> add README</span></code></pre></div>
+<p>After we save the file and close the editor, the commit is created. Now we can continue creating new files or modifying existing ones. Once we are ready, we can stage (i.e., <code>add</code>) the desired files and create a new commit.</p>
+<p>For example, let’s modify the <code>README</code> file adding some information and save the changes. Git will detect the file has been modified.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb115-1"><a href="git-chapter.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb115-2"><a href="git-chapter.html#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch master</span>
+<span id="cb115-3"><a href="git-chapter.html#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Changes</span> not staged for commit:</span>
+<span id="cb115-4"><a href="git-chapter.html#cb115-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="kw">)</span></span>
+<span id="cb115-5"><a href="git-chapter.html#cb115-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">&quot;git restore &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="kw">)</span></span>
+<span id="cb115-6"><a href="git-chapter.html#cb115-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">modified:</span>   README</span>
+<span id="cb115-7"><a href="git-chapter.html#cb115-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-8"><a href="git-chapter.html#cb115-8" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> changes added to commit <span class="er">(</span><span class="ex">use</span> <span class="st">&quot;git add&quot;</span> and/or <span class="st">&quot;git commit -a&quot;</span><span class="kw">)</span></span></code></pre></div>
+<p>We can stage and commit the new changes</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb116-1"><a href="git-chapter.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-am</span> <span class="st">&quot;Update README&quot;</span>  </span></code></pre></div>
+<p>Note we staged the changes and passed the commit message directly in the command, using two common commit options:</p>
+<ul>
+<li><strong><code>git commit -m "&lt;commit message&gt;"</code>.</strong> Specify the commit message in the inline command. x</li>
+<li><strong><code>git commit -a</code>.</strong> Commit all changes to already tracked files (no new files) without adding first.</li>
+</ul>
+<p>These options are useful in the case of small commits, but we recommend limited use as it is always preferable to selectively stage files and add descriptive commit messages.</p>
+<div class="tip" title="Good Commit Messages">
+<p>There are no strict rules when creating a commit message. A good practice, however, is to summarize the content of the commit on the first line with a brief title (less than 50 characters). Next, after a blank line, we can list a detailed description of all changes.</p>
+<p>A good message should not only list what we changed but also why we did it. Descriptive messages are very useful for collaborators when reviewing the code and remember, this is likely to be the future us.</p>
+</div>
+</div>
+<div id="checking-commit-history" class="section level4 hasAnchor" number="7.4.3.3">
+<h4><span class="header-section-number">7.4.3.3</span> Checking Commit History<a href="git-chapter.html#checking-commit-history" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To get the history of all commits, we can use the command <code>git log</code>. Commits are listed from latest to oldest and for each commit we get the following information: commit ID, author, date, and commit message. For a more compact version we can specify the flag <code>--oneline</code>.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb117-1"><a href="git-chapter.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log</span>
+<span id="cb117-2"><a href="git-chapter.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="ex">commit</span> ec15cb085c2e5aa463778bbef3239b06b9ac4010 <span class="er">(</span><span class="ex">HEAD</span> <span class="at">-</span><span class="op">&gt;</span> master<span class="kw">)</span></span>
+<span id="cb117-3"><a href="git-chapter.html#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Author:</span> username <span class="op">&lt;</span>user@email.com<span class="op">&gt;</span></span>
+<span id="cb117-4"><a href="git-chapter.html#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span>   Tue Feb 15 10:06:27 2022 +0100</span>
+<span id="cb117-5"><a href="git-chapter.html#cb117-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-6"><a href="git-chapter.html#cb117-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Update</span> README</span>
+<span id="cb117-7"><a href="git-chapter.html#cb117-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-8"><a href="git-chapter.html#cb117-8" aria-hidden="true" tabindex="-1"></a><span class="ex">commit</span> 93398d18e686d4698af3e52a0677585afe467a19</span>
+<span id="cb117-9"><a href="git-chapter.html#cb117-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Author:</span> username <span class="op">&lt;</span>user@email.com<span class="op">&gt;</span></span>
+<span id="cb117-10"><a href="git-chapter.html#cb117-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span>   Tue Feb 15 09:26:13 2022 +0100</span>
+<span id="cb117-11"><a href="git-chapter.html#cb117-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-12"><a href="git-chapter.html#cb117-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Init</span> Repo</span>
+<span id="cb117-13"><a href="git-chapter.html#cb117-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb117-14"><a href="git-chapter.html#cb117-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-</span> add data and scripts</span>
+<span id="cb117-15"><a href="git-chapter.html#cb117-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-</span> add README</span></code></pre></div>
+<p>We can check changes between commits using the function <code>git diff</code>. Depending on the specified arguments we can compare different commits. In particular,</p>
+<ul>
+<li><strong><code>git diff</code>.</strong> It displays changes since the last commit.</li>
+<li><strong><code>git diff &lt;commit-ID&gt;</code>.</strong> It displays changes since a specified commit.</li>
+<li><strong><code>git diff &lt;commit-ID-A&gt; &lt;commit-ID-B&gt;</code>.</strong> It displays changes from commit-A to commit-B.</li>
+</ul>
+<p>Note that it is not necessary to provide the whole commit ID, but we can provide only the initial characters as long as they uniquely identify the commit. Usually 6 to 10 digits are enough. For example in our case we can compare the two commit running,</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb118-1"><a href="git-chapter.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git diff 93398d1 ec15cb0</span>
+<span id="cb118-2"><a href="git-chapter.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> <span class="at">--git</span> a/README b/README</span>
+<span id="cb118-3"><a href="git-chapter.html#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="ex">index</span> 64772c2..e994379 100644</span>
+<span id="cb118-4"><a href="git-chapter.html#cb118-4" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span> a/README</span>
+<span id="cb118-5"><a href="git-chapter.html#cb118-5" aria-hidden="true" tabindex="-1"></a><span class="ex">+++</span> b/README</span>
+<span id="cb118-6"><a href="git-chapter.html#cb118-6" aria-hidden="true" tabindex="-1"></a><span class="ex">@@</span> <span class="at">-1</span> +1,2 @@</span>
+<span id="cb118-7"><a href="git-chapter.html#cb118-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">This</span> is my first project using Git!</span>
+<span id="cb118-8"><a href="git-chapter.html#cb118-8" aria-hidden="true" tabindex="-1"></a><span class="ex">+New</span> information</span></code></pre></div>
+<p>Checking commit history and changes between commits directly form command line may be complicated. Popular IDEs (e.g., RStudio or Visual Studio Code) provide useful graphical interfaces to facilitate these tasks (see Section <a href="git-chapter.html#git-rstudio">7.6</a>).</p>
+</div>
+</div>
+<div id="undoing-commits" class="section level3 hasAnchor" number="7.4.4">
+<h3><span class="header-section-number">7.4.4</span> Undoing Commits<a href="git-chapter.html#undoing-commits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Git allow us to keep track of the whole history of our project. In this way we are sure we will never lose anything and, if something goes wrong during the development, we can always easily move back to previous commits.</p>
+<p>For example, consider a project with the following Git history.
+<img src="images/git/history.png" width="90%" style="display: block; margin: auto;" />
+Imagine we ended up in some big troubles and we need to go back two commits (commit <code>60e117d7</code>) and restart the development over again. Using Git, there are three different ways of <em>undoing</em> commits:</p>
+<ul>
+<li><strong><code>git checkout &lt;commit-ID&gt;</code>.</strong></li>
+<li><strong><code>git revert &lt;commit-ID&gt;</code>.</strong></li>
+<li><strong><code>git reset &lt;commit-ID&gt;</code>.</strong></li>
+</ul>
+<p>Let’s describe the difference between these three commands.</p>
+<div id="checkout" class="section level4 hasAnchor" number="7.4.4.1">
+<h4><span class="header-section-number">7.4.4.1</span> Checkout<a href="git-chapter.html#checkout" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>As already introduced in Section <a href="git-chapter.html#tracking-files">7.2.1</a>, the <code>git checkout</code> command allows us to point our <code>HEAD</code> (i.e., the current commit we are viewing) to a target commit. In this way, all files in our project will be restored to their state at that exact commit.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb119-1"><a href="git-chapter.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span><span class="kw">`</span></span></code></pre></div>
+<p>In our example, we can restore the desired commit (<code>60e117d7</code>) running the command,</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb120-1"><a href="git-chapter.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout 60e117d7</span></code></pre></div>
+<p><img src="images/git/checkout.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>In this state, we can make any experimental changes and commit them. These new commits, however, will not affect our principal line of development (<code>master</code>) or other branches. In Git terms we are in <code>detached HEAD</code> state. This means that once we move back to our last commit (using the command <code>git checkout master</code>) all new commits will be lost.</p>
+<p>If we want to retain the new commits, we need to create a new branch, using the command <code>git checkout -b &lt;branch-name&gt;</code> (see Section <a href="git-chapter.html#branching-merging-2">7.4.6</a>). In this way, however, our development would diverge from the <code>master</code> branch and this may not be desired.
+<img src="images/git/checkout-diverge.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="revert" class="section level4 hasAnchor" number="7.4.4.2">
+<h4><span class="header-section-number">7.4.4.2</span> Revert<a href="git-chapter.html#revert" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>git revert</code> command allow us to <em>undo</em> commits. However, rather than removing the target commit from the Git history, <code>git revert</code> creates a new commit in which the changes of the target commit are reverted. Following this approach, the whole Git history is maintained without losing any commit. This allow us to safely collaborate with other colleagues on shared repositories.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb121-1"><a href="git-chapter.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git revert <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span><span class="kw">`</span></span></code></pre></div>
+<p>In our example, we can restore the desired commit (<code>60e117d7</code>) reverting the two subsequent commits (<code>7bf97593</code> and <code>9d109cfe</code>). To do that, we run the commands,</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb122-1"><a href="git-chapter.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git revert 7bf97593</span>
+<span id="cb122-2"><a href="git-chapter.html#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git revert 9d109cfe</span></code></pre></div>
+<p><img src="images/git/revert.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Note that by default each <code>git revert</code> command creates a new commit. Moreover, by using <code>git revert</code> we can undo any commit at any arbitrary point in the Git history.</p>
+</div>
+<div id="reset" class="section level4 hasAnchor" number="7.4.4.3">
+<h4><span class="header-section-number">7.4.4.3</span> Reset<a href="git-chapter.html#reset" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>git reset</code> command allow us to restore a target commit. All the subsequent commits are removed from the Git history irremediably modifying the Git history. These changes may lead to severe issues if we are collaborating on a shared repository. Therefore, <code>git reset</code> should never be used for undoing commits on public repositories but only for undoing local changes.</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb123-1"><a href="git-chapter.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git reset <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span></span></code></pre></div>
+<p>In our example, we can reset our Git history to the desired commit (<code>60e117d7</code>) running the command,</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb124-1"><a href="git-chapter.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git reset 60e117d7</span></code></pre></div>
+<p><img src="images/git/reset.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Note that by default, the <code>git reset</code> command reset th commit history and file staging state to the target commit. However, all files in our working directory still maintain all the changes from the last commit (previous to the reset command). This is our last occasion to revise all changes before losing everything. We can run the command <code>git restore &lt;file&gt;</code> to definitely discard changes. Alternatively, we can specify the flag <code>--hard</code> in the <code>git reset</code> command, in this case we will not be able to revise changes and all data would be irremediably lost.</p>
+<div class="tip" title="Undoing Commits">
+<p>Summarizing, when we need to undo some commits:</p>
+<ul>
+<li><strong><code>git checkout</code></strong> command is useful to restore the project to a previous state from where we can our test without worrying abut impacting the current Git history and we can create a new line of development . However, the <code>git checkout</code> command does not allow us to undo changes in the original line of development.</li>
+<li><strong><code>git revert</code></strong> command is the recommended safe method for undoing changes as it never deletes old commits but create new commits for undoing changes. Using the <code>git revert</code> command we always maintain the full Git history intact.</li>
+<li><strong><code>git reset</code></strong> command is the dangerous way of undoing changes as old commits are irremediably deleted from the Git history. The <code>git reset</code> command should be only used for undoing local changes and should never used for undoing public commits.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="managing-collaboration-1" class="section level3 hasAnchor" number="7.4.5">
+<h3><span class="header-section-number">7.4.5</span> Managing Collaboration<a href="git-chapter.html#managing-collaboration-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When collaborating with other colleagues on a project, we share a <strong>remote repository</strong> used as main reference. Each colleague can work independently on its own <strong>local repository</strong> and upload/download commits when required.</p>
+<p>Let’s describe the operations required to collaborate.</p>
+<div id="adding-a-remote-repository" class="section level4 hasAnchor" number="7.4.5.1">
+<h4><span class="header-section-number">7.4.5.1</span> Adding a Remote Repository<a href="git-chapter.html#adding-a-remote-repository" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If we created our repository using the <code>git clone</code> command, it automatically creates a connection to the remote repository. Otherwise, we need to add the name and the URL of a remote repository. To do that, we use the command,</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb125-1"><a href="git-chapter.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote add <span class="op">&lt;</span>name<span class="op">&gt;</span> <span class="op">&lt;</span>url<span class="op">&gt;</span></span></code></pre></div>
+<p>For example,</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb126-1"><a href="git-chapter.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote add origin https://github.com/username/my-project.git</span></code></pre></div>
+<p>Note that the name <code>origin</code> is the standard convention to indicate the principal remote repository but it has no special meaning per se. Moreover, there are multiple ways of specifying the remote repository URL according to the authentication protocol used (e.g., HTTP or SSH protocol). This will affect our specific permissions (e.g., read and/or write access). Authentication and permissions are discussed in Chapter <a href="#authentication"><strong>??</strong></a>.</p>
+<p>We can add more than one remote repository. This may be useful, for example, to manage large projects were different team collaborate on different project features. In this case, we would add both the principal remote repository (shared by all teams) and our team specific remote repository. To check all the remote repositories currently available, we can us the command,</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb127-1"><a href="git-chapter.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote <span class="at">-v</span></span>
+<span id="cb127-2"><a href="git-chapter.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  https://github.com/username/my-project.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
+<span id="cb127-3"><a href="git-chapter.html#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>  https://github.com/username/my-project.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span></code></pre></div>
+</div>
+<div id="pulling-commits" class="section level4 hasAnchor" number="7.4.5.2">
+<h4><span class="header-section-number">7.4.5.2</span> Pulling Commits<a href="git-chapter.html#pulling-commits" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To download new commits from a remote repository to the current branch, we use the command,</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb128-1"><a href="git-chapter.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code></pre></div>
+<p>specifying the remote repository name and the branch we want to pull from. For example, to update our current branch according to <code>origin/master</code>, we run the command,</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb129-1"><a href="git-chapter.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull origin master</span></code></pre></div>
+<p><img src="images/git/pull.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>The <code>git pull</code> command downloads the new commits and automatically updates our working directory to match the last changes. Alternatively, we can use the safer command <code>git fetch</code> that downloads the new commits but does not update our working directory allowing us to review commits before integrating them in our local repository (see <a href="https://www.atlassian.com/git/tutorials/syncing/git-fetch" class="uri">https://www.atlassian.com/git/tutorials/syncing/git-fetch</a>).</p>
+</div>
+<div id="pushing-commits" class="section level4 hasAnchor" number="7.4.5.3">
+<h4><span class="header-section-number">7.4.5.3</span> Pushing Commits<a href="git-chapter.html#pushing-commits" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To upload new commits from a local branch to a remote repository, we use the command,</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb130-1"><a href="git-chapter.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Local branch and remote branch same name</span></span>
+<span id="cb130-2"><a href="git-chapter.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span>
+<span id="cb130-3"><a href="git-chapter.html#cb130-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-4"><a href="git-chapter.html#cb130-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Local branch and remote branch different names</span></span>
+<span id="cb130-5"><a href="git-chapter.html#cb130-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>local-branch<span class="op">&gt;</span>:<span class="op">&lt;</span>remote-branch<span class="op">&gt;</span></span></code></pre></div>
+<p>specifying the remote repository name and the branch name. For example, to upload the new commits from the local <code>master</code> branch to <code>origin/master</code>, we run the command,</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb131-1"><a href="git-chapter.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push origin master</span></code></pre></div>
+<p><img src="images/git/push.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="warning" title="Always Pull First!">
+<p>Git does not allows us to push our commits if our local repository is not updated with the last changes in the remote repository. If we try to push, a similar message is displayed,</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb132-1"><a href="git-chapter.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push</span>
+<span id="cb132-2"><a href="git-chapter.html#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> https://github.com/username/my-project.git</span>
+<span id="cb132-3"><a href="git-chapter.html#cb132-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">!</span> [rejected]        master <span class="at">-</span><span class="op">&gt;</span> master <span class="er">(</span><span class="ex">fetch</span> first<span class="kw">)</span></span>
+<span id="cb132-4"><a href="git-chapter.html#cb132-4" aria-hidden="true" tabindex="-1"></a><span class="ex">error:</span> failed to push some refs to <span class="st">&#39;https://github.com/username/my-project.git&#39;</span></span>
+<span id="cb132-5"><a href="git-chapter.html#cb132-5" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> Updates were rejected because the remote contains work that you do</span>
+<span id="cb132-6"><a href="git-chapter.html#cb132-6" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> not have locally. This is usually caused by another repository pushing</span>
+<span id="cb132-7"><a href="git-chapter.html#cb132-7" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> to the same ref. You may want to first integrate the remote changes</span>
+<span id="cb132-8"><a href="git-chapter.html#cb132-8" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> <span class="er">(</span><span class="ex">e.g.,</span> <span class="st">&#39;git pull ...&#39;</span><span class="kw">)</span> <span class="ex">before</span> pushing again.</span>
+<span id="cb132-9"><a href="git-chapter.html#cb132-9" aria-hidden="true" tabindex="-1"></a><span class="ex">hint:</span> See the <span class="st">&#39;Note about fast-forwards&#39;</span> in <span class="st">&#39;git push --help&#39;</span> for details.</span></code></pre></div>
+<p>In this case, we need to pull first and then push again. However, it may occur that our new commits have some conflicts with the last changes in the remote repository. Git would ask us to explicitly solve any conflict before pushing to the remote repository. To minimize this issue, we should always work starting from the latest updates by remembering to pull at the beginning of each session. We discuss how to deal with conflicts in Section <a href="git-chapter.html#branching-merging-2">7.4.6</a>.</p>
+</div>
+</div>
+<div id="setting-upstream" class="section level4 hasAnchor" number="7.4.5.4">
+<h4><span class="header-section-number">7.4.5.4</span> Setting Upstream<a href="git-chapter.html#setting-upstream" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Instead of specifying the remote repository name and the branch name each time, we can set the default remote branch for each of our local branch. In Git terms this is called the <em>upstream</em> branch. To do that, we can use the command,</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb133-1"><a href="git-chapter.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git branch <span class="at">--set-upstream-to</span><span class="op">=</span><span class="st">&quot;&lt;remote/branch&gt;&quot;</span></span></code></pre></div>
+<p>specifying the remote repository name and the branch name we want to use as upstream. For example, to set <code>origin/master</code> as the upstream branch for our local <code>master</code> branch, first we checkout to the desired branch, next we run the command,</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb134-1"><a href="git-chapter.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout master</span>
+<span id="cb134-2"><a href="git-chapter.html#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git branch <span class="at">--set-upstream-to</span><span class="op">=</span><span class="st">&quot;origin/master&quot;</span></span>
+<span id="cb134-3"><a href="git-chapter.html#cb134-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Branch</span> <span class="st">&#39;master&#39;</span> set up to track remote branch <span class="st">&#39;master&#39;</span> from <span class="st">&#39;origin&#39;</span>.</span></code></pre></div>
+<p>Now we can pull and push commits from and to the upstream branch simply running <code>git pull</code> and <code>git push</code> respectively. Alternatively, we can set the upstream branch when pushing commits specifying the flag <code>-u</code> (or <code>--set-upstream</code>). Considering the example above,</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb135-1"><a href="git-chapter.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> origin master</span>
+<span id="cb135-2"><a href="git-chapter.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb135-3"><a href="git-chapter.html#cb135-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Branch</span> <span class="st">&#39;master&#39;</span> set up to track remote branch <span class="st">&#39;master&#39;</span> from <span class="st">&#39;origin&#39;</span>.</span></code></pre></div>
+</div>
+</div>
+<div id="branching-merging-2" class="section level3 hasAnchor" number="7.4.6">
+<h3><span class="header-section-number">7.4.6</span> Branching and Merging<a href="git-chapter.html#branching-merging-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As introduced in Section <a href="git-chapter.html#branching-merging">7.2.3</a>, with Git we can create branches to allow independent lines of development. The principal line of development is itself a branch and, following standard conventions, it is named <code>master</code> (or <code>main</code>; these are just names without any special meaning per se).</p>
+<p>Let’s describe the operations required to create and merge branches.</p>
+<div id="creating-branches" class="section level4 hasAnchor" number="7.4.6.1">
+<h4><span class="header-section-number">7.4.6.1</span> Creating Branches<a href="git-chapter.html#creating-branches" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>It is important to understand that branches are simply pointers to a specific commit. When we create a branch we are creating a new pointer to the current commit. From here, each branch will follow its own line of development. To create a local branch, we use the command</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb136-1"><a href="git-chapter.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git branch <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code></pre></div>
+<p>For example, we can create a new branch named <code>my-branch</code> running the command,</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb137-1"><a href="git-chapter.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git branch my-branch</span></code></pre></div>
+<p><img src="images/git/branch-extra.png" width="95%" style="display: block; margin: auto;" />
+A remote branch with the same name is automatically created when we push the branch to the remote repository. To do that, we run the command,</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb138-1"><a href="git-chapter.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push <span class="at">-u</span> <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code></pre></div>
+<p>Remember that we use the option <code>-u</code> to automatically set the upstream branch.</p>
+</div>
+<div id="selecting-branches" class="section level4 hasAnchor" number="7.4.6.2">
+<h4><span class="header-section-number">7.4.6.2</span> Selecting Branches<a href="git-chapter.html#selecting-branches" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can switch from a branch to another using the command,</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb139-1"><a href="git-chapter.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code></pre></div>
+<p>As already described in Section <a href="git-chapter.html#tracking-files">7.2.1</a>, the <code>git checkout</code> command allows us to point our <code>HEAD</code> (i.e., the current commit we are viewing) to a target commit. Specifying a branch, we move our <code>HEAD</code> to the commit the branch is pointing at. Again, all files in our project will be restored to their state in that exact branch.</p>
+<p>Moreover, we can use the <code>-b</code> flag to create and move to a new branch.</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb140-1"><a href="git-chapter.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout <span class="at">-b</span> <span class="op">&lt;</span>new-branch-name<span class="op">&gt;</span></span></code></pre></div>
+<p>We can list all currently available branches running the command <code>git branch</code>. In particular, we can use the flag <code>-vv</code> to obtain a verbose output with more information (i.e., branch name, commit ID, upstream branch, commit message) or the <code>-r</code> flag to list all the remote branches.</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb141-1"><a href="git-chapter.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git branch </span>
+<span id="cb141-2"><a href="git-chapter.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> master</span>
+<span id="cb141-3"><a href="git-chapter.html#cb141-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">my-branch</span></span>
+<span id="cb141-4"><a href="git-chapter.html#cb141-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb141-5"><a href="git-chapter.html#cb141-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git branch <span class="at">-vv</span></span>
+<span id="cb141-6"><a href="git-chapter.html#cb141-6" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> master    00ab7a8 [origin/master] Update master</span>
+<span id="cb141-7"><a href="git-chapter.html#cb141-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">my-branch</span> 702b800 [origin/my-branch] Create my-branch</span>
+<span id="cb141-8"><a href="git-chapter.html#cb141-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb141-9"><a href="git-chapter.html#cb141-9" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git branch <span class="at">-vvr</span></span>
+<span id="cb141-10"><a href="git-chapter.html#cb141-10" aria-hidden="true" tabindex="-1"></a><span class="ex">origin/master</span>    00ab7a8 Update master</span>
+<span id="cb141-11"><a href="git-chapter.html#cb141-11" aria-hidden="true" tabindex="-1"></a><span class="ex">origin/my-branch</span> 702b800 Create my-branch</span></code></pre></div>
+<p>Note that the <code>*</code> symbol indicates the branch currently active.</p>
+</div>
+<div id="merging-branches" class="section level4 hasAnchor" number="7.4.6.3">
+<h4><span class="header-section-number">7.4.6.3</span> Merging Branches<a href="git-chapter.html#merging-branches" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To integrate two line of development together, we merge one branch into another. The directionality is important. Branches are not mixed together creating a single branch, but commits in the timeline of one branch are integrated in the timeline of the other branch.</p>
+<p>Before merging we need to ensure that the two branches are up-to-date with the remote repository. Next, we switch to the receiving branch and we merge the other branch using the command,</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb142-1"><a href="git-chapter.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git merge <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code></pre></div>
+<p>For example, we can merge <code>my-branch</code> into <code>master</code> running the command,</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb143-1"><a href="git-chapter.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout master</span>
+<span id="cb143-2"><a href="git-chapter.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git merge my-branch</span></code></pre></div>
+<p><img src="images/git/merge-extra.png" width="95%" style="display: block; margin: auto;" /></p>
+<p>Note that when merging, we always obtain a <em>“merge commit”</em> that joins the two lines of development.</p>
+<p>Once merged, we can delete the branch if no longer useful. To delete a branch (local and remote), we use the commands,</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb144-1"><a href="git-chapter.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove local branch</span></span>
+<span id="cb144-2"><a href="git-chapter.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git branch <span class="at">-d</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span>
+<span id="cb144-3"><a href="git-chapter.html#cb144-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-4"><a href="git-chapter.html#cb144-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove remote branch</span></span>
+<span id="cb144-5"><a href="git-chapter.html#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> --delete <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code></pre></div>
+</div>
+<div id="solving-conflicts" class="section level4 hasAnchor" number="7.4.6.4">
+<h4><span class="header-section-number">7.4.6.4</span> Solving Conflicts<a href="git-chapter.html#solving-conflicts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When merging two branches or pulling changes from a remote repository, conflicts can arise. Conflicts occurs when two different commits modify the same line in a file (or one commit deletes the file and the other edit the same file). In these cases, Git is no longer able to automatically integrate the changes. Therefore, Git requires us to explicitly solve the conflicts by choosing which of the two versions to keep.</p>
+<p>Suppose we create a file <code>my-file.txt</code> as follow,</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb145-1"><a href="git-chapter.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    my-file.txt    ----#</span></span>
+<span id="cb145-2"><a href="git-chapter.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb145-3"><a href="git-chapter.html#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="ex">First</span> text line</span>
+<span id="cb145-4"><a href="git-chapter.html#cb145-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Second</span> text line</span>
+<span id="cb145-5"><a href="git-chapter.html#cb145-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Third</span> text line</span></code></pre></div>
+<p>Next we create two branches (<code>branch-A</code> and <code>branch-B</code>) and we modify the second text line differently in the two branches (<code>"Branch-A text line"</code> and <code>"Branch-B text line"</code> respectively). If we try merging <code>branch-B</code> into <code>branch-A</code> we would get a conflict.</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb146-1"><a href="git-chapter.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout branch-A</span>
+<span id="cb146-2"><a href="git-chapter.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git merge branch-B</span>
+<span id="cb146-3"><a href="git-chapter.html#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Auto-merging</span> my-file.txt</span>
+<span id="cb146-4"><a href="git-chapter.html#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="ex">CONFLICT</span> <span class="er">(</span><span class="ex">content</span><span class="kw">)</span><span class="bu">:</span> Merge conflict in my-file.txt</span>
+<span id="cb146-5"><a href="git-chapter.html#cb146-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Automatic</span> merge failed<span class="kw">;</span> <span class="ex">fix</span> conflicts and then commit the result.</span></code></pre></div>
+<p>Examining <code>my-file.txt</code>, we see that the conflict is marked as follow</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb147-1"><a href="git-chapter.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    my-file.txt    ----#</span></span>
+<span id="cb147-2"><a href="git-chapter.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb147-3"><a href="git-chapter.html#cb147-3" aria-hidden="true" tabindex="-1"></a><span class="ex">First</span> text line</span>
+<span id="cb147-4"><a href="git-chapter.html#cb147-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb147-5"><a href="git-chapter.html#cb147-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Branch-A</span> text line</span>
+<span id="cb147-6"><a href="git-chapter.html#cb147-6" aria-hidden="true" tabindex="-1"></a><span class="ex">=======</span></span>
+<span id="cb147-7"><a href="git-chapter.html#cb147-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Branch-B</span> text line</span>
+<span id="cb147-8"><a href="git-chapter.html#cb147-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> branch-B</span>
+<span id="cb147-9"><a href="git-chapter.html#cb147-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Third</span> text line</span></code></pre></div>
+<p>The <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-B</code> lines delimit the conflict and the <code>=======</code> line separates the two conflicting versions. In particular, we get the changes of the currently active branch <code>HEAD</code> (in our case <code>branch-A</code>) followed by the changes of the merging branch (in our case <code>branch-B</code>).</p>
+<p>To solve a conflict, we need to edit the file modifying the text to keep the desired version and removing the other together with the conflict delimiters. Finally, we commit the changes and Git will create a new <em>“merge commit”</em> finalizing the merge.</p>
+<p>We can abort a merge that created conflicts using the command,</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb148-1"><a href="git-chapter.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git merge <span class="at">--abort</span></span></code></pre></div>
+<div class="trick" title="Conflict Style diff3">
+<p>We can choose between different styles with which Git marks conflicts. We recommend using the <code>diff3</code> style. To change the default merge conflict style, run</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb149-1"><a href="git-chapter.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> merge.conflictstyle diff3</span></code></pre></div>
+<p>In addition to the changes of the current branch and the changes of the merging branch, the <code>diff3</code> style also display the original version of the common ancestor commit. This give us more context, helping us understanding the reasons of the different changes and properly choosing which one to keep.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb150-1"><a href="git-chapter.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    diff3 conflict style    ----#</span></span>
+<span id="cb150-2"><a href="git-chapter.html#cb150-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-3"><a href="git-chapter.html#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb150-4"><a href="git-chapter.html#cb150-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-5"><a href="git-chapter.html#cb150-5" aria-hidden="true" tabindex="-1"></a><span class="kw">|||||||</span> <span class="ex">common</span> ancestor commit</span>
+<span id="cb150-6"><a href="git-chapter.html#cb150-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-7"><a href="git-chapter.html#cb150-7" aria-hidden="true" tabindex="-1"></a><span class="ex">=======</span></span>
+<span id="cb150-8"><a href="git-chapter.html#cb150-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-9"><a href="git-chapter.html#cb150-9" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> merging-branch</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="summary" class="section level3 hasAnchor" number="7.4.7">
+<h3><span class="header-section-number">7.4.7</span> Summary<a href="git-chapter.html#summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Git is very powerful but requires time (and tears) to learn how to use. We described its basic features and commands. Again, for more details and advanced features, we suggest the the following resources:</p>
+<ul>
+<li><em>Bitbucket Git Tutorial:</em> <a href="https://www.atlassian.com/git/tutorials" class="uri">https://www.atlassian.com/git/tutorials</a></li>
+<li><em>Pro Git Book:</em> <a href="https://git-scm.com/book/en/v2" class="uri">https://git-scm.com/book/en/v2</a></li>
+<li><em>Git Official Manual:</em> <a href="https://git-scm.com/doc" class="uri">https://git-scm.com/doc</a></li>
+</ul>
+<p>For everything else there’s <em>stackoverflow</em>.</p>
+<div class="foil" title="Git">
+<p>Here a brief summary of all the Git commands introduced so far.</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb151-1"><a href="git-chapter.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Configure Settings    ----#</span></span>
+<span id="cb151-2"><a href="git-chapter.html#cb151-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-3"><a href="git-chapter.html#cb151-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--list</span>         <span class="co"># Check configuration settings </span></span>
+<span id="cb151-4"><a href="git-chapter.html#cb151-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-5"><a href="git-chapter.html#cb151-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;&lt;My Name&gt;&quot;</span>          <span class="co"># Configure username</span></span>
+<span id="cb151-6"><a href="git-chapter.html#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;&lt;user@email.com&gt;&quot;</span>  <span class="co"># Configure email</span></span>
+<span id="cb151-7"><a href="git-chapter.html#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> merge.conflictstyle diff3      <span class="co"># Configure conflict style</span></span>
+<span id="cb151-8"><a href="git-chapter.html#cb151-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-9"><a href="git-chapter.html#cb151-9" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Initialize Git Repo    ----#</span></span>
+<span id="cb151-10"><a href="git-chapter.html#cb151-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-11"><a href="git-chapter.html#cb151-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="op">&lt;</span>path<span class="op">&gt;</span>             # Initialize local repository</span>
+<span id="cb151-12"><a href="git-chapter.html#cb151-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>repository-URL<span class="op">&gt;</span>  # Clone remote repository</span>
+<span id="cb151-13"><a href="git-chapter.html#cb151-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-14"><a href="git-chapter.html#cb151-14" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Tracking Files    ----#</span></span>
+<span id="cb151-15"><a href="git-chapter.html#cb151-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-16"><a href="git-chapter.html#cb151-16" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status               <span class="co"># Check repository status</span></span>
+<span id="cb151-17"><a href="git-chapter.html#cb151-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-18"><a href="git-chapter.html#cb151-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Staging</span></span>
+<span id="cb151-19"><a href="git-chapter.html#cb151-19" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>files<span class="op">&gt;</span>          # Add selected files to staging area</span>
+<span id="cb151-20"><a href="git-chapter.html#cb151-20" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span>            <span class="co"># Add all files to staging area </span></span>
+<span id="cb151-21"><a href="git-chapter.html#cb151-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-22"><a href="git-chapter.html#cb151-22" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cached</span> <span class="op">&lt;</span>file<span class="op">&gt;</span>   # Remove selected files from staging area</span>
+<span id="cb151-23"><a href="git-chapter.html#cb151-23" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset                <span class="co"># Remove all files from staging area</span></span>
+<span id="cb151-24"><a href="git-chapter.html#cb151-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-25"><a href="git-chapter.html#cb151-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit</span></span>
+<span id="cb151-26"><a href="git-chapter.html#cb151-26" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit               <span class="co"># Create commit</span></span>
+<span id="cb151-27"><a href="git-chapter.html#cb151-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Options</span></span>
+<span id="cb151-28"><a href="git-chapter.html#cb151-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-a</span>               <span class="co"># Commit all changes of tracked files</span></span>
+<span id="cb151-29"><a href="git-chapter.html#cb151-29" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-m</span> <span class="st">&quot;&lt;message&gt;&quot;</span>   <span class="co"># Inline commit message</span></span>
+<span id="cb151-30"><a href="git-chapter.html#cb151-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-31"><a href="git-chapter.html#cb151-31" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log                  <span class="co"># Get commit history</span></span>
+<span id="cb151-32"><a href="git-chapter.html#cb151-32" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span>        <span class="co"># Get commit history (compact)</span></span>
+<span id="cb151-33"><a href="git-chapter.html#cb151-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb151-34"><a href="git-chapter.html#cb151-34" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff                              <span class="co"># Changes since the last commit</span></span>
+<span id="cb151-35"><a href="git-chapter.html#cb151-35" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>                  # Changes since a specified commit</span>
+<span id="cb151-36"><a href="git-chapter.html#cb151-36" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="op">&lt;</span>commit-ID-A<span class="op">&gt;</span> <span class="op">&lt;</span>commit-ID-B<span class="op">&gt;</span>  # Changes from commit-A to commit-B.</span>
+<span id="cb151-37"><a href="git-chapter.html#cb151-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-38"><a href="git-chapter.html#cb151-38" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>  # Point HEAD to specific commit/branch</span>
+<span id="cb151-39"><a href="git-chapter.html#cb151-39" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>    # Undo commit <span class="er">(</span><span class="ex">forward-way</span><span class="kw">)</span></span>
+<span id="cb151-40"><a href="git-chapter.html#cb151-40" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>     # Undo commit <span class="er">(</span><span class="ex">disruptive-way</span><span class="kw">)</span></span>
+<span id="cb151-41"><a href="git-chapter.html#cb151-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-42"><a href="git-chapter.html#cb151-42" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Collaboration    ----#</span></span>
+<span id="cb151-43"><a href="git-chapter.html#cb151-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-44"><a href="git-chapter.html#cb151-44" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span>                <span class="co"># List remote (verbose)</span></span>
+<span id="cb151-45"><a href="git-chapter.html#cb151-45" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add <span class="op">&lt;</span>name<span class="op">&gt;</span> <span class="op">&lt;</span>url<span class="op">&gt;</span>  # Add remote</span>
+<span id="cb151-46"><a href="git-chapter.html#cb151-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-47"><a href="git-chapter.html#cb151-47" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>  # Pull commits from remote</span>
+<span id="cb151-48"><a href="git-chapter.html#cb151-48" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>  # Push commit to remote</span>
+<span id="cb151-49"><a href="git-chapter.html#cb151-49" aria-hidden="true" tabindex="-1"></a>         <span class="ex">-u</span>       <span class="co"># Set upstream remote branch </span></span>
+<span id="cb151-50"><a href="git-chapter.html#cb151-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-51"><a href="git-chapter.html#cb151-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-52"><a href="git-chapter.html#cb151-52" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--set-upstream-to</span><span class="op">=</span><span class="st">&quot;&lt;remote/branch&gt;&quot;</span>  <span class="co"># Set  upstream remote branch </span></span>
+<span id="cb151-53"><a href="git-chapter.html#cb151-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-54"><a href="git-chapter.html#cb151-54" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Branching    ----#</span></span>
+<span id="cb151-55"><a href="git-chapter.html#cb151-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-56"><a href="git-chapter.html#cb151-56" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch          <span class="co"># List branches</span></span>
+<span id="cb151-57"><a href="git-chapter.html#cb151-57" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-vv</span>      <span class="co"># List branches (verbose)</span></span>
+<span id="cb151-58"><a href="git-chapter.html#cb151-58" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-vvr</span>       <span class="co"># List remote branches (verbose)</span></span>
+<span id="cb151-59"><a href="git-chapter.html#cb151-59" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb151-60"><a href="git-chapter.html#cb151-60" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>           # Create new branch</span>
+<span id="cb151-61"><a href="git-chapter.html#cb151-61" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> <span class="op">&lt;</span>new-branch-name<span class="op">&gt;</span>  # Create and move to new branch</span>
+<span id="cb151-62"><a href="git-chapter.html#cb151-62" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb151-63"><a href="git-chapter.html#cb151-63" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>            # Merge target branch</span>
+<span id="cb151-64"><a href="git-chapter.html#cb151-64" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="at">--abort</span>                  <span class="co"># Abort merge</span></span>
+<span id="cb151-65"><a href="git-chapter.html#cb151-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-66"><a href="git-chapter.html#cb151-66" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>                    # Delete local Branch</span>
+<span id="cb151-67"><a href="git-chapter.html#cb151-67" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> --delete <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>  # Delete remote Branch</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="git-workflow" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Git Workflow<a href="git-chapter.html#git-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As discussed in the previous sections, Git is extremely useful (if not fundamental) to manage project development and collaboration. Here we discuss how we can organize the project development using branches following efficient and organized workflows.</p>
+<p>These workflows are most effective for projects creating applications or services used by other people and that requires continuous maintenance and development. However, they me be very useful even for complex research projects.</p>
+<div id="two-branches-approach" class="section level3 hasAnchor" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Two Branches Approach<a href="git-chapter.html#two-branches-approach" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A first workflow is based on <strong>two branches approach</strong>:</p>
+<ul>
+<li><strong><code>master</code>.</strong> This branch is used for official releases of our project. This branch contains only working stable versions of our project that other people can install and use.</li>
+<li><strong><code>develop</code>.</strong> This branch is used for the development of new features or any other operation required for project development (e.g., debugging or documentation). This branch contains the latest updates but the version could not be stable or not even working.</li>
+</ul>
+<p>Following this approach, a stable version of our project will be always available in the <code>master</code> branch and we can proceed in the development without warring about breaking our project in the <code>develop</code> branch. Once we reach a new stable point, we can release a new version of our project by merging the <code>develop</code> branch in the <code>master</code> branch. Note that we do not delete the <code>develop</code> branch after the merge, but we keep using it for the project development.</p>
+<p><img src="images/git/workflow-adv-1.png" width="95%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="multiple-branches-approach" class="section level3 hasAnchor" number="7.5.2">
+<h3><span class="header-section-number">7.5.2</span> Multiple Branches Approach<a href="git-chapter.html#multiple-branches-approach" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If the project is more complex and composed of multiple parts, we can follow another workflow based on <strong>multiple branches approach</strong>:</p>
+<ul>
+<li><strong><code>master</code>.</strong> As before, this branch is used for official releases of our project. This branch contains only working stable versions of our project that other people can install and use.</li>
+<li><strong><code>develop</code>.</strong> Again, this branch is used for the project development. This time, however, any new feature is developed on a separate branch and in this branch we maintain a <em>development</em> version of the project with the latest working stable updates.</li>
+<li><strong><code>feature-*</code>.</strong> Any new feature is developed independently on a separate branch and merged back into the <code>develop</code> branch only when ready.</li>
+<li><strong><code>release</code>.</strong> When ready for a new release, this branch is used to ultimate the last changes before merging into the <code>master</code> branch. This branch is used to fixing bugs, creating documentation or other minor changes required for the release.</li>
+</ul>
+<p>Following this approach, we can manage independently the development of different features. Only when a new feature is ready, we merge it into the <code>develop</code> branch and then we delete the (now useless) feature branch. In this way, we always keep a working version of the project with the latest updates in the <code>develop</code> branch from where we can start working on new features or fix other problems.</p>
+<p>When we are ready for a new release we can use the <code>release</code> branch for the last changes required before releasing while the development can freely continue on the <code>develop</code> branch. Note that after the release, before deleting the <code>release</code> branch, it is important to merge the <code>release</code> branch also into the <code>develop</code> branch to keep all updates during the development.</p>
+<p><img src="images/git/workflow-adv-2.png" width="95%" style="display: block; margin: auto;" /></p>
+<p>For more information and about the Git Workflow, see <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" class="uri">https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow</a>.</p>
+</div>
+</div>
+<div id="git-rstudio" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> RStudio Git GUI<a href="git-chapter.html#git-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>RStudio provides a useful GUI to manage the Git workflow. In this section, we describe how to configure Git in RStudio and use the RStudio GUI to manage the principal Git operation using the RStudio GUI. More details are provided in:</p>
+<ul>
+<li><a href="https://support.rstudio.com/hc/en-us/articles/200532077" class="uri">https://support.rstudio.com/hc/en-us/articles/200532077</a></li>
+<li><a href="https://r-pkgs.org/git.html" class="uri">https://r-pkgs.org/git.html</a></li>
+</ul>
+<p>Remember, GUIs are attractive, but it is important to familiarise also with the Git command line interface. No GUI provides all the commands and options available in Git. At some point there will be no button to click to solve our problems but a single line of code could save us.</p>
+<div id="configure-git-in-rstudio" class="section level3 hasAnchor" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Configure Git in RStudio<a href="git-chapter.html#configure-git-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To use Git in RStudio, we need to activate the version control interface. To do that:</p>
+<ol style="list-style-type: decimal">
+<li><p>Open the <em>“Tools -&gt; Global Options”</em></p></li>
+<li><p>Select the <em>“Git/SVN”</em> tab</p></li>
+<li><p>Select <em>“Enable version control interface for RStudio projects”</em></p></li>
+<li><p>Specify the path to the Git executable (in Windows, we can choose to use Git Bash as shell). To check where Git is installed, we can run from the terminal,</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb152-1"><a href="git-chapter.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
+<span id="cb152-2"><a href="git-chapter.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="ex">where</span> git</span>
+<span id="cb152-3"><a href="git-chapter.html#cb152-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-4"><a href="git-chapter.html#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux (macOS)</span></span>
+<span id="cb152-5"><a href="git-chapter.html#cb152-5" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> git</span></code></pre></div>
+<p><img src="images/git/git-settings-1.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p>Restart RStudio, the Git icon should appear in the toolbar</p>
+<p><img src="images/git/rstudio-git.png" width="80%" style="display: block; margin: auto;" /></p></li>
+</ol>
+</div>
+<div id="using-git-in-rstudio" class="section level3 hasAnchor" number="7.6.2">
+<h3><span class="header-section-number">7.6.2</span> Using Git in Rstudio<a href="git-chapter.html#using-git-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We now describe how to execute the main Git operation using the RStudio GUI.</p>
+<div id="create-a-git-repository" class="section level4 hasAnchor" number="7.6.2.1">
+<h4><span class="header-section-number">7.6.2.1</span> Create a Git Repository<a href="git-chapter.html#create-a-git-repository" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can create a Git repository in different ways:</p>
+<ul>
+<li><p><strong>Create a New Project.</strong> When creating a new project in a new directory (<em>“File &gt; New Project… &gt; New Directory”</em>), select the <em>“Create a git repository”</em> option.</p>
+<p><img src="images/git/rstudio-new-proj.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Clone a Remote Repository.</strong> We can create a new project cloning a remote repository. From <em>“File &gt; New Project…”</em>, select <em>“Version Control”</em>.</p>
+<p><img src="images/git/rstudio-clone-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Next, select <em>“Git”</em>.</p>
+<p><img src="images/git/rstudio-clone-2.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Specify the remote URL and click <em>“Create Projet”</em>.</p>
+<p><img src="images/git/rstudio-clone-3.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Init Existing Project.</strong> To enable Git in an already existing project, we can use the command <code>git init</code> from the terminal. Next, we need to restart RStudio (close and open it again).</p></li>
+</ul>
+</div>
+<div id="git-panel" class="section level4 hasAnchor" number="7.6.2.2">
+<h4><span class="header-section-number">7.6.2.2</span> Git Panel<a href="git-chapter.html#git-panel" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When working on a Git repository in RStudio, a new panel named <em>“Git”</em> is displayed (by default in the top-right corner).</p>
+<p><img src="images/git/panel-base.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>This panel allows us to execute the most common Git operations. In particular,</p>
+<ul>
+<li><strong>Review Changes.</strong> Open the <em>“Review Changes”</em> window to evaluate the specific differences within each file and create new commits.</li>
+<li><strong>Pull &amp; Push.</strong> Pull or push commits between the current branch and its remote upstream.</li>
+<li><strong>History.</strong> Navigate the commit repository history.</li>
+<li><strong>New Branch.</strong> Create a new branch (local and remote).</li>
+<li><strong>Change Branch.</strong> Change the active branch.</li>
+</ul>
+<p><img src="images/git/panel-base-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tracking-changes" class="section level4 hasAnchor" number="7.6.2.3">
+<h4><span class="header-section-number">7.6.2.3</span> Tracking Changes<a href="git-chapter.html#tracking-changes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When we create, modify or delete files, these will be listed in the Git panel.</p>
+<p><img src="images/git/panel-files.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Each file is preceded by an icon indicating the file status:</p>
+<ul>
+<li><p><img style="width:2.5em" src="images/git/icon-untraked.png" class="inline-img"> <strong>Untracked.</strong> A new untracked file.</p></li>
+<li><p><img style="width:2.5em" src="images/git/icon-added.png" class="inline-img"> <strong>Added.</strong> An untracked file is added to the staging area.</p></li>
+<li><p><img style="width:2.5em" src="images/git/icon-modified.png" class="inline-img"> <strong>Modified.</strong> The content of the file has been modified.</p></li>
+<li><p><img style="width:2.5em" src="images/git/icon-deleted.png" class="inline-img"> <strong>Deleted.</strong> The file has been deleted.</p></li>
+<li><p><img style="width:2.5em" src="images/git/icon-renamed.png" class="inline-img"> <strong>Renamed.</strong> The file has been renamed.</p></li>
+<li><p><img style="width:2.5em" src="images/git/icon-conflict.png" class="inline-img"> <strong>Conflict.</strong> The file contains a merge conflict.</p></li>
+<li><p><strong>Staging and Commiting.</strong> We can stage files directly form the Git panel by selecting the desired files.</p>
+<p><img src="images/git/panel-stage.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Alternatively, we can open the <em>“Review Changes”</em> window by clicking the <em>“Diff”</em> or the <em>“Commit”</em> button. This window allows us to review changes in each file before staging them.</p>
+<p><img src="images/git/panel-commit.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>File specific changes are displayed highlighting in red the deleted lines and in green the new lines. Reviewing changes is very useful to check that we did not accidentally changed some part of the code.</p>
+<p><img src="images/git/rstudio-diff-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>We can also stage or discard single chunks or a single line of text.</p>
+<p><img src="images/git/rstudio-diff-2.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Once we have staged all the desired files, we write the commit message and click the <em>“Commit”</em> button.</p>
+<p><img src="images/git/panel-commit-2.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Commit History.</strong> We can open the commit history window by clicking the history icon (or selecting <em>“History”</em> from the <em>“Review Changes”</em> window).</p>
+<p><img src="images/git/panel-base-2.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>From here, wee can check all previous commits and see all the changes to the files.</p>
+<p><img src="images/git/panel-history.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Note, that we can filter commit history according to a specific branch or even a specific file.</p>
+<p><img src="images/git/panel-history-2.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Undoing Changes.</strong> From the <em>“Review Changes”</em> window, we can undo current changes by selecting the desired file and clicking <em>“Revert”</em> from the top menu.</p>
+<p><img src="images/git/panel-revert.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>We can not undo commits or modify commits history from the RStudio GUI. All these actions can be done using the Git command line interface.</p></li>
+</ul>
+</div>
+<div id="managing-collaboration-2" class="section level4 hasAnchor" number="7.6.2.4">
+<h4><span class="header-section-number">7.6.2.4</span> Managing Collaboration<a href="git-chapter.html#managing-collaboration-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To add the remote repository URL, we need to use the terminal. The command is,</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb153-1"><a href="git-chapter.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote add <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>remote-URL<span class="op">&gt;</span></span></code></pre></div>
+<p>Once we set the remote, repository we can proceed by Pushing and Pulling commits using the arrows in the Git panel (or in the <em>“Review Changes”</em> window).</p>
+<p><img src="images/git/panel-base-3.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="warning" title="SSH Required">
+<p>To collaborate using remote repositories, we need specific authorization or authentication protocol (e.g., login credentials or SSH keys).</p>
+<p>We discuss authentication procedures and SSH protocols in Chapter <a href="#authentication"><strong>??</strong></a>.</p>
+</div>
+</div>
+<div id="branching-and-merging" class="section level4 hasAnchor" number="7.6.2.5">
+<h4><span class="header-section-number">7.6.2.5</span> Branching and Merging<a href="git-chapter.html#branching-and-merging" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can change the currently active branch from the top-down menu in the Git panel.</p>
+<p><img src="images/git/panel-base-4.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>We can create a new branch clicking the branch icon in the Git panel.</p>
+<p><img src="images/git/panel-base-5.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>A pop-up window will open in which wee can specify the branch name. By default, also an upstream branch in the remote repository is created.</p>
+<p><img src="images/git/panel-new-branch.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>We can not merge branches from the RStudio GUI. Merging operations can be done using the Git command line interface.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="doclinks">
+<div id="install-git-1" class="section level4 unnumbered hasAnchor">
+<h4>Install Git<a href="git-chapter.html#install-git-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Install git<br>
+<a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a>.</li>
+</ul>
+</div>
+<div id="git-tutorials" class="section level4 unnumbered hasAnchor">
+<h4>Git Tutorials<a href="git-chapter.html#git-tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Bitbucket Git Tutorial<br>
+<a href="https://www.atlassian.com/git/tutorials" class="uri">https://www.atlassian.com/git/tutorials</a></li>
+<li>Pro Git Book<br>
+<a href="https://git-scm.com/book/en/v2" class="uri">https://git-scm.com/book/en/v2</a></li>
+<li>Git Official Manual<br>
+<a href="https://git-scm.com/doc" class="uri">https://git-scm.com/doc</a></li>
+</ul>
+</div>
+<div id="git-extra" class="section level4 unnumbered hasAnchor">
+<h4>Git Extra<a href="git-chapter.html#git-extra" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Configuration files<br>
+<a href="https://stackoverflow.com/questions/8801729/is-it-possible-to-have-different-git-configuration-for-different-projects/5412596" class="uri">https://stackoverflow.com/questions/8801729/is-it-possible-to-have-different-git-configuration-for-different-projects/5412596</a></li>
+<li>.gitignore file<br>
+<a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore" class="uri">https://www.atlassian.com/git/tutorials/saving-changes/gitignore</a></li>
+<li>Fetching<br>
+<a href="https://www.atlassian.com/git/tutorials/syncing/git-fetch" class="uri">https://www.atlassian.com/git/tutorials/syncing/git-fetch</a></li>
+<li>Git workflows<br>
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" class="uri">https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow</a>.</li>
+</ul>
+</div>
+<div id="rstudio-git-gui" class="section level4 unnumbered hasAnchor">
+<h4>RStudio Git GUI<a href="git-chapter.html#rstudio-git-gui" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Version Control with Git and SVN<br>
+<a href="https://support.rstudio.com/hc/en-us/articles/200532077" class="uri">https://support.rstudio.com/hc/en-us/articles/200532077</a></li>
+<li>Git and GitHub<br>
+<a href="https://r-pkgs.org/git.html" class="uri">https://r-pkgs.org/git.html</a></li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
+    <br>
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    <br>
+    To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="terminal-chapter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/arca-dpss/manual-open-science/edit/master/chapters/07-git.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["manual-open-science.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

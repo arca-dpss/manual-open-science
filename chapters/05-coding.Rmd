@@ -998,11 +998,11 @@ Here we review only a few aspects:
 
 - **Names.** The preferred naming style for both variables and functions is `snake_case`.
 - **Assign Function.** In R we can assign values to an object using the symbols `<-` or `=`. We agree with the tidyverse preference of using `<-` for assignment, as it explicitly indicates the direction of the assignment (`x = y`, are we assigning `y` to `x` or the contrary? With `x <- y` there are no doubts). However, both are fine, just pick one and stick with it.
-- **Line length.** In RStudio, we can display the margin selecting *“Show margin”* from  *“Tools -> Global Options -> Code -> Display”* and specifying the desired margin column width (default 80).
+- **Line length.** In RStudio, we can display the margin selecting *“Show margin”* from  *“Tools > Global Options > Code > Display”* and specifying the desired margin column width (default 80).
     ```{r, out.width="60%"}
     knitr::include_graphics("images/coding/rstudio-line.png")
     ```
-- **Indentation.** In RStudio, we can substitute Tabs with a fixed number of spaces. Select *“Insert spaces for tab”* from  *“Tools -> Global Options -> Code -> Editing”* specifying the desired number of spaces (usually 2 or 4). 
+- **Indentation.** In RStudio, we can substitute Tabs with a fixed number of spaces. Select *“Insert spaces for tab”* from  *“Tools > Global Options > Code > Editing”* specifying the desired number of spaces (usually 2 or 4). 
     ```{r, out.width="60%"}
     knitr::include_graphics("images/coding/rstudio-indent.png")
     ```
@@ -1219,6 +1219,8 @@ To learn all the details about unit tests using `testthat`, consider:
 
 - `testthat` official documentation (https://testthat.r-lib.org/).
 - R Packages dedicated chapter (https://r-pkgs.org/tests.html).
+
+\newpage
 
 :::{.doclinks data-latex=""}
 

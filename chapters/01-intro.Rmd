@@ -29,7 +29,7 @@ The book is structured as follows.
 - In Chapter \@ref(git-chapter), we introduce Git, a software for tracking changes in any file during the development of our project.
 - In Chapter \@ref(github-chapter), we introduce GitHub for managing collaboration using remote repositories.
 - In Chapter \@ref(workflow-chapter), we discuss how to manage the analysis workflow to enhance results reproducibility and code maintainability.
-- In Chapter [TODO: add ref], we introduce the main tools to create dynamic documents that integrate narrative text and code describing the advantages.
+- In Chapter \@ref(dynamic-documents-chapter), we introduce the main tools to create dynamic documents that integrate narrative text and code describing the advantages.
 - In Chapter [TODO: add ref], we discuss how to manage our project requirements and dependencies (software and package versions) to enhance results reproducibility. 
 - In Chapter [TODO: add ref], we introduce Docker and the container technology that allows us to create and share an isolated, controlled, standardized environment for our project.
 

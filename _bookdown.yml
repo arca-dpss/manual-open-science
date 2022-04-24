@@ -16,6 +16,7 @@ rmd_files:
          "chapters/07-git.Rmd",
          "chapters/08-github.Rmd",
          "chapters/09-workflow.Rmd",
+         "chapters/10-dynamic-documents.Rmd",
          "chapters/99-references.Rmd"]
   latex: ["index.Rmd",
          "chapters/01-intro.Rmd",
@@ -27,6 +28,7 @@ rmd_files:
          "chapters/07-git.Rmd",
          "chapters/08-github.Rmd",
          "chapters/09-workflow.Rmd",
+         "chapters/10-dynamic-documents.Rmd",
          "chapters/99-references.Rmd"]
 
 output_dir: "docs/"

@@ -291,3 +291,22 @@ img {
 /*----------scrool code---------*/
 pre, code {white-space:pre !important; overflow-x:scroll !important}
 
+/*----    latex logo    ----*/
+
+.latex sup {
+  font-size: 0.85em;
+  vertical-align: -.25em;
+  margin-left: -0.26em;
+  margin-right: -0.05em;
+}
+
+.latex sub {
+  vertical-align: 0.25ex;
+  margin-left: -0.1667em;
+  margin-right: -0.125em;
+}
+
+.latex, .latex sub {
+  font-size: 1em;
+}
+

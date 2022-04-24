@@ -1,6 +1,6 @@
 # Git {#git-chapter}
 
-In the previous chapters, we learned to use the Open Science Framework (OSF) and to organize all our files in a well structured and documented repository. Moreover we learned recommended practices to organize and share our data and to write readable and maintainable code.
+In the previous chapters, we learned to organize all our files and data in a well structured and documented repository. Moreover we learned how to write readable and maintainable code.
 
 However, as the number of files and lines of code increase, it is more and more difficult to maintain full control of our project. We need some tools to help us managing this process. In this chapter, we introduce Git, a software for tracking changes in any file during the development of our project. In Chapter \@ref(github-chapter), instead, we introduce GitHub, a dedicated Git hosting services that allow us to collaborate with other colleagues using shared remote repositories.
 
@@ -135,7 +135,7 @@ The Git version is returned. If Git is not available, we can install it followin
 We have two main scenarios:
 
 - **Git Bash.** *Git for Windows* (https://gitforwindows.org/) is a project that provides us the required tools to work with Git on Windows. In particular, it includes *Git Bash* (a Bash terminal to run Git from the command line), *Git GUI* (a graphical user interface for Git), and other integration tools. Install Git for Windows following the instructions at https://git-scm.com/download/win.
-- **WLS.** We can use the Windows Subsystem for Linux (see Section \@ref(install-windows)) opening the dedicated terminal. Git is already installed in most Linux distributions. if this is not the case (or if we want to update the Git version), we can run the command (for Ubuntu/Debian) 
+- **WLS.** We can use the Windows Subsystem for Linux (see Section \@ref(install-windows-terminal)) opening the dedicated terminal. Git is already installed in most Linux distributions. if this is not the case (or if we want to update the Git version), we can run the command (for Ubuntu/Debian) 
     
     ```bash
     $ sudo apt-get update

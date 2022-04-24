@@ -23,7 +23,7 @@ However, collecting all the files in the same directory without any order will o
 
 ```
 
-Of course, this is just indicative, as project structures could vary according to the specific aims and needs. However, this can help us to start organizing our files (and also our ideas). A well structured and documented project will allow other collaborators to easily navigate around all the files and reproduce the analysis. Remember, our best collaborator is the future us!
+Of course, this is just indicative, as project structures could vary according to the specific aims and needs. However, this can help us to start organizing our files (and also our ideas). A well structured and documented project will allow other colleagues to easily navigate around all the files and reproduce the analysis. Remember, our best colleague is the future us!
 
 ### Project Elements
 
@@ -58,7 +58,7 @@ In our project we can organize our scripts into two different directories:
 - `analysis/`: Collecting the scripts needed to run all the steps of the analysis.
 - `code/`: Collecting all the scripts in which we defined the functions used in the analysis.
 
-This division allows us to keep everything organized and in order. We can easily move back and forward between scripts, defining new functions when required and using them in the analysis. Moreover, adequate documentation (both for the functions and for the analysis scripts) allows other collaborators to easily navigate the code and understand the purpose of each function.
+This division allows us to keep everything organized and in order. We can easily move back and forward between scripts, defining new functions when required and using them in the analysis. Moreover, adequate documentation (both for the functions and for the analysis scripts) allows other colleagues to easily navigate the code and understand the purpose of each function.
 
 In Chapter [TODO: add ref], we discuss in detail the functional style approach, considering general good practices to write tidy, documented, and efficient code. In Chapter [TODO: add ref], we describe possible methods to manage the analysis workflow.
 
@@ -82,7 +82,7 @@ Note that it is preferable to keep the code used to run the analysis in a separa
 
 In Chapter [TODO: add ref], we briefly introduce dynamic documents using Quarto. In particular, we discuss how to smoothly integrate dynamic documents in our project structure and workflow to enhance reproducibility.
 
-#### `README`
+#### `README` {#readme-section}
 
 All projects should have a `README` file with the general information about the project. This is the first file any colleague will look at and many online repositories automatically display it on the project homepage. 
 

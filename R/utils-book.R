@@ -48,3 +48,13 @@ package_logo <- function(img, format = "html", css_width = 200, tex_width = .25,
   res
 }
 
+#----    latex_logo    ----#
+
+latex_logo <- function(format = "html"){
+  if(format == "html"){
+    res <- glue::glue('<span class="latex">L<sup>A</sup>T<sub>E</sub>X</span>')
+  } else {
+    res <- glue::glue('\\LaTeX ')
+  }
+  res
+}

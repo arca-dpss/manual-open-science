@@ -41,6 +41,10 @@ trackdown::download_file("chapters/08-github.Rmd", gpath = "trackdown/ARCA")
 trackdown::update_file("chapters/09-workflow.Rmd", gpath = "trackdown/ARCA")
 trackdown::download_file("chapters/09-workflow.Rmd", gpath = "trackdown/ARCA")
 
+#----    11-requirements    ----
+trackdown::update_file("chapters/11-requirements.Rmd", gpath = "trackdown/ARCA")
+trackdown::download_file("chapters/11-requirements.Rmd", gpath = "trackdown/ARCA")
+
 
 #----    make_book    ----
 make_my_book()

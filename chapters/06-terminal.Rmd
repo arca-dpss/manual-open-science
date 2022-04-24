@@ -8,7 +8,7 @@ knitr::include_graphics("images/terminal/terminal.png")
 
 We may wonder why we still need such an old school tool? Well, the terminal is a very powerful tool. By using the terminal we can easily manage our files and execute complex operations very efficiently. Moreover, although most software provides some graphical user interfaces, advanced functionalities may only be available through the command-line interface. The bottom line is, *“when the going gets tough the terminal gets opening”*.
 
-Therefore, although it may seem overwhelming at first, we need to learn the basics of the terminal to later use more advanced tools that are introduced in the following Chapters. In particular, the terminal is required to use Git (see Chapter \@ref(version-control-chapter)) and Docker (see Chapter \@ref(docker-chapter)).
+Therefore, although it may seem overwhelming at first, we need to learn the basics of the terminal to later use more advanced tools that are introduced in the following Chapters. In particular, the terminal is required to use Git (see Chapter \@ref(git-chapter)) and Docker (see Chapter \@ref(docker-chapter)).
 
 In this chapter, we provide a minimal guide to the terminal introducing the main concepts and basic commands to manage and manipulate files. In particular, we refer to the Bash command language used on Unix systems (see Section \@ref(different-shells)). 
 

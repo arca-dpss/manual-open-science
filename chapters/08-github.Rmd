@@ -186,7 +186,7 @@ Independently of the repository visibility status (private or remote), only the 
 
 Even if a repository is public, only collaborators can contribute by pushing their commits directly to the repository. Other users from the GitHub community are not allowed to push commits directly to the repository. However, they can still contribute to any public repository using *Pull-Requests* as described in Section \@ref(pull-request).
 
-Finally, note that, even if we do not have any collaborator on a project, we could still use a remote repository on GitHub as a personal backup or to share the project results with the whole community.
+Finally, note that, even if we do not have any collaborator on a project, we can still use a remote repository on GitHub as a personal backup or to share the project results with the whole community.
 
 ## Main Features 
 

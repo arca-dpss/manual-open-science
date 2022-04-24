@@ -1,6 +1,6 @@
-# Workflow {#workflow-chapter}
+# Workflow Analysis {#workflow-analysis-chapter}
 
-In the previous chapters, we learned to use the Open Science Framework (OSF) and to organize all our files and data in a well structured and documented repository. Moreover, we learned how to write readable and maintainable code and to use Git and GitHub for tracking changes and managing collaboration during the development of our project.
+In the previous chapters, we learned to organize all our files and data in a well structured and documented repository. Moreover, we learned how to write readable and maintainable code and to use Git and GitHub for tracking changes and managing collaboration during the development of our project.
 
 At this point, we have everything we need to run our analysis. In this chapter, we discuss how to manage the analysis workflow to enhance results reproducibility and code maintainability.
 
@@ -76,7 +76,7 @@ A manager tool with these characteristics is particularly useful during the proj
 
 #### Make {#make}
 
-Make is a Unix utility that manages the execution of general tasks. It is commonly used to automatize packages and programs installation, however, it can be also used to manage any project workflow. In Windows, an analogous tool is NMake ( https://docs.microsoft.com/en-us/cpp/build/reference/nmake-reference )
+Make is a Unix utility that manages the execution of general tasks. It is commonly used to automatize packages and programs installation, however, it can be also used to manage any project workflow. In Windows, an analogous tool is NMake (see  https://docs.microsoft.com/en-us/cpp/build/reference/nmake-reference)
 
 Make has several powerful features. In particular, it allows us to define dependencies between the different project parts and it automatically figures out which files to update following changes or modifications. Moreover, Make is not limited to a particular language but it can be used for any purpose. See official documentation for more details https://www.gnu.org/software/make/.
 
@@ -90,7 +90,7 @@ Now we discuss how to manage the analysis workflow specifically when using the R
 
 ### Analysis Workflow 
 
-In Chapter \@ref(r-package), we discussed how to create our custom functions to execute specific parts of the analysis. Following the R-packages convention, we store all the `.R` scripts with our custom functions in the `R/` directory at the root of our project.
+In Chapter \@ref(r-package-proj), we discussed how to create our custom functions to execute specific parts of the analysis. Following the R-packages convention, we store all the `.R` scripts with our custom functions in the `R/` directory at the root of our project.
 
 Now, we can use our custom functions to run the analysis. We do that in separate `.R` scripts saved in a different directory named, for example, `analysis/`. Of course, during the actual analysis development, this is an iterative process. We continuously switch between defining functions and adding analysis steps. It is important, however, to always keep the scripts used to run the analysis in a separate directory from the scripts with our custom functions:
 
@@ -747,4 +747,46 @@ if(interactive()){
 ```
 
 In this way, each time we restart the R session all targets are loaded in the environment and we can go back straight into the analysis development.
+:::
+
+\newpage
+
+:::{.doclinks data-latex=""}
+
+#### Make {-}
+
+- make official documentation`r break_line(format = output_format)`
+  https://www.gnu.org/software/make/.
+- NMake`r break_line(format = output_format)`
+  https://docs.microsoft.com/en-us/cpp/build/reference/nmake-reference 
+- makefile`r break_line(format = output_format)`
+  https://opensource.com/article/18/8/what-how-makefile
+
+#### R {-}
+
+- Run R non-interactive`r break_line(format = output_format)`
+  https://github.com/gastonstat/tutorial-R-noninteractive
+- DESCRIPTION load packages`r break_line(format = output_format)`
+  https://r-pkgs.org/namespace.html?q=depends#imports
+- `conflicted` R package`r break_line(format = output_format)`
+  https://conflicted.r-lib.org/
+- Object Oriented`r break_line(format = output_format)`
+  http://adv-r.had.co.nz/OO-essentials.html
+- workflowr R package`r break_line(format = output_format)`
+  https://github.com/workflowr/workflowr
+
+#### Targets {-}
+
+- Official documentation`r break_line(format = output_format)`
+  https://books.ropensci.org/targets/
+- Load packages`r break_line(format = output_format)`
+  https://books.ropensci.org/targets/packages.html
+- Literate programming`r break_line(format = output_format)`
+  https://books.ropensci.org/targets/files.html#literate-programming
+- Dynamic branching`r break_line(format = output_format)`
+  https://books.ropensci.org/targets/dynamic.html
+- Static branching`r break_line(format = output_format)`
+  https://books.ropensci.org/targets/static.html
+- High-performance computing`r break_line(format = output_format)`
+  https://books.ropensci.org/targets/hpc.html
 :::

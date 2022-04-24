@@ -243,7 +243,7 @@ Again, some programming languages have specific syntax rules about spacing and i
   
   To indent the code, we can use spaces or Tabs. For a nice debate about this choice see https://thenewstack.io/spaces-vs-tabs-a-20-year-debate-and-now-this-what-the-hell-is-wrong-with-go (do not forget to watch the linked video as well). However, if we mix together Tabs and spaces this will lead to errors in programming languages that require precise indentation. This issue is very difficult to debug as Tabs and spaces look invisible. To avoid this problem, most editors allow the user to automatically substitute Tabs with a fixed number of spaces.
 
-#### Comments {comments}
+#### Comments {#comments}
 
 Comments are ignored by the program, but they are extremely valuable for colleagues reading our code. Thus, we should always include appropriate comments in our code. The future us will be very grateful.
 
@@ -970,7 +970,7 @@ There are many books available on-line covering all the aspects of the R program
 <div class="list-images">
 - <div class="packages-logo-box"><img src="images/coding/hopr.png"></div>**Hands-On Programming with R (https://rstudio-education.github.io/hopr).** This book covers the basics of R (i.e., data types, functions, programs, and loops). This book is different from all the resources of the *“learning statistics with R”* kind, as it focuses on R from a programming perspective rather than applying it to run statistical analyses. Therefore, it is perfect to build fundamental knowledge about basic programming concepts that are otherwise overlooked in other more applied books. Remember R is not simply a statistical software, but it is a real programming language. 
 - <div class="packages-logo-box"><img src="images/coding/r4ds.png"></div>**R for Data Science (https://r4ds.had.co.nz).** The tidyverse bible. We address the tidyverse vs Base R discussion in the Box below. However, no one can deny the importance of tidyverse which has led to a small revolution in R creating a wonderful ecosystem of packages. This book covers the process of wrangling, visualising, and exploring data using the tidyverse packages. However, along with the chapters, it also discusses many general important aspects of programming that we commonly have to deal with (i.e., regular expressions and relational data). Therefore, although it is more of an applied book, it helps us to deal with many common issues when working on real data projects.  
-- <div class="packages-logo-box"><img src="images/coding/r-pkgs.png"></div>**R Packages (https://r-pkgs.org).** When writing functions, we start to deal with many subtle aspects of R. The best way to start understanding what is going on behind the scenes is to start developing our own packages. This book covers all the details and mechanisms of R packages and it will become our best friend if we want to publish a package on CRAN. Of course, we do not always need to create an actual stand-alone package. However, using the R package project template allows us to get the advantage of many useful features (e.g., documentation and unit tests) that can help us develop our projects. In Section \@ref(r-package), we further discuss these aspects.
+- <div class="packages-logo-box"><img src="images/coding/r-pkgs.png"></div>**R Packages (https://r-pkgs.org).** When writing functions, we start to deal with many subtle aspects of R. The best way to start understanding what is going on behind the scenes is to start developing our own packages. This book covers all the details and mechanisms of R packages and it will become our best friend if we want to publish a package on CRAN. Of course, we do not always need to create an actual stand-alone package. However, using the R package project template allows us to get the advantage of many useful features (e.g., documentation and unit tests) that can help us develop our projects. In Section \@ref(r-package-proj), we further discuss these aspects.
 - <div class="packages-logo-box"><img src="images/coding/adv-r.png"></div>**Advanced R (https://adv-r.hadley.nz).** Finally the *“one book to rule them all”*. This book covers all the black magic and secrets of R. All the topics are very advanced and discussed in detail from a programming perspective. Usually, we end up reading parts of this book when facing strange bugs or issues. If you have never heard about lexical scoping, lazy evaluation, functional, quasiquotatio, and quosure, well$\ldots$ you will have lots of fun. 
 </div>
 
@@ -1037,7 +1037,7 @@ Here we review only a few aspects:
     - Find in all project files:        `Ctrl+Shift+F`        (macOS `Cmd+Shift+F`)
     - Check Spelling:        F7
 
-### R Package Project {#r-package}
+### R Package Project {#r-package-proj}
 
 Adopting a functional style approach, we will create lots of functions and use them in the analyses. To organize our project files, we can save all the scripts containing the function definitions in a separate directory (e.g., `R/`) and source all them at the beginning of the main script used to run the analyses. This approach is absolutely fine. However, if we want to optimize our workflow, we should consider organizing our project as it was an R package. 
 

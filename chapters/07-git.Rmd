@@ -16,7 +16,7 @@ Fortunately, we do not need to invent anything. Programmers have already faced t
 
 Version control software are the solution for managing projects development in an efficient and secure way and *Git* (https://git-scm.com/) is the most popular version control software. Therefore, let's learn how to use Git.
 
-## Git Elements
+## Git Overview
 
 ```{r, results ="asis"}
 package_logo("images/git/git-logo.png", format = output_format,
@@ -128,7 +128,7 @@ We can check whether Git is installed on our machine by running the following co
 $ git --version
 ```
 
-The Git version is returned. If Git is not available, we can install it following the Operative System specific instructions. See also https://git-scm.com/downloads.
+The Git version is returned. If Git is not available, we can install it following the Operating System specific instructions. See also https://git-scm.com/downloads.
 
 ### On Windows 
 

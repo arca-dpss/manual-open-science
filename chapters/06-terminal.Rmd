@@ -27,7 +27,7 @@ A good tip is to always keep some up-to-date backups of our machine, just in cas
 
 ## What is a Terminal?
 
-The terms command-line, terminal, and shell are often used interchangeably to refer to the same thing: *“using text-based commands to interact with the operative system”*. 
+The terms command-line, terminal, and shell are often used interchangeably to refer to the same thing: *“using text-based commands to interact with the operating system”*. 
 
 To be precise, however, they are not exactly the same thing. Let's define them:
 
@@ -35,7 +35,7 @@ To be precise, however, they are not exactly the same thing. Let's define them:
 
 - **Terminal (or Console).** The graphical window with a command-line interface allows us to interact with the shell.
 
-- **Shell.** The command line interpreter that processes the commands, communicates with the Operative System and returns the results.
+- **Shell.** The command line interpreter that processes the commands, communicates with the Operating System and returns the results.
 
 For more details, see https://www.geeksforgeeks.org/difference-between-terminal-console-shell-and-command-line/.
 
@@ -43,13 +43,13 @@ Although these subtle differences, also in this book the terms command line, ter
 
 ### Different Shells {#different-shells}
 
-Different shell command line interpreters are available depending on the Operative System. The most popular shells are reported in Table \@ref(tab:table-shell). For more details about the different shells, see https://www.servertribe.com/difference-between-cmd-vs-powershell-vs-bash.
+Different shell command line interpreters are available depending on the Operating System. The most popular shells are reported in Table \@ref(tab:table-shell). For more details about the different shells, see https://www.servertribe.com/difference-between-cmd-vs-powershell-vs-bash.
 
 ```{r table-shell}
 data_table <- tibble(Shell = c("Command Prompt (CMD)", "PowerShell", "$\\ldots$",
                                "sh (Bourne shell)", "Bash (Bourne again shell)","Zsh (Z shell)", "$\\ldots$"))
 
-kable(data_table, booktabs = TRUE, caption = "Shell Interpreter according to Operative System",
+kable(data_table, booktabs = TRUE, caption = "Shell Interpreter according to Operating System",
       col.names = "Shell Interpreter", escape = FALSE) %>%
   kable_styling(full_width = FALSE, 
                 latex_options = c("hold_position")) %>%
@@ -66,12 +66,12 @@ knitr::include_graphics("images/terminal/current-shell.png")
 
 Although most shells work similarly, each one has its unique commands and specific features. In particular, Unix shells and Windows shells are based on very different frameworks leading to important differences. Learning one of the two would give us only a limited intuition of how the other works. For an example of command differences, see https://www.geeksforgeeks.org/linux-vs-windows-commands/. Therefore, we need to choose which shell command language to learn first.
 
-We decided to use Bash for two main reasons. First, Bash is now available on all main Operative Systems (macOS, Linux, and Windows). In fact,  Windows recently introduced the *Windows Subsystem for Linux (WLS)* that allows us to run Linux directly on Windows meaning that we can use any Unix based shell (see Section \@ref(install-windows-terminal)). Second, Bash is one of the most diffused and supported shell command languages and it is the default shell in most Linux distributions. As most web servers and online services are Linux-based, learning Bash would allow us to easily work with all these advanced tools (e.g., Docker).
+We decided to use Bash for two main reasons. First, Bash is now available on all main Operating Systems (macOS, Linux, and Windows). In fact,  Windows recently introduced the *Windows Subsystem for Linux (WLS)* that allows us to run Linux directly on Windows meaning that we can use any Unix based shell (see Section \@ref(install-windows-terminal)). Second, Bash is one of the most diffused and supported shell command languages and it is the default shell in most Linux distributions. As most web servers and online services are Linux-based, learning Bash would allow us to easily work with all these advanced tools (e.g., Docker).
 
 :::{.design title="Programming Language vs Command Language" data-latex="[Programming Language vs Command Language]"}
 Bash language and other shell languages, in general, are referred to as command languages rather than programming languages. Why this difference?
 
-Shell languages are considered *super-languages* used to communicate with the Operative System. They are intended to interact with everything and execute any task by managing calls to other programs. This is their real power, the possibility to create complex applications using different programs.
+Shell languages are considered *super-languages* used to communicate with the Operating System. They are intended to interact with everything and execute any task by managing calls to other programs. This is their real power, the possibility to create complex applications using different programs.
 
 Hypothetically, shell languages can be used on their own to implement any arbitrary algorithm. However, they usually lack features to facilitate this job. You would need to implement everything yourself or relay to call some other external program.
 
@@ -80,7 +80,7 @@ For more detail, see https://stackoverflow.com/questions/28693737/is-bash-a-prog
 
 ## Install Bash
 
-Let's see how to install Bash depending on the Operative System.
+Let's see how to install Bash depending on the Operating System.
 
 ### On Windows {#install-windows-terminal}
 
@@ -95,7 +95,7 @@ The instructions will guide you through the installation of WLS (version 1 or 2 
 
 Done?$\ldots$ Congrats! You have just installed Linux on a Windows machine. Now we can launch a Bash terminal session simply by opening Ubuntu as we would do with any other application. Note that we can also start the Bash shell from other terminals by simply typing `bash`. 
 
-Now let's briefly clarify a few important things without going into details. We have installed both Windows and Linux on our machine but they actually *“live”* in two different places. They can communicate with each other, but we have to be careful about what we do. Windows and Linux are completely different Operative Systems and they manage files differently (they use different files metadata). Therefore, if we modify Linux files from Windows, this could result in corrupted or damaged files. Fortunately, there is a safe way to do that:
+Now let's briefly clarify a few important things without going into details. We have installed both Windows and Linux on our machine but they actually *“live”* in two different places. They can communicate with each other, but we have to be careful about what we do. Windows and Linux are completely different Operating Systems and they manage files differently (they use different files metadata). Therefore, if we modify Linux files from Windows, this could result in corrupted or damaged files. Fortunately, there is a safe way to do that:
 
 - **Accessing Linux file system from Windows** safely via `\\wsl$\<DistroName>\` (e.g. `\\wsl$\Ubuntu\home\<username>\<folder>`)
 
@@ -261,7 +261,7 @@ $ pwd
 
 :::{.design title="Directory Structure" data-latex="[Directory Structure]"}
 
-As we start using the terminal, we discover how all directories and files are actually organized in our computer and how they are managed by the operative system.
+As we start using the terminal, we discover how all directories and files are actually organized in our computer and how they are managed by the operating system.
 
 Modern graphical user interfaces with icons and buttons give a very misleading representation of how a computer is organized. We may think that the Desktop is the entrance of our computer and from there we can reach all the files simply by point-and-click actions.
   

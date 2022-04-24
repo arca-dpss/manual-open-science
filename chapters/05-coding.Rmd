@@ -243,7 +243,7 @@ Again, some programming languages have specific syntax rules about spacing and i
   
   To indent the code, we can use spaces or Tabs. For a nice debate about this choice see https://thenewstack.io/spaces-vs-tabs-a-20-year-debate-and-now-this-what-the-hell-is-wrong-with-go (do not forget to watch the linked video as well). However, if we mix together Tabs and spaces this will lead to errors in programming languages that require precise indentation. This issue is very difficult to debug as Tabs and spaces look invisible. To avoid this problem, most editors allow the user to automatically substitute Tabs with a fixed number of spaces.
 
-#### Comments
+#### Comments {comments}
 
 Comments are ignored by the program, but they are extremely valuable for colleagues reading our code. Thus, we should always include appropriate comments in our code. The future us will be very grateful.
 
@@ -1073,10 +1073,10 @@ In particular, we have:
 - **`NAMESPACE`**, a special file used to declare the functions that are exported and imported by our package the files we do not want to include in the package. If we are not interested in creating a proper package, we can ignore it.
 - **`<pkg-name>.Rproj`**, the usual `.Rproj` file of each RStudio project.
 - **`man/`**, a directory containing the functions documentation (see Section \@ref(documentation-roxygen)).
-- **`R/`**, a directory containing all the function scripts.
+- **`R/`**, a directory containing all the function scripts (must be capital `"R"`).
 - **`tests/`**, a directory containing all the unit tests (see Section \@ref(testthat)).
 
-#### The `devtools` Workflow
+#### The `devtools` Workflow {#devtools-workflow}
 
 ```{r, results ="asis"}
 package_logo("images/coding/devtools.png", format = output_format, tex_width = .25)

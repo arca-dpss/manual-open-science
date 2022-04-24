@@ -179,7 +179,7 @@ To create a well organized project that other colleagues can easily explore, it 
     "03-statistical-models.R"
     ```
   :::
-- **Prefer *lower-case* Names.** There is nothing wrong with capital letters. However, case sensitivity depends on the specific operative system. For example, in macOS and Linux systems, the files `my-file.txt` and `My-File.txt` can not coexist in the same directory. Therefore, it is recommended to always use lower-case names.
+- **Prefer *lower-case* Names.** There is nothing wrong with capital letters. However, case sensitivity depends on the specific operating system. For example, in macOS and Linux systems, the files `my-file.txt` and `My-File.txt` can not coexist in the same directory. Therefore, it is recommended to always use lower-case names.
 - **Specify Files Extension.** Always indicate the specific file extension.
 - **Avoid Spaces.** In many programming languages, spaces are used to separate arguments or variable names. We should always use underscores (`"_"`) or dashes (`"-"`) instead of spaces.
 
@@ -261,12 +261,12 @@ Absolute paths hinder reproducibility as they do not work on someone else's comp
 
 When opening a project directory, many programs automatically set the working directory at the root of the project but this is not guaranteed. Therefore, we should always ensure that our IDE (Integrated Development Environment; e.g. Rstudio, Visual Studio Code, PyCharm) is doing that automatically or we should do it manually. 
 
-Once the working directory is correctly set (automatically or manually), relative paths will work on any computer (up to the operative system; see *“Details-Box: Garden of Forking Paths”* below). This is one of the great advantages of using projects and relative paths: all the files are referred to relative to the project structure and independently of the specific computer directories configuration.
+Once the working directory is correctly set (automatically or manually), relative paths will work on any computer (up to the operating system; see *“Details-Box: The Garden of Forking Paths”* below). This is one of the great advantages of using projects and relative paths: all the files are referred to relative to the project structure and independently of the specific computer directories configuration.
 
 [TODO: check paths windows]
 
-:::{.design title="Garden of Forking Paths" data-latex="[Garden of Forking Paths]"}
-The syntax to define file paths differs according to the operative system used. In particular, the main differences are between Unix systems (macOS and Linux) and Windows. Fortunately, main programming languages have ad hoc solutions to allow the same file path to work on different operating systems (e.g. for R see Section [TODO: add ref]; for Python see https://medium.com/@ageitgey/python-3-quick-tip-the-easy-way-to-deal-with-file-paths-on-windows-mac-and-linux-11a072b58d5f ). Therefore, by using adequate solutions, we do not have to bother about the operative system being used while coding. 
+:::{.design title="The Garden of Forking Paths" data-latex="[The Garden of Forking Paths]"}
+The syntax to define file paths differs according to the operating system used. In particular, the main differences are between Unix systems (macOS and Linux) and Windows. Fortunately, main programming languages have ad hoc solutions to allow the same file path to work on different operating systems (e.g. for R see Section [TODO: add ref]; for Python see https://medium.com/@ageitgey/python-3-quick-tip-the-easy-way-to-deal-with-file-paths-on-windows-mac-and-linux-11a072b58d5f ). Therefore, by using adequate solutions, we do not have to bother about the operating system being used while coding. 
 
 ##### Unix Systems {-}
 
@@ -386,7 +386,7 @@ We now discuss the main features of RStudio Projects:
     As discussed in Section \@ref(wd-file-path), this is a very useful feature because now we no longer have to bother about setting the working directory manually (we can finally forget about the `setwd()` command). Moreover, we can refer to any file using relative paths considering as reference the project root.
 
 :::{.design title="File Paths in R" data-latex="[File Paths in R]"} 
-In R, we can specify file path using forward slash `"/"` or backslash `"\"` independently of the operative system we are currently using. However, the backslash has a special meaning in R as it is used as *escape character*. Thus, to specify a file path using backslash we have to double them (e.g., "my-project\\\\data\\\\my-data.csv"). All this leads to a simple solution:
+In R, we can specify file path using forward slash `"/"` or backslash `"\"` independently of the operating system we are currently using. However, the backslash has a special meaning in R as it is used as *escape character*. Thus, to specify a file path using backslash we have to double them (e.g., "my-project\\\\data\\\\my-data.csv"). All this leads to a simple solution:
 
 > Always use forward slash `"/"` to specify file paths to avoid any troubles (e.g., "my-project/data/my-data.csv").
 :::

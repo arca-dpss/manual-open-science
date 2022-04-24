@@ -1,0 +1,94 @@
+---
+title: 'Report Analysis'
+author: 'ARCA'
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  bookdown::html_document2: 
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    collapsed: false
+    css: ["css/custom.css"]
+linestretch: 1.5
+number_sections: true
+bibliography: "bib-example.bib"
+csl: "apa.csl"
+link-citations: true 
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(kableExtra)
+
+# Chunks settings
+knitr::opts_chunk$set(echo = FALSE,
+                      # Plot settings
+                      fig.align='center',
+                      # dev = "tikz", dev.args=list(pointsize=12),
+                      # fig.height=3, fig.width=5, fig.pos = "!ht",
+
+                      # Code output width
+                      tidy=TRUE, tidy.opts = list(width.cutoff = 80),
+                      # comment = NA, prompt = TRUE,
+                      collapse = TRUE,
+
+                      # Cache options
+                      cache = FALSE, autodep=TRUE)
+
+# Console output width
+options(width = 80)
+
+# Chunk theme
+thm = knitr::knit_theme$get("bclear")
+knitr::knit_theme$set(thm)
+knitr::opts_chunk$set(background = c(.98, .98, 1))
+
+# Option KableExtra
+# options(knitr.kable.NA = '')
+
+## ggplot settings
+theme_set(theme_bw()+
+            theme(text = element_text(size=12)))
+
+#----    Custom Functions    ----
+tryCatch(
+    devtools::load_all("../"),
+    error = function(x){
+      devtools::load_all()
+    })
+
+#----    load targets    ----
+# Path to _targets/ is defined in the _targets.yaml file
+tar_load_all()
+
+library("targets")
+```
+
+
+## Descriptive Statistics {-}
+
+Summary of the data
+```{r}
+ls()
+tar_load(my_data)
+summary(my_data)
+```
+
+Distribution observations
+```{r}
+tar_read(plot_obs)
+```
+
+## Inferential Statistics {-}
+
+```{r}
+tar_load(lm_fit)
+summary(lm_fit)
+```
+
+
+# References {-}
+

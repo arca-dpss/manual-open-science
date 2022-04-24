@@ -64,7 +64,7 @@ To enable SSH protocol:
 
 1. **Generate SSH keys.** First we need to check if we already have an SSH key-pair available. These are usually saved in the `"~/.ssh/"` directory.
 
-  If no SSH key is available, we can generate a new pair following the instructions at https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent. Note that we need to choose instructions according to our operative system. Moreover, if using WLS on Windows, check the dedicated section at https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/.
+  If no SSH key is available, we can generate a new pair following the instructions at https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent. Note that we need to choose instructions according to our operating system. Moreover, if using WLS on Windows, check the dedicated section at https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/.
   
   Alternatively, we can generate an SSH key-pair directly from RStudio (see Box below).
   

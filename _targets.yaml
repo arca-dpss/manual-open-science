@@ -1,0 +1,3 @@
+main:
+  script: analysis/targets-workflow.R
+  store: analysis/_targets/

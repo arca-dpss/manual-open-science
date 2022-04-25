@@ -210,7 +210,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
-<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
 <li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
 </ul></li>
 </ul></li>
@@ -573,7 +573,7 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 11</span> Requirements<a href="requirements-chapter.html#requirements-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In the previous chapters, we learned to organize all our files and data in a well structured and documented repository. Moreover, we learned to use Git and GitHub for tracking changes and managing collaboration during the development of our project. Finally, we introduced dedicated tools for managing the analysis workflow pipeline and for creating dynamic documents.</p>
 <p>To guarantee the reproducibility of the results, however, it is not enough to automatize the analysis execution, but we also need to satisfy all project requirements. Ideally, the analysis should be reproduced using the same settings and configuration as in the original analysis. This means that system prerequisites, specific software, and required libraries all should match the specific project requirements.</p>
-<p>In this chapter, we discuss how to manage our project requirements. In Chapter [TODO: add ref], instead, we introduce Docker and the container technology that allows us to create and share an isolated, controlled, standardized environment for our project. The Holy Grail of reproducibility.</p>
+<p>In this chapter, we discuss how to manage our project requirements. In Chapter <a href="docker-chapter.html#docker-chapter">12</a>, instead, we introduce Docker and the container technology that allows us to create and share an isolated, controlled, standardized environment for our project. The Holy Grail of reproducibility.</p>
 <div id="project-requirements-and-installation" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> Project Requirements and Installation<a href="requirements-chapter.html#project-requirements-and-installation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We need to provide a clear description of the project requirements and how to install them. As described in Chapter <a href="project-chapter.html#readme-section">3.1.1.5</a>, we can create a section in the project <code>README</code> named <em>“Requirements”</em>, with all the project requirements, and another section named <em>“Installation”</em>, with step-by-step instructions on how to get our project ready on someone else’s machine.</p>
@@ -604,9 +604,9 @@ div.csl-indent {
 <h4><span class="header-section-number">11.1.1.3</span> Libraries<a href="requirements-chapter.html#libraries" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Finally, most of the currently popular programming languages for statistical analysis rely on multiple libraries to implement several features. Also, these libraries are regularly updated and their backward compatibility may be compromised. Therefore, it is necessary to list all the required libraries with their exact versions.</p>
 <p>The number of required libraries can grow quite large very easily. For this reason, listing all of them in the <code>README</code> file may not be the best solution. Alternatively, we could list all the libraries in another file in our project. For example, we can create a <code>requirements.txt</code> file with each library name and version. Ideally, this file should be structured smartly to allow other colleagues to automatically retrieve the required information to install the libraries using some function. For example, the <code>requirements.txt</code> file can be structured as follows.</p>
-<pre><code>library_1==x.xx.xx
-library_2==x.xx.xx
-...</code></pre>
+<div class="sourceCode" id="cb183"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb183-1"><a href="requirements-chapter.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="va">library_1</span><span class="op">=</span>=x.xx.xx</span>
+<span id="cb183-2"><a href="requirements-chapter.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="va">library_2</span><span class="op">=</span>=x.xx.xx</span>
+<span id="cb183-3"><a href="requirements-chapter.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span></code></pre></div>
 <p>In this way, using regular expressions (for a tutorial on regular expressions see <a href="https://ryanstutorials.net/regular-expressions-tutorial/" class="uri">https://ryanstutorials.net/regular-expressions-tutorial/</a>) library name and version can be easily retrieved and used to install all the dependencies.</p>
 <p>In the <code>README</code> file, we should still point to the <code>requirements.txt</code> file providing relevant indications on how to use it and how to install the required libraries. We could also provide a custom function to automate this process. However, major programming languages already provide ad-hoc solutions to manage project dependencies easily and automatically. In Section <a href="requirements-chapter.html#r-dependencies">11.2</a>, we describe how to manage dependencies in R (for Python, see <a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files" class="uri">https://pip.pypa.io/en/stable/user_guide/#requirements-files</a> and <a href="https://www.geeksforgeeks.org/pipenv-python-package-management-tool" class="uri">https://www.geeksforgeeks.org/pipenv-python-package-management-tool</a> ).</p>
 </div>
@@ -630,22 +630,22 @@ library_2==x.xx.xx
 <h3><span class="header-section-number">11.2.1</span> R version<a href="requirements-chapter.html#r-version" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The first thing to take into account is the actual R version used in the project. This is particularly relevant as, on the 24th of April 2020 (curiously, the birthday of one of the book authors), R 4.0.0 was released introducing several new features that were not available before. Moreover, as for any major release, backward compatibility is not guaranteed. Thus, guess what?<span class="math inline">\(\ldots\)</span>Code working on the old 3.6.x versions may fail (or give surprisingly different results) if run on the new 4.x.x. versions. For these reasons, it is important to use the exact required R version.</p>
 <p>We can check our current R version (plus other system info) by running the command <code>version</code> (without parenthesis, it is an object, not a function; see <code>?version</code> for further details).</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="requirements-chapter.html#cb183-1" aria-hidden="true" tabindex="-1"></a>version</span>
-<span id="cb183-2"><a href="requirements-chapter.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="do">##                _                           </span></span>
-<span id="cb183-3"><a href="requirements-chapter.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="do">## platform       x86_64-apple-darwin17.0     </span></span>
-<span id="cb183-4"><a href="requirements-chapter.html#cb183-4" aria-hidden="true" tabindex="-1"></a><span class="do">## arch           x86_64                      </span></span>
-<span id="cb183-5"><a href="requirements-chapter.html#cb183-5" aria-hidden="true" tabindex="-1"></a><span class="do">## os             darwin17.0                  </span></span>
-<span id="cb183-6"><a href="requirements-chapter.html#cb183-6" aria-hidden="true" tabindex="-1"></a><span class="do">## system         x86_64, darwin17.0          </span></span>
-<span id="cb183-7"><a href="requirements-chapter.html#cb183-7" aria-hidden="true" tabindex="-1"></a><span class="do">## status                                     </span></span>
-<span id="cb183-8"><a href="requirements-chapter.html#cb183-8" aria-hidden="true" tabindex="-1"></a><span class="do">## major          4                           </span></span>
-<span id="cb183-9"><a href="requirements-chapter.html#cb183-9" aria-hidden="true" tabindex="-1"></a><span class="do">## minor          1.2                         </span></span>
-<span id="cb183-10"><a href="requirements-chapter.html#cb183-10" aria-hidden="true" tabindex="-1"></a><span class="do">## year           2021                        </span></span>
-<span id="cb183-11"><a href="requirements-chapter.html#cb183-11" aria-hidden="true" tabindex="-1"></a><span class="do">## month          11                          </span></span>
-<span id="cb183-12"><a href="requirements-chapter.html#cb183-12" aria-hidden="true" tabindex="-1"></a><span class="do">## day            01                          </span></span>
-<span id="cb183-13"><a href="requirements-chapter.html#cb183-13" aria-hidden="true" tabindex="-1"></a><span class="do">## svn rev        81115                       </span></span>
-<span id="cb183-14"><a href="requirements-chapter.html#cb183-14" aria-hidden="true" tabindex="-1"></a><span class="do">## language       R                           </span></span>
-<span id="cb183-15"><a href="requirements-chapter.html#cb183-15" aria-hidden="true" tabindex="-1"></a><span class="do">## version.string R version 4.1.2 (2021-11-01)</span></span>
-<span id="cb183-16"><a href="requirements-chapter.html#cb183-16" aria-hidden="true" tabindex="-1"></a><span class="do">## nickname       Bird Hippie</span></span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="requirements-chapter.html#cb184-1" aria-hidden="true" tabindex="-1"></a>version</span>
+<span id="cb184-2"><a href="requirements-chapter.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="do">##                _                           </span></span>
+<span id="cb184-3"><a href="requirements-chapter.html#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="do">## platform       x86_64-apple-darwin17.0     </span></span>
+<span id="cb184-4"><a href="requirements-chapter.html#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="do">## arch           x86_64                      </span></span>
+<span id="cb184-5"><a href="requirements-chapter.html#cb184-5" aria-hidden="true" tabindex="-1"></a><span class="do">## os             darwin17.0                  </span></span>
+<span id="cb184-6"><a href="requirements-chapter.html#cb184-6" aria-hidden="true" tabindex="-1"></a><span class="do">## system         x86_64, darwin17.0          </span></span>
+<span id="cb184-7"><a href="requirements-chapter.html#cb184-7" aria-hidden="true" tabindex="-1"></a><span class="do">## status                                     </span></span>
+<span id="cb184-8"><a href="requirements-chapter.html#cb184-8" aria-hidden="true" tabindex="-1"></a><span class="do">## major          4                           </span></span>
+<span id="cb184-9"><a href="requirements-chapter.html#cb184-9" aria-hidden="true" tabindex="-1"></a><span class="do">## minor          1.2                         </span></span>
+<span id="cb184-10"><a href="requirements-chapter.html#cb184-10" aria-hidden="true" tabindex="-1"></a><span class="do">## year           2021                        </span></span>
+<span id="cb184-11"><a href="requirements-chapter.html#cb184-11" aria-hidden="true" tabindex="-1"></a><span class="do">## month          11                          </span></span>
+<span id="cb184-12"><a href="requirements-chapter.html#cb184-12" aria-hidden="true" tabindex="-1"></a><span class="do">## day            01                          </span></span>
+<span id="cb184-13"><a href="requirements-chapter.html#cb184-13" aria-hidden="true" tabindex="-1"></a><span class="do">## svn rev        81115                       </span></span>
+<span id="cb184-14"><a href="requirements-chapter.html#cb184-14" aria-hidden="true" tabindex="-1"></a><span class="do">## language       R                           </span></span>
+<span id="cb184-15"><a href="requirements-chapter.html#cb184-15" aria-hidden="true" tabindex="-1"></a><span class="do">## version.string R version 4.1.2 (2021-11-01)</span></span>
+<span id="cb184-16"><a href="requirements-chapter.html#cb184-16" aria-hidden="true" tabindex="-1"></a><span class="do">## nickname       Bird Hippie</span></span></code></pre></div>
 <div class="design" title="R Release Updates">
 <p><strong>Info-Box: R Release Updates</strong>
 To know the new feature introduced in R 4.0.0 see <a href="https://www.r-bloggers.com/2020/04/r-4-0-0-now-available-and-a-look-back-at-rs-history/" class="uri">https://www.r-bloggers.com/2020/04/r-4-0-0-now-available-and-a-look-back-at-rs-history/</a></p>
@@ -655,24 +655,24 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 <div id="multiple-r-versions" class="section level4 hasAnchor" number="11.2.1.1">
 <h4><span class="header-section-number">11.2.1.1</span> Multiple R versions<a href="requirements-chapter.html#multiple-r-versions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>It is possible to install multiple versions of R side by side on our machine. These are stored in separate directories with their own independent libraries. In this case, we need to select the desired version of R to run. To do that in RStudio, follow the official documentation <a href="https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-the-RStudio-Desktop-IDE" class="uri">https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-the-RStudio-Desktop-IDE</a>.</p>
-<p>An alternative solution is to use Docker (see Chapter [TODO: add ref]). Docker allows us to create isolated, controlled environments in which we can install the required version of R.</p>
+<p>An alternative solution is to use Docker (see Chapter <a href="docker-chapter.html#docker-chapter">12</a>). Docker allows us to create isolated, controlled environments in which we can install the required version of R.</p>
 </div>
 <div id="other-related-software" class="section level4 hasAnchor" number="11.2.1.2">
 <h4><span class="header-section-number">11.2.1.2</span> Other Related Software<a href="requirements-chapter.html#other-related-software" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The specific R version may not be the only software requirement. In fact, some R functions rely heavily on other software. The main example is <code>pandoc</code>, a software used by the <code>rmarkdown</code> package to create documents. <code>pandoc</code> is not bundled with the <code>rmarkdown</code> package, but is normally provided by RStudio. Also, a specific RStudio version may be required if the project is based on some of its features (e.g., addins). Given the strong bond between R and RStudio and <code>pandoc</code> it is reasonable to list their version as well.</p>
 <p>Using the function <code>sessioninfo::session_info()$platform</code>, we get a list of useful information about the current R session. These include the R version, the pandoc version, the operating system, CPU, and other local settings. The RStudio version is also provided if used in the session (check on your machine). See <code>?sessioninfo::session_info()</code> for further details.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="requirements-chapter.html#cb184-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()<span class="sc">$</span>platform</span>
-<span id="cb184-2"><a href="requirements-chapter.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  setting  value</span></span>
-<span id="cb184-3"><a href="requirements-chapter.html#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  version  R version 4.1.2 (2021-11-01)</span></span>
-<span id="cb184-4"><a href="requirements-chapter.html#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  os       macOS Big Sur 10.16</span></span>
-<span id="cb184-5"><a href="requirements-chapter.html#cb184-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  system   x86_64, darwin17.0</span></span>
-<span id="cb184-6"><a href="requirements-chapter.html#cb184-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  ui       X11</span></span>
-<span id="cb184-7"><a href="requirements-chapter.html#cb184-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  language (EN)</span></span>
-<span id="cb184-8"><a href="requirements-chapter.html#cb184-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  collate  en_US.UTF-8</span></span>
-<span id="cb184-9"><a href="requirements-chapter.html#cb184-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  ctype    en_US.UTF-8</span></span>
-<span id="cb184-10"><a href="requirements-chapter.html#cb184-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  tz       Europe/Rome</span></span>
-<span id="cb184-11"><a href="requirements-chapter.html#cb184-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  date     2022-04-25</span></span>
-<span id="cb184-12"><a href="requirements-chapter.html#cb184-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)</span></span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="requirements-chapter.html#cb185-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()<span class="sc">$</span>platform</span>
+<span id="cb185-2"><a href="requirements-chapter.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  setting  value</span></span>
+<span id="cb185-3"><a href="requirements-chapter.html#cb185-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  version  R version 4.1.2 (2021-11-01)</span></span>
+<span id="cb185-4"><a href="requirements-chapter.html#cb185-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  os       macOS Big Sur 10.16</span></span>
+<span id="cb185-5"><a href="requirements-chapter.html#cb185-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  system   x86_64, darwin17.0</span></span>
+<span id="cb185-6"><a href="requirements-chapter.html#cb185-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  ui       X11</span></span>
+<span id="cb185-7"><a href="requirements-chapter.html#cb185-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  language (EN)</span></span>
+<span id="cb185-8"><a href="requirements-chapter.html#cb185-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  collate  en_US.UTF-8</span></span>
+<span id="cb185-9"><a href="requirements-chapter.html#cb185-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  ctype    en_US.UTF-8</span></span>
+<span id="cb185-10"><a href="requirements-chapter.html#cb185-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  tz       Europe/Rome</span></span>
+<span id="cb185-11"><a href="requirements-chapter.html#cb185-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  date     2022-04-25</span></span>
+<span id="cb185-12"><a href="requirements-chapter.html#cb185-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)</span></span></code></pre></div>
 <p>Providing all this information about the session used to obtain the original results may be useful in the case of inexplicable reproducibility issues. For example, we can save the output as an object or print it in the project <code>README</code> or another file.</p>
 </div>
 </div>
@@ -680,7 +680,7 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 <h3><span class="header-section-number">11.2.2</span> R packages<a href="requirements-chapter.html#r-packages-requirements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The R packages ecosystem changes quite rapidly, new packages are released every month and already available packages are updated from time to time. New package versions can solve bugs, add new functions, or introduce new features. At the same time, old functions can be deprecated or removed from the package itself. This means that in a year or two, our code may fail due to some changes in the underlying dependencies. To avoid this issue it is important to ensure that we install the same package versions used in the original analysis.</p>
 <p>We can obtain a list of the packages used in the project and their version number using the function <code>sessioninfo::session_info()</code>. In the example below, we limited the number of packages displayed (usually quite long). See <code>?sessioninfo::session_info()</code> for all the options and output details.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="requirements-chapter.html#cb185-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="requirements-chapter.html#cb186-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
 <pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 4.1.2 (2021-11-01)
@@ -777,15 +777,13 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 <h3><span class="header-section-number">11.3.2</span> The <code>renv</code> workflow<a href="requirements-chapter.html#the-renv-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s see now how to get started with <code>renv</code>:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Init.</strong> We can activate <code>renv</code> in our project directly when creating a new project by selecting <em>“Use renv with this project”</em> (see Chapter <a href="project-chapter.html#create-proj">3.2.1</a>).
-<img src="images/requirements/use-renv.png" width="60%" style="display: block; margin: auto;" /></li>
-</ol>
+<li><p><strong>Init.</strong> We can activate <code>renv</code> in our project directly when creating a new project by selecting <em>“Use renv with this project”</em> (see Chapter <a href="project-chapter.html#create-proj">3.2.1</a>).</p>
+<p><img src="images/requirements/use-renv.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Alternatively, we can use <code>renv::init()</code> to enable <code>renv</code> in an already existing project. Once activated, <code>renv</code> automatically discovers all the packages currently used and creates the project private library. Moreover, any time we open a project that uses <code>renv</code> a message is displayed in the console to confirm the project library is loaded.</p>
-<pre><code>&lt;img src=&quot;images/requirements/renv-active.png&quot; width=&quot;60%&quot; style=&quot;display: block; margin: auto;&quot; /&gt;</code></pre>
-<ol style="list-style-type: decimal">
-<li><strong>Install Packages.</strong> Now we can proceed as usual installing the required packages for our project or removing them if no longer used.</li>
-<li><strong>Snapshot.</strong> When required, use the function <code>renv::snapshot()</code> to save the state of a project’s R package dependencies. All information regarding the version of R and R packages is automatically saved in a file named <code>renv.lock</code>.</li>
-<li><strong>Restore.</strong> Other colleagues can use the function <code>renv::restore()</code> to automatically install all the required packages according to the <code>renv.lock</code> file. We can also use <code>renv::restore()</code> to revert to a previously encoded state if newly installed packages introduce some unexpected problems.</li>
+<p><img src="images/requirements/renv-active.png" width="60%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Install Packages.</strong> Now we can proceed as usual installing the required packages for our project or removing them if no longer used.</p></li>
+<li><p><strong>Snapshot.</strong> When required, use the function <code>renv::snapshot()</code> to save the state of a project’s R package dependencies. All information regarding the version of R and R packages is automatically saved in a file named <code>renv.lock</code>.</p></li>
+<li><p><strong>Restore.</strong> Other colleagues can use the function <code>renv::restore()</code> to automatically install all the required packages according to the <code>renv.lock</code> file. We can also use <code>renv::restore()</code> to revert to a previously encoded state if newly installed packages introduce some unexpected problems.</p></li>
 </ol>
 <p>Alternatively, it is also possible to manage the <code>renv</code> workflow using the menu in the package panel. However, command lines are usually preferred because they allow us to easily define specific options.</p>
 <p><img src="images/requirements/renv-actions.png" width="60%" style="display: block; margin: auto;" /></p>
@@ -797,7 +795,7 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 <h4><span class="header-section-number">11.3.3.1</span> Reproducibility Issues<a href="requirements-chapter.html#reproducibility-issues-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <code>renv</code> workflow is very intuitive. We take a snapshot of the project’s R package dependencies that can later be used by other colleagues to restore the same dependencies on their machines. Note, however, that <code>renv</code> does not solve all problems of reproducibility. In the first place, <code>renv</code> records the version of R but can not automatically install the required version, it only prompts a warning message:</p>
 <pre><code>## Warning: Project requested R version &#39;3.6.1&#39; but &#39;4.1.0&#39; is currently being used</code></pre>
-<p>Moreover, other factors can affect the reproducibility of the results (e.g., operating system, system libraries, or the compiler). See <a href="https://rstudio.github.io/renv/articles/renv.html#caveats" class="uri">https://rstudio.github.io/renv/articles/renv.html#caveats</a> for detailed discussion. Most of these limits can be overcome using Docker (see Chapter [TODO: add ref]).</p>
+<p>Moreover, other factors can affect the reproducibility of the results (e.g., operating system, system libraries, or the compiler). See <a href="https://rstudio.github.io/renv/articles/renv.html#caveats" class="uri">https://rstudio.github.io/renv/articles/renv.html#caveats</a> for detailed discussion. Most of these limits can be overcome using Docker (see Chapter <a href="docker-chapter.html#docker-chapter">12</a>).</p>
 </div>
 <div id="renv-files" class="section level4 hasAnchor" number="11.3.3.2">
 <h4><span class="header-section-number">11.3.3.2</span> <code>renv</code> Files<a href="requirements-chapter.html#renv-files" class="anchor-section" aria-label="Anchor link to header"></a></h4>

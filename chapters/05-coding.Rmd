@@ -10,7 +10,7 @@ Often, researchers' first experience with programming occurs during some statist
 
 Usually, the most common approach is to create a very long single script where, by trials-and-errors and copy-and-paste, we collect all our lines of code in a chaotic way hoping to obtain some reasonable result. This is normal during the first stages of an analysis, when we are just exploring our data, trying different statistical approaches, and coming up with new ideas. As the analyses get more complex, however, we will easily lose control of what we are doing introducing several errors. At this point, reviewing and debugging the code will be much more difficult. Moreover, it would be really hard, if not impossible, to replicate the results. We need to follow a more structured approach to avoid these issues.
 
-In Chapter [TODO: add ref], we discuss how to organize the scripts and manage the analysis workflow to enhance results reproducibility and code maintainability. In this Chapter, instead, we focus on how to write good code.
+In Chapter \@ref(workflow-analysis-chapter), we discuss how to organize the scripts and manage the analysis workflow to enhance results reproducibility and code maintainability. In this Chapter, instead, we focus on how to write good code.
 
 But, what does it mean to write *“good code”*? We can think of at least three important characteristics that define a good code:
 
@@ -121,7 +121,7 @@ Objects' and variables' names can not include spaces. Therefore, to combine mult
     ```
   :::
   
-- **snake.case (deprecated) -** An alternative to the traditional snake_case, is to use the character `"."` instead of `"_"`. However, this is deprecated as in many programming languages the character `"."` is a reserved special character (see Section [TODO: add ref]). For example,
+- **snake.case (deprecated) -** An alternative to the traditional snake_case, is to use the character `"."` instead of `"_"`. However, this is deprecated as in many programming languages the character `"."` is a reserved special character (see Section \@ref(classes-methods)). For example,
 
   :::{.code-tex-warn  data-latex=""}
     ```{r class.source="warn-code", echo = TRUE, eval = FALSE}
@@ -267,7 +267,7 @@ x <- 10
 
 Remember, good comments should explain the why and not the what. If we can not understand what the code is doing by simply reading it, we should probably consider re-writing it.
 
-Finally, comments can also be used to divide and organize the code scripts into sections. We further discuss how to organize scripts used to run the analysis in Chapter [TODO: add ref].
+Finally, comments can also be used to divide and organize the code scripts into sections. We further discuss how to organize scripts used to run the analysis in Chapter \@ref(workflow-analysis-chapter).
 
 #### Other Tips
 
@@ -420,7 +420,7 @@ We followed a ***Functional Style***: break down large problems into smaller pie
 
 Functional style and DRY principle allow us to develop readable and maintainable code very efficiently. The idea is simple. Instead of having a unique long script with all the analysis code, we define our custom functions to run each step of the analysis in separate scripts. Next, we use these functions in another script to run the analysis. In this way, we keep all the code organized and easy to read and maintain. In the short term, this approach requires more time and may seem overwhelming. In the long term, however, we will be rewarded with all the advantages.
 
-In Chapter [TODO: add ref], we describe possible methods to manage the analysis workflow. In the following sections, we provide general recommendations about writing functions, documentation, and testing.
+In Chapter \@ref(workflow-analysis-chapter), we describe possible methods to manage the analysis workflow. In the following sections, we provide general recommendations about writing functions, documentation, and testing.
 
 #### Functions Good Practices
 
@@ -980,7 +980,7 @@ In the next sections, we briefly discuss coding good practices in R and how we c
 
 Regarding the tidyverse vs Base R discussion, we want to share our simple opinion. We love tidyverse. This new ecosystem of packages allows us to write readable code in a very efficient way. However, tidyverse develops very quickly and many functions or arguments may become deprecated or even removed in the future. This is not an issue per se, but it can make it hard to maintain projects in the long term. So what should we use tidyverse or Base R? Our answer is$\ldots$depends on the specific project aims. 
 
-- **Analyses Projects.** In the case of projects related to specific analyses, we recommend using tidyverse. Wrangling, visualising, and exploring data in the tidyverse is very easy and efficient (and fun!). To overcome the issues related to the frequent changes in the tidyverse, we recommend using the `renv` R package to manage the specific package versions (see Chapter [TODO: add ref]). In this way, we can have all the fun of tidyverse without worrying about maintainability in the long term.
+- **Analyses Projects.** In the case of projects related to specific analyses, we recommend using tidyverse. Wrangling, visualising, and exploring data in the tidyverse is very easy and efficient (and fun!). To overcome the issues related to the frequent changes in the tidyverse, we recommend using the `renv` R package to manage the specific package versions (see Chapter \@ref(renv-section)). In this way, we can have all the fun of tidyverse without worrying about maintainability in the long term.
 
 - **Apps and Packages.**  In the case of projects that aim to create apps or packages, we recommend using Base R. In this case, we may have less control over the specific package versions installed by the users. Therefore, we prefer to build our code with as few dependencies as possible, relying only on stable packages that rarely change. In this way, we limit issues of maintainability in the long term.
 :::

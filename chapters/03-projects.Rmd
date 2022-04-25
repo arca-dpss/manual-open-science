@@ -33,7 +33,7 @@ Let's discuss the different directories and files of our project. Again, these a
 
 A directory in which to store all the data used in the analysis. These files should be considered `read-only`. In the case of analyses that require some preprocessing of the data, it is important to include both the raw data and the actual data used in the analysis. 
 
-Moreover, it is a good practice to always add a file with useful information about the data and a description of the variables (see Chapter [TODO: add ref]). We do not want to share uninterpretable, useless files full of 0-1 values, right?
+Moreover, it is a good practice to always add a file with useful information about the data and a description of the variables (see Chapter \@ref(data-docs)). We do not want to share uninterpretable, useless files full of 0-1 values, right?
 
 For example, in the `data/` directory we could have:
 
@@ -41,7 +41,7 @@ For example, in the `data/` directory we could have:
 - `data`: The actual data used in the analysis (obtained after preprocessing).
 - `data-README`: A file with information regarding the data and variables description.
 
-In Chapter [TODO: add ref], we describe good practices in data organization and data sharing. In particular, we discuss possible data structures (i.e., wide format, long format, and relational structure), data documentation, and issues to take into account when sharing the data. [TODO: check coherence with actual chapter]
+In Chapter \@ref(data-chapter), we describe good practices in data organization and data sharing. In particular, we discuss possible data structures (i.e., wide format, long format, and relational structure), data documentation, and issues to take into account when sharing the data. [TODO: check coherence with actual chapter]
 
 #### `analysis/` and `code/` {#analysis-code}
 
@@ -51,7 +51,7 @@ As we may have experienced, very quickly this script becomes a long, disordered,
 
 The idea is simple. Instead of having a unique, very long script with all the code required to run the analysis, we break down the code into small pieces. First, we define in a separate script our functions to execute each step of the analysis. Next, we use these functions in another script to run the analysis. For example, we could define in a separate script a function `data_wrangling()` with all the code required to prepare our data for the analysis. This function could be very long and complex, however, we simply need to call the function `data_wrangling()` in our analysis script to execute all the required steps. 
 
-This approach is named **Functional Style**: we break down large problems into smaller pieces and we define functions or combinations of functions to solve each piece. This approach is discussed in detail in Chapter [TODO: add ref]. To summarise, Functional Style has several advantages: it enhances code readability, avoids repetition of code chunks, and facilitates debugging. 
+This approach is named **Functional Style**: we break down large problems into smaller pieces and we define functions or combinations of functions to solve each piece. This approach is discussed in detail in Chapter \@ref(functional-style). To summarise, Functional Style has several advantages: it enhances code readability, avoids repetition of code chunks, and facilitates debugging. 
 
 In our project we can organize our scripts into two different directories:
 
@@ -60,7 +60,7 @@ In our project we can organize our scripts into two different directories:
 
 This division allows us to keep everything organized and in order. We can easily move back and forward between scripts, defining new functions when required and using them in the analysis. Moreover, adequate documentation (both for the functions and for the analysis scripts) allows other colleagues to easily navigate the code and understand the purpose of each function.
 
-In Chapter [TODO: add ref], we discuss in detail the functional style approach, considering general good practices to write tidy, documented, and efficient code. In Chapter [TODO: add ref], we describe possible methods to manage the analysis workflow.
+In Chapter \@ref(coding-chapter), we discuss in detail the functional style approach, considering general good practices to write tidy, documented, and efficient code. In Chapter \@ref(workflow-analysis-chapter), we describe possible methods to manage the analysis workflow.
 
 #### `outputs/`
 
@@ -70,7 +70,7 @@ Moreover, it may be useful to save intermediate steps of the analysis to avoid r
 
 However, we should ensure that all outputs can be obtained starting from scratch (i.e., deleting previous results as well as cached results). Ideally, other colleagues should be able to replicate all the results starting from an empty directory and re-running the whole analysis process on their computer.
 
-In Chapter [TODO: add ref], we describe possible methods to manage the analysis workflow. In particular, we present the R package `trackdown` that enhances results reproducibility and introduces an automatic caching system for the analysis results.
+In Chapter \@ref(workflow-analysis-chapter), we describe possible methods to manage the analysis workflow. In particular, we present the R package `trackdown` that enhances results reproducibility and introduces an automatic caching system for the analysis results.
 
 #### `documents/`
 
@@ -80,7 +80,7 @@ To allow reproducibility, all documents that include analysis results should be 
 
 Note that it is preferable to keep the code used to run the analysis in a separate script other than the dynamic documents used to communicate the results. This issue is further discussed in Section \@ref(centralize-analysis).
 
-In Chapter [TODO: add ref], we briefly introduce dynamic documents using Quarto. In particular, we discuss how to smoothly integrate dynamic documents in our project structure and workflow to enhance reproducibility.
+In Chapter \@ref(dynamic-documents-chapter), we briefly introduce dynamic documents using Quarto. In particular, we discuss how to smoothly integrate dynamic documents in our project structure and workflow to enhance reproducibility.
 
 #### `README` {#readme-section}
 
@@ -92,7 +92,7 @@ A `README` file should provide enough information so anyone can understand the p
 - **Project Description:** A brief description of the project aims.
 - **Project Structure:** A description of the project structures and content. We may list the main files included in the project.
 - **Getting Started:** Depending on the type of project, this section provides instructions on how to install the project locally and how to reproduce the analysis results. We need to specify both,
-    - *Requirements*: The prerequisites required to install the project and reproduce the analysis. This may include software versions and other dependencies (see Chapter [TODO: add ref]).
+    - *Requirements*: The prerequisites required to install the project and reproduce the analysis. This may include software versions and other dependencies (see Chapter \@ref(requirements-chapter)).
     - *Installation/Run Analysis*: A step-by-step guide on how to install the project/reproduce the analysis results.
 - **Contributing:** Indications on how other users can contribute to the project or open an issue. Contributions are what make the open-source community amazing.
 - **License:** All projects should specify under which license they are released. This clarifies under which conditions other users can copy, share, and use our project. See Section \@ref(license-section) for more information about licenses.
@@ -128,7 +128,7 @@ In the case of **publishing materials** other than code (e.g., data, documents, 
 
 For example, if we want to publish materials allowing other users to reuse and adapt them (also for commercial use) but requiring them to give credit to the creator and keeping the same license, we can choose the **CC BY-SA** license `r inline_image("images/projects/cc-by-sa.png", width = "8.5em", format = output_format)`.
 
-This is not an exhaustive discussion about licenses. We should pay particular attention when choosing an appropriate license for a project if patents or privacy issues are involved. In Chapter [TODO: add ref], we discuss specific licenses related to sharing data/databases. Further information about licenses can be found at:
+This is not an exhaustive discussion about licenses. We should pay particular attention when choosing an appropriate license for a project if patents or privacy issues are involved. In Chapter \@ref(license-data), we discuss specific licenses related to sharing data/databases. Further information about licenses can be found at:
 
 - Open Science Framework documentation: https://help.osf.io/hc/en-us/articles/360019739014-Licensing
 - GitHub documentation: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository
@@ -266,7 +266,7 @@ Once the working directory is correctly set (automatically or manually), relativ
 [TODO: check paths windows]
 
 :::{.design title="The Garden of Forking Paths" data-latex="[The Garden of Forking Paths]"}
-The syntax to define file paths differs according to the operating system used. In particular, the main differences are between Unix systems (macOS and Linux) and Windows. Fortunately, main programming languages have ad hoc solutions to allow the same file path to work on different operating systems (e.g. for R see Section [TODO: add ref]; for Python see https://medium.com/@ageitgey/python-3-quick-tip-the-easy-way-to-deal-with-file-paths-on-windows-mac-and-linux-11a072b58d5f ). Therefore, by using adequate solutions, we do not have to bother about the operating system being used while coding. 
+The syntax to define file paths differs according to the operating system used. In particular, the main differences are between Unix systems (macOS and Linux) and Windows. Fortunately, main programming languages have ad hoc solutions to allow the same file path to work on different operating systems (e.g. for R see Section \@ref(project-features-r); for Python see https://medium.com/@ageitgey/python-3-quick-tip-the-easy-way-to-deal-with-file-paths-on-windows-mac-and-linux-11a072b58d5f ). Therefore, by using adequate solutions, we do not have to bother about the operating system being used while coding. 
 
 ##### Unix Systems {-}
 
@@ -324,7 +324,7 @@ In the proposed approach, instead, we suggest keeping the actual analysis separa
 
 Of course, this is not an imperative rule. In the case of small projects, a simple report with the whole analysis included in it may be enough. However, in the case of bigger and more complex projects, the proposed approach allows to easily maintain the project and develop the code keeping control of the analysis and enhancing results reproducibility.  
 
-In Chapter [TODO: add ref] and Chapter [TODO: add ref], we describe how to adopt the functional style approach and how to manage the analysis workflow, respectively. In Chapter [TODO: add ref], we discuss how to smoothly integrate dynamic documents in our project structure and workflow to enhance reproducibility.
+In Chapter \@ref(coding-chapter) and Chapter \@ref(workflow-analysis-chapter), we describe how to adopt the functional style approach and how to manage the analysis workflow, respectively. In Chapter \@ref(dynamic-documents-chapter), we discuss how to smoothly integrate dynamic documents in our project structure and workflow to enhance reproducibility.
 
 #### Ready to Share and Collaborate
 
@@ -334,7 +334,7 @@ This aspect may seem trivial at the beginning. Overall we are just creating a di
 
 In particular, Git is a software for tracking changes in any file of our project and for coordinating the collaboration during the development. Github integrates the Git workflow with online shared repositories adding several features and useful services (e.g., GitHub Pages and GitHub Actions). Combining online repositories (e.g., GitHub, GitLab, or other providers) with version control systems, such as Git, we can collaborate with other colleagues and share our project in a very efficient way. They may seem overwhelming at first, however, once we will get used to them, we will never stop using them.
 
-In Chapter [TODO: add ref], we introduce the use of Git and GitHub to track changes and collaborate with others on the development of our project. 
+In Chapter \@ref(git-chapter) and Chapter \@ref(github-chapter), we introduce the use of Git and GitHub to track changes and collaborate with others on the development of our project. 
 
 ## RStudio Projects
 
@@ -350,7 +350,7 @@ To create a new RStudio project:
     knitr::include_graphics("images/projects/new-proj-1.png")
     ```
 
-1. When creating a new project, we can decide between starting from a new directory (*“New Directory”*; the most common approach), associating a project with an already existing directory (*“Existing Directory”*), or associating a project to an online repository (*“Version Control”*; for more information see Chapter [TODO: add ref]).
+1. When creating a new project, we can decide between starting from a new directory (*“New Directory”*; the most common approach), associating a project with an already existing directory (*“Existing Directory”*), or associating a project to an online repository (*“Version Control”*; for more information see Chapter \@ref(git-chapter) and Chapter \@ref(github-chapter)).
   
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/new-proj-2.png")
@@ -362,7 +362,7 @@ To create a new RStudio project:
     knitr::include_graphics("images/projects/new-proj-3.png")
     ```
 
-1. Finally, we can indicate the location where to create the project directory and specify the sdirectory name.  This will be used also as the project name. Note that two more options are available *“Create a git repository”* and *“Use renv with this project”*. We discuss these options in Chapter [TODO: add ref]) and Chapter [TODO: add ref], respectively. 
+1. Finally, we can indicate the location where to create the project directory and specify the sdirectory name.  This will be used also as the project name. Note that two more options are available *“Create a git repository”* and *“Use renv with this project”*. We discuss these options in Chapter \@ref(git-rstudio) and Chapter \@ref(renv-section), respectively. 
 
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/new-proj-4.png")
@@ -374,7 +374,7 @@ To create a new RStudio project:
     knitr::include_graphics("images/projects/proj-menu.png")
     ```
 
-### Project Features
+### Project Features {#project-features-r}
 
 We now discuss the main features of RStudio Projects:
 
@@ -448,13 +448,13 @@ We briefly point out some other advanced features of RStudio projects. These are
 
   The R Package Template is used to create$\ldots$ guess what? R packages. This template introduces some advanced features of R that become very handy when following a functional style approach. For example, we can manage our project package dependencies, easily load all our functions, document them, and create unit tests. We could go all the way and create a proper R package out of our project that other users can install. This requires some extra work and it may not be worth the effort, but of course, this will depend on the specific project aims.
     
-  Anyway, the R package template is very useful when writing our functions. For this reason, we discuss further details about the R package template in Chapter [TODO: add ref] when discussing the functional style approach.
+  Anyway, the R package template is very useful when writing our functions. For this reason, we discuss further details about the R package template in Chapter \@ref(r-package-proj) when discussing the functional style approach.
 
-- **Git.** We can use version control systems such as Git to track changes on our RStudio projects. We can decide to create a git repository when creating our new project (see Section \@ref(create-proj)) or to associate the project to an existing repository. This is really a huge step forward in the quality of our workflow and it is absolutely worth the initial pain. All the required information to get familiar with Git and how to integrate the git workflow within RStudio projects is presented in Chapter [TODO: add ref].
+- **Git.** We can use version control systems such as Git to track changes on our RStudio projects. We can decide to create a git repository when creating our new project (see Section \@ref(create-proj)) or to associate the project to an existing repository. This is really a huge step forward in the quality of our workflow and it is absolutely worth the initial pain. All the required information to get familiar with Git and how to integrate the git workflow within RStudio projects is presented in Chapter \@ref(git-rstudio).
 
 - **`renv`.** To allow reproducibility of the result, everyone must use the same project dependencies. This includes not only the specific software and relative packages but also their specific version number. The R packages ecosystem changes quite rapidly, new packages are released every month and already available packages are updated from time to time. This means that in a year or two, our code may fail due to some changes in the underlying dependencies. To avoid these issues, it is important to ensure that the same package versions are always used. 
 
-  We could list the required packages in a file and their versions manually or find a way to automate this process. As always, in R there is a package for almost everything and in this case, the answer is `renv`. `renv` allows us to manage all the R packages dependencies of our projects in a very smooth workflow. We can include `renv` in our project when creating a new project (see Section \@ref(create-proj)) or add it later. In Chapter [TODO: add ref], we introduce all the details about integrating the `renv` workflow in our projects.
+  We could list the required packages in a file and their versions manually or find a way to automate this process. As always, in R there is a package for almost everything and in this case, the answer is `renv`. `renv` allows us to manage all the R packages dependencies of our projects in a very smooth workflow. We can include `renv` in our project when creating a new project (see Section \@ref(create-proj)) or add it later. In Chapter \@ref(git-rstudio), we introduce all the details about integrating the `renv` workflow in our projects.
 
 \newpage
 

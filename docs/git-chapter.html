@@ -210,7 +210,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
-<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
 <li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
 </ul></li>
 </ul></li>
@@ -889,8 +889,8 @@ Imagine we ended up in some big troubles and we need to go back two commits (com
 <div class="sourceCode" id="cb120"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb120-1"><a href="git-chapter.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout 60e117d7</span></code></pre></div>
 <p><img src="images/git/checkout.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>In this state, we can make any experimental changes and commit them. These new commits, however, will not affect our principal line of development (<code>master</code>) or other branches. In Git terms we are in <code>detached HEAD</code> state. This means that once we move back to our last commit (using the command <code>git checkout master</code>) all new commits will be lost.</p>
-<p>If we want to retain the new commits, we need to create a new branch, using the command <code>git checkout -b &lt;branch-name&gt;</code> (see Section <a href="git-chapter.html#branching-merging-2">7.4.6</a>). In this way, however, our development would diverge from the <code>master</code> branch and this may not be desired.
-<img src="images/git/checkout-diverge.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>If we want to retain the new commits, we need to create a new branch, using the command <code>git checkout -b &lt;branch-name&gt;</code> (see Section <a href="git-chapter.html#branching-merging-2">7.4.6</a>). In this way, however, our development would diverge from the <code>master</code> branch and this may not be desired.</p>
+<p><img src="images/git/checkout-diverge.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="revert" class="section level4 hasAnchor" number="7.4.4.2">
 <h4><span class="header-section-number">7.4.4.2</span> Revert<a href="git-chapter.html#revert" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1099,67 +1099,63 @@ A remote branch with the same name is automatically created when we push the bra
 <span id="cb151-4"><a href="git-chapter.html#cb151-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb151-5"><a href="git-chapter.html#cb151-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;&lt;My Name&gt;&quot;</span>          <span class="co"># Configure username</span></span>
 <span id="cb151-6"><a href="git-chapter.html#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;&lt;user@email.com&gt;&quot;</span>  <span class="co"># Configure email</span></span>
-<span id="cb151-7"><a href="git-chapter.html#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> merge.conflictstyle diff3      <span class="co"># Configure conflict style</span></span>
-<span id="cb151-8"><a href="git-chapter.html#cb151-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-9"><a href="git-chapter.html#cb151-9" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Initialize Git Repo    ----#</span></span>
-<span id="cb151-10"><a href="git-chapter.html#cb151-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-11"><a href="git-chapter.html#cb151-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="op">&lt;</span>path<span class="op">&gt;</span>             # Initialize local repository</span>
-<span id="cb151-12"><a href="git-chapter.html#cb151-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>repository-URL<span class="op">&gt;</span>  # Clone remote repository</span>
-<span id="cb151-13"><a href="git-chapter.html#cb151-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-14"><a href="git-chapter.html#cb151-14" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Tracking Files    ----#</span></span>
-<span id="cb151-15"><a href="git-chapter.html#cb151-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-16"><a href="git-chapter.html#cb151-16" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status               <span class="co"># Check repository status</span></span>
-<span id="cb151-17"><a href="git-chapter.html#cb151-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-18"><a href="git-chapter.html#cb151-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Staging</span></span>
-<span id="cb151-19"><a href="git-chapter.html#cb151-19" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>files<span class="op">&gt;</span>          # Add selected files to staging area</span>
-<span id="cb151-20"><a href="git-chapter.html#cb151-20" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span>            <span class="co"># Add all files to staging area </span></span>
-<span id="cb151-21"><a href="git-chapter.html#cb151-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-22"><a href="git-chapter.html#cb151-22" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cached</span> <span class="op">&lt;</span>file<span class="op">&gt;</span>   # Remove selected files from staging area</span>
-<span id="cb151-23"><a href="git-chapter.html#cb151-23" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset                <span class="co"># Remove all files from staging area</span></span>
-<span id="cb151-24"><a href="git-chapter.html#cb151-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-25"><a href="git-chapter.html#cb151-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit</span></span>
-<span id="cb151-26"><a href="git-chapter.html#cb151-26" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit               <span class="co"># Create commit</span></span>
-<span id="cb151-27"><a href="git-chapter.html#cb151-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Options</span></span>
-<span id="cb151-28"><a href="git-chapter.html#cb151-28" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-a</span>               <span class="co"># Commit all changes of tracked files</span></span>
-<span id="cb151-29"><a href="git-chapter.html#cb151-29" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-m</span> <span class="st">&quot;&lt;message&gt;&quot;</span>   <span class="co"># Inline commit message</span></span>
-<span id="cb151-30"><a href="git-chapter.html#cb151-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-31"><a href="git-chapter.html#cb151-31" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log                  <span class="co"># Get commit history</span></span>
-<span id="cb151-32"><a href="git-chapter.html#cb151-32" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span>        <span class="co"># Get commit history (compact)</span></span>
-<span id="cb151-33"><a href="git-chapter.html#cb151-33" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb151-34"><a href="git-chapter.html#cb151-34" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff                              <span class="co"># Changes since the last commit</span></span>
-<span id="cb151-35"><a href="git-chapter.html#cb151-35" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>                  # Changes since a specified commit</span>
-<span id="cb151-36"><a href="git-chapter.html#cb151-36" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="op">&lt;</span>commit-ID-A<span class="op">&gt;</span> <span class="op">&lt;</span>commit-ID-B<span class="op">&gt;</span>  # Changes from commit-A to commit-B.</span>
-<span id="cb151-37"><a href="git-chapter.html#cb151-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-38"><a href="git-chapter.html#cb151-38" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>  # Point HEAD to specific commit/branch</span>
-<span id="cb151-39"><a href="git-chapter.html#cb151-39" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>    # Undo commit <span class="er">(</span><span class="ex">forward-way</span><span class="kw">)</span></span>
-<span id="cb151-40"><a href="git-chapter.html#cb151-40" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>     # Undo commit <span class="er">(</span><span class="ex">disruptive-way</span><span class="kw">)</span></span>
-<span id="cb151-41"><a href="git-chapter.html#cb151-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-42"><a href="git-chapter.html#cb151-42" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Collaboration    ----#</span></span>
-<span id="cb151-43"><a href="git-chapter.html#cb151-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-44"><a href="git-chapter.html#cb151-44" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span>                <span class="co"># List remote (verbose)</span></span>
-<span id="cb151-45"><a href="git-chapter.html#cb151-45" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add <span class="op">&lt;</span>name<span class="op">&gt;</span> <span class="op">&lt;</span>url<span class="op">&gt;</span>  # Add remote</span>
-<span id="cb151-46"><a href="git-chapter.html#cb151-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-47"><a href="git-chapter.html#cb151-47" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>  # Pull commits from remote</span>
-<span id="cb151-48"><a href="git-chapter.html#cb151-48" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>  # Push commit to remote</span>
-<span id="cb151-49"><a href="git-chapter.html#cb151-49" aria-hidden="true" tabindex="-1"></a>         <span class="ex">-u</span>       <span class="co"># Set upstream remote branch </span></span>
-<span id="cb151-50"><a href="git-chapter.html#cb151-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-51"><a href="git-chapter.html#cb151-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-52"><a href="git-chapter.html#cb151-52" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--set-upstream-to</span><span class="op">=</span><span class="st">&quot;&lt;remote/branch&gt;&quot;</span>  <span class="co"># Set  upstream remote branch </span></span>
-<span id="cb151-53"><a href="git-chapter.html#cb151-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-54"><a href="git-chapter.html#cb151-54" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Branching    ----#</span></span>
-<span id="cb151-55"><a href="git-chapter.html#cb151-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-56"><a href="git-chapter.html#cb151-56" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch          <span class="co"># List branches</span></span>
-<span id="cb151-57"><a href="git-chapter.html#cb151-57" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-vv</span>      <span class="co"># List branches (verbose)</span></span>
-<span id="cb151-58"><a href="git-chapter.html#cb151-58" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-vvr</span>       <span class="co"># List remote branches (verbose)</span></span>
-<span id="cb151-59"><a href="git-chapter.html#cb151-59" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb151-60"><a href="git-chapter.html#cb151-60" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>           # Create new branch</span>
-<span id="cb151-61"><a href="git-chapter.html#cb151-61" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> <span class="op">&lt;</span>new-branch-name<span class="op">&gt;</span>  # Create and move to new branch</span>
-<span id="cb151-62"><a href="git-chapter.html#cb151-62" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb151-63"><a href="git-chapter.html#cb151-63" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>            # Merge target branch</span>
-<span id="cb151-64"><a href="git-chapter.html#cb151-64" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="at">--abort</span>                  <span class="co"># Abort merge</span></span>
-<span id="cb151-65"><a href="git-chapter.html#cb151-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-66"><a href="git-chapter.html#cb151-66" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>                    # Delete local Branch</span>
-<span id="cb151-67"><a href="git-chapter.html#cb151-67" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> --delete <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>  # Delete remote Branch</span></code></pre></div>
+<span id="cb151-7"><a href="git-chapter.html#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> merge.conflictstyle diff3      <span class="co"># Configure conflict style</span></span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb152-1"><a href="git-chapter.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Initialize Git Repo    ----#</span></span>
+<span id="cb152-2"><a href="git-chapter.html#cb152-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="git-chapter.html#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="op">&lt;</span>path<span class="op">&gt;</span>             # Initialize local repository</span>
+<span id="cb152-4"><a href="git-chapter.html#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>repository-URL<span class="op">&gt;</span>  # Clone remote repository</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb153-1"><a href="git-chapter.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Tracking Files    ----#</span></span>
+<span id="cb153-2"><a href="git-chapter.html#cb153-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-3"><a href="git-chapter.html#cb153-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status               <span class="co"># Check repository status</span></span>
+<span id="cb153-4"><a href="git-chapter.html#cb153-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-5"><a href="git-chapter.html#cb153-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Staging</span></span>
+<span id="cb153-6"><a href="git-chapter.html#cb153-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>files<span class="op">&gt;</span>          # Add selected files to staging area</span>
+<span id="cb153-7"><a href="git-chapter.html#cb153-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span>            <span class="co"># Add all files to staging area </span></span>
+<span id="cb153-8"><a href="git-chapter.html#cb153-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-9"><a href="git-chapter.html#cb153-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cached</span> <span class="op">&lt;</span>file<span class="op">&gt;</span>   # Remove selected files from staging area</span>
+<span id="cb153-10"><a href="git-chapter.html#cb153-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset                <span class="co"># Remove all files from staging area</span></span>
+<span id="cb153-11"><a href="git-chapter.html#cb153-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-12"><a href="git-chapter.html#cb153-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit</span></span>
+<span id="cb153-13"><a href="git-chapter.html#cb153-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit               <span class="co"># Create commit</span></span>
+<span id="cb153-14"><a href="git-chapter.html#cb153-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Options</span></span>
+<span id="cb153-15"><a href="git-chapter.html#cb153-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-a</span>               <span class="co"># Commit all changes of tracked files</span></span>
+<span id="cb153-16"><a href="git-chapter.html#cb153-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-m</span> <span class="st">&quot;&lt;message&gt;&quot;</span>   <span class="co"># Inline commit message</span></span>
+<span id="cb153-17"><a href="git-chapter.html#cb153-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-18"><a href="git-chapter.html#cb153-18" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log                  <span class="co"># Get commit history</span></span>
+<span id="cb153-19"><a href="git-chapter.html#cb153-19" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span>        <span class="co"># Get commit history (compact)</span></span>
+<span id="cb153-20"><a href="git-chapter.html#cb153-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb153-21"><a href="git-chapter.html#cb153-21" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff                              <span class="co"># Changes since the last commit</span></span>
+<span id="cb153-22"><a href="git-chapter.html#cb153-22" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>                  # Changes since a specified commit</span>
+<span id="cb153-23"><a href="git-chapter.html#cb153-23" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="op">&lt;</span>commit-ID-A<span class="op">&gt;</span> <span class="op">&lt;</span>commit-ID-B<span class="op">&gt;</span>  # Changes from commit-A to commit-B.</span>
+<span id="cb153-24"><a href="git-chapter.html#cb153-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-25"><a href="git-chapter.html#cb153-25" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>  # Point HEAD to specific commit/branch</span>
+<span id="cb153-26"><a href="git-chapter.html#cb153-26" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>    # Undo commit <span class="er">(</span><span class="ex">forward-way</span><span class="kw">)</span></span>
+<span id="cb153-27"><a href="git-chapter.html#cb153-27" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="op">&lt;</span>commit-ID<span class="op">&gt;</span>     # Undo commit <span class="er">(</span><span class="ex">disruptive-way</span><span class="kw">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb154-1"><a href="git-chapter.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Collaboration    ----#</span></span>
+<span id="cb154-2"><a href="git-chapter.html#cb154-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-3"><a href="git-chapter.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span>                <span class="co"># List remote (verbose)</span></span>
+<span id="cb154-4"><a href="git-chapter.html#cb154-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add <span class="op">&lt;</span>name<span class="op">&gt;</span> <span class="op">&lt;</span>url<span class="op">&gt;</span>  # Add remote</span>
+<span id="cb154-5"><a href="git-chapter.html#cb154-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-6"><a href="git-chapter.html#cb154-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>  # Pull commits from remote</span>
+<span id="cb154-7"><a href="git-chapter.html#cb154-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>  # Push commit to remote</span>
+<span id="cb154-8"><a href="git-chapter.html#cb154-8" aria-hidden="true" tabindex="-1"></a>         <span class="ex">-u</span>       <span class="co"># Set upstream remote branch </span></span>
+<span id="cb154-9"><a href="git-chapter.html#cb154-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-10"><a href="git-chapter.html#cb154-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-11"><a href="git-chapter.html#cb154-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--set-upstream-to</span><span class="op">=</span><span class="st">&quot;&lt;remote/branch&gt;&quot;</span>  <span class="co"># Set  upstream remote branch </span></span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb155-1"><a href="git-chapter.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Branching    ----#</span></span>
+<span id="cb155-2"><a href="git-chapter.html#cb155-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-3"><a href="git-chapter.html#cb155-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch          <span class="co"># List branches</span></span>
+<span id="cb155-4"><a href="git-chapter.html#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-vv</span>      <span class="co"># List branches (verbose)</span></span>
+<span id="cb155-5"><a href="git-chapter.html#cb155-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-vvr</span>       <span class="co"># List remote branches (verbose)</span></span>
+<span id="cb155-6"><a href="git-chapter.html#cb155-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb155-7"><a href="git-chapter.html#cb155-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>           # Create new branch</span>
+<span id="cb155-8"><a href="git-chapter.html#cb155-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> <span class="op">&lt;</span>new-branch-name<span class="op">&gt;</span>  # Create and move to new branch</span>
+<span id="cb155-9"><a href="git-chapter.html#cb155-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb155-10"><a href="git-chapter.html#cb155-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>            # Merge target branch</span>
+<span id="cb155-11"><a href="git-chapter.html#cb155-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="at">--abort</span>                  <span class="co"># Abort merge</span></span>
+<span id="cb155-12"><a href="git-chapter.html#cb155-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-13"><a href="git-chapter.html#cb155-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>                    # Delete local Branch</span>
+<span id="cb155-14"><a href="git-chapter.html#cb155-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> --delete <span class="op">&lt;</span>branch-name<span class="op">&gt;</span>  # Delete remote Branch</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1208,11 +1204,11 @@ A remote branch with the same name is automatically created when we push the bra
 <li><p>Select the <em>“Git/SVN”</em> tab</p></li>
 <li><p>Select <em>“Enable version control interface for RStudio projects”</em></p></li>
 <li><p>Specify the path to the Git executable (in Windows, we can choose to use Git Bash as shell). To check where Git is installed, we can run from the terminal,</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb152-1"><a href="git-chapter.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
-<span id="cb152-2"><a href="git-chapter.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="ex">where</span> git</span>
-<span id="cb152-3"><a href="git-chapter.html#cb152-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-4"><a href="git-chapter.html#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux (macOS)</span></span>
-<span id="cb152-5"><a href="git-chapter.html#cb152-5" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> git</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb156-1"><a href="git-chapter.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
+<span id="cb156-2"><a href="git-chapter.html#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="ex">where</span> git</span>
+<span id="cb156-3"><a href="git-chapter.html#cb156-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-4"><a href="git-chapter.html#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux (macOS)</span></span>
+<span id="cb156-5"><a href="git-chapter.html#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> git</span></code></pre></div>
 <p><img src="images/git/git-settings-1.png" width="80%" style="display: block; margin: auto;" /></p></li>
 <li><p>Restart RStudio, the Git icon should appear in the toolbar</p>
 <p><img src="images/git/rstudio-git.png" width="80%" style="display: block; margin: auto;" /></p></li>
@@ -1286,7 +1282,7 @@ A remote branch with the same name is automatically created when we push the bra
 <div id="managing-collaboration-2" class="section level4 hasAnchor" number="7.6.2.4">
 <h4><span class="header-section-number">7.6.2.4</span> Managing Collaboration<a href="git-chapter.html#managing-collaboration-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To add the remote repository URL, we need to use the terminal. The command is,</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb153-1"><a href="git-chapter.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote add <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>remote-URL<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb157-1"><a href="git-chapter.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git remote add <span class="op">&lt;</span>remote-name<span class="op">&gt;</span> <span class="op">&lt;</span>remote-URL<span class="op">&gt;</span></span></code></pre></div>
 <p>Once we set the remote, repository we can proceed by Pushing and Pulling commits using the arrows in the Git panel (or in the <em>“Review Changes”</em> window).</p>
 <p><img src="images/git/panel-base-3.png" width="60%" style="display: block; margin: auto;" /></p>
 <div class="warning" title="SSH Required">

@@ -61,7 +61,7 @@ A well structured and documented analysis workflow is a big step toward results 
 - **Random Number Generator.** During the analysis, some processes may require the generation of random numbers. As these numbers are (pseudo-) random, they will be different at each analysis run. For this reason, we could obtain slightly different values when reproducing the results. Fortunately, programming languages provide ad-hoc functions to allow reproducibility of random numbers generation. We should look at the specific functions documentation and adopt the suggested solutions. Usually, we need to set the seed for initializing the state for random number generation.
 
 - **Session Settings.** Other global settings related to the specific programming language may affect the final results. We need to ensure that the analysis is run using the same settings each time. To do that we can specify the required options directly in the analysis script as code lines to be executed. 
-- **Project Requirements.** Other elements such as operating system, specific software version, and installed libraries could affect the analysis results. In Chapter [TODO: add ref] and Chapter [TODO: add ref], we discuss how to manage project requirements to guarantee results reproducibility.
+- **Project Requirements.** Other elements such as operating system, specific software version, and installed libraries could affect the analysis results. In Chapter \@ref(requirements-chapter) and Chapter \@ref(docker-chapter), we discuss how to manage project requirements to guarantee results reproducibility.
 
 ### Workflow Manager
 
@@ -270,7 +270,7 @@ Finally, let's discuss some details that may hinder result reproducibility:
 
 - **Random Number Generator.** In R, using the function `set.seed()` we can specify the seed to allow reproducibility of random numbers generation. See `?set.seed()` for options and details. Ideally, we specify the seed at the beginning of the script used to run the analysis. Note that functions that call other software (e.g., `brms::brm()` or `rstan::stan()` which are based on Stan) may have their own `seed` argument that is independent of the seed in the R session. In this case, we need to specify both seeds to obtain reproducible results.
 - **Global Options.** If our project relies on some specific global options (e.g, `stringsAsFactors` or `contrasts`), we should define them explicitly at the beginning of the script used to run the analysis. See `?options()` for further details. Note that we could also specify global options in the `.Rprofile` to facilitate our workflow during the analysis development (see [*“Trick-Box: Using .Rprofile”*](#using-rprofile) above).
-- **Project Requirements.** To enhance results reproducibility, we should use the same R and R packages versions as in the original analysis. In Chapter [TODO: add ref], we discuss how to manage project requirements.
+- **Project Requirements.** To enhance results reproducibility, we should use the same R and R packages versions as in the original analysis. In Chapter \@ref(r-dependencies), we discuss how to manage project requirements.
 
 :::{.tip title="Settings Section" data-latex="[Settings Section]"}
 We recommend creating a section *“Settings”* at the top of the main script where to collect the code used to define the setup of our analysis session. This includes: 
@@ -661,7 +661,7 @@ Let's discuss some other details relevant for results reproducibility:
 
 - **Random Number Generator.** When running the pipeline, each target is built using a unique seed determined by the target's name (no two targets share the same seed). In this way, each target runs with a reproducible seed and we always obtain the same results. See `targets::tar_meta()` for a list of targets’ metadata including each target specific seed. See function documentation for further details.
 - **Global Settings.** Global settings are usually defined explicitly in the script used to specify the workflow pipeline (see Section \@ref(targets-script)). However, commands defined in the `.Rprofile` are also evaluated when running the pipeline. This is not a problem for reproducibility but it may limit the code understanding of colleagues not familiar with more advanced features of R. To overcome this issue, note that `targets` runs the analysis in a non-interactive session. Therefore, we can avoid that the `.Rprofile` code is evaluated following the suggestion described in [*“Trick-Box: Using .Rprofile”*](#using-rprofile).
-- **Project Requirements.** `targets` does not track changes in the R or R-packages versions. To enhance reproducibility, it is good practice to use the `renv` package for package management (see Chapter [TODO: add ref]). `targets` and `renv` can be used together in the same project workflow without problems.
+- **Project Requirements.** `targets` does not track changes in the R or R-packages versions. To enhance reproducibility, it is good practice to use the `renv` package for package management (see Chapter \@ref(renv-section)). `targets` and `renv` can be used together in the same project workflow without problems.
 
 #### Branching
 

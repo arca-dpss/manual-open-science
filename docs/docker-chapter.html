@@ -210,7 +210,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
-<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
 <li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
 </ul></li>
 </ul></li>
@@ -793,7 +793,7 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <p>For more details on the <code>run</code> command and a complete list of available options, see the official documentation <a href="https://docs.docker.com/engine/reference/run/" class="uri">https://docs.docker.com/engine/reference/run/</a>.</p>
 <p>Using the image from the previous example, we can run our container named <code>my-container</code> in an interactive session by,</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb200-1"><a href="docker-chapter.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">--name</span> my-container <span class="at">-it</span> my-image:1.0.0</span></code></pre></div>
-<p>Once the container is initialized, a new interactive session will start in our terminal. Now, we are inside our container. Note the <code>#</code> prompt symbol, instead of <code>$</code>, indicating that we are root users (see Section <a href="docker-chapter.html#files-permissions">Files Permissions</a>). We can check whether our project files were copied in the <code>home/</code> directory and end the session by running <code>exit</code>.</p>
+<p>Once the container is initialized, a new interactive session will start in our terminal. Now, we are inside our container. Note the <code>#</code> prompt symbol, instead of <code>$</code>, indicating that we are root users (see Section <a href="docker-chapter.html#files-permissions">12.2.3.3</a>). We can check whether our project files were copied in the <code>home/</code> directory and end the session by running <code>exit</code>.</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb201-1"><a href="docker-chapter.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/</span> <span class="co"># ls -l home/</span></span>
 <span id="cb201-2"><a href="docker-chapter.html#cb201-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 20</span>
 <span id="cb201-3"><a href="docker-chapter.html#cb201-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>    2 root     root          4096 Jan 17 11:00 code</span>

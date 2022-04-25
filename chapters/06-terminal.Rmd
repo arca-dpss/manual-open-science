@@ -190,7 +190,7 @@ Bash has many implemented commands. However, we may need other software to execu
 Software Command [Options] Argument1 Argument2 ...
 ```
 
-For example, in the command `docker build -t my-image:1.0.0 Desktop/my-project`, `docker` is the software (see Chapter [TODO: add ref]), `build` is the specific command, `-t my-image:1.0.0` is an option, and `Desktop/my-project` is the command argument.
+For example, in the command `docker build -t my-image:1.0.0 Desktop/my-project`, `docker` is the software (see Chapter \@ref(docker-chapter)), `build` is the specific command, `-t my-image:1.0.0` is an option, and `Desktop/my-project` is the command argument.
 
 :::{.warning title="Avoid Spaces in Names" data-latex="[Avoid Spaces in Names]"}
 As we already have pointed out, command arguments are separated by spaces. This is particularly relevant in the case of paths. If file or directory names include spaces, we need to use quotes.
@@ -231,7 +231,7 @@ drwx------@  10 myname  staff   320 Feb  3 09:56 Downloads
 drwx------@ 104 myname  staff  3328 Jan 13 21:30 Library
 drwxr-xr-x+   5 myname  staff   160 Sep  7  2018 Public
 ```
-The initial `d` indicates that these are all directories, next we get information about permissions and ownerships (see Chapter [TODO: add ref]), the file size in bits (use options `-h` for human-readable file sizes), file modification time, and finally the actual file name.
+The initial `d` indicates that these are all directories, next we get information about permissions and ownerships (see Chapter \@ref(files-permissions)), the file size in bits (use options `-h` for human-readable file sizes), file modification time, and finally the actual file name.
 
 Let's say we now want to see what is inside the `Desktop/` directory. To do that, we simply specify it as an argument of `ls`.
 
@@ -267,7 +267,7 @@ Modern graphical user interfaces with icons and buttons give a very misleading r
   
 Actually, the computer is organized into a **Hierarchical Directory Structure**. At the lowest levels, we find all the system files which we can access only with special permissions. At the upper level, we find all the files concerning the programs and applications installed which generally can be used by multiple users on the same computer. Finally, we find all the directories and files that concern a specific user. The desktop is simply one of the top-level folders and what you see on the screen is simply a graphical user interface that allows us to interact with the computer.
 
-When working with the terminal it is important to be aware of this hierarchical structure. Moreover, we also need to understand other aspects such as file metadata, ownership, and user permissions (see Chapter Files Permissions [Todo add link]). These aspects define the possible action we can execute with a specific file.
+When working with the terminal it is important to be aware of this hierarchical structure. Moreover, we also need to understand other aspects such as file metadata, ownership, and user permissions (see Chapter \@ref(files-permissions)). These aspects define the possible action we can execute with a specific file.
 :::
 
 :::{.trick title="Autocompletion and Command History" data-latex="[Autocompletion and Command History]"}

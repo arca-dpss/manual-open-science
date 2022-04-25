@@ -4,7 +4,7 @@ In the previous chapters, we learned to organize all our files and data in a wel
 
 To guarantee the reproducibility of the results, however, it is not enough to automatize the analysis execution, but we also need to satisfy all project requirements. Ideally, the analysis should be reproduced using the same settings and configuration as in the original analysis. This means that system prerequisites, specific software, and required libraries all should match the specific project requirements.
     
-In this chapter, we discuss how to manage our project requirements. In Chapter [TODO: add ref], instead, we introduce Docker and the container technology that allows us to create and share an isolated, controlled, standardized environment for our project. The Holy Grail of reproducibility.
+In this chapter, we discuss how to manage our project requirements. In Chapter \@ref(docker-chapter), instead, we introduce Docker and the container technology that allows us to create and share an isolated, controlled, standardized environment for our project. The Holy Grail of reproducibility.
 
 ## Project Requirements and Installation
 
@@ -44,7 +44,7 @@ Finally, most of the currently popular programming languages for statistical ana
 
 The number of required libraries can grow quite large very easily. For this reason, listing all of them in the `README` file may not be the best solution. Alternatively, we could list all the libraries in another file in our project. For example, we can create a `requirements.txt` file with each library name and version. Ideally, this file should be structured smartly to allow other colleagues to automatically retrieve the required information to install the libraries using some function. For example, the `requirements.txt` file can be structured as follows.
 
-```
+```bash
 library_1==x.xx.xx
 library_2==x.xx.xx
 ...
@@ -96,7 +96,7 @@ For all the other R release news updates see https://cran.r-project.org/doc/manu
 
 It is possible to install multiple versions of R side by side on our machine. These are stored in separate directories with their own independent libraries. In this case, we need to select the desired version of R to run. To do that in RStudio, follow the official documentation https://support.rstudio.com/hc/en-us/articles/200486138-Changing-R-versions-for-the-RStudio-Desktop-IDE.
 
-An alternative solution is to use Docker (see Chapter [TODO: add ref]). Docker allows us to create isolated, controlled environments in which we can install the required version of R.
+An alternative solution is to use Docker (see Chapter \@ref(docker-chapter)). Docker allows us to create isolated, controlled environments in which we can install the required version of R.
 
 #### Other Related Software
 
@@ -197,12 +197,13 @@ knitr::include_graphics("images/requirements/cache-package.png")
 Let's see now how to get started with `renv`:
 
 1. **Init.** We can activate `renv` in our project directly when creating a new project by selecting *“Use renv with this project”* (see Chapter \@ref(create-proj)).
+    
     ```{r, out.width="60%"}
     knitr::include_graphics("images/requirements/use-renv.png")
     ```
     
-  Alternatively, we can use `renv::init()` to enable `renv` in an already existing project. Once activated, `renv` automatically discovers all the packages currently used and creates the project private library. Moreover, any time we open a project that uses `renv` a message is displayed in the console to confirm the project library is loaded.
-
+    Alternatively, we can use `renv::init()` to enable `renv` in an already existing project. Once activated, `renv` automatically discovers all the packages currently used and creates the project private library. Moreover, any time we open a project that uses `renv` a message is displayed in the console to confirm the project library is loaded.
+    
     ```{r, out.width="60%"}
     knitr::include_graphics("images/requirements/renv-active.png")
     ```
@@ -228,7 +229,7 @@ The `renv` workflow is very intuitive. We take a snapshot of the project's R pac
 warning("Project requested R version '3.6.1' but '4.1.0' is currently being used")
 ```
 
-Moreover, other factors can affect the reproducibility of the results (e.g., operating system, system libraries, or the compiler). See https://rstudio.github.io/renv/articles/renv.html#caveats for detailed discussion. Most of these limits can be overcome using Docker (see Chapter [TODO: add ref]).
+Moreover, other factors can affect the reproducibility of the results (e.g., operating system, system libraries, or the compiler). See https://rstudio.github.io/renv/articles/renv.html#caveats for detailed discussion. Most of these limits can be overcome using Docker (see Chapter \@ref(docker-chapter)).
 
 #### `renv` Files
 

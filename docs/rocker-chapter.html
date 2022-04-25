@@ -210,7 +210,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
-<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
 <li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
 </ul></li>
 </ul></li>
@@ -745,7 +745,7 @@ div.csl-indent {
 <p>In particular, in the <code>Dockerfile</code>:</p>
 <ul>
 <li>First, we define as base image <code>rocker/rstudio:4.1.2</code>.</li>
-<li>Next, we copy all the files from the project folder to the <code>/home/rstudio/my-project</code> directory in the image. Note that we need to copy all the files required to run the analysis but not the results themselves. Ideally, this command is executed on the project downloaded from GitHub (or other online repositories). As discussed in Chapter <a href="git-chapter.html#git-chapter">7</a>, we push on the online repository only the code and files required to obtain the analysis using the <code>.gitignore</code> file to avoid Git tracking the results. Alternatively, we can also use the analogues <code>.dockerignore</code> file to prevent Docker from copying in the image unwanted files (see Section @ref(#dockerignore)).</li>
+<li>Next, we copy all the files from the project folder to the <code>/home/rstudio/my-project</code> directory in the image. Note that we need to copy all the files required to run the analysis but not the results themselves. Ideally, this command is executed on the project downloaded from GitHub (or other online repositories). As discussed in Chapter <a href="git-chapter.html#git-chapter">7</a>, we push on the online repository only the code and files required to obtain the analysis using the <code>.gitignore</code> file to avoid Git tracking the results. Alternatively, we can also use the analogues <code>.dockerignore</code> file to prevent Docker from copying in the image unwanted files (see Section <a href="docker-chapter.html#dockerignore">12.2.3.4</a>).</li>
 <li>Finally, we ensure that all files and folders added inside <code>/home/rstudio/</code> are owned by the <code>rstudio</code> user. In this way, we avoid any permission issues.</li>
 </ul>
 <p>Moreover, we need to provide appropriate instructions in the <code>README</code> to allow other colleagues to reproduce the analysis. In this case, it could be something similar to:</p>

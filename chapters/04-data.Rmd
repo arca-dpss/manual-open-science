@@ -143,9 +143,9 @@ Finally, let's consider two other general aspects regarding data that are import
 
 - **File Format.** There are many possible file formats. However, an important distinction concerns proprietary format and open format (definitions adapted from the Open Data Handbook, see https://opendatahandbook.org).
 
-  **Proprietary Format.** Those formats owned and controlled by a specific company. These data formats require specific dedicated software to be read reliably and usually, we need to pay to use them. Note that the description of these formats may be confidential or unpublished, and can be changed by the company at any time. Common examples are XLS and XLSX formats used by Microsoft Excel.
+  - **Proprietary Format.** Those formats owned and controlled by a specific company. These data formats require specific dedicated software to be read reliably and usually, we need to pay to use them. Note that the description of these formats may be confidential or unpublished, and can be changed by the company at any time. Common examples are XLS and XLSX formats used by Microsoft Excel.
   
-  **Open Format.** All those file formats that can be reliably used by at least one free/open-source software tool. A file in an open format guarantees that there are no restrictions or monetary fee to correctly read and use it. Common examples are the `RDA` and `RDS` formats used internally by R.
+  - **Open Format.** All those file formats that can be reliably used by at least one free/open-source software tool. A file in an open format guarantees that there are no restrictions or monetary fee to correctly read and use it. Common examples are the `RDA` and `RDS` formats used internally by R.
   
   We should avoid proprietary formats and always use open formats, instead. In particular, we should not use open formats related to specific software (even if is open-source), but prefer general text formats (e.g., CSV) that can be used easily by many tools.
   

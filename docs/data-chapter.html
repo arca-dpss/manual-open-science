@@ -210,7 +210,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
-<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
 <li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
 </ul></li>
 </ul></li>
@@ -1027,8 +1027,10 @@ Post
 <p>Finally, let’s consider two other general aspects regarding data that are important to take into account:</p>
 <ul>
 <li><p><strong>File Format.</strong> There are many possible file formats. However, an important distinction concerns proprietary format and open format (definitions adapted from the Open Data Handbook, see <a href="https://opendatahandbook.org" class="uri">https://opendatahandbook.org</a>).</p>
-<p><strong>Proprietary Format.</strong> Those formats owned and controlled by a specific company. These data formats require specific dedicated software to be read reliably and usually, we need to pay to use them. Note that the description of these formats may be confidential or unpublished, and can be changed by the company at any time. Common examples are XLS and XLSX formats used by Microsoft Excel.</p>
-<p><strong>Open Format.</strong> All those file formats that can be reliably used by at least one free/open-source software tool. A file in an open format guarantees that there are no restrictions or monetary fee to correctly read and use it. Common examples are the <code>RDA</code> and <code>RDS</code> formats used internally by R.</p>
+<ul>
+<li><p><strong>Proprietary Format.</strong> Those formats owned and controlled by a specific company. These data formats require specific dedicated software to be read reliably and usually, we need to pay to use them. Note that the description of these formats may be confidential or unpublished, and can be changed by the company at any time. Common examples are XLS and XLSX formats used by Microsoft Excel.</p></li>
+<li><p><strong>Open Format.</strong> All those file formats that can be reliably used by at least one free/open-source software tool. A file in an open format guarantees that there are no restrictions or monetary fee to correctly read and use it. Common examples are the <code>RDA</code> and <code>RDS</code> formats used internally by R.</p></li>
+</ul>
 <p>We should avoid proprietary formats and always use open formats, instead. In particular, we should not use open formats related to specific software (even if is open-source), but prefer general text formats (e.g., CSV) that can be used easily by many tools.</p></li>
 <li><p><strong>Machine Readable.</strong> Data should be stored in a format that allows other researchers to easily use them. People saving tabular data in a PDF file would deserve to be punished in hell. Do they expect us to copy and paste all values by hand?</p></li>
 <li><p><strong>Character Encoding.</strong> All characters (i.e., letters, numbers and symbols) are stored in our machine as sequence bits (i.e., the fundamental unit of information that can assume binary values 0 or 1). Encoding refers to the specific process of converting different characters into their numerical representation. While decoding is the reverse operation.</p>

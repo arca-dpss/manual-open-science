@@ -210,7 +210,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
-<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
 <li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
 </ul></li>
 </ul></li>
@@ -577,7 +577,7 @@ div.csl-indent {
 <h2><span class="header-section-number">5.1</span> Coding Style<a href="coding-chapter.html#coding-style" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Often, researchers’ first experience with programming occurs during some statistical courses where they are used as a tool to run statistical analyses. In these scenarios, all our attention is usually directed to the statistical burden and limited details are provided about coding per sé. Therefore, we rarely receive any training about programming or coding good practices and we end up learning and writing code in a quite anarchic way.</p>
 <p>Usually, the most common approach is to create a very long single script where, by trials-and-errors and copy-and-paste, we collect all our lines of code in a chaotic way hoping to obtain some reasonable result. This is normal during the first stages of an analysis, when we are just exploring our data, trying different statistical approaches, and coming up with new ideas. As the analyses get more complex, however, we will easily lose control of what we are doing introducing several errors. At this point, reviewing and debugging the code will be much more difficult. Moreover, it would be really hard, if not impossible, to replicate the results. We need to follow a more structured approach to avoid these issues.</p>
-<p>In Chapter [TODO: add ref], we discuss how to organize the scripts and manage the analysis workflow to enhance results reproducibility and code maintainability. In this Chapter, instead, we focus on how to write good code.</p>
+<p>In Chapter <a href="workflow-analysis-chapter.html#workflow-analysis-chapter">9</a>, we discuss how to organize the scripts and manage the analysis workflow to enhance results reproducibility and code maintainability. In this Chapter, instead, we focus on how to write good code.</p>
 <p>But, what does it mean to write <em>“good code”</em>? We can think of at least three important characteristics that define a good code:</p>
 <ol style="list-style-type: decimal">
 <li><strong>It Works.</strong> Of course, this is a quite obvious prerequisite, no one wants a code that does not run.</li>
@@ -656,7 +656,7 @@ div.csl-indent {
 <div class="code-tex-good">
 <div class="sourceCode" id="cb27"><pre class="sourceCode r good-code"><code class="sourceCode r"><span id="cb27-1"><a href="coding-chapter.html#cb27-1" aria-hidden="true" tabindex="-1"></a>my_object_name      <span class="co"># snake_case</span></span></code></pre></div>
 </div></li>
-<li><p><strong>snake.case (deprecated) -</strong> An alternative to the traditional snake_case, is to use the character <code>"."</code> instead of <code>"_"</code>. However, this is deprecated as in many programming languages the character <code>"."</code> is a reserved special character (see Section [TODO: add ref]). For example,</p>
+<li><p><strong>snake.case (deprecated) -</strong> An alternative to the traditional snake_case, is to use the character <code>"."</code> instead of <code>"_"</code>. However, this is deprecated as in many programming languages the character <code>"."</code> is a reserved special character (see Section <a href="coding-chapter.html#classes-methods">5.1.3.3</a>). For example,</p>
 <div class="code-tex-warn">
 <div class="sourceCode" id="cb28"><pre class="sourceCode r warn-code"><code class="sourceCode r"><span id="cb28-1"><a href="coding-chapter.html#cb28-1" aria-hidden="true" tabindex="-1"></a>my.object.name      <span class="co"># snake.case</span></span></code></pre></div>
 </div></li>
@@ -763,7 +763,7 @@ div.csl-indent {
 <span id="cb38-2"><a href="coding-chapter.html#cb38-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span></code></pre></div>
 </div>
 <p>Remember, good comments should explain the why and not the what. If we can not understand what the code is doing by simply reading it, we should probably consider re-writing it.</p>
-<p>Finally, comments can also be used to divide and organize the code scripts into sections. We further discuss how to organize scripts used to run the analysis in Chapter [TODO: add ref].</p>
+<p>Finally, comments can also be used to divide and organize the code scripts into sections. We further discuss how to organize scripts used to run the analysis in Chapter <a href="workflow-analysis-chapter.html#workflow-analysis-chapter">9</a>.</p>
 </div>
 <div id="other-tips" class="section level4 hasAnchor" number="5.1.1.4">
 <h4><span class="header-section-number">5.1.1.4</span> Other Tips<a href="coding-chapter.html#other-tips" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -879,7 +879,7 @@ div.csl-indent {
 </div>
 <p>We followed a <strong><em>Functional Style</em></strong>: break down large problems into smaller pieces and define functions or combinations of functions to solve each piece.</p>
 <p>Functional style and DRY principle allow us to develop readable and maintainable code very efficiently. The idea is simple. Instead of having a unique long script with all the analysis code, we define our custom functions to run each step of the analysis in separate scripts. Next, we use these functions in another script to run the analysis. In this way, we keep all the code organized and easy to read and maintain. In the short term, this approach requires more time and may seem overwhelming. In the long term, however, we will be rewarded with all the advantages.</p>
-<p>In Chapter [TODO: add ref], we describe possible methods to manage the analysis workflow. In the following sections, we provide general recommendations about writing functions, documentation, and testing.</p>
+<p>In Chapter <a href="workflow-analysis-chapter.html#workflow-analysis-chapter">9</a>, we describe possible methods to manage the analysis workflow. In the following sections, we provide general recommendations about writing functions, documentation, and testing.</p>
 <div id="functions-good-practices" class="section level4 hasAnchor" number="5.1.2.1">
 <h4><span class="header-section-number">5.1.2.1</span> Functions Good Practices<a href="coding-chapter.html#functions-good-practices" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Here we list some of the main recommendations and aspects to take into account when writing functions:</p>
@@ -1340,7 +1340,7 @@ So each time we run a function, commands are executed inside a newly created env
 <div class="design" title="Tidyverse VS Base R">
 <p>Regarding the tidyverse vs Base R discussion, we want to share our simple opinion. We love tidyverse. This new ecosystem of packages allows us to write readable code in a very efficient way. However, tidyverse develops very quickly and many functions or arguments may become deprecated or even removed in the future. This is not an issue per se, but it can make it hard to maintain projects in the long term. So what should we use tidyverse or Base R? Our answer is<span class="math inline">\(\ldots\)</span>depends on the specific project aims.</p>
 <ul>
-<li><p><strong>Analyses Projects.</strong> In the case of projects related to specific analyses, we recommend using tidyverse. Wrangling, visualising, and exploring data in the tidyverse is very easy and efficient (and fun!). To overcome the issues related to the frequent changes in the tidyverse, we recommend using the <code>renv</code> R package to manage the specific package versions (see Chapter [TODO: add ref]). In this way, we can have all the fun of tidyverse without worrying about maintainability in the long term.</p></li>
+<li><p><strong>Analyses Projects.</strong> In the case of projects related to specific analyses, we recommend using tidyverse. Wrangling, visualising, and exploring data in the tidyverse is very easy and efficient (and fun!). To overcome the issues related to the frequent changes in the tidyverse, we recommend using the <code>renv</code> R package to manage the specific package versions (see Chapter <a href="requirements-chapter.html#renv-section">11.3</a>). In this way, we can have all the fun of tidyverse without worrying about maintainability in the long term.</p></li>
 <li><p><strong>Apps and Packages.</strong> In the case of projects that aim to create apps or packages, we recommend using Base R. In this case, we may have less control over the specific package versions installed by the users. Therefore, we prefer to build our code with as few dependencies as possible, relying only on stable packages that rarely change. In this way, we limit issues of maintainability in the long term.</p></li>
 </ul>
 </div>

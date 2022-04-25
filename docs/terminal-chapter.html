@@ -210,7 +210,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
-<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
 <li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
 </ul></li>
 </ul></li>
@@ -752,7 +752,7 @@ Zsh (Z shell)
 <p>For example, in the command <code>ls -la Desktop/my-project</code>, <code>ls</code> is the specific command, <code>-la</code> are two options, and <code>Desktop/my-project</code> is the command argument.</p>
 <p>Bash has many implemented commands. However, we may need other software to execute some specific operations. To do that we simply specify the required software followed by the desired command and its options and argument</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb81-1"><a href="terminal-chapter.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Software</span> Command [Options] Argument1 Argument2 ...</span></code></pre></div>
-<p>For example, in the command <code>docker build -t my-image:1.0.0 Desktop/my-project</code>, <code>docker</code> is the software (see Chapter [TODO: add ref]), <code>build</code> is the specific command, <code>-t my-image:1.0.0</code> is an option, and <code>Desktop/my-project</code> is the command argument.</p>
+<p>For example, in the command <code>docker build -t my-image:1.0.0 Desktop/my-project</code>, <code>docker</code> is the software (see Chapter <a href="docker-chapter.html#docker-chapter">12</a>), <code>build</code> is the specific command, <code>-t my-image:1.0.0</code> is an option, and <code>Desktop/my-project</code> is the command argument.</p>
 <div class="warning" title="Avoid Spaces in Names">
 <p>As we already have pointed out, command arguments are separated by spaces. This is particularly relevant in the case of paths. If file or directory names include spaces, we need to use quotes.</p>
 <p>As discussed in Chapter <a href="project-chapter.html#naming-files-dir">3.1.2</a>, a good tip is to avoid spaces in file or directory names. We can use the single dash (“<code>-</code>”) or underscore (“<code>_</code>”) character to concatenate multiple words.</p>
@@ -778,7 +778,7 @@ Zsh (Z shell)
 <span id="cb84-6"><a href="terminal-chapter.html#cb84-6" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span>  10 myname  staff   320 Feb  3 09:56 Downloads</span>
 <span id="cb84-7"><a href="terminal-chapter.html#cb84-7" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span> 104 myname  staff  3328 Jan 13 21:30 Library</span>
 <span id="cb84-8"><a href="terminal-chapter.html#cb84-8" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x+</span>   5 myname  staff   160 Sep  7  2018 Public</span></code></pre></div>
-<p>The initial <code>d</code> indicates that these are all directories, next we get information about permissions and ownerships (see Chapter [TODO: add ref]), the file size in bits (use options <code>-h</code> for human-readable file sizes), file modification time, and finally the actual file name.</p>
+<p>The initial <code>d</code> indicates that these are all directories, next we get information about permissions and ownerships (see Chapter <a href="docker-chapter.html#files-permissions">12.2.3.3</a>), the file size in bits (use options <code>-h</code> for human-readable file sizes), file modification time, and finally the actual file name.</p>
 <p>Let’s say we now want to see what is inside the <code>Desktop/</code> directory. To do that, we simply specify it as an argument of <code>ls</code>.</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb85-1"><a href="terminal-chapter.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span> Desktop/</span>
 <span id="cb85-2"><a href="terminal-chapter.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x@</span> 17 claudio  staff    23544 Dec 17 17:09 Courses</span>
@@ -797,7 +797,7 @@ Zsh (Z shell)
 <p>As we start using the terminal, we discover how all directories and files are actually organized in our computer and how they are managed by the operating system.</p>
 <p>Modern graphical user interfaces with icons and buttons give a very misleading representation of how a computer is organized. We may think that the Desktop is the entrance of our computer and from there we can reach all the files simply by point-and-click actions.</p>
 <p>Actually, the computer is organized into a <strong>Hierarchical Directory Structure</strong>. At the lowest levels, we find all the system files which we can access only with special permissions. At the upper level, we find all the files concerning the programs and applications installed which generally can be used by multiple users on the same computer. Finally, we find all the directories and files that concern a specific user. The desktop is simply one of the top-level folders and what you see on the screen is simply a graphical user interface that allows us to interact with the computer.</p>
-<p>When working with the terminal it is important to be aware of this hierarchical structure. Moreover, we also need to understand other aspects such as file metadata, ownership, and user permissions (see Chapter Files Permissions [Todo add link]). These aspects define the possible action we can execute with a specific file.</p>
+<p>When working with the terminal it is important to be aware of this hierarchical structure. Moreover, we also need to understand other aspects such as file metadata, ownership, and user permissions (see Chapter <a href="docker-chapter.html#files-permissions">12.2.3.3</a>). These aspects define the possible action we can execute with a specific file.</p>
 </div>
 <div class="trick" title="Autocompletion and Command History">
 <p>When working using the terminal, there is a lot of typing going on. To facilitate our life, we can use command auto-completion by pressing <code>Tab</code> (or double <code>Tab</code> to list all available options). This is very useful when writing paths and file names.</p>

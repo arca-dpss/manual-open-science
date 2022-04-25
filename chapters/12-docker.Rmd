@@ -299,7 +299,7 @@ Using the image from the previous example, we can run our container named `my-co
 $ docker run --name my-container -it my-image:1.0.0
 ```
 
-Once the container is initialized, a new interactive session will start in our terminal. Now, we are inside our container. Note the `#` prompt symbol, instead of `$`, indicating that we are root users (see Section [Files Permissions](#files-permissions)). We can check whether our project files were copied in the `home/` directory and end the session by running `exit`. 
+Once the container is initialized, a new interactive session will start in our terminal. Now, we are inside our container. Note the `#` prompt symbol, instead of `$`, indicating that we are root users (see Section \@ref(files-permissions)). We can check whether our project files were copied in the `home/` directory and end the session by running `exit`. 
 
 ```bash
 / # ls -l home/

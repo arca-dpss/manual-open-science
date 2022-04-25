@@ -210,7 +210,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
-<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
 <li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
 </ul></li>
 </ul></li>
@@ -611,24 +611,22 @@ div.csl-indent {
 <p>SSH protocol allows our machine to communicate with online services without a password only if there is a matching pair of keys.</p>
 <p>To enable SSH protocol:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Generate SSH keys.</strong> First we need to check if we already have an SSH key-pair available. These are usually saved in the <code>"~/.ssh/"</code> directory.</li>
-</ol>
+<li><p><strong>Generate SSH keys.</strong> First we need to check if we already have an SSH key-pair available. These are usually saved in the <code>"~/.ssh/"</code> directory.</p>
 <p>If no SSH key is available, we can generate a new pair following the instructions at <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" class="uri">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a>. Note that we need to choose instructions according to our operating system. Moreover, if using WLS on Windows, check the dedicated section at <a href="https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/" class="uri">https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/</a>.</p>
-<p>Alternatively, we can generate an SSH key-pair directly from RStudio (see Box below).</p>
-<ol style="list-style-type: decimal">
+<p>Alternatively, we can generate an SSH key-pair directly from RStudio (see Box below).</p></li>
 <li><p><strong>Copy the Public Key.</strong> Next, we need to share our public key with GitHub. By default, our public key is saved at <code>"~/.ssh/id_rsa.pub"</code>. Open the file and copy the public key. We can do that directly from the command line by running,</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb154-1"><a href="github-chapter.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
-<span id="cb154-2"><a href="github-chapter.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="ex">clip</span> <span class="op">&lt;</span> ~/.ssh/id_rsa.pub </span>
-<span id="cb154-3"><a href="github-chapter.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux or macOS</span></span>
-<span id="cb154-4"><a href="github-chapter.html#cb154-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/id_rsa.pub </span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb158-1"><a href="github-chapter.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
+<span id="cb158-2"><a href="github-chapter.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="ex">clip</span> <span class="op">&lt;</span> ~/.ssh/id_rsa.pub </span>
+<span id="cb158-3"><a href="github-chapter.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux or macOS</span></span>
+<span id="cb158-4"><a href="github-chapter.html#cb158-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/id_rsa.pub </span></code></pre></div>
 <p>Our public key is automatically copied into our clipboard and we can now paste it with <code>Ctrl + V</code> (<code>command + V</code> in macOS).</p></li>
-<li><p><strong>Share the Public Key.</strong> Now we need to add our public key to our profile on GitHub. To do that, we open our profile settings,</p></li>
-</ol>
+<li><p><strong>Share the Public Key.</strong> Now we need to add our public key to our profile on GitHub. To do that, we open our profile settings,</p>
 <p><img src="images/github/github-profile-settings.png" width="80%" style="display: block; margin: auto;" />
 select the <em>“SSH and GPG keys”</em> panel and click on the <em>“New SSH key”</em> button.</p>
 <p><img src="images/github/github-ssh-keys.png" width="80%" style="display: block; margin: auto;" />
 Next, we paste our public key and assign a name. Finally, we press <em>“Add SSH key”</em>.</p>
-<p><img src="images/github/github-ssh-new.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="images/github/github-ssh-new.png" width="80%" style="display: block; margin: auto;" /></p></li>
+</ol>
 <p>If we work using different machines (e.g., home and office), the best approach is to create a new pair of SSH keys for each machine and add them to our profile using descriptive names.</p>
 <div class="warning" title="Never Share the Private Key!">
 <p>The <em>private key</em> (<code>id_rsa</code>) is extremely important, as it is used to identify our machine. Therefore we should keep it in a safe place and never share it with others.</p>
@@ -652,21 +650,17 @@ Next, we paste our public key and assign a name. Finally, we press <em>“Add SS
 <ul>
 <li><strong>Public.</strong> Anyone can see (and clone) the repository but only added collaborators can contribute (see Section <a href="github-chapter.html#add-collaborators">8.1.4</a>).</li>
 <li><strong>Private.</strong> Only we and added collaborators can see and contribute to the repository.</li>
-</ul></li>
-</ol>
+</ul>
 <p>Moreover, if we are creating a repository from scratch, we can initialize it with some important files (e.g., <code>README</code>, <code>.gitignore</code>, <code>LICENSE</code>). We should not add any file if we intend to upload an already existing local repository.</p>
 <p>Once ready, we press the <em>“Create repository”</em> green button at the bottom. Note that we can also modify repository visibility or any other setting (e.g., name, owner, description, etc.) later from the repository settings.</p>
-<pre><code>&lt;img src=&quot;images/github/github-create-new-repo.png&quot; width=&quot;80%&quot; style=&quot;display: block; margin: auto;&quot; /&gt;</code></pre>
-<ol style="list-style-type: decimal">
+<p><img src="images/github/github-create-new-repo.png" width="80%" style="display: block; margin: auto;" /></p></li>
 <li><p>If we create an empty repository, it will display only some useful instructions. In particular, we obtain the remote repository URL that we can now add to our local repository and push all commits using the command,</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb156-1"><a href="github-chapter.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin <span class="op">&lt;</span>URL-repository<span class="op">&gt;</span></span>
-<span id="cb156-2"><a href="github-chapter.html#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin master</span></code></pre></div></li>
-</ol>
+<div class="sourceCode" id="cb159"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb159-1"><a href="github-chapter.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin <span class="op">&lt;</span>URL-repository<span class="op">&gt;</span></span>
+<span id="cb159-2"><a href="github-chapter.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin master</span></code></pre></div>
 <p>Note that two options are available: <code>HTTPS</code> and <code>SSH</code>. We should always select the <code>SSH</code> specific URL to allow authentication using the SSH protocol and without the password.</p>
-<pre><code>&lt;img src=&quot;images/github/github-empty-repo.png&quot; width=&quot;80%&quot; style=&quot;display: block; margin: auto;&quot; /&gt;</code></pre>
+<p><img src="images/github/github-empty-repo.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>Once we added the remote URL and pushed all commits, all our files will be available online and we can now explore our project directly from GitHub. We can add further details about our repository (e.g., description, website link, or keywords) by clicking the gear icon on the top-right corner.</p>
-<pre><code>&lt;img src=&quot;images/github/github-repo-readme.png&quot; width=&quot;80%&quot; style=&quot;display: block; margin: auto;&quot; /&gt;</code></pre>
-<ol start="4" style="list-style-type: decimal">
+<p><img src="images/github/github-repo-readme.png" width="80%" style="display: block; margin: auto;" /></p></li>
 <li><p>In the case we need the remote URL of any repository available on GitHub, we can obtain it by clicking the <em>“Code”</em> green button. Remember, we should always use the SSH one to allow automatic authentication.</p>
 <p><img src="images/github/github-clone.png" width="80%" style="display: block; margin: auto;" /></p></li>
 </ol>

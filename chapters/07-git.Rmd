@@ -468,9 +468,10 @@ knitr::include_graphics("images/git/checkout.png")
 In this state, we can make any experimental changes and commit them. These new commits, however, will not affect our principal line of development (`master`) or other branches. In Git terms we are in `detached HEAD` state. This means that once we move back to our last commit (using the command `git checkout master`) all new commits will be lost. 
   
 If we want to retain the new commits, we need to create a new branch, using the command `git checkout -b <branch-name>` (see Section \@ref(branching-merging-2)). In this way, however, our development would diverge from the `master` branch and this may not be desired.
-    ```{r, out.width ="90%"}
-    knitr::include_graphics("images/git/checkout-diverge.png")
-    ```
+
+```{r, out.width ="90%"}
+knitr::include_graphics("images/git/checkout-diverge.png")
+```
 
 #### Revert
 
@@ -803,12 +804,16 @@ git config --list         # Check configuration settings
 git config --global user.name "<My Name>"          # Configure username
 git config --global user.email "<user@email.com>"  # Configure email
 git config --global merge.conflictstyle diff3      # Configure conflict style
+```
 
+```bash
 #----    Initialize Git Repo    ----#
 
 git init <path>             # Initialize local repository
 git clone <repository-URL>  # Clone remote repository
+```
 
+```bash
 #----    Tracking Files    ----#
 
 git status               # Check repository status
@@ -836,7 +841,9 @@ git diff <commit-ID-A> <commit-ID-B>  # Changes from commit-A to commit-B.
 git checkout <commit-ID>  # Point HEAD to specific commit/branch
 git revert <commit-ID>    # Undo commit (forward-way)
 git reset <commit-ID>     # Undo commit (disruptive-way)
+```
 
+```bash
 #----    Collaboration    ----#
 
 git remote -v                # List remote (verbose)
@@ -848,7 +855,9 @@ git push <remote-name> <branch-name>  # Push commit to remote
 
 
 git branch --set-upstream-to="<remote/branch>"  # Set  upstream remote branch 
+```
 
+```bash
 #----    Branching    ----#
 
 git branch          # List branches
@@ -863,7 +872,6 @@ git merge --abort                  # Abort merge
 
 git branch -d <branch-name>                    # Delete local Branch
 git push <remote-name> --delete <branch-name>  # Delete remote Branch
-
 ```
 :::
 

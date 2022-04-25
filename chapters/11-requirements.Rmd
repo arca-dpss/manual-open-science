@@ -129,7 +129,7 @@ This output provides all the main information about the R session to reproduce t
 
 However, as different package versions may be required in different projects, we will need to reinstall the packages each time we move from one project to another. This would be very annoying. Fortunately, in R there is always a package to solve our problems. COncerning package management, the answer is `renv`.
 
-## `renv` a Package to Rule Them All 
+## `renv` a Package to Rule Them All {#renv-section}
 
 ```{r, results ="asis"}
 package_logo("images/requirements/renv-hex.png", format = output_format, tex_width = .25)

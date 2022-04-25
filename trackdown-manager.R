@@ -49,6 +49,9 @@ trackdown::download_file("chapters/11-requirements.Rmd", gpath = "trackdown/ARCA
 trackdown::update_file("chapters/12-docker.Rmd", gpath = "trackdown/ARCA")
 trackdown::download_file("chapters/12-docker.Rmd", gpath = "trackdown/ARCA")
 
+#----    13-docker    ----
+trackdown::update_file("chapters/13-rocker.Rmd", gpath = "trackdown/ARCA")
+trackdown::download_file("chapters/13-rocker.Rmd", gpath = "trackdown/ARCA")
 
 #----    make_book    ----
 make_my_book()

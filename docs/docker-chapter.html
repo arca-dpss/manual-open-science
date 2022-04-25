@@ -35,7 +35,7 @@ We want to make scientific research an open-source knowledge development.</p>" /
   
   
 <link rel="prev" href="requirements-chapter.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="rocker-chapter.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -451,7 +451,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11.2.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-packages-requirements"><i class="fa fa-check"></i><b>11.2.2</b> R packages</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renv-a-package-to-rule-them-all"><i class="fa fa-check"></i><b>11.3</b> <code>renv</code> a Package to Rule Them All</a>
+<li class="chapter" data-level="11.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renv-section"><i class="fa fa-check"></i><b>11.3</b> <code>renv</code> a Package to Rule Them All</a>
 <ul>
 <li class="chapter" data-level="11.3.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#introduction-to-renv"><i class="fa fa-check"></i><b>11.3.1</b> Introduction to <code>renv</code></a></li>
 <li class="chapter" data-level="11.3.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#the-renv-workflow"><i class="fa fa-check"></i><b>11.3.2</b> The <code>renv</code> workflow</a></li>
@@ -514,6 +514,28 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="rocker-chapter.html"><a href="rocker-chapter.html"><i class="fa fa-check"></i><b>13</b> Rocker</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#rocker-getting-started"><i class="fa fa-check"></i><b>13.1</b> Rocker Getting Started</a></li>
+<li class="chapter" data-level="13.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#data-storage-rstudio"><i class="fa fa-check"></i><b>13.2</b> Data Storage</a></li>
+<li class="chapter" data-level="13.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#custom-dockerfile"><i class="fa fa-check"></i><b>13.3</b> Custom <code>Dockerfile</code></a></li>
+<li class="chapter" data-level="13.4" data-path="rocker-chapter.html"><a href="rocker-chapter.html#docker-workflow"><i class="fa fa-check"></i><b>13.4</b> Docker Workflow</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#after-the-development"><i class="fa fa-check"></i><b>13.4.1</b> After the Development</a>
+<ul>
+<li class="chapter" data-level="13.4.1.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#fix-r-version"><i class="fa fa-check"></i><b>13.4.1.1</b> Fix R-version</a></li>
+<li class="chapter" data-level="13.4.1.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#add-r-packages"><i class="fa fa-check"></i><b>13.4.1.2</b> Add R-packages</a></li>
+<li class="chapter" data-level="13.4.1.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#run-the-analysis-and-report"><i class="fa fa-check"></i><b>13.4.1.3</b> Run the Analysis and Report</a></li>
+<li class="chapter" data-level="13.4.1.4" data-path="rocker-chapter.html"><a href="rocker-chapter.html#considerations"><i class="fa fa-check"></i><b>13.4.1.4</b> Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#rocker-as-ide"><i class="fa fa-check"></i><b>13.4.2</b> Rocker as IDE</a>
+<ul>
+<li class="chapter" data-level="13.4.2.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#renv-cache"><i class="fa fa-check"></i><b>13.4.2.1</b> <code>renv</code> Cache</a></li>
+<li class="chapter" data-level="13.4.2.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#github-authentication"><i class="fa fa-check"></i><b>13.4.2.2</b> GitHub Authentication</a></li>
+<li class="chapter" data-level="13.4.2.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#considerations-1"><i class="fa fa-check"></i><b>13.4.2.3</b> Considerations</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -554,7 +576,7 @@ div.csl-indent {
 <div id="containers" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> Containers<a href="docker-chapter.html#containers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
-<p><em>“But it works on my computer!?!”</em></p>
+<p><em>“But it works on my computer!?!”</em> – Anonymus Programmer</p>
 </blockquote>
 <p>Sometimes it happens that our code runs fine on our machine but fails on someone else’s machine. Or even worse, that we obtain unexpected different results running the same code on different machines. Well, containers are the answer to these issues.</p>
 <p>A container is an isolated, controlled, and portable environment that can be easily shared and used by other colleagues. Inside a container, we can collect all the elements and required dependencies of our project. Next, we can share the container with other colleagues allowing everyone to run our project in the exact same environment as if everyone were using the same computer. Containers are a huge step towards reproducibility as we are no longer limited by differences between operating systems, software versions or other settings. Deploying our analysis using a container (plus all the other recommendations discussed in this book) guarantees the reproducibility of our results.</p>
@@ -630,7 +652,7 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <span id="cb190-11"><a href="docker-chapter.html#cb190-11" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span> python /app/app.py</span></code></pre></div>
 <p>Comments are preceded by <code>#</code> (note that <code>#</code> could also assume different meanings in some conditions; see <a href="https://docs.docker.com/engine/reference/builder/#syntax" class="uri">https://docs.docker.com/engine/reference/builder/#syntax</a>). Whereas, all the other commands in the <code>Dockerfile</code> are the instructions to create the image and each command is a new layer of the image. Let’s introduce the main instructions:</p>
 <ul>
-<li><strong><code>From &lt;image&gt;:&lt;version&gt;</code>.</strong> The <code>From</code> instruction allows us to define a <em>Base Image</em> from which we can start building our image. By doing this, we can take advantage of the images already available online on Docker Hub (<a href="https://hub.docker.com/" class="uri">https://hub.docker.com/</a>). We can find plenty of images for all possible needs and some images are even officially supported by Docker. Usually, these images provide a good starting point for the majority of users. We only have to find the image that better suits our needs and point to it specifying <code>&lt;DockerHub-Namespace&gt;/&lt;Repository&gt;:&lt;version&gt;</code> (e.g., <code>nvidia/cuda:&lt;version&gt;</code>). Note that it is important to always indicate the exact starting image by specifying the version tag (see Section <a href="docker-chapter.html#tag-version">12.2.3.2</a>). In Chapter <a href="#rocker-chapter"><strong>??</strong></a>, we introduce available images to work in R.</li>
+<li><strong><code>From &lt;image&gt;:&lt;version&gt;</code>.</strong> The <code>From</code> instruction allows us to define a <em>Base Image</em> from which we can start building our image. By doing this, we can take advantage of the images already available online on Docker Hub (<a href="https://hub.docker.com/" class="uri">https://hub.docker.com/</a>). We can find plenty of images for all possible needs and some images are even officially supported by Docker. Usually, these images provide a good starting point for the majority of users. We only have to find the image that better suits our needs and point to it specifying <code>&lt;DockerHub-Namespace&gt;/&lt;Repository&gt;:&lt;version&gt;</code> (e.g., <code>nvidia/cuda:&lt;version&gt;</code>). Note that it is important to always indicate the exact starting image by specifying the version tag (see Section <a href="docker-chapter.html#tag-version">12.2.3.2</a>). In Chapter <a href="rocker-chapter.html#rocker-chapter">13</a>, we introduce available images to work in R.</li>
 <li><strong><code>RUN &lt;command&gt;</code>.</strong> The <code>RUN</code> instruction allows us to execute specific commands in a shell. Note that the Linux default shell is <code>/bin/sh</code>, but this depends also on the <em>Base Image</em> used. To specify the desired shell we can use the syntax <code>RUN &lt;path-to-shell&gt; -c '&lt;command&gt;'</code> (e.g., <code>RUN /bin/bash -c 'echo Hello World!'</code>). Moreover, we can use backslashes (<code>"\"</code>) to split long commands into multiple lines. This instruction can be used, for example, to install other packages not available in the <em>Base Image</em>.</li>
 <li><strong><code>Copy &lt;host-path&gt; &lt;image-path&gt;</code>.</strong> The <code>Copy</code> instruction copies files or directories from our host machine to the container image. This instruction can be used to copy all our application files into the container image.</li>
 <li><strong><code>CMD &lt;command&gt;</code>.</strong> The <code>CMD</code> instruction allows us to define a default command to run when our container starts. This instruction can be used, for example, to initiate our application. Note that while <code>RUN</code> instructions are executed during the image building time creating a new image layer, the <code>CMD</code> instruction is executed only when running the image. Moreover, we can specify only one <code>CMD</code> instruction in a <code>Dockerfile</code>.</li>
@@ -1118,7 +1140,7 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
         </div>
       </div>
 <a href="requirements-chapter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rocker-chapter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

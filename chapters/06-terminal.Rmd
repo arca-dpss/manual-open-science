@@ -200,7 +200,7 @@ As discussed in Chapter \@ref(naming-files-dir), a good tip is to avoid spaces i
 Another tip is to avoid special characters (e.g., accented characters or other symbols) they only create trouble.
 :::
 
-### Navigating the File System
+### Navigating Directories
 
 Oh yes! Finally, after all these words let's get into some actions. Firstly, as we no longer have our mouse and nice GUIs, we need to learn how to navigate within our machine from the terminal.
 
@@ -279,7 +279,7 @@ Moreover, using the up/down arrow keys, we can navigate the command history and 
 
 ### Modifying Files
 
-We learned the basics of how to move ourselves inside the file system. Let's see now how we can manipulate files.
+We learned the basics of how to move ourselves inside the machine directory structure. Let's see now how we can manipulate files.
 
 To create a new directory, use the command `mkdir` (make directory) specifying the name (and position). We create the directory `my-project` and we move inside it.
 

@@ -18,7 +18,7 @@ rmd_files:
          "chapters/09-workflow.Rmd",
          "chapters/10-dynamic-documents.Rmd",
          "chapters/11-requirements.Rmd",
-         # "chapters/12-docker.Rmd",
+         "chapters/12-docker.Rmd",
          "chapters/99-references.Rmd"]
   latex: ["index.Rmd",
          "chapters/01-intro.Rmd",
@@ -32,7 +32,7 @@ rmd_files:
          "chapters/09-workflow.Rmd",
          "chapters/10-dynamic-documents.Rmd",
          "chapters/11-requirements.Rmd",
-         # "chapters/12-docker.Rmd",
+         "chapters/12-docker.Rmd",
          "chapters/99-references.Rmd"]
 
 output_dir: "docs/"

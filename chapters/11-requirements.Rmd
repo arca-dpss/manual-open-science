@@ -303,7 +303,7 @@ In other cases, if these dependencies are missing from the `renv.lock` file we h
 
 :::{.doclinks data-latex=""}
 
-#### Extra {-s}
+#### Extra {-}
 - Regular expressions tutorial`r break_line(format = output_format)`
   https://ryanstutorials.net/regular-expressions-tutorial/
 

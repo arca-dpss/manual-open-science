@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 Docker | The Open Science Manual</title>
+  <meta name="description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 Docker | The Open Science Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+  <meta property="og:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="github-repo" content="arca-dpss/manual-open-science" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Docker | The Open Science Manual" />
+  
+  <meta name="twitter:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="twitter:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="requirements-chapter.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="assets/images/arca-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#book-structure"><i class="fa fa-check"></i><b>1.1</b> Book Structure</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#instructions"><i class="fa fa-check"></i><b>1.2</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
+<li class="chapter" data-level="3" data-path="project-chapter.html"><a href="project-chapter.html"><i class="fa fa-check"></i><b>3</b> Projects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project-chapter.html"><a href="project-chapter.html#project-structure"><i class="fa fa-check"></i><b>3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="project-chapter.html"><a href="project-chapter.html#project-elements"><i class="fa fa-check"></i><b>3.1.1</b> Project Elements</a>
+<ul>
+<li class="chapter" data-level="3.1.1.1" data-path="project-chapter.html"><a href="project-chapter.html#data"><i class="fa fa-check"></i><b>3.1.1.1</b> <code>data/</code></a></li>
+<li class="chapter" data-level="3.1.1.2" data-path="project-chapter.html"><a href="project-chapter.html#analysis-code"><i class="fa fa-check"></i><b>3.1.1.2</b> <code>analysis/</code> and <code>code/</code></a></li>
+<li class="chapter" data-level="3.1.1.3" data-path="project-chapter.html"><a href="project-chapter.html#outputs"><i class="fa fa-check"></i><b>3.1.1.3</b> <code>outputs/</code></a></li>
+<li class="chapter" data-level="3.1.1.4" data-path="project-chapter.html"><a href="project-chapter.html#documents"><i class="fa fa-check"></i><b>3.1.1.4</b> <code>documents/</code></a></li>
+<li class="chapter" data-level="3.1.1.5" data-path="project-chapter.html"><a href="project-chapter.html#readme-section"><i class="fa fa-check"></i><b>3.1.1.5</b> <code>README</code></a></li>
+<li class="chapter" data-level="3.1.1.6" data-path="project-chapter.html"><a href="project-chapter.html#license-section"><i class="fa fa-check"></i><b>3.1.1.6</b> <code>LICENSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.1.2" data-path="project-chapter.html"><a href="project-chapter.html#naming-files-dir"><i class="fa fa-check"></i><b>3.1.2</b> Naming Files and Directories</a></li>
+<li class="chapter" data-level="3.1.3" data-path="project-chapter.html"><a href="project-chapter.html#project-advantages"><i class="fa fa-check"></i><b>3.1.3</b> Project Advantages</a>
+<ul>
+<li class="chapter" data-level="3.1.3.1" data-path="project-chapter.html"><a href="project-chapter.html#wd-file-path"><i class="fa fa-check"></i><b>3.1.3.1</b> Working Directory and File Paths</a></li>
+<li class="chapter" data-level="3.1.3.2" data-path="project-chapter.html"><a href="project-chapter.html#centralize-analysis"><i class="fa fa-check"></i><b>3.1.3.2</b> Centralize the Analysis</a></li>
+<li class="chapter" data-level="3.1.3.3" data-path="project-chapter.html"><a href="project-chapter.html#ready-to-share-and-collaborate"><i class="fa fa-check"></i><b>3.1.3.3</b> Ready to Share and Collaborate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-chapter.html"><a href="data-chapter.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-chapter.html"><a href="data-chapter.html#organizing"><i class="fa fa-check"></i><b>4.1</b> Organizing Data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-chapter.html"><a href="data-chapter.html#data-structure"><i class="fa fa-check"></i><b>4.1.1</b> Data Structure</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-chapter.html"><a href="data-chapter.html#data-docs"><i class="fa fa-check"></i><b>4.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-chapter.html"><a href="data-chapter.html#data-good-practices"><i class="fa fa-check"></i><b>4.1.3</b> Data Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-chapter.html"><a href="data-chapter.html#sharing"><i class="fa fa-check"></i><b>4.2</b> Sharing Data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-chapter.html"><a href="data-chapter.html#when-where-who"><i class="fa fa-check"></i><b>4.2.1</b> When, Where, Who?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-chapter.html"><a href="data-chapter.html#legal-aspects"><i class="fa fa-check"></i><b>4.2.2</b> Legal Aspects</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-chapter.html"><a href="data-chapter.html#license-data"><i class="fa fa-check"></i><b>4.2.3</b> License</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-chapter.html"><a href="data-chapter.html#metadata"><i class="fa fa-check"></i><b>4.2.4</b> Metadata</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="coding-chapter.html"><a href="coding-chapter.html"><i class="fa fa-check"></i><b>5</b> Coding</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="coding-chapter.html"><a href="coding-chapter.html#coding-style"><i class="fa fa-check"></i><b>5.1</b> Coding Style</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="coding-chapter.html"><a href="coding-chapter.html#good-practices"><i class="fa fa-check"></i><b>5.1.1</b> General Good Practices</a>
+<ul>
+<li class="chapter" data-level="5.1.1.1" data-path="coding-chapter.html"><a href="coding-chapter.html#variable-names"><i class="fa fa-check"></i><b>5.1.1.1</b> Variable Names</a></li>
+<li class="chapter" data-level="5.1.1.2" data-path="coding-chapter.html"><a href="coding-chapter.html#spacing-and-indentation"><i class="fa fa-check"></i><b>5.1.1.2</b> Spacing and Indentation</a></li>
+<li class="chapter" data-level="5.1.1.3" data-path="coding-chapter.html"><a href="coding-chapter.html#comments"><i class="fa fa-check"></i><b>5.1.1.3</b> Comments</a></li>
+<li class="chapter" data-level="5.1.1.4" data-path="coding-chapter.html"><a href="coding-chapter.html#other-tips"><i class="fa fa-check"></i><b>5.1.1.4</b> Other Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.2" data-path="coding-chapter.html"><a href="coding-chapter.html#functional-style"><i class="fa fa-check"></i><b>5.1.2</b> Functional Style</a>
+<ul>
+<li class="chapter" data-level="5.1.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#functions-good-practices"><i class="fa fa-check"></i><b>5.1.2.1</b> Functions Good Practices</a></li>
+<li class="chapter" data-level="5.1.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#documentation-coding"><i class="fa fa-check"></i><b>5.1.2.2</b> Documentation</a></li>
+<li class="chapter" data-level="5.1.2.3" data-path="coding-chapter.html"><a href="coding-chapter.html#unit-tests"><i class="fa fa-check"></i><b>5.1.2.3</b> Unit Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.3" data-path="coding-chapter.html"><a href="coding-chapter.html#advanced"><i class="fa fa-check"></i><b>5.1.3</b> Advanced</a>
+<ul>
+<li class="chapter" data-level="5.1.3.1" data-path="coding-chapter.html"><a href="coding-chapter.html#performance"><i class="fa fa-check"></i><b>5.1.3.1</b> Performance</a></li>
+<li class="chapter" data-level="5.1.3.2" data-path="coding-chapter.html"><a href="coding-chapter.html#environments"><i class="fa fa-check"></i><b>5.1.3.2</b> Environments</a></li>
+<li class="chapter" data-level="5.1.3.3" data-path="coding-chapter.html"><a href="coding-chapter.html#classes-methods"><i class="fa fa-check"></i><b>5.1.3.3</b> Classes and Methods</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="coding-chapter.html"><a href="coding-chapter.html#R-coding"><i class="fa fa-check"></i><b>5.2</b> R Coding</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#coding-style-1"><i class="fa fa-check"></i><b>5.2.1</b> Coding Style</a></li>
+<li class="chapter" data-level="5.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#r-package-proj"><i class="fa fa-check"></i><b>5.2.2</b> R Package Project</a>
+<ul>
+<li class="chapter" data-level="5.2.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#r-package-structure"><i class="fa fa-check"></i><b>5.2.2.1</b> R Package Structure</a></li>
+<li class="chapter" data-level="5.2.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#devtools-workflow"><i class="fa fa-check"></i><b>5.2.2.2</b> The <code>devtools</code> Workflow</a></li>
+<li class="chapter" data-level="5.2.2.3" data-path="coding-chapter.html"><a href="coding-chapter.html#description"><i class="fa fa-check"></i><b>5.2.2.3</b> DESCRIPTION</a></li>
+<li class="chapter" data-level="5.2.2.4" data-path="coding-chapter.html"><a href="coding-chapter.html#documentation-roxygen"><i class="fa fa-check"></i><b>5.2.2.4</b> Documentation with <code>roxygen2</code></a></li>
+<li class="chapter" data-level="5.2.2.5" data-path="coding-chapter.html"><a href="coding-chapter.html#testthat"><i class="fa fa-check"></i><b>5.2.2.5</b> Unit Tests with <code>testthat</code></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="terminal-chapter.html"><a href="terminal-chapter.html"><i class="fa fa-check"></i><b>6</b> Terminal</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#what-is-a-terminal"><i class="fa fa-check"></i><b>6.1</b> What is a Terminal?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#different-shells"><i class="fa fa-check"></i><b>6.1.1</b> Different Shells</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#install-bash"><i class="fa fa-check"></i><b>6.2</b> Install Bash</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#install-windows-terminal"><i class="fa fa-check"></i><b>6.2.1</b> On Windows</a></li>
+<li class="chapter" data-level="6.2.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#on-macos"><i class="fa fa-check"></i><b>6.2.2</b> On macOS</a></li>
+<li class="chapter" data-level="6.2.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#on-linux"><i class="fa fa-check"></i><b>6.2.3</b> On Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#get-started-terminal"><i class="fa fa-check"></i><b>6.3</b> Get Started</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#prompt-and-commands"><i class="fa fa-check"></i><b>6.3.1</b> Prompt and Commands</a></li>
+<li class="chapter" data-level="6.3.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#navigating-directories"><i class="fa fa-check"></i><b>6.3.2</b> Navigating Directories</a></li>
+<li class="chapter" data-level="6.3.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#modifying-files"><i class="fa fa-check"></i><b>6.3.3</b> Modifying Files</a></li>
+<li class="chapter" data-level="6.3.4" data-path="terminal-chapter.html"><a href="terminal-chapter.html#text-editors"><i class="fa fa-check"></i><b>6.3.4</b> Text Editors</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="terminal-chapter.html"><a href="terminal-chapter.html#terminal-in-rstudio"><i class="fa fa-check"></i><b>6.4</b> Terminal in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-chapter.html"><a href="git-chapter.html"><i class="fa fa-check"></i><b>7</b> Git</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="git-chapter.html"><a href="git-chapter.html#version-control"><i class="fa fa-check"></i><b>7.1</b> Version Control</a></li>
+<li class="chapter" data-level="7.2" data-path="git-chapter.html"><a href="git-chapter.html#git-overview"><i class="fa fa-check"></i><b>7.2</b> Git Overview</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files"><i class="fa fa-check"></i><b>7.2.1</b> Tracking Files</a></li>
+<li class="chapter" data-level="7.2.2" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration"><i class="fa fa-check"></i><b>7.2.2</b> Managing Collaboration</a></li>
+<li class="chapter" data-level="7.2.3" data-path="git-chapter.html"><a href="git-chapter.html#branching-merging"><i class="fa fa-check"></i><b>7.2.3</b> Branching and Merging</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="git-chapter.html"><a href="git-chapter.html#install-git"><i class="fa fa-check"></i><b>7.3</b> Install Git</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="git-chapter.html"><a href="git-chapter.html#on-windows"><i class="fa fa-check"></i><b>7.3.1</b> On Windows</a></li>
+<li class="chapter" data-level="7.3.2" data-path="git-chapter.html"><a href="git-chapter.html#on-macos-1"><i class="fa fa-check"></i><b>7.3.2</b> On macOS</a></li>
+<li class="chapter" data-level="7.3.3" data-path="git-chapter.html"><a href="git-chapter.html#on-linux-1"><i class="fa fa-check"></i><b>7.3.3</b> On Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="git-chapter.html"><a href="git-chapter.html#get-started"><i class="fa fa-check"></i><b>7.4</b> Get Started</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="git-chapter.html"><a href="git-chapter.html#configure-settings"><i class="fa fa-check"></i><b>7.4.1</b> Configure Settings</a></li>
+<li class="chapter" data-level="7.4.2" data-path="git-chapter.html"><a href="git-chapter.html#initialize-a-git-repository"><i class="fa fa-check"></i><b>7.4.2</b> Initialize a Git Repository</a></li>
+<li class="chapter" data-level="7.4.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files-1"><i class="fa fa-check"></i><b>7.4.3</b> Tracking Files</a>
+<ul>
+<li class="chapter" data-level="7.4.3.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-files-to-staging-area"><i class="fa fa-check"></i><b>7.4.3.1</b> Adding Files to Staging Area</a></li>
+<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#commiting-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Commiting Changes</a></li>
+<li class="chapter" data-level="7.4.3.3" data-path="git-chapter.html"><a href="git-chapter.html#checking-commit-history"><i class="fa fa-check"></i><b>7.4.3.3</b> Checking Commit History</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.4" data-path="git-chapter.html"><a href="git-chapter.html#undoing-commits"><i class="fa fa-check"></i><b>7.4.4</b> Undoing Commits</a>
+<ul>
+<li class="chapter" data-level="7.4.4.1" data-path="git-chapter.html"><a href="git-chapter.html#checkout"><i class="fa fa-check"></i><b>7.4.4.1</b> Checkout</a></li>
+<li class="chapter" data-level="7.4.4.2" data-path="git-chapter.html"><a href="git-chapter.html#revert"><i class="fa fa-check"></i><b>7.4.4.2</b> Revert</a></li>
+<li class="chapter" data-level="7.4.4.3" data-path="git-chapter.html"><a href="git-chapter.html#reset"><i class="fa fa-check"></i><b>7.4.4.3</b> Reset</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.5" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration-1"><i class="fa fa-check"></i><b>7.4.5</b> Managing Collaboration</a>
+<ul>
+<li class="chapter" data-level="7.4.5.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-a-remote-repository"><i class="fa fa-check"></i><b>7.4.5.1</b> Adding a Remote Repository</a></li>
+<li class="chapter" data-level="7.4.5.2" data-path="git-chapter.html"><a href="git-chapter.html#pulling-commits"><i class="fa fa-check"></i><b>7.4.5.2</b> Pulling Commits</a></li>
+<li class="chapter" data-level="7.4.5.3" data-path="git-chapter.html"><a href="git-chapter.html#pushing-commits"><i class="fa fa-check"></i><b>7.4.5.3</b> Pushing Commits</a></li>
+<li class="chapter" data-level="7.4.5.4" data-path="git-chapter.html"><a href="git-chapter.html#setting-upstream"><i class="fa fa-check"></i><b>7.4.5.4</b> Setting Upstream</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.6" data-path="git-chapter.html"><a href="git-chapter.html#branching-merging-2"><i class="fa fa-check"></i><b>7.4.6</b> Branching and Merging</a>
+<ul>
+<li class="chapter" data-level="7.4.6.1" data-path="git-chapter.html"><a href="git-chapter.html#creating-branches"><i class="fa fa-check"></i><b>7.4.6.1</b> Creating Branches</a></li>
+<li class="chapter" data-level="7.4.6.2" data-path="git-chapter.html"><a href="git-chapter.html#selecting-branches"><i class="fa fa-check"></i><b>7.4.6.2</b> Selecting Branches</a></li>
+<li class="chapter" data-level="7.4.6.3" data-path="git-chapter.html"><a href="git-chapter.html#merging-branches"><i class="fa fa-check"></i><b>7.4.6.3</b> Merging Branches</a></li>
+<li class="chapter" data-level="7.4.6.4" data-path="git-chapter.html"><a href="git-chapter.html#solving-conflicts"><i class="fa fa-check"></i><b>7.4.6.4</b> Solving Conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.7" data-path="git-chapter.html"><a href="git-chapter.html#summary"><i class="fa fa-check"></i><b>7.4.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="git-chapter.html"><a href="git-chapter.html#git-workflow"><i class="fa fa-check"></i><b>7.5</b> Git Workflow</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="git-chapter.html"><a href="git-chapter.html#two-branches-approach"><i class="fa fa-check"></i><b>7.5.1</b> Two Branches Approach</a></li>
+<li class="chapter" data-level="7.5.2" data-path="git-chapter.html"><a href="git-chapter.html#multiple-branches-approach"><i class="fa fa-check"></i><b>7.5.2</b> Multiple Branches Approach</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="git-chapter.html"><a href="git-chapter.html#git-rstudio"><i class="fa fa-check"></i><b>7.6</b> RStudio Git GUI</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="git-chapter.html"><a href="git-chapter.html#configure-git-in-rstudio"><i class="fa fa-check"></i><b>7.6.1</b> Configure Git in RStudio</a></li>
+<li class="chapter" data-level="7.6.2" data-path="git-chapter.html"><a href="git-chapter.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>7.6.2</b> Using Git in Rstudio</a>
+<ul>
+<li class="chapter" data-level="7.6.2.1" data-path="git-chapter.html"><a href="git-chapter.html#create-a-git-repository"><i class="fa fa-check"></i><b>7.6.2.1</b> Create a Git Repository</a></li>
+<li class="chapter" data-level="7.6.2.2" data-path="git-chapter.html"><a href="git-chapter.html#git-panel"><i class="fa fa-check"></i><b>7.6.2.2</b> Git Panel</a></li>
+<li class="chapter" data-level="7.6.2.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-changes"><i class="fa fa-check"></i><b>7.6.2.3</b> Tracking Changes</a></li>
+<li class="chapter" data-level="7.6.2.4" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration-2"><i class="fa fa-check"></i><b>7.6.2.4</b> Managing Collaboration</a></li>
+<li class="chapter" data-level="7.6.2.5" data-path="git-chapter.html"><a href="git-chapter.html#branching-and-merging"><i class="fa fa-check"></i><b>7.6.2.5</b> Branching and Merging</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="github-chapter.html"><a href="github-chapter.html"><i class="fa fa-check"></i><b>8</b> GitHub</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="github-chapter.html"><a href="github-chapter.html#using-github"><i class="fa fa-check"></i><b>8.1</b> Using GitHub</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="github-chapter.html"><a href="github-chapter.html#initial-set-up"><i class="fa fa-check"></i><b>8.1.1</b> Initial Set Up</a></li>
+<li class="chapter" data-level="8.1.2" data-path="github-chapter.html"><a href="github-chapter.html#authentication"><i class="fa fa-check"></i><b>8.1.2</b> Authentication</a></li>
+<li class="chapter" data-level="8.1.3" data-path="github-chapter.html"><a href="github-chapter.html#create-a-repository"><i class="fa fa-check"></i><b>8.1.3</b> Create a Repository</a></li>
+<li class="chapter" data-level="8.1.4" data-path="github-chapter.html"><a href="github-chapter.html#add-collaborators"><i class="fa fa-check"></i><b>8.1.4</b> Add Collaborators</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="github-chapter.html"><a href="github-chapter.html#main-features"><i class="fa fa-check"></i><b>8.2</b> Main Features</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="github-chapter.html"><a href="github-chapter.html#github-add-license"><i class="fa fa-check"></i><b>8.2.1</b> Adding License</a></li>
+<li class="chapter" data-level="8.2.2" data-path="github-chapter.html"><a href="github-chapter.html#documentation-github"><i class="fa fa-check"></i><b>8.2.2</b> Documentation</a></li>
+<li class="chapter" data-level="8.2.3" data-path="github-chapter.html"><a href="github-chapter.html#commit-history-and-diff"><i class="fa fa-check"></i><b>8.2.3</b> Commit History and Diff</a></li>
+<li class="chapter" data-level="8.2.4" data-path="github-chapter.html"><a href="github-chapter.html#get-doi"><i class="fa fa-check"></i><b>8.2.4</b> Get DOI</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="github-chapter.html"><a href="github-chapter.html#contributing"><i class="fa fa-check"></i><b>8.3</b> Contributing</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="github-chapter.html"><a href="github-chapter.html#issues"><i class="fa fa-check"></i><b>8.3.1</b> Issues</a></li>
+<li class="chapter" data-level="8.3.2" data-path="github-chapter.html"><a href="github-chapter.html#pull-request"><i class="fa fa-check"></i><b>8.3.2</b> Pull Request</a>
+<ul>
+<li class="chapter" data-level="8.3.2.1" data-path="github-chapter.html"><a href="github-chapter.html#fork-and-fetch"><i class="fa fa-check"></i><b>8.3.2.1</b> Fork and Fetch</a></li>
+<li class="chapter" data-level="8.3.2.2" data-path="github-chapter.html"><a href="github-chapter.html#create-a-pull-request"><i class="fa fa-check"></i><b>8.3.2.2</b> Create a Pull Request</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="github-chapter.html"><a href="github-chapter.html#advanced-features-1"><i class="fa fa-check"></i><b>8.4</b> Advanced Features</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html"><i class="fa fa-check"></i><b>9</b> Workflow Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducible-workflow"><i class="fa fa-check"></i><b>9.1</b> Reproducible Workflow</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#run-the-analysis"><i class="fa fa-check"></i><b>9.1.1</b> Run the Analysis</a></li>
+<li class="chapter" data-level="9.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#documentation"><i class="fa fa-check"></i><b>9.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="9.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility-issues"><i class="fa fa-check"></i><b>9.1.3</b> Reproducibility Issues</a></li>
+<li class="chapter" data-level="9.1.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#workflow-manager"><i class="fa fa-check"></i><b>9.1.4</b> Workflow Manager</a>
+<ul>
+<li class="chapter" data-level="9.1.4.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#make"><i class="fa fa-check"></i><b>9.1.4.1</b> Make</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#r"><i class="fa fa-check"></i><b>9.2</b> R</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#analysis-workflow"><i class="fa fa-check"></i><b>9.2.1</b> Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="9.2.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#script-sections"><i class="fa fa-check"></i><b>9.2.1.1</b> Script Sections</a></li>
+<li class="chapter" data-level="9.2.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#load-functions"><i class="fa fa-check"></i><b>9.2.1.2</b> Loading Functions</a></li>
+<li class="chapter" data-level="9.2.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#loading-r-packages"><i class="fa fa-check"></i><b>9.2.1.3</b> Loading R-packages</a></li>
+<li class="chapter" data-level="9.2.1.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility"><i class="fa fa-check"></i><b>9.2.1.4</b> Reproducibility</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#workflow-manager-1"><i class="fa fa-check"></i><b>9.2.2</b> Workflow Manager</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets"><i class="fa fa-check"></i><b>9.3</b> Targets</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#project-structure-1"><i class="fa fa-check"></i><b>9.3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="9.3.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-script"><i class="fa fa-check"></i><b>9.3.1.1</b> The <code>_targets.R</code> Script</a></li>
+<li class="chapter" data-level="9.3.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#defining-targets"><i class="fa fa-check"></i><b>9.3.1.2</b> Defining Targets</a></li>
+<li class="chapter" data-level="9.3.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-store"><i class="fa fa-check"></i><b>9.3.1.3</b> The <code>_targets/</code> Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#the-targets-workflow"><i class="fa fa-check"></i><b>9.3.2</b> The <code>targets</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="9.3.2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#check-the-pipeline"><i class="fa fa-check"></i><b>9.3.2.1</b> Check the Pipeline</a></li>
+<li class="chapter" data-level="9.3.2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#run-the-pipeline"><i class="fa fa-check"></i><b>9.3.2.2</b> Run the Pipeline</a></li>
+<li class="chapter" data-level="9.3.2.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#make-changes"><i class="fa fa-check"></i><b>9.3.2.3</b> Make Changes</a></li>
+<li class="chapter" data-level="9.3.2.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#get-the-results"><i class="fa fa-check"></i><b>9.3.2.4</b> Get the Results</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#advanced-features-2"><i class="fa fa-check"></i><b>9.3.3</b> Advanced Features</a>
+<ul>
+<li class="chapter" data-level="9.3.3.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-proj"><i class="fa fa-check"></i><b>9.3.3.1</b> Project Structure</a></li>
+<li class="chapter" data-level="9.3.3.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-and-r-markdown"><i class="fa fa-check"></i><b>9.3.3.2</b> <code>targets</code> and R Markdown</a></li>
+<li class="chapter" data-level="9.3.3.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility-1"><i class="fa fa-check"></i><b>9.3.3.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="9.3.3.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#branching"><i class="fa fa-check"></i><b>9.3.3.4</b> Branching</a></li>
+<li class="chapter" data-level="9.3.3.5" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#high-performance-computing"><i class="fa fa-check"></i><b>9.3.3.5</b> High-Performance Computing</a></li>
+<li class="chapter" data-level="9.3.3.6" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#load-all-targets"><i class="fa fa-check"></i><b>9.3.3.6</b> Load All Targets</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a></li>
+<li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#requirements"><i class="fa fa-check"></i><b>11.1.1</b> Requirements</a>
+<ul>
+<li class="chapter" data-level="11.1.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#system-prerequisites"><i class="fa fa-check"></i><b>11.1.1.1</b> System Prerequisites</a></li>
+<li class="chapter" data-level="11.1.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#software"><i class="fa fa-check"></i><b>11.1.1.2</b> Software</a></li>
+<li class="chapter" data-level="11.1.1.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#libraries"><i class="fa fa-check"></i><b>11.1.1.3</b> Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="11.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#installation"><i class="fa fa-check"></i><b>11.1.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-dependencies"><i class="fa fa-check"></i><b>11.2</b> R Dependencies</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-version"><i class="fa fa-check"></i><b>11.2.1</b> R version</a>
+<ul>
+<li class="chapter" data-level="11.2.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#multiple-r-versions"><i class="fa fa-check"></i><b>11.2.1.1</b> Multiple R versions</a></li>
+<li class="chapter" data-level="11.2.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#other-related-software"><i class="fa fa-check"></i><b>11.2.1.2</b> Other Related Software</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-packages-requirements"><i class="fa fa-check"></i><b>11.2.2</b> R packages</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renv-a-package-to-rule-them-all"><i class="fa fa-check"></i><b>11.3</b> <code>renv</code> a Package to Rule Them All</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#introduction-to-renv"><i class="fa fa-check"></i><b>11.3.1</b> Introduction to <code>renv</code></a></li>
+<li class="chapter" data-level="11.3.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#the-renv-workflow"><i class="fa fa-check"></i><b>11.3.2</b> The <code>renv</code> workflow</a></li>
+<li class="chapter" data-level="11.3.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#advanced-features-3"><i class="fa fa-check"></i><b>11.3.3</b> Advanced Features</a>
+<ul>
+<li class="chapter" data-level="11.3.3.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#reproducibility-issues-1"><i class="fa fa-check"></i><b>11.3.3.1</b> Reproducibility Issues</a></li>
+<li class="chapter" data-level="11.3.3.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renv-files"><i class="fa fa-check"></i><b>11.3.3.2</b> <code>renv</code> Files</a></li>
+<li class="chapter" data-level="11.3.3.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#snapshot-types"><i class="fa fa-check"></i><b>11.3.3.3</b> Snapshot Types</a></li>
+<li class="chapter" data-level="11.3.3.4" data-path="requirements-chapter.html"><a href="requirements-chapter.html#detecting-packages"><i class="fa fa-check"></i><b>11.3.3.4</b> Detecting Packages</a></li>
+<li class="chapter" data-level="11.3.3.5" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renvignore-file"><i class="fa fa-check"></i><b>11.3.3.5</b> <code>.renvignore</code> File</a></li>
+<li class="chapter" data-level="11.3.3.6" data-path="requirements-chapter.html"><a href="requirements-chapter.html#restore-issue"><i class="fa fa-check"></i><b>11.3.3.6</b> Restore Issue</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="docker-chapter.html"><a href="docker-chapter.html"><i class="fa fa-check"></i><b>12</b> Docker</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="docker-chapter.html"><a href="docker-chapter.html#containers"><i class="fa fa-check"></i><b>12.1</b> Containers</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="docker-chapter.html"><a href="docker-chapter.html#containers-and-virtual-machines"><i class="fa fa-check"></i><b>12.1.1</b> Containers and Virtual Machines</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-get-started"><i class="fa fa-check"></i><b>12.2</b> Docker Getting Started</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-elements"><i class="fa fa-check"></i><b>12.2.1</b> Docker Elements</a></li>
+<li class="chapter" data-level="12.2.2" data-path="docker-chapter.html"><a href="docker-chapter.html#install-docker"><i class="fa fa-check"></i><b>12.2.2</b> Install Docker</a></li>
+<li class="chapter" data-level="12.2.3" data-path="docker-chapter.html"><a href="docker-chapter.html#dockerfile"><i class="fa fa-check"></i><b>12.2.3</b> <strong><code>Dockerfile</code></strong></a>
+<ul>
+<li class="chapter" data-level="12.2.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#layer-caching"><i class="fa fa-check"></i><b>12.2.3.1</b> Layer Caching</a></li>
+<li class="chapter" data-level="12.2.3.2" data-path="docker-chapter.html"><a href="docker-chapter.html#tag-version"><i class="fa fa-check"></i><b>12.2.3.2</b> Image Version Tag</a></li>
+<li class="chapter" data-level="12.2.3.3" data-path="docker-chapter.html"><a href="docker-chapter.html#files-permissions"><i class="fa fa-check"></i><b>12.2.3.3</b> Files Permissions</a></li>
+<li class="chapter" data-level="12.2.3.4" data-path="docker-chapter.html"><a href="docker-chapter.html#dockerignore"><i class="fa fa-check"></i><b>12.2.3.4</b> <code>.dockerignore</code> File</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2.4" data-path="docker-chapter.html"><a href="docker-chapter.html#build-an-image"><i class="fa fa-check"></i><b>12.2.4</b> Build an Image</a>
+<ul>
+<li class="chapter" data-level="12.2.4.1" data-path="docker-chapter.html"><a href="docker-chapter.html#list-and-remove-images"><i class="fa fa-check"></i><b>12.2.4.1</b> List and Remove Images</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2.5" data-path="docker-chapter.html"><a href="docker-chapter.html#run-an-image"><i class="fa fa-check"></i><b>12.2.5</b> Run an Image</a>
+<ul>
+<li class="chapter" data-level="12.2.5.1" data-path="docker-chapter.html"><a href="docker-chapter.html#stop-list-and-remove-containers"><i class="fa fa-check"></i><b>12.2.5.1</b> Stop List and Remove Containers</a></li>
+<li class="chapter" data-level="12.2.5.2" data-path="docker-chapter.html"><a href="docker-chapter.html#moving-files"><i class="fa fa-check"></i><b>12.2.5.2</b> Moving Files</a></li>
+<li class="chapter" data-level="12.2.5.3" data-path="docker-chapter.html"><a href="docker-chapter.html#running-commands"><i class="fa fa-check"></i><b>12.2.5.3</b> Running Commands</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-features"><i class="fa fa-check"></i><b>12.3</b> Other Features</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#data-storage"><i class="fa fa-check"></i><b>12.3.1</b> Data Storage</a>
+<ul>
+<li class="chapter" data-level="12.3.1.1" data-path="docker-chapter.html"><a href="docker-chapter.html#bind-mounts"><i class="fa fa-check"></i><b>12.3.1.1</b> Bind Mounts</a></li>
+<li class="chapter" data-level="12.3.1.2" data-path="docker-chapter.html"><a href="docker-chapter.html#volumes"><i class="fa fa-check"></i><b>12.3.1.2</b> Volumes</a></li>
+<li class="chapter" data-level="12.3.1.3" data-path="docker-chapter.html"><a href="docker-chapter.html#bind-mounts-vs-volumes"><i class="fa fa-check"></i><b>12.3.1.3</b> Bind Mounts VS Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3.2" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-compose"><i class="fa fa-check"></i><b>12.3.2</b> Docker Compose</a></li>
+<li class="chapter" data-level="12.3.3" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-hub"><i class="fa fa-check"></i><b>12.3.3</b> Docker Hub</a>
+<ul>
+<li class="chapter" data-level="12.3.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#sharing-images"><i class="fa fa-check"></i><b>12.3.3.1</b> Sharing Images</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3.4" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-gui"><i class="fa fa-check"></i><b>12.3.4</b> Docker GUI</a>
+<ul>
+<li class="chapter" data-level="12.3.4.1" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-desktop"><i class="fa fa-check"></i><b>12.3.4.1</b> Docker Desktop</a></li>
+<li class="chapter" data-level="12.3.4.2" data-path="docker-chapter.html"><a href="docker-chapter.html#visual-studio-code"><i class="fa fa-check"></i><b>12.3.4.2</b> Visual Studio Code</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Open Science Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="assets/images/banner.png">
+</div>
+<div id="docker-chapter" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Docker<a href="docker-chapter.html#docker-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the previous chapters, we learned to organize all our files and data in a well structured and documented repository. Next, we learned to use Git and GitHub for tracking changes and managing collaboration during the development of our project. Finally, we introduced dedicated tools for managing the analysis workflow pipeline and creating dynamic documents.</p>
+<p>We are only one step from guaranteeing the reproducibility of our results. In Chapter <a href="requirements-chapter.html#requirements-chapter">11</a>, we discussed how to manage packages and other dependencies of our preferred statistical software. However, we still need to control for differences between specific software versions, operating systems, or other system aspects (.g., system libraries or available compilers). In this chapter, we introduce Docker and the container technology that allows us to create and share an isolated, controlled, standardized environment for our project. We have reached the <em>Holy Grail</em> of reproducibility.</p>
+<div id="containers" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Containers<a href="docker-chapter.html#containers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p><em>“But it works on my computer!?!”</em></p>
+</blockquote>
+<p>Sometimes it happens that our code runs fine on our machine but fails on someone else’s machine. Or even worse, that we obtain unexpected different results running the same code on different machines. Well, containers are the answer to these issues.</p>
+<p>A container is an isolated, controlled, and portable environment that can be easily shared and used by other colleagues. Inside a container, we can collect all the elements and required dependencies of our project. Next, we can share the container with other colleagues allowing everyone to run our project in the exact same environment as if everyone were using the same computer. Containers are a huge step towards reproducibility as we are no longer limited by differences between operating systems, software versions or other settings. Deploying our analysis using a container (plus all the other recommendations discussed in this book) guarantees the reproducibility of our results.</p>
+<div id="containers-and-virtual-machines" class="section level3 hasAnchor" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> Containers and Virtual Machines<a href="docker-chapter.html#containers-and-virtual-machines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Containers and virtual machines both are forms of virtualization that allow us to emulate different computer systems on the same machine. However, there are some important differences:</p>
+<ul>
+<li><strong>Virtual Machines (VM).</strong> VMs are an abstraction of the physical hardware. A special software layer, called <em>hypervisor</em>, manages the virtualization of multiple environments connecting the machine infrastructure (i.e. the physical hardware) to the different VMs. Each VM has its own <em>Guest</em> Operating System, libraries and applications. VMs are robust and secure systems, isolated from each other. However, they are usually large in size (tens of gigabytes) and they require minutes to boot (i.e., start).</li>
+<li><strong>Containers.</strong> Containers are an abstraction at the Operating System (OS) level. A special container engine (e.g., Docker) manages the different containers. Each container has its own applications and dependencies but they share the same <em>Host</em> OS kernel (see <a href="#using-rprofile"><em>“Details-Box: A Linux Kernel for Everyone”</em></a> below). Containers are usually lightweight (tens of megabytes-few gigabytes) and they take just seconds to start. Thanks to their scalability and portability, containers have become industry standards for services and application deployment.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-224"></span>
+<img src="images/docker/container-vs-vm.png" alt="Image retrieved from Docker official documentation (https://www.docker.com/resources/what-container)" width="90%" />
+<p class="caption">
+Figure 12.1: Image retrieved from Docker official documentation (<a href="https://www.docker.com/resources/what-container" class="uri">https://www.docker.com/resources/what-container</a>)
+</p>
+</div>
+<p>Both containers and VMs have their pros and cons and the choice between the two depends on the specific needs. Using a container allows reproducibility of the results and this is usually enough in most research projects. To learn more about containers and VMs, see <a href="https://www.docker.com/resources/what-container" class="uri">https://www.docker.com/resources/what-container</a>, <a href="https://www.backblaze.com/blog/vm-vs-containers/" class="uri">https://www.backblaze.com/blog/vm-vs-containers/</a>, or <a href="https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine" class="uri">https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine</a>.</p>
+</div>
+</div>
+<div id="docker-get-started" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Docker Getting Started<a href="docker-chapter.html#docker-get-started" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="packages-logo-box", style="width: 200px;"><img src="images/docker/docker-logo.png"></div>
+<p>Docker (<a href="https://www.docker.com/" class="uri">https://www.docker.com/</a>) is one of the most popular container engines. Using Docker we can easily build, share, and run our preferred containers. Docker (and containerization in general) is a very huge topic. There are so many features and applications we can create using docker. Although things can become complicated very quickly, there are many solutions already available that we can implement right away. However, at least a minimal programming knowledge (e.g., basic use of the terminal; see Chapter <a href="terminal-chapter.html#terminal-chapter">6</a>) is required to work with Docker.</p>
+<p>In this section, we provide a gentle introduction to Docker that will allow us to learn its basic features. In Section <a href="docker-chapter.html#docker-features">12.3</a>, we present some other slightly more advanced Docker features that are useful to manage our containers.</p>
+<p>To learn more about Docker, see the official <em>Get Started</em> guide <a href="https://docs.docker.com/get-started/" class="uri">https://docs.docker.com/get-started/</a> or <em>Docker Tutorials and Labs</em> (<a href="https://github.com/docker/labs" class="uri">https://github.com/docker/labs</a>). However, These guides are more oriented toward programmers that want to deploy applications using Docker containers. Another useful Docker tutorial with a focus on R and RStudio is available at <a href="http://jsta.github.io/r-docker-tutorial/" class="uri">http://jsta.github.io/r-docker-tutorial/</a>. Finally, as we dig deeper into the more advanced features of Docker, we will spend lots of time navigating the official documentation (<a href="https://docs.docker.com/" class="uri">https://docs.docker.com/</a>).</p>
+<p>Docker can appear very complex and intimidating at first but, as we will become more familiar with it, we will love it (hopefully).</p>
+<div id="docker-elements" class="section level3 hasAnchor" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> Docker Elements<a href="docker-chapter.html#docker-elements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Before starting to play with containers, let’s describe the main ingredients of the Docker workflow. Using Docker, we have three main elements:</p>
+<ul>
+<li><strong><code>Dockerfile</code>.</strong> A text file with the instructions defining how to build an image. We can think of it as the recipe used to create an image.</li>
+<li><strong>Image.</strong> A special file that represents the prototype of a container. We can think of it as the original mould from which multiple new containers are created.</li>
+<li><strong>Container.</strong> An instance of an image is a container. Here is when things come to life. We can create several running containers from the same image.</li>
+</ul>
+<p><img src="images/docker/Docker-elements.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>To summarize, we start by defining a <code>Dockerfile</code> with all the instructions to create the desired container. Next, we <code>build</code> an image (i.e., a prototype) of our container. Finally, we <code>run</code> the image to obtain a running container and get the work done. In the next sections, we describe each step in more detail.</p>
+<div class="tip" title="Docker Daemon">
+<p>Often we find the term <em>“Docker daemon”</em> in the Docker documentation available online (or in error messages). No worries, our machine is not possessed by evil spirits.</p>
+<p>A daemon is simply a computer program that runs as a background process (see <a href="https://en.wikipedia.org/wiki/Daemon_(computing)" class="uri">https://en.wikipedia.org/wiki/Daemon_(computing)</a>). The Docker daemon is the process that manages images, containers, and all other elements in the Docker workflow.</p>
+</div>
+</div>
+<div id="install-docker" class="section level3 hasAnchor" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> Install Docker<a href="docker-chapter.html#install-docker" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The installation procedure depends on the specific operating system. Install Docker following the instructions at <a href="https://docs.docker.com/get-docker/" class="uri">https://docs.docker.com/get-docker/</a>.</p>
+<p>Note that, on macOS and Windows machines, we need to install Docker Desktop (simply follow the instructions at the previous link). Docker Desktop is an application that allows us to run Docker containers. We need to open Docker Desktop every time we work with Docker (this will start the Docker daemon).</p>
+<p><a name="linux-kernl"></a></p>
+<div class="design" title="A Linux Kernel for Everyone">
+<p>As described in the previous section, containers are an abstraction at the Operating System (OS) level and all containers share the same <em>Host</em> OS. Therefore, we may wonder: how can Docker manage different OS (i.e, macOS, Windows, and Linux) on different machines allowing reproducibility? To answer this question, let’s clarify some points.</p>
+<p>Containers share the same <em>Host</em> OS <strong>kernel</strong>. A kernel is the lowest level of an operating system that is closer to the hardware. The kernel deals with basic services like memory management, process management, device driver, and system calls. On top of the kernel, we have all the other operating system applications and user interfaces that allow us to interact with the computer.</p>
+<p>Docker is based on a <strong>Linux kernel</strong>. Wait! How can this be possible? If we have already installed a Linux OS on our machine, Docker can run containers directly using our kernel. All Linux distros (e.g., Ubuntu or Debian) are based upon the Linux kernel. But, what if we are on macOS or Windows machines? Well… the answer is Virtual Machines. When we install Docker on a macOS or Windows machine, we are also installing a Linux Virtual Machine. This allows Docker to run containers using a Linux kernel on different operating systems. Therefore, Docker allows reproducibility as all containers run on a Linux kernel, independently of our actual OS.</p>
+<p>Docker also introduced Windows containers <a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/" class="uri">https://docs.microsoft.com/en-us/virtualization/windowscontainers/</a>. Note that Windows containers can only run Windows applications and they require Windows OS on the host machine.</p>
+<div id="docker-installation-under-the-hood" class="section level4 unnumbered hasAnchor">
+<h4>Docker Installation Under the Hood<a href="docker-chapter.html#docker-installation-under-the-hood" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>On a Linux machine, installing Docker will install only Docker Engine, the core of Docker that allows us to build and run containers.</p>
+<p>On a macOS or Windows machine, instead, installing Docker will install Docker Desktop. Docker Desktop is an easy-to-install application that includes Docker Engine plus all the elements required to run Docker on macOS and Windows.</p>
+<p>Docker Desktop also includes some extra tools (e.g., Docker Compose; see Section <a href="docker-chapter.html#docker-compose">12.3.2</a>) that facilitate the building, sharing, and running of Docker containers. On Linux, these tools have to be installed separately.</p>
+</div>
+</div>
+</div>
+<div id="dockerfile" class="section level3 hasAnchor" number="12.2.3">
+<h3><span class="header-section-number">12.2.3</span> <strong><code>Dockerfile</code></strong><a href="docker-chapter.html#dockerfile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A <code>Dockerfile</code> is a text file with all the instructions to build an image. An example of <code>Dockerfile</code> is,</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb190-1"><a href="docker-chapter.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb190-2"><a href="docker-chapter.html#cb190-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> ubuntu:18.04</span>
+<span id="cb190-3"><a href="docker-chapter.html#cb190-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb190-4"><a href="docker-chapter.html#cb190-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
+<span id="cb190-5"><a href="docker-chapter.html#cb190-5" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> apt-get update <span class="dt">\</span></span>
+<span id="cb190-6"><a href="docker-chapter.html#cb190-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> curl</span>
+<span id="cb190-7"><a href="docker-chapter.html#cb190-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb190-8"><a href="docker-chapter.html#cb190-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Get and run my app</span></span>
+<span id="cb190-9"><a href="docker-chapter.html#cb190-9" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /app</span>
+<span id="cb190-10"><a href="docker-chapter.html#cb190-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> make /app</span>
+<span id="cb190-11"><a href="docker-chapter.html#cb190-11" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span> python /app/app.py</span></code></pre></div>
+<p>Comments are preceded by <code>#</code> (note that <code>#</code> could also assume different meanings in some conditions; see <a href="https://docs.docker.com/engine/reference/builder/#syntax" class="uri">https://docs.docker.com/engine/reference/builder/#syntax</a>). Whereas, all the other commands in the <code>Dockerfile</code> are the instructions to create the image and each command is a new layer of the image. Let’s introduce the main instructions:</p>
+<ul>
+<li><strong><code>From &lt;image&gt;:&lt;version&gt;</code>.</strong> The <code>From</code> instruction allows us to define a <em>Base Image</em> from which we can start building our image. By doing this, we can take advantage of the images already available online on Docker Hub (<a href="https://hub.docker.com/" class="uri">https://hub.docker.com/</a>). We can find plenty of images for all possible needs and some images are even officially supported by Docker. Usually, these images provide a good starting point for the majority of users. We only have to find the image that better suits our needs and point to it specifying <code>&lt;DockerHub-Namespace&gt;/&lt;Repository&gt;:&lt;version&gt;</code> (e.g., <code>nvidia/cuda:&lt;version&gt;</code>). Note that it is important to always indicate the exact starting image by specifying the version tag (see Section <a href="docker-chapter.html#tag-version">12.2.3.2</a>). In Chapter <a href="#rocker-chapter"><strong>??</strong></a>, we introduce available images to work in R.</li>
+<li><strong><code>RUN &lt;command&gt;</code>.</strong> The <code>RUN</code> instruction allows us to execute specific commands in a shell. Note that the Linux default shell is <code>/bin/sh</code>, but this depends also on the <em>Base Image</em> used. To specify the desired shell we can use the syntax <code>RUN &lt;path-to-shell&gt; -c '&lt;command&gt;'</code> (e.g., <code>RUN /bin/bash -c 'echo Hello World!'</code>). Moreover, we can use backslashes (<code>"\"</code>) to split long commands into multiple lines. This instruction can be used, for example, to install other packages not available in the <em>Base Image</em>.</li>
+<li><strong><code>Copy &lt;host-path&gt; &lt;image-path&gt;</code>.</strong> The <code>Copy</code> instruction copies files or directories from our host machine to the container image. This instruction can be used to copy all our application files into the container image.</li>
+<li><strong><code>CMD &lt;command&gt;</code>.</strong> The <code>CMD</code> instruction allows us to define a default command to run when our container starts. This instruction can be used, for example, to initiate our application. Note that while <code>RUN</code> instructions are executed during the image building time creating a new image layer, the <code>CMD</code> instruction is executed only when running the image. Moreover, we can specify only one <code>CMD</code> instruction in a <code>Dockerfile</code>.</li>
+</ul>
+<p>Other common instructions are:</p>
+<ul>
+<li><strong><code>ADD &lt;src&gt; &lt;image-path&gt;</code>.</strong> The <code>ADD</code> instruction copies files or directories to the container image. The <code>ADD</code> and <code>COPY</code> are similar, but <code>ADD</code> has some additional features, such as tar extraction and retrieving files from remote URLs. <code>COPY</code> should be preferred if the specific <code>ADD</code> features are not required.</li>
+<li><strong><code>LABEL &lt;key&gt;=&lt;value&gt;</code>.</strong> The <code>LABEL</code> instruction adds metadata to an image by specifying a key-value pair. For example, we can add the maintainer email or the licensing information.</li>
+<li><strong><code>ENV &lt;key&gt;=&lt;value&gt;</code>.</strong> The <code>ENV</code> instruction allows us to define environment variables that can be used in the subsequent instructions. Note that these environment variables will persist when a container is run from the resulting image.</li>
+<li><strong><code>WORKDIR &lt;path-wd&gt;</code>.</strong> The <code>WORKDIR</code> instruction sets the working directory for the instructions that follow it in the <code>Dockerfile</code>.</li>
+<li><strong><code>EXPOSE &lt;port&gt;</code>.</strong> The <code>EXPOSE</code> instruction is used to specify the network ports on which the container listens at run time.</li>
+<li><strong><code>SHELL ["executable", "parameters"]</code>.</strong> The <code>SHELL</code> instruction allows us to define the default shell used. On linux, the initial default shell is <code>["/bin/sh", "-c"]</code>.</li>
+<li><strong><code>VOLUME ["/path-to-volume"]</code>.</strong> The <code>VOLUME</code> instruction allows us to create directories for persistent data storage. Volumes’ functioning is described in detail in Section <a href="docker-chapter.html#data-storage">12.3.1</a>.</li>
+</ul>
+<p>By combining these instructions, we can create a custom image according to our needs. Docker is a very versatile tool with many features that allows us to create different kinds of applications and services. This process may seem very complex at first as we need to be familiar with many programming arguments (e.g., shell commands, file system management, and network management). In most research projects, however, we will need only a couple of simple instructions to create our image. Usually, in most Dockerfiles we simply need to:</p>
+<ol style="list-style-type: decimal">
+<li>Select a <em>Base Image</em></li>
+<li>Install the required packages</li>
+<li>Add all the relevant files</li>
+<li>Execute the commands to get everything ready</li>
+</ol>
+<p>Therefore, we don’t have to be a Docker ninja master, but simply need to learn the basics to create our own containers and understand other people’s Dockerfiles.</p>
+<p>We can find a complete list of <code>Dockerfile</code> instructions and detailed information for each command in the official documentation at <a href="https://docs.docker.com/engine/reference/builder/" class="uri">https://docs.docker.com/engine/reference/builder/</a>. Moreover, <code>Dockerfile</code> best practices are described at <a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/" class="uri">https://docs.docker.com/develop/develop-images/dockerfile_best-practices/</a>.</p>
+<p>Before moving on, let’s discuss a few other important aspects to take into account when creating a <code>Dockerfile</code>.</p>
+<div id="layer-caching" class="section level4 hasAnchor" number="12.2.3.1">
+<h4><span class="header-section-number">12.2.3.1</span> Layer Caching<a href="docker-chapter.html#layer-caching" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>All instructions in the <code>Dockerfile</code> need to be specified in the exact same order as they are required to be executed. When building the image, Docker will execute each command one at a time in procedural order (i.e., from top to bottom) and each command will become a new layer of the image.</p>
+<p>The concept of <em>layers</em> of an image is important. Any changes or additions to the <code>Dockerfile</code> require rebuilding the image again to obtain the desired results. Unfortunately, building an image from zero can take several minutes. To limit this issue, Docker implements a smart caching system which allows us to save time. Docker retrieves from cache all the image layers that precede the changes made and builds the image layers from there on.</p>
+<p>To take advantage of this feature, first, we need to define large layers that are unlikely to change (e.g., installing dependencies) and only at the end do we define layers that are likely to be modified. This could save us a significant amount of time.</p>
+<p>To learn more about layer caching see <a href="https://docs.docker.com/get-started/09_image_best/#layer-caching" class="uri">https://docs.docker.com/get-started/09_image_best/#layer-caching</a></p>
+</div>
+<div id="tag-version" class="section level4 hasAnchor" number="12.2.3.2">
+<h4><span class="header-section-number">12.2.3.2</span> Image Version Tag<a href="docker-chapter.html#tag-version" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When indicating a <em>Base Image</em> in the <code>Dockerfile</code>, we should always specify the exact version tag. For example,</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb191-1"><a href="docker-chapter.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> alpine:3.15.0</span></code></pre></div>
+<p>If we do not specify the version tag, <code>latest</code> will be automatically applied by default. This approach, however, is <strong>not recommended</strong>. The <code>latest</code> tag does not have any special meaning per se, but it is simply the default tag when no other tags have been specified. That is, the <code>latest</code> tag does not automatically indicate the latest published image version but it is a simple word as could have been <code>notag</code>.</p>
+<p>However, many developers tag their latest image version with the <code>latest</code> tag. In these cases, without specifying the version tag we will obtain the latest published image version. However, this is still <strong>not recommended</strong> for two main reasons:</p>
+<ul>
+<li><strong>Hindered Reproducibility.</strong> The main <em>Base Images</em> are constantly updated, thus yesterday’s <code>latest</code> image may not be the same as today <code>latest</code> image. If we do not specify the version tag, other colleagues could end up using different images versions preventing reproducibility.</li>
+<li><strong>Unpredictable Behaviour.</strong> The <code>latest</code> tag is static, it is not dynamic. That is, it does not check automatically for the latest updates and therefore colleagues may end up using different image versions. Let’s clarify this point with an example. Suppose John and Sally are working on the same project using a Docker container. The container is based on the <code>alpine:latest</code> <em>Base Image</em>. John has never used an <code>alpine</code> image before so, the first time he builds the image, the latest image version is downloaded and used. On the contrary, Sally has already worked with different <code>alpine</code> containers. When she builds the image the first time, Docker will find a copy of the <code>alpine:latest</code> image already available on her machine and it will use it although the <code>latest</code> image on her machine refers to an older image version. Therefore, John and Sally will end up using two different containers.</li>
+</ul>
+<p>To summarize, the take-home message is, <strong><em>“always specify the version tag”</em></strong>. This will save us from a lot of trouble.</p>
+</div>
+<div id="files-permissions" class="section level4 hasAnchor" number="12.2.3.3">
+<h4><span class="header-section-number">12.2.3.3</span> Files Permissions<a href="docker-chapter.html#files-permissions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If not already familiar with file-system permission, it is worth taking a look at <a href="https://ryanstutorials.net/linuxtutorial/permissions.php" class="uri">https://ryanstutorials.net/linuxtutorial/permissions.php</a>.</p>
+<p>To summarize, permissions indicate what we can do with a file:</p>
+<ul>
+<li><strong>Read (r).</strong> We can see the file content.</li>
+<li><strong>Write (r).</strong> We can edit the file content.</li>
+<li><strong>Execute (x).</strong> We can execute the file (script).</li>
+</ul>
+<p>Moreover, file permissions are specified separately for:</p>
+<ul>
+<li><strong>Owner.</strong> The user that owns the file.</li>
+<li><strong>Group.</strong> Every file can be assigned to a group of users.</li>
+<li><strong>Others.</strong> Other users that are not members of the group or the owner.</li>
+</ul>
+<p>We can change file owner/group using the shell command <code>chown [OPTION]... [OWNER][:[GROUP]] FILE...</code> and we can specify file permission using <code>chmod [OPTION]... MODE[,MODE]... FILE...</code>.</p>
+<p>By default <code>Dockerfile</code> instructions are executed as root (i.e., the conventional name of the user with all permissions). Consequently, ownership of all folders, files, and volumes specified in the <code>Dockerfile</code> is assigned to the root user. By default, containers also run as root ensuring us all permissions on all files in the container. However, this may not be the best thing from a security point of view.</p>
+<p>Without going into details, the Docker container root is also the host system root. Therefore, if the Docker container has access to some files on our host system these could be modified or deleted with root permissions. A quite important security vulnerability issue (see <a href="https://stackoverflow.com/questions/41991905/docker-root-access-to-host-system" class="uri">https://stackoverflow.com/questions/41991905/docker-root-access-to-host-system</a>).</p>
+<p>Users and groups management in Linux and Docker is quite an advanced topic beyond the aim of this chapter. To learn more about usernames and groups in Docker, consider <a href="https://medium.com/@mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf" class="uri">https://medium.com/@mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf</a> and <a href="https://github.com/docker/labs/tree/master/security/userns" class="uri">https://github.com/docker/labs/tree/master/security/userns</a>. Security is a relevant topic if we are developing a service that will be deployed on a server. In these cases, we should adopt best practices to limit security issues. For example, we could consider creating containers with isolated user namespaces (see <a href="https://docs.docker.com/engine/security/userns-remap/" class="uri">https://docs.docker.com/engine/security/userns-remap/</a>).</p>
+<p>Fortunately, security issues are not so relevant in most research projects, as Docker containers are mainly used to replicate the results on a local machine. However, most <em>Base Images</em> do define a specific default user to use when running the image. In these cases, we must guarantee the required permission to the files added in the <code>Dockerfile</code>.</p>
+<p>For example, suppose we start from a base image (<code>my-base-image</code>) in which the default user is <code>my-user</code>. Next, we copy a folder from our host system to the container. Remember <code>Dockerfile</code> instructions are executed as root so the added files will be owned by the user. To allow <code>my-user</code> to modify these files, we need to change the ownership (<code>chown</code>) or permissions (<code>chmod</code>). The <code>Dockerfile</code> will look like something similar to,</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb192-1"><a href="docker-chapter.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb192-2"><a href="docker-chapter.html#cb192-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> my-base-image</span>
+<span id="cb192-3"><a href="docker-chapter.html#cb192-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-4"><a href="docker-chapter.html#cb192-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The default user is &quot;my-user&quot;</span></span>
+<span id="cb192-5"><a href="docker-chapter.html#cb192-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-6"><a href="docker-chapter.html#cb192-6" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> host-folder docker-folder</span>
+<span id="cb192-7"><a href="docker-chapter.html#cb192-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-8"><a href="docker-chapter.html#cb192-8" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> my-user docker-folder</span></code></pre></div>
+<p>To learn more about Docker file permission, see <a href="https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca" class="uri">https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca</a>.</p>
+</div>
+<div id="dockerignore" class="section level4 hasAnchor" number="12.2.3.4">
+<h4><span class="header-section-number">12.2.3.4</span> <code>.dockerignore</code> File<a href="docker-chapter.html#dockerignore" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When adding files from our host system to the container using <code>ADD</code> or <code>COPY</code> instructions. We can exclude files not relevant to the build by listing them in a <code>.dockerignore</code> file.</p>
+<p>We can use exclusion patterns similar to<code>.gitignore</code> files. For more information, see <a href="https://docs.docker.com/engine/reference/builder/#dockerignore-file" class="uri">https://docs.docker.com/engine/reference/builder/#dockerignore-file</a>.</p>
+</div>
+</div>
+<div id="build-an-image" class="section level3 hasAnchor" number="12.2.4">
+<h3><span class="header-section-number">12.2.4</span> Build an Image<a href="docker-chapter.html#build-an-image" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="deffun" title="Start Docker Daemon">
+<p>If we are on macOS or Windows, first, remember to start the Docker daemon by opening the Docker Desktop application. This is required any time we are working with Docker.</p>
+</div>
+<p>Suppose, we are in our project directory (<code>my-project/</code>) and the project has the following structure,</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb193-1"><a href="docker-chapter.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="ex">my-project/</span></span>
+<span id="cb193-2"><a href="docker-chapter.html#cb193-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> Dockerfile</span>
+<span id="cb193-3"><a href="docker-chapter.html#cb193-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> README</span>
+<span id="cb193-4"><a href="docker-chapter.html#cb193-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
+<span id="cb193-5"><a href="docker-chapter.html#cb193-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> documents/</span>
+<span id="cb193-6"><a href="docker-chapter.html#cb193-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> code/</span></code></pre></div>
+<p>In the <code>Dockerfile</code>, we simply copy all the project files in the image home directory.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb194-1"><a href="docker-chapter.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb194-2"><a href="docker-chapter.html#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> alpine:3.15.0</span>
+<span id="cb194-3"><a href="docker-chapter.html#cb194-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-4"><a href="docker-chapter.html#cb194-4" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/</span></code></pre></div>
+<p>Once the <code>Dockerfile</code> is ready, we can move on and build our first image by using the command,</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb195-1"><a href="docker-chapter.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker build [OPTIONS] PATH</span></code></pre></div>
+<p>where <code>PATH</code> indicates the path to the directory with the <code>Dockerfile</code>. This directory will be also used by Docker as <em>context</em> to execute all the instructions. This means that all the required files should be collected in the same folder as the <code>Dockerfile</code>.</p>
+<p>To assign a name to our image (and optionally a tag), we can specify the option <code>-t</code> (or <code>--tag</code>) indicating the image name in the format <code>image-name:tag</code>. For example,</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb196-1"><a href="docker-chapter.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker build <span class="at">-t</span> my-image:1.0.0 .</span></code></pre></div>
+<p>Note that the final <code>"."</code> indicates the current directory since the <code>Dockerfile</code> is placed in the project root directory (as it is commonly done). For more details on the <code>build</code> command and a complete list of available options, see the official documentation <a href="https://docs.docker.com/engine/reference/commandline/build/" class="uri">https://docs.docker.com/engine/reference/commandline/build/</a>.</p>
+<div class="tip" title="Linux sudo docker">
+<p>On Linux, we need to use <code>sudo</code> to run Docker commands. Without going into too technical details, the Docker daemon is owned by the root user. Therefore, if other users want to use Docker, we have to preface any <code>docker</code> command with the <code>sudo</code> command.</p>
+<p>This may be quite annoying. To run <code>docker</code> commands as a non-root user, we can set specific group permissions. Follow the instructions at <a href="https://docs.docker.com/engine/install/linux-postinstall/" class="uri">https://docs.docker.com/engine/install/linux-postinstall/</a>.</p>
+</div>
+<div id="list-and-remove-images" class="section level4 hasAnchor" number="12.2.4.1">
+<h4><span class="header-section-number">12.2.4.1</span> List and Remove Images<a href="docker-chapter.html#list-and-remove-images" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can get a list of our currently available images using the command <code>docker images</code> (or <code>docker image ls</code>). For example,</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb197-1"><a href="docker-chapter.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker images</span>
+<span id="cb197-2"><a href="docker-chapter.html#cb197-2" aria-hidden="true" tabindex="-1"></a><span class="ex">REPOSITORY</span>                 TAG                 IMAGE ID            CREATED             SIZE</span>
+<span id="cb197-3"><a href="docker-chapter.html#cb197-3" aria-hidden="true" tabindex="-1"></a><span class="ex">my-image</span>                   1.0.0               bdcd08818a09        2 minutes ago       5.59MB</span></code></pre></div>
+<p>Together with the image name and tag, we obtain the <code>Image ID</code> that can be used to uniquely identify each image (we can have different versions of the same image, each one with its unique ID).</p>
+<p>To remove an image, we can use the command</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb198-1"><a href="docker-chapter.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker image rm <span class="op">&lt;</span>Image-ID<span class="op">&gt;</span></span></code></pre></div>
+<p>For a list of all image commands, see <a href="https://docs.docker.com/engine/reference/commandline/image/" class="uri">https://docs.docker.com/engine/reference/commandline/image/</a>.</p>
+</div>
+</div>
+<div id="run-an-image" class="section level3 hasAnchor" number="12.2.5">
+<h3><span class="header-section-number">12.2.5</span> Run an Image<a href="docker-chapter.html#run-an-image" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We defined the <code>Dockerfile</code> and we built our image. Now it’s time to run our first container by using the command,</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb199-1"><a href="docker-chapter.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run [OPTIONS] IMAGE</span></code></pre></div>
+<p>We need to specify the desired image used to create the container (<code>IMAGE</code>). Moreover, we can indicate different options according to our needs. Commonly used options are:</p>
+<ul>
+<li><strong><code>--name &lt;name-container&gt;</code>.</strong> Assign a name to the container. Remember that it is possible to initialize multiple containers from the same image, thus we can use different names to identify them.</li>
+<li><strong><code>--rm</code>.</strong> By default, containers remain available even after the container is stopped. This allows us to quickly start the container again or inspect its files. Using the flag <code>--rm</code>, instead, the container is automatically removed (together with all the files) when the container is stopped.</li>
+<li><strong><code>-it</code>.</strong> These are two separate flags <code>-i</code> and <code>-t</code> but they are usually combined to run the container in an interactive mode and allocate a virtual terminal session, respectively. This allows us to get access to the container’s shell in an interactive session.</li>
+<li><strong><code>-d</code>.</strong> By default, Docker runs a container in the foreground. Using the flag <code>-d</code>, instead, the container is run in detached mode (i.e., in a background process). To learn more about the detached mode, see <a href="https://www.baeldung.com/ops/docker-attach-detach-container" class="uri">https://www.baeldung.com/ops/docker-attach-detach-container</a>.</li>
+</ul>
+<p>Moreover, we can also specify new instructions or override <code>Dockerfile</code> default settings when running the container. For example, we can,</p>
+<ul>
+<li><strong><code>-v &lt;host-path&gt;:&lt;container-path&gt;</code> (or <code>--volume</code>).</strong> Attach a volume or bind mount to the container. To learn more about volumes and bind mounts, see Section <a href="docker-chapter.html#data-storage">12.3.1</a>.</li>
+<li><strong><code>-e &lt;name&gt;=&lt;value&gt;</code>.</strong> Define (or overwrite) an environment variable. This is usually done to customize the container settings.</li>
+<li><strong><code>-p &lt;host-port&gt;:&lt;container-port&gt;</code>.</strong> Map a specific container port to a host port.</li>
+<li><strong><code>-u</code> (or <code>--user</code>).</strong> Define the username or UID used to run the container.</li>
+</ul>
+<p>For more details on the <code>run</code> command and a complete list of available options, see the official documentation <a href="https://docs.docker.com/engine/reference/run/" class="uri">https://docs.docker.com/engine/reference/run/</a>.</p>
+<p>Using the image from the previous example, we can run our container named <code>my-container</code> in an interactive session by,</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb200-1"><a href="docker-chapter.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">--name</span> my-container <span class="at">-it</span> my-image:1.0.0</span></code></pre></div>
+<p>Once the container is initialized, a new interactive session will start in our terminal. Now, we are inside our container. Note the <code>#</code> prompt symbol, instead of <code>$</code>, indicating that we are root users (see Section <a href="docker-chapter.html#files-permissions">Files Permissions</a>). We can check whether our project files were copied in the <code>home/</code> directory and end the session by running <code>exit</code>.</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb201-1"><a href="docker-chapter.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/</span> <span class="co"># ls -l home/</span></span>
+<span id="cb201-2"><a href="docker-chapter.html#cb201-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 20</span>
+<span id="cb201-3"><a href="docker-chapter.html#cb201-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>    2 root     root          4096 Jan 17 11:00 code</span>
+<span id="cb201-4"><a href="docker-chapter.html#cb201-4" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>    2 root     root          4096 Jan 17 11:00 data</span>
+<span id="cb201-5"><a href="docker-chapter.html#cb201-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>    1 root     root            74 Jan 17 10:55 Dockerfile</span>
+<span id="cb201-6"><a href="docker-chapter.html#cb201-6" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>    2 root     root          4096 Jan 17 11:00 documents</span>
+<span id="cb201-7"><a href="docker-chapter.html#cb201-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>    1 root     root            24 Jan 14 14:45 README</span>
+<span id="cb201-8"><a href="docker-chapter.html#cb201-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-9"><a href="docker-chapter.html#cb201-9" aria-hidden="true" tabindex="-1"></a><span class="ex">/</span> <span class="co"># exit</span></span></code></pre></div>
+<p>In this case, ending the session will also automatically stop the container. This could not be the case for other containers with long-running processes (e.g., web services; for more information see <a href="https://www.tutorialworks.com/why-containers-stop/" class="uri">https://www.tutorialworks.com/why-containers-stop/</a>).</p>
+<div id="stop-list-and-remove-containers" class="section level4 hasAnchor" number="12.2.5.1">
+<h4><span class="header-section-number">12.2.5.1</span> Stop List and Remove Containers<a href="docker-chapter.html#stop-list-and-remove-containers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To stop the container, we can use the command</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb202-1"><a href="docker-chapter.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker stop <span class="op">&lt;</span>container-name<span class="op">&gt;</span> </span></code></pre></div>
+<p>If we did not specify the flag <code>--rm</code>, the container will still be available after it is stopped. We can use the command <code>docker container ls</code> (or <code>docker ps</code>) with the flag <code>-a</code> to list all the containers available (default shows only running containers).</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb203-1"><a href="docker-chapter.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker container ls <span class="at">-a</span></span>
+<span id="cb203-2"><a href="docker-chapter.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="ex">CONTAINER</span> ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES</span>
+<span id="cb203-3"><a href="docker-chapter.html#cb203-3" aria-hidden="true" tabindex="-1"></a><span class="ex">fa28e5e1c2fc</span>        my-image:1.0.0      <span class="st">&quot;/bin/sh&quot;</span>           5 minutes ago       Exited <span class="er">(</span><span class="ex">0</span><span class="kw">)</span> <span class="ex">2</span> minutes ago                       my-container</span></code></pre></div>
+<p>This allows us to quickly start the container again using the command <code>docker start &lt;container-name&gt;</code>. Instead, if we want to definitively remove a container to free space, we use the command</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb204-1"><a href="docker-chapter.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker rm <span class="op">&lt;</span>container-name<span class="op">&gt;</span></span></code></pre></div>
+<div class="warning" title="Removing Container = Losing Files">
+<p>Note that removing a container will also delete all its files. Even if we copied our project folder from the host machine to the container using the <code>COPY</code> instruction, changes made in the container will not affect files on the host machine.</p>
+<p>Remember that containers are isolated from the host machine so files in the containers are distinct from the files on the host machine. This is a problem as, removing a container, we would also lose all our results. In Section <a href="docker-chapter.html#data-storage">12.3.1</a>, we discuss solutions to allow persisting data storage in Docker.</p>
+</div>
+</div>
+<div id="moving-files" class="section level4 hasAnchor" number="12.2.5.2">
+<h4><span class="header-section-number">12.2.5.2</span> Moving Files<a href="docker-chapter.html#moving-files" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We could copy files (e.g., analysis results) from the container to the host machine (or the reverse way) using the command</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb205-1"><a href="docker-chapter.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Form container to host</span></span>
+<span id="cb205-2"><a href="docker-chapter.html#cb205-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker cp <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>container-path<span class="op">&gt;</span> <span class="op">&lt;</span>host-path<span class="op">&gt;</span></span>
+<span id="cb205-3"><a href="docker-chapter.html#cb205-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb205-4"><a href="docker-chapter.html#cb205-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Form host to container</span></span>
+<span id="cb205-5"><a href="docker-chapter.html#cb205-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker cp <span class="op">&lt;</span>host-path<span class="op">&gt;</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>container-path<span class="op">&gt;</span> </span></code></pre></div>
+<p>For more details, see official documentation <a href="https://docs.docker.com/engine/reference/commandline/cp/" class="uri">https://docs.docker.com/engine/reference/commandline/cp/</a>.</p>
+</div>
+<div id="running-commands" class="section level4 hasAnchor" number="12.2.5.3">
+<h4><span class="header-section-number">12.2.5.3</span> Running Commands<a href="docker-chapter.html#running-commands" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finally, to run a command in a running container, we use <code>docker exec &lt;container-name&gt; &lt;command&gt;</code> (see official documentation at <a href="https://docs.docker.com/engine/reference/commandline/exec/" class="uri">https://docs.docker.com/engine/reference/commandline/exec/</a>). For example, to connect to the shell of a running container (in this case <code>bin/sh</code>), we can use the command</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb206-1"><a href="docker-chapter.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker exec <span class="at">-it</span> my-container bin/sh</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="docker-features" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Other Features<a href="docker-chapter.html#docker-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the previous sections, we learned how to create and run a container. Now, let’s see some other Docker features that may be useful in our workflow.</p>
+<div id="data-storage" class="section level3 hasAnchor" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> Data Storage<a href="docker-chapter.html#data-storage" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As we have already highlighted, the container file system is isolated from the host file system. This means that, when we use a container, all changes made to the files or the results we obtain are available only in the container. If we remove the container, we will lose everything.</p>
+<p>This may be confusing at first, as we may think that adding our project folder to the container in the <code>Dockerfile</code> would connect our local project folder to the container. However, this is not true. When building the container image, the current content of our project folder is copied into the container image. These are independent and, thus, future changes to our project folder will not affect the image content (we would need to build the image again).</p>
+<p>Moreover, the containers we create from the same image are independent. Each one is initialised according to the image. Imagine we have made some changes in a container and then we remove the container. If we run another container (from the same image), we will not find the changes we previously made but the container is initialized according to the image’s initial state. We have lost our changes.</p>
+<p>This leads to a clear question, how can we save our work if removing a container would delete everything? In Docker, there are two solutions for persisting data storage: <em>bind mounts</em> and <em>volumes</em>.</p>
+<div id="bind-mounts" class="section level4 hasAnchor" number="12.3.1.1">
+<h4><span class="header-section-number">12.3.1.1</span> Bind Mounts<a href="docker-chapter.html#bind-mounts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Bind mounts allow mounting (i.e., connecting) a directory (or a single file) from the host machine to a container. This allows the container to access the files on the host machine and save the changes made. When removing the container, all changes will be preserved in the directory on the host machine.</p>
+<p>We can mount a local directory when running a container specifying the option <code>-v &lt;host-absolute-path&gt;:&lt;container-absolute-path&gt;</code>. For example,</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb207-1"><a href="docker-chapter.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">-v</span> /Users/<span class="op">&lt;</span>user-name<span class="op">&gt;</span>/Desktop/Trial:/home/Trial/ <span class="at">-it</span> my-image:1.0.0</span></code></pre></div>
+<p>Note that both paths have to be absolute. The directory (or file) does not need to exist already neither in the host machine nor in the container. If not existing yet, the directory (or file) is created on-demand.</p>
+<p>Bind mounts are simple solutions to allow direct access from the container to a directory (or a file) in the host system. Changes made to the files in the container are saved directly in the host system and changes made from the host system will be immediately visible in the container as well.</p>
+<p>However, bind mounts have two main drawbacks. First, bind mounts rely on the host machine specific file system (absolute paths are different on different machines). Second, allowing the container direct access to the host file system could have important security implications.</p>
+<p>For more details and options about bind mounts, see <a href="https://docs.docker.com/storage/bind-mounts/" class="uri">https://docs.docker.com/storage/bind-mounts/</a></p>
+</div>
+<div id="volumes" class="section level4 hasAnchor" number="12.3.1.2">
+<h4><span class="header-section-number">12.3.1.2</span> Volumes<a href="docker-chapter.html#volumes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Volumes are the preferred mechanism for persisting data storage. Think of volumes as storage units that are independent of the containers. We can mount (i.e., connect) volumes to one or multiple containers allowing accessing data and saving data. When removing the container, mounted volumes will be still available allowing us to save our work between sessions.</p>
+<p>Volumes are created and managed directly by Docker and they are isolated from the host machine. To create a named volume use the command,</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb208-1"><a href="docker-chapter.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker volume create <span class="op">&lt;</span>name-volume<span class="op">&gt;</span></span></code></pre></div>
+<p>We can mount a named volume when running a container specifying the option <code>-v &lt;name-volume&gt;:&lt;container-absolute-path&gt;</code>. For example,</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb209-1"><a href="docker-chapter.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">-v</span> my-volume:/home/my-volume/ <span class="at">-it</span> my-image:1.0.0</span></code></pre></div>
+<p>Note that, if we initialize a container with a named volume that does not exist yet, Docker will automatically create it. In this case, any data that exists at the specified location within the Docker image is added to the created named volume.</p>
+<p>Volumes can be also defined in the <code>Dockerfile</code> using the instruction <code>VOLUMES</code>(see Section <a href="docker-chapter.html#dockerfile">12.2.3</a>). This would create a new mount point. In this case, if we do not mount a named volume at the running time (using the <code>-v</code> option), an <strong>anonymous</strong> volume will be automatically created with any data that exists at the specified location within the docker image. Anonymous volumes behave in the same way as named volumes. The only difference is that anonymous volumes do not have a name but they are referred to by a (not very handy) random alphanumeric sequence.</p>
+<p>We can list all the currently available volumes by,</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb210-1"><a href="docker-chapter.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker volume ls</span></code></pre></div>
+<p>To remove a specific volume, use the command,</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb211-1"><a href="docker-chapter.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker volume rm <span class="op">&lt;</span>name-volume<span class="op">&gt;</span></span></code></pre></div>
+<p>For more details and options about volumes, see <a href="https://docs.docker.com/storage/volumes/" class="uri">https://docs.docker.com/storage/volumes/</a>.</p>
+</div>
+<div id="bind-mounts-vs-volumes" class="section level4 hasAnchor" number="12.3.1.3">
+<h4><span class="header-section-number">12.3.1.3</span> Bind Mounts VS Volumes<a href="docker-chapter.html#bind-mounts-vs-volumes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Volumes should be our preferred choice as they have several advantages compared to bind mounts. In particular, volumes do not depend on the host filesystem but they are managed internally by Docker. As a result, volumes are more portable and they guarantee a greater level of security compared to bind mounts.</p>
+<p>These are very important considerations in the case of applications or online services. In the case of research projects, however, security issues are not so relevant, as Docker containers are mainly used to replicate the results on a local machine. Therefore, bind mounts are absolutely fine and they also allow us to easily access the mounted directory from our host machine as we would normally do (note that accessing volumes from the host machine is not so immediate; see <a href="https://forums.docker.com/t/how-to-access-docker-volume-data-from-host-machine/" class="uri">https://forums.docker.com/t/how-to-access-docker-volume-data-from-host-machine/</a>)</p>
+<p>However, keep in mind that when working on a project using a Docker container it is important to consistently develop the project working from the container. If we continuously switch between working from the container to the local machine, we could end up having some unexpected and unpredictable behaviours. This is like running half of our project on a machine and the other half on another different machine.</p>
+<p>For more detail about bind mounts and volumes comparison, see <a href="https://docs.docker.com/storage/" class="uri">https://docs.docker.com/storage/</a>.</p>
+</div>
+</div>
+<div id="docker-compose" class="section level3 hasAnchor" number="12.3.2">
+<h3><span class="header-section-number">12.3.2</span> Docker Compose<a href="docker-chapter.html#docker-compose" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Multiple containers can be used to create complex applications or services. Docker Compose is a tool that helps us manage multi-container applications. Docker Compose needs to be installed separately on Linux (see <a href="https://docs.docker.com/compose/install/" class="uri">https://docs.docker.com/compose/install/</a>), whereas Docker Compose is already available within Docker Desktop on macOS and Windows.</p>
+<p>With Compose, we use a YAML file named <code>docker-compose.yml</code> to configure all our application’s services. In this file, we define and manage all the containers, volumes, and other elements of our application. A <code>docker-compose.yml</code> looks like this:</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb212-1"><a href="docker-chapter.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    docker-compose.yaml    ----#</span></span>
+<span id="cb212-2"><a href="docker-chapter.html#cb212-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb212-3"><a href="docker-chapter.html#cb212-3" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;3.9&quot;</span></span>
+<span id="cb212-4"><a href="docker-chapter.html#cb212-4" aria-hidden="true" tabindex="-1"></a><span class="at">   </span></span>
+<span id="cb212-5"><a href="docker-chapter.html#cb212-5" aria-hidden="true" tabindex="-1"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb212-6"><a href="docker-chapter.html#cb212-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">db</span><span class="kw">:</span><span class="co">        # First container</span></span>
+<span id="cb212-7"><a href="docker-chapter.html#cb212-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> postgres</span></span>
+<span id="cb212-8"><a href="docker-chapter.html#cb212-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb212-9"><a href="docker-chapter.html#cb212-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> db_data:/var/lib/postgresql/data</span></span>
+<span id="cb212-10"><a href="docker-chapter.html#cb212-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb212-11"><a href="docker-chapter.html#cb212-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> POSTGRES_USER=postgres</span></span>
+<span id="cb212-12"><a href="docker-chapter.html#cb212-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> POSTGRES_PASSWORD=postgres</span></span>
+<span id="cb212-13"><a href="docker-chapter.html#cb212-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">app</span><span class="kw">:</span><span class="co">       # Second container</span></span>
+<span id="cb212-14"><a href="docker-chapter.html#cb212-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span><span class="at"> .</span></span>
+<span id="cb212-15"><a href="docker-chapter.html#cb212-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb212-16"><a href="docker-chapter.html#cb212-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> app_volume:/code</span></span>
+<span id="cb212-17"><a href="docker-chapter.html#cb212-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb212-18"><a href="docker-chapter.html#cb212-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;8000:8000&quot;</span></span>
+<span id="cb212-19"><a href="docker-chapter.html#cb212-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb212-20"><a href="docker-chapter.html#cb212-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> DEBUG=1</span></span>
+<span id="cb212-21"><a href="docker-chapter.html#cb212-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">depends_on</span><span class="kw">:</span></span>
+<span id="cb212-22"><a href="docker-chapter.html#cb212-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> db</span></span>
+<span id="cb212-23"><a href="docker-chapter.html#cb212-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb212-24"><a href="docker-chapter.html#cb212-24" aria-hidden="true" tabindex="-1"></a><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb212-25"><a href="docker-chapter.html#cb212-25" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">db_data</span><span class="kw">:</span></span>
+<span id="cb212-26"><a href="docker-chapter.html#cb212-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">app_volume</span><span class="kw">:</span></span></code></pre></div>
+<p>Next, we can start our application simply using the command,</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb213-1"><a href="docker-chapter.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker-compose up</span></code></pre></div>
+<p>When we are done, we can stop the application simply by using the command,</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb214-1"><a href="docker-chapter.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker-compose down</span></code></pre></div>
+<p>Docker Compose has many features and options that allow us to manage complex applications and services. Docker Compose, however, is an advanced topic that goes beyond the aim of the present chapter. Interested readers can find an introduction to Docker Compose at
+<a href="https://docs.docker.com/get-started/08_using_compose/" class="uri">https://docs.docker.com/get-started/08_using_compose/</a> and detailed instructions at
+<a href="https://docs.docker.com/compose/" class="uri">https://docs.docker.com/compose/</a>.</p>
+<p>In most research projects, we can easily get everything done using a single container. However, in more complex scenarios, Docker Compose may become a very useful tool.</p>
+</div>
+<div id="docker-hub" class="section level3 hasAnchor" number="12.3.3">
+<h3><span class="header-section-number">12.3.3</span> Docker Hub<a href="docker-chapter.html#docker-hub" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="packages-logo-box", style="width: 250px;"><img src="images/docker/docker-hub-logo.png"></div>
+<p>Docker Hub (<a href="https://hub.docker.com/" class="uri">https://hub.docker.com/</a>) is an online repository with thousands of Docker images that can be used as <em>Base Images</em> for our containers. As we have already pointed out, many images are officially supported by Docker. Therefore, as the first step, we should usually spend some time online finding which image provides a good starting point for our needs.</p>
+<p>We can start a container using any of the Docker images available online using the <code>docker run</code> command as we would do for locally available images.</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb215-1"><a href="docker-chapter.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="va">$docker</span> run [OPTIONS] <span class="op">&lt;</span>DockerHub-Namespace<span class="op">&gt;</span>/<span class="op">&lt;</span>Repository<span class="op">&gt;</span>:<span class="op">&lt;</span>version<span class="op">&gt;</span></span></code></pre></div>
+<p>If the specified image is not already available on our machine, Docker will automatically download the specified image from Docker Hub. Alternatively, we can explicitly download the desired image using the command,</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb216-1"><a href="docker-chapter.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="va">$docker</span> pull [OPTIONS] <span class="op">&lt;</span>DockerHub-Namespace<span class="op">&gt;</span>/<span class="op">&lt;</span>Repository<span class="op">&gt;</span>:<span class="op">&lt;</span>version<span class="op">&gt;</span></span></code></pre></div>
+<p>For more details, see official documentation <a href="https://docs.docker.com/engine/reference/commandline/pull/" class="uri">https://docs.docker.com/engine/reference/commandline/pull/</a>.</p>
+<div id="sharing-images" class="section level4 hasAnchor" number="12.3.3.1">
+<h4><span class="header-section-number">12.3.3.1</span> Sharing Images<a href="docker-chapter.html#sharing-images" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Docker Hubs also allows us to publish our images online. In this way, we can easily share our images with other colleagues. To do that we need to,</p>
+<ol style="list-style-type: decimal">
+<li><p>Create an account on Docker Hub (<a href="https://hub.docker.com/" class="uri">https://hub.docker.com/</a>) following the instructions at <a href="https://docs.docker.com/docker-id/" class="uri">https://docs.docker.com/docker-id/</a>.</p></li>
+<li><p>Log into Docker Hub and press the <em>“Create Repository”</em> button. We need to specify a name and a description for our repository. Next, click <em>“Create”</em>.</p></li>
+<li><p>Log into Docker Hub from our local terminal specifying using the command</p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb217-1"><a href="docker-chapter.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker login <span class="at">--username</span><span class="op">=&lt;</span>username<span class="op">&gt;</span> --email=<span class="op">&lt;</span>name@email.com<span class="op">&gt;</span></span></code></pre></div>
+<p>Next, we will be prompted to enter the password.</p></li>
+<li><p>Tag our image using the command</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb218-1"><a href="docker-chapter.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker tag <span class="op">&lt;</span>image-id<span class="op">&gt;</span> <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span></span></code></pre></div>
+<p>Remember, we can get the image id from the <code>docker images</code> output.</p></li>
+<li><p>Push the image to the repository using the command,</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb219-1"><a href="docker-chapter.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker push <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span></span></code></pre></div></li>
+<li><p>Now the image is available online and other colleagues can download it simply using the command,</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb220-1"><a href="docker-chapter.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker pull <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span></span></code></pre></div></li>
+</ol>
+<p>For more details on Docker Hub, see <a href="https://docs.docker.com/docker-hub/" class="uri">https://docs.docker.com/docker-hub/</a>.</p>
+</div>
+</div>
+<div id="docker-gui" class="section level3 hasAnchor" number="12.3.4">
+<h3><span class="header-section-number">12.3.4</span> Docker GUI<a href="docker-chapter.html#docker-gui" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can manage the whole Docker workflow directly from the terminal. However, a Graphical User Interface (GUI) may be useful to manage some of the most common operations.</p>
+<p>A GUI may also be very helpful for users who are not too familiar with the terminal. By using a point-and-click interface and providing visual feedback, a GUI helps less experienced users manage the Docker workflow. However, only limited options are usually available in a GUI. At some point, we will always need to open a terminal and write a line of code.</p>
+<div id="docker-desktop" class="section level4 hasAnchor" number="12.3.4.1">
+<h4><span class="header-section-number">12.3.4.1</span> Docker Desktop<a href="docker-chapter.html#docker-desktop" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Docker Desktop provides its own dashboard (remember Docker Desktop is not available for Linux). We can see the currently available containers (running or stopped) and execute some basic operations such as starting/stopping a container, removing a container or getting access to the container terminal.</p>
+<p><img src="images/docker/docker-desktop-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Using the Docker Desktop dashboard, we can also easily configure our Docker settings. To learn more about the Docker Desktop dashboard, see <a href="https://docs.docker.com/desktop/dashboard/" class="uri">https://docs.docker.com/desktop/dashboard/</a>.</p>
+</div>
+<div id="visual-studio-code" class="section level4 hasAnchor" number="12.3.4.2">
+<h4><span class="header-section-number">12.3.4.2</span> Visual Studio Code<a href="docker-chapter.html#visual-studio-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="packages-logo-box", style="width: 160px;"><img src="images/docker/VSC-logo.png"></div>
+<p>Visual Studio Code (VSC; <a href="https://code.visualstudio.com/" class="uri">https://code.visualstudio.com/</a>) is a popular integrated development environment (IDE). VSC offers many extensions that provide tools and features to facilitate our work and customize the interface according to our needs.</p>
+<p>VSC provides a Docker extension that allows us to easily build, manage and deploy containerized applications. Moreover, the extension enables code completion and parameter info that will assist us when editing our <code>Dockerfile</code> or <code>docker-compose.yml</code> files. A very useful feature.</p>
+<p><img src="images/docker/VSC-docker.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>To learn more about the VSC docker extension, see <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker" class="uri">https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker</a>.</p>
+<p>Note that RStudio does not provide an extension to manage containers.</p>
+<div class="foil" title="Docker">
+<p>We went through many commands and things could be confused. Here is a summary of all the main Docker commands.</p>
+<div id="images" class="section level5 unnumbered hasAnchor">
+<h5>Images<a href="docker-chapter.html#images" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb221"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb221-1"><a href="docker-chapter.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> <span class="op">&lt;</span>name-image<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span> .   <span class="co"># Build an image from Dockerfile</span></span>
+<span id="cb221-2"><a href="docker-chapter.html#cb221-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb221-3"><a href="docker-chapter.html#cb221-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> images                          <span class="co"># List all images</span></span>
+<span id="cb221-4"><a href="docker-chapter.html#cb221-4" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> image ls                        <span class="co"># List all images</span></span>
+<span id="cb221-5"><a href="docker-chapter.html#cb221-5" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> image rm <span class="op">&lt;</span>id-image<span class="op">&gt;</span>             # Remove Image</span></code></pre></div>
+</div>
+<div id="container" class="section level5 unnumbered hasAnchor">
+<h5>Container<a href="docker-chapter.html#container" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb222"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb222-1"><a href="docker-chapter.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--name</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span> <span class="op">&lt;</span>image<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span> # Run a container from an Image</span>
+<span id="cb222-2"><a href="docker-chapter.html#cb222-2" aria-hidden="true" tabindex="-1"></a>           <span class="co"># Other flags and options</span></span>
+<span id="cb222-3"><a href="docker-chapter.html#cb222-3" aria-hidden="true" tabindex="-1"></a>           <span class="ex">--rm</span>     <span class="co"># Remove at exit      </span></span>
+<span id="cb222-4"><a href="docker-chapter.html#cb222-4" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-it</span>      <span class="co"># Interactive terminal</span></span>
+<span id="cb222-5"><a href="docker-chapter.html#cb222-5" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-d</span>       <span class="co"># Detached mode</span></span>
+<span id="cb222-6"><a href="docker-chapter.html#cb222-6" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-v</span> <span class="op">&lt;</span>host-path<span class="op">&gt;</span>:<span class="op">&lt;</span>container-path<span class="op">&gt;</span>  # Attach a volume or bind mount</span>
+<span id="cb222-7"><a href="docker-chapter.html#cb222-7" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-e</span> <span class="op">&lt;</span>name<span class="op">&gt;</span>=<span class="op">&lt;</span>value<span class="op">&gt;</span>                # Define environment variable</span>
+<span id="cb222-8"><a href="docker-chapter.html#cb222-8" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-p</span> <span class="op">&lt;</span>host-port<span class="op">&gt;</span>:<span class="op">&lt;</span>container-port<span class="op">&gt;</span>  # Map port</span>
+<span id="cb222-9"><a href="docker-chapter.html#cb222-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-10"><a href="docker-chapter.html#cb222-10" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> ps <span class="at">-a</span>              <span class="co"># List all containers</span></span>
+<span id="cb222-11"><a href="docker-chapter.html#cb222-11" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> container ls  <span class="at">-a</span>     <span class="co"># List all containers</span></span>
+<span id="cb222-12"><a href="docker-chapter.html#cb222-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-13"><a href="docker-chapter.html#cb222-13" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> stop <span class="op">&lt;</span>container-name<span class="op">&gt;</span>    # Stop container</span>
+<span id="cb222-14"><a href="docker-chapter.html#cb222-14" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> start <span class="op">&lt;</span>container-name<span class="op">&gt;</span>   # Start container</span>
+<span id="cb222-15"><a href="docker-chapter.html#cb222-15" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> rm <span class="op">&lt;</span>container-name<span class="op">&gt;</span>        # Remove container</span>
+<span id="cb222-16"><a href="docker-chapter.html#cb222-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-17"><a href="docker-chapter.html#cb222-17" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> cp <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>path<span class="op">&gt;</span> <span class="op">&lt;</span>host-path<span class="op">&gt;</span> # Copy from container to host</span>
+<span id="cb222-18"><a href="docker-chapter.html#cb222-18" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> cp <span class="op">&lt;</span>host-path<span class="op">&gt;</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>path<span class="op">&gt;</span> # Copy from host to container</span>
+<span id="cb222-19"><a href="docker-chapter.html#cb222-19" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> <span class="op">&lt;</span>name-container<span class="op">&gt;</span> bin/bash     <span class="co"># Connect to container bin/bash</span></span></code></pre></div>
+</div>
+<div id="volumes-1" class="section level5 unnumbered hasAnchor">
+<h5>Volumes<a href="docker-chapter.html#volumes-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb223"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb223-1"><a href="docker-chapter.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume create <span class="op">&lt;</span>name-volume<span class="op">&gt;</span>  # Create named volume</span>
+<span id="cb223-2"><a href="docker-chapter.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume ls                    <span class="co"># List all volumes</span></span>
+<span id="cb223-3"><a href="docker-chapter.html#cb223-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume rm <span class="op">&lt;</span>volume id<span class="op">&gt;</span>        # Remove volume</span></code></pre></div>
+</div>
+<div id="docker-compose-1" class="section level5 unnumbered hasAnchor">
+<h5>Docker Compose<a href="docker-chapter.html#docker-compose-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb224"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb224-1"><a href="docker-chapter.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> up    <span class="co"># Start service</span></span>
+<span id="cb224-2"><a href="docker-chapter.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> down  <span class="co"># Stop service</span></span></code></pre></div>
+</div>
+<div id="docker-hub-1" class="section level5 unnumbered hasAnchor">
+<h5>Docker Hub<a href="docker-chapter.html#docker-hub-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb225"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb225-1"><a href="docker-chapter.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull  <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span>   # Pull image</span>
+<span id="cb225-2"><a href="docker-chapter.html#cb225-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> push  <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>         # Push image</span>
+<span id="cb225-3"><a href="docker-chapter.html#cb225-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-4"><a href="docker-chapter.html#cb225-4" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> login <span class="at">--username</span><span class="op">=&lt;</span>username<span class="op">&gt;</span> --email=<span class="op">&lt;</span>email@com<span class="op">&gt;</span>  # Login  </span>
+<span id="cb225-5"><a href="docker-chapter.html#cb225-5" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> tag <span class="op">&lt;</span>image-id<span class="op">&gt;</span> <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span> # Tag image for repository</span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="doclinks">
+<div id="containers-and-virtual-machines-1" class="section level4 unnumbered hasAnchor">
+<h4>Containers and Virtual Machines<a href="docker-chapter.html#containers-and-virtual-machines-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Container<br>
+<a href="https://www.docker.com/resources/what-container" class="uri">https://www.docker.com/resources/what-container</a></li>
+<li>Container vs VM<br>
+<a href="https://www.backblaze.com/blog/vm-vs-containers/" class="uri">https://www.backblaze.com/blog/vm-vs-containers/</a></li>
+<li>Docker vs VM<br>
+<a href="https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine" class="uri">https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine</a></li>
+</ul>
+</div>
+<div id="docker" class="section level4 unnumbered hasAnchor">
+<h4>Docker<a href="docker-chapter.html#docker" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Official website<br>
+<a href="https://www.docker.com/" class="uri">https://www.docker.com/</a></li>
+<li>Official documentation<br>
+<a href="https://docs.docker.com/" class="uri">https://docs.docker.com/</a></li>
+<li>DockerHub<br>
+<a href="https://hub.docker.com/" class="uri">https://hub.docker.com/</a></li>
+</ul>
+</div>
+<div id="docker-tutorials" class="section level4 unnumbered hasAnchor">
+<h4>Docker Tutorials<a href="docker-chapter.html#docker-tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Official <em>Get Started</em><br>
+<a href="https://docs.docker.com/get-started/" class="uri">https://docs.docker.com/get-started/</a></li>
+<li><em>Docker Tutorials and Labs</em><br>
+<a href="https://github.com/docker/labs" class="uri">https://github.com/docker/labs</a></li>
+<li>R Docker<br>
+<a href="http://jsta.github.io/r-docker-tutorial/" class="uri">http://jsta.github.io/r-docker-tutorial/</a></li>
+<li>Compose<br>
+<a href="https://docs.docker.com/get-started/08_using_compose/" class="uri">https://docs.docker.com/get-started/08_using_compose/</a></li>
+</ul>
+</div>
+<div id="docker-elements-1" class="section level4 unnumbered hasAnchor">
+<h4>Docker Elements<a href="docker-chapter.html#docker-elements-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p>Dockerfile<br>
+<a href="https://docs.docker.com/engine/reference/builder/" class="uri">https://docs.docker.com/engine/reference/builder/</a></p></li>
+<li><p>Dockerfile best practices<br>
+<a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/" class="uri">https://docs.docker.com/develop/develop-images/dockerfile_best-practices/</a></p></li>
+<li><p>Caching layers<br>
+<a href="https://docs.docker.com/get-started/09_image_best/#layer-caching" class="uri">https://docs.docker.com/get-started/09_image_best/#layer-caching</a></p></li>
+<li><p>Dockerignore<br>
+<a href="https://docs.docker.com/engine/reference/builder/#dockerignore-file" class="uri">https://docs.docker.com/engine/reference/builder/#dockerignore-file</a></p></li>
+<li><p>Build image<br>
+<a href="https://docs.docker.com/engine/reference/commandline/build/" class="uri">https://docs.docker.com/engine/reference/commandline/build/</a></p></li>
+<li><p>Images<br>
+<a href="https://docs.docker.com/engine/reference/commandline/image/" class="uri">https://docs.docker.com/engine/reference/commandline/image/</a></p></li>
+<li><p>Run image<br>
+<a href="https://docs.docker.com/engine/reference/run/" class="uri">https://docs.docker.com/engine/reference/run/</a></p></li>
+<li><p>Storage<br>
+<a href="https://docs.docker.com/storage/" class="uri">https://docs.docker.com/storage/</a></p></li>
+<li><p>Bind mounts<br>
+<a href="https://docs.docker.com/storage/bind-mounts/" class="uri">https://docs.docker.com/storage/bind-mounts/</a></p></li>
+<li><p>Volumes<br>
+<a href="https://docs.docker.com/storage/volumes/" class="uri">https://docs.docker.com/storage/volumes/</a></p></li>
+<li><p>Compose<br>
+<a href="https://docs.docker.com/compose/" class="uri">https://docs.docker.com/compose/</a></p></li>
+<li><p>Dockerhub<br>
+<a href="https://docs.docker.com/docker-hub/" class="uri">https://docs.docker.com/docker-hub/</a></p></li>
+<li><p>Pull image<br>
+<a href="https://docs.docker.com/engine/reference/commandline/pull/" class="uri">https://docs.docker.com/engine/reference/commandline/pull/</a></p></li>
+<li><p>Docker GUI<br>
+<a href="https://docs.docker.com/desktop/dashboard/" class="uri">https://docs.docker.com/desktop/dashboard/</a></p></li>
+<li><p>Extension VSC<br>
+<a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker" class="uri">https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker</a></p></li>
+</ul>
+</div>
+<div id="extra-1" class="section level4 unnumbered hasAnchor">
+<h4>Extra<a href="docker-chapter.html#extra-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Docker Windows containers<br>
+<a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/" class="uri">https://docs.microsoft.com/en-us/virtualization/windowscontainers/</a></li>
+<li>Linux permissions<br>
+<a href="https://ryanstutorials.net/linuxtutorial/permissions.php" class="uri">https://ryanstutorials.net/linuxtutorial/permissions.php</a></li>
+<li>Docker root access<br>
+<a href="https://stackoverflow.com/questions/41991905/docker-root-access-to-host-system" class="uri">https://stackoverflow.com/questions/41991905/docker-root-access-to-host-system</a></li>
+<li>Usernames and groups<br>
+<a href="https://medium.com/@mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf" class="uri">https://medium.com/@mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf</a></li>
+<li>Usernames and groups (II)<br>
+<a href="https://github.com/docker/labs/tree/master/security/userns" class="uri">https://github.com/docker/labs/tree/master/security/userns</a></li>
+<li>Isolated namespace<br>
+<a href="https://docs.docker.com/engine/security/userns-remap/" class="uri">https://docs.docker.com/engine/security/userns-remap/</a></li>
+<li>Docker file permission<br>
+<a href="https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca" class="uri">https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca</a></li>
+<li>Linux <code>sudo docker</code> <br>
+<a href="https://docs.docker.com/engine/install/linux-postinstall/" class="uri">https://docs.docker.com/engine/install/linux-postinstall/</a></li>
+<li>Attach detach container<br>
+<a href="https://www.baeldung.com/ops/docker-attach-detach-container" class="uri">https://www.baeldung.com/ops/docker-attach-detach-container</a></li>
+<li>Stopped container<br>
+<a href="https://www.tutorialworks.com/why-containers-stop/" class="uri">https://www.tutorialworks.com/why-containers-stop/</a></li>
+<li>Moving files host-container<br>
+<a href="https://docs.docker.com/engine/reference/commandline/cp/" class="uri">https://docs.docker.com/engine/reference/commandline/cp/</a></li>
+<li>Running commands<br>
+<a href="https://docs.docker.com/engine/reference/commandline/exec/" class="uri">https://docs.docker.com/engine/reference/commandline/exec/</a></li>
+<li>Access volume from host<br>
+<a href="https://forums.docker.com/t/how-to-access-docker-volume-data-from-host-machine/" class="uri">https://forums.docker.com/t/how-to-access-docker-volume-data-from-host-machine/</a></li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
+    <br>
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    <br>
+    To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="requirements-chapter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/arca-dpss/manual-open-science/edit/master/chapters/12-docker.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["manual-open-science.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

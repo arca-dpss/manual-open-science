@@ -1,1 +1,20 @@
 # References {-}
+
+```{r include=FALSE, tidy=FALSE, warning = FALSE}
+# list cited packages
+pkgs <- c(
+  .packages(),
+  'conflicted',
+  'devtools',
+  'renv',
+  'roxygen2',
+  'tarchetypes',
+  'testthat',
+  'trackdown'
+)
+
+# automatically create a bib database for R packages
+knitr::write_bib(pkgs, file = "assets/bib/packages.bib")
+
+
+```

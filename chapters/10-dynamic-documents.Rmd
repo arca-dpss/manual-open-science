@@ -12,7 +12,7 @@ https://quarto.org/
 package_logo("images/dynamic-documents/trackdown-logo.png", format = output_format, tex_width = .25)
 ```
 
-One of the authors of this book is also the maintainer of the `trackdown` R package. `trackdown` \index{R package!trackdown} [@R-trackdown] offers a simple solution for collaborative writing and editing of R Markdown (or Sweave) documents. Using  `trackdown`, we can upload the local `.Rmd` (or `.Rnw`) file as a plain-text file to Google Drive. 
+One of the authors of this book is also the maintainer of the `trackdown` R package. `trackdown` [@R-trackdown] offers a simple solution for collaborative writing and editing of R Markdown (or Sweave) documents. Using  `trackdown`, we can upload the local `.Rmd` (or `.Rnw`) file as a plain-text file to Google Drive. 
 
 By taking advantage of the easily readable Markdown (or `r latex_logo()`) syntax and the well-known online interface offered by Google Docs, collaborators can easily contribute to the writing and editing process. After integrating all authors’ contributions, we can download the final document and render it locally.
 

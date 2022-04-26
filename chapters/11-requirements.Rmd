@@ -127,7 +127,7 @@ sessioninfo::session_info(pkgs = c("tidyverse","rmarkdown", "ggplot2", "trackdow
 
 This output provides all the main information about the R session to reproduce the original results. We can save it as an object or print it in the project `README` or another file. Saving it as an object is particularly helpful as it can be later used to automatically install all project dependencies with some custom function. 
 
-However, as different package versions may be required in different projects, we will need to reinstall the packages each time we move from one project to another. This would be very annoying. Fortunately, in R there is always a package to solve our problems. COncerning package management, the answer is `renv`.
+However, as different package versions may be required in different projects, we will need to reinstall the packages each time we move from one project to another. This would be very annoying. Fortunately, in R there is always a package to solve our problems. Concerning package management, the answer is `renv`.
 
 ## `renv` a Package to Rule Them All {#renv-section}
 
@@ -135,7 +135,7 @@ However, as different package versions may be required in different projects, we
 package_logo("images/requirements/renv-hex.png", format = output_format, tex_width = .25)
 ```
 
-The idea behind `renv` (successor of `packrat`) is to create an isolated, portable, and reproducible environment for our projects. Using `renv`, we can easily manage the dependencies of all our projects in a very smooth workflow. In the next sections, we introduce the main features of `renv`, how to use the `renv` workflow in our project and some other more advanced aspects. 
+The idea behind `renv` (successor of `packrat`) is to create an isolated, portable, and reproducible environment for our projects. Using `renv` [@R-renv], we can easily manage the dependencies of all our projects in a very smooth workflow. In the next sections, we introduce the main features of `renv`, how to use the `renv` workflow in our project and some other more advanced aspects. 
 
 This should be enough to get started, however, we highly encourage everyone to take a tour of `renv` official documentation available at https://rstudio.github.io/renv/. There are many more aspects to learn and solutions for possible issues.
 

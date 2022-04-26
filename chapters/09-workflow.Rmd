@@ -255,7 +255,7 @@ As in the case of loading custom functions (see Section \@ref(load-functions)), 
 :::{.design title="Conflicts" data-latex="[Conflicts]"}
 Another aspect to take into account is the presence of **conflicts among packages**. Conflicts happen when two loaded packages have functions with the same name. In R, the default conflict resolution system is to give precedence to the most recently loaded package. However, this makes it difficult to detect conflicts and can waste a lot of time debugging. To avoid package conflicts, we can:
 
-- **`conflicted`.** The R package `conflicted` adopts a different approach making every conflict an error. This forces us to solve conflicts by explicitly defining the function to use. See https://conflicted.r-lib.org/ for more information.
+- **`conflicted`.** The R package `conflicted`  [@R-conflicted] adopts a different approach making every conflict an error. This forces us to solve conflicts by explicitly defining the function to use. See https://conflicted.r-lib.org/ for more information.
 - **`<package>::<function>`.** We can refer to a specific function by using the syntax `<package>::<function>`. In this case, we are no longer required to load the package with the `library("<package>")` command avoiding possible conflicts. This approach is particularly useful if only a few functions are required from a package. However, not that not loading the package prevents also package-specific classes and methods from being available. This aspect could lead to possible errors or unexpected results. See http://adv-r.had.co.nz/OO-essentials.html for more details on classes and methods.
 
 Common conflicts to be aware of are:
@@ -286,8 +286,8 @@ We recommend creating a section *“Settings”* at the top of the main script w
 
 In R, two main packages are used to create pipelines and manage the analysis workflow facilitating the project maintainability and enhancing result reproducibility. These packages are:
 
-- **`targets`** (https://github.com/ropensci/targets). The `targets` package creates a Make-like pipeline. `targets` identifies dependencies between the analysis targets, skips targets that are already up to date, and runs only the necessary outdated targets. This package enables an optimal, maintainable and reproducible workflow.
-- **`workflowr`** (https://github.com/workflowr/workflowr). The `workflowr` package organizes the project to enhance management, reproducibility, and sharing of analysis results. In particular, `workflowr` also allows us to create a website to document the results via GitHub Pages or GitLab Pages.
+- **`targets`** (https://github.com/ropensci/targets). The `targets` package [@R-targets] creates a Make-like pipeline. `targets` identifies dependencies between the analysis targets, skips targets that are already up to date, and runs only the necessary outdated targets. This package enables an optimal, maintainable and reproducible workflow.
+- **`workflowr`** (https://github.com/workflowr/workflowr). The `workflowr` package [@R-workflowr] organizes the project to enhance management, reproducibility, and sharing of analysis results. In particular, `workflowr` also allows us to create a website to document the results via GitHub Pages or GitLab Pages.
 
 Between the two packages, `targets` serves more general purposes and has more advanced features. Therefore, it can be applied in many different scenarios. On the other hand, `workflowr` offers the interesting possibility of creating a website to document the results. However, we can create a website using other packages with lots more customizable options, such as `bookdown` (https://github.com/rstudio/bookdown), `blogdown` (https://github.com/rstudio/blogdown), or `pkgdown` (https://github.com/r-lib/pkgdown). Moreover, using `targets` does not exclude that we can also use `workflowr` to create the website. For more details see https://books.ropensci.org/targets/markdown.html.
 
@@ -616,7 +616,7 @@ Among the two approaches, we recommend the second one. Using R Markdown document
 ::::{.design title="R Markdown as Target" data-latex="[R Markdown as Target]"}
 Following this approach, the `target` workflow is defined and managed following the usual approach and  R Markdown documents are considered as targets in the pipeline.
 
-To add an R Markdown document to the pipeline, we have to define the target using `tarchetypes::tar_render()` instead of the common `targets::tar_target()` function. Note that we need to install the `tarchetypes` package. See the help page for function arguments and details. 
+To add an R Markdown document to the pipeline, we have to define the target using `tarchetypes::tar_render()` instead of the common `targets::tar_target()` function. Note that we need to install the `tarchetypes` package [@R-tarchetypes]. See the help page for function arguments and details. 
 
 Suppose we created the following report saved as `documents/report.Rmd`.
 ```{r, out.width="80%"}

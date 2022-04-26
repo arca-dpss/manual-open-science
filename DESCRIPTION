@@ -11,12 +11,12 @@ Authors@R:
     person(given = "Davide",
            family = "Massidda",
            role = c("aut")))
-Maintainer: The package maintainer <myself@somewhere.net>
+Maintainer: Claudio Zandonella Callegher <claudiozandonella@gmail.com>
 Description: The aim of the present book is to describe programming good 
   practices and introduce common tools used in software development to 
   guarantee reproducibility of the analysis results. We want to make scientific 
   research an open-source knowledge development.
-License: What license is it under?
+License: CC-BY-NC-SA
 Depends:
     devtools,
 Imports:

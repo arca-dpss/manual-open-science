@@ -1082,7 +1082,7 @@ In particular, we have:
 package_logo("images/coding/devtools.png", format = output_format, tex_width = .25)
 ```
 
-So, what is special about the R Package Project template? Well, thanks to this structure we can take advantage of the workflow introduced by the `devtools` R package.  The `devtools` R package provides many functions to automatically manage common tasks during the development. In particular, the main functions are:
+So, what is special about the R Package Project template? Well, thanks to this structure we can take advantage of the workflow introduced by the `devtools` R package.  The `devtools` R package [@R-devtools] provides many functions to automatically manage common tasks during the development. In particular, the main functions are:
 
 - **`devtools::load_all()`.** Automatically load all the functions found in the `R/` directory.
 - **`devtools::document()`.** Automatically generate the function documentation in the `man/` directory.
@@ -1138,7 +1138,7 @@ Note that the `DESCRIPTION` file follows specific syntax rules. To know more abo
 package_logo("images/coding/roxygen2.png", format = output_format, tex_width = .25)
 ```
 
-The `roxygen2` R package allows us to create functions documentation simply by adding comments with all the required information right before the function source code definition. `roxygen2` will process our source code and comments to produce the function documentation files in the `man/` directory. 
+The `roxygen2` R package [@R-roxygen2] allows us to create functions documentation simply by adding comments with all the required information right before the function source code definition. `roxygen2` will process our source code and comments to produce the function documentation files in the `man/` directory. 
 
 `roxygen2` assumes a specific structure and uses specific tags to correctly produce the different parts of the documentation. Below is a simple example of documenting a function using `roxygen2`. Note the use of `#'` instead of `#` to create the comments and the special tags (`@<tag-name>`) used to specify the different documentation components.
 
@@ -1193,7 +1193,7 @@ To learn all the details about documenting functions using `roxygen2`, consider:
 package_logo("images/coding/test-that.png", format = output_format, tex_width = .25)
 ```
 
-The `testthat` R package allows us to create and run unit tests for our functions. In particular, `testthat` provides dedicated functions to easily describe what we expect a function to do, including catching errors, warnings, and messages.
+The `testthat` R package [@R-testthat] allows us to create and run unit tests for our functions. In particular, `testthat` provides dedicated functions to easily describe what we expect a function to do, including catching errors, warnings, and messages.
 
 To create the unit tests using `testthat`, we need to use dedicated functions following specific folders and file structures. Below is a simple example of a unit test using `testthat`.
 

@@ -2,11 +2,11 @@
 
 > Science is one of humanity's greatest inventions. Academia, on the other hand, is not. It is remarkable how successful science has been, given the often chaotic habits of scientists. In contrast to other fields, like say landscaping or software engineering, science as a profession is largely *unprofessional* - apprentice scientists are taught less about how to work responsibly than about how to earn promotions. This results in ubiquitous and costly errors. Software development has become indispensable to scientific work. I want to playfully ask how it can become even more useful by transferring some aspects of its professionalism, the day-to-day tracking and back-tracking and testing that is especially part of distributed, open-source software development. Science, after all, aspires to be distributed, open-source knowledge development.
 >
-> Richard McElreath's "Science as Amateur Software Development" talk  
+> "Science as Amateur Software Development" @richardmcelreathScienceAmateurSoftware2020  
 >
 > https://youtu.be/zwRdO9_GGhY
 
-Richard McElreath's words are as enlightening as always. Usually, researchers start their academic careers led by their great interest in a specific scientific area. They want to answer some specific research question, but these questions quickly turn into data, statistical analysis, and lines of code, hundreds of lines of code. Most researchers, however, receive essentially no training about programming and software development good practices resulting in very chaotic habits that can lead to costly errors. Moreover, bad practices may hinder the transparency and reproducibility of the analysis results.
+McElreath's words are as enlightening as always. Usually, researchers start their academic careers led by their great interest in a specific scientific area. They want to answer some specific research question, but these questions quickly turn into data, statistical analysis, and lines of code, hundreds of lines of code. Most researchers, however, receive essentially no training about programming and software development good practices resulting in very chaotic habits that can lead to costly errors. Moreover, bad practices may hinder the transparency and reproducibility of the analysis results.
 
 Thanks to the Open Science movement, transparency and reproducibility are recognized as fundamental requirements of modern scientific research. In fact, openly sharing study materials and analyses code are prerequisites for allowing results replicability by new studies. Note the difference between replicability and reproducibility [@nosekWhatReplication2020]:
 
@@ -15,7 +15,7 @@ Thanks to the Open Science movement, transparency and reproducibility are recogn
 
 So, reproducibility simply means re-running someone else's code on the same data to obtain the same result. At first, this may seem a very simple task, but actually, it requires properly organising and managing all the analysis material. Without adequate programming and software development skills, it is very difficult to guarantee the reproducibility of the analysis results.
 
-The aim of the present book is to describe programming good practices and introduce common tools used in software development to guarantee reproducibility of the analysis results. Inspired by Richard McElreath's talk, we want to make scientific research an open-source knowledge development.
+The present book aims to describe programming good practices and introduce common tools used in software development to guarantee the reproducibility of analysis results. Inspired by Richard McElreath's talk, we want to make scientific research an open-source knowledge development.
 
 ## Book Structure
 
@@ -26,7 +26,7 @@ The book is structured as follows.
 - In Chapter \@ref(data-chapter), we discuss the main guidelines regarding organizing, documenting, and sharing data.
 - In Chapter \@ref(coding-chapter), we provide general good practices to create readable and maintainable code and we describe the functional style approach.
 - In Chapter \@ref(terminal-chapter), we provide a basic tutorial about the use of the terminal.
-- In Chapter \@ref(git-chapter), we introduce Git, a software for tracking changes in any file during the development of our project.
+- In Chapter \@ref(git-chapter), we introduce Git software for tracking changes in any file during the development of our project.
 - In Chapter \@ref(github-chapter), we introduce GitHub for managing collaboration using remote repositories.
 - In Chapter \@ref(workflow-analysis-chapter), we discuss how to manage the analysis workflow to enhance results reproducibility and code maintainability.
 - In Chapter \@ref(dynamic-documents-chapter) [work in progress], we introduce the main tools to create dynamic documents that integrate narrative text and code describing the advantages.
@@ -72,6 +72,40 @@ Most of the arguments discussed in this book are the A-B-C of the daily workflow
 
 The aim of the book is exactly that: to introduce popular tools and common guidelines of software development into scientific research. We try to provide a very gentle introduction to many programming concepts and tools without assuming any previous knowledge. Note, however, that we assume the reader is already familiar with the R programming language for specific examples and applications.
 
+### Info Boxes
+
+Inside the book, there are special Info-Boxes that provide further details.
+
+:::{.tip title="My title" data-latex="[My title]"}
+Tip-Boxes are used to provide insight into specific topics.
+:::
+
+:::{.warning title="My title" data-latex="[My title]"}
+Warning-Boxes are used to provide important warnings.
+:::
+
+:::{.deffun title="My title" data-latex="[My title]"}
+Instructions-Boxes are used to provide detailed instructions.
+:::
+
+:::{.design title="My title" data-latex="[My title]"}
+Details-Boxes are used to provide further details about advanced topics.
+:::
+
+:::{.trick title="My title" data-latex="[My title]"}
+Trick-Boxes are used to describe special useful tricks.
+:::
+
+:::{.foil title="My title" data-latex="[My title]"}
+Command Cheatsheets are used to summarize commands of a specific software.
+:::
+
+Moreover, at the end of each chapter, we list all useful links to external documentation in a dedicated box.
+
+:::{.doclinks data-latex=""}
+Documentation-Boxes are used to collect all useful links to external documentation.
+:::
+
 <!-- # Notes -->
 
 <!-- In recent years, there has been much debate about the replicability crisis of scientific findings. This methodological crisis has undetermined the credibility of many scientific fields. If you have been working in academic research recently, I am sure you are already familiar with all these issues. -->
@@ -87,7 +121,7 @@ The aim of the book is exactly that: to introduce popular tools and common guide
 
 <!-- Open Science is not only the publishing industry's new commercial breakthrough -->
 
-<!-- cumulating articles and citation is what moves your career but cumulating data is what moves science -->
+<!-- cumulating articles and citation is what moves your career but accumulating data is what moves science -->
 
 <!-- > Gelman 2021: the most important part of your study is not your conclusion but your data -->
 <!-- > https://youtu.be/j_1tVewtURI?t=1753 -->

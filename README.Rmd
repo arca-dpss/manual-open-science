@@ -30,26 +30,24 @@ A PDF copy is available at https://arca-dpss.github.io/manual-open-science/manua
 
 In the book, we will learn to:
 
-- Share our materials using the Open Science Framework (**OSF**)
-- Learn how appropriately to structure and organize our materials in a **repository**
-- Follow recommendations about data organization and data sharing
-- Improve code readability and maintainability using a **Functional Style**
-- Learn version control and collaboration using  **Git** and **Github**
-- Manage analysis workflow with dedicated tools
-- Create dynamic documents
-- Manage project requirements and dependencies using dedicated tools
-- Create a container to guarantee reproducibility using **Docker**
+- Share our materials using the **Open Science Framework**
+- Organize project files and data in a well structured and documented **Repository**
+- Write readable and maintainable code using a **Functional Style** approach
+- Use **Git** and **GitHub** for tracking changes and managing collaboration during the development
+- Use dedicated tools for managing the **Analysis Workflow** pipeline
+- Use dedicated tools for creating **Dynamic Documents**
+- Manage project requirements and dependencies using **Docker**
 
-This book provides useful recommendations and guidelines that can be applied independently of the specific programming language. However, examples and specific applications are based on the R programming language. Readers working with programming languages other than R can still find valuable guidelines and information and can later apply the same workflow and ideas using dedicated tools specific to their preferred programming language.
+As most researchers have no formal training in programming and software development, we provide a very gentle introduction to many programming concepts and tools without assuming any previous knowledge.
 
-Finally, as most researchers have no formal training in programming and software development, we provide a very gentle introduction to many programming concepts and tools without assuming any previous knowledge. Note, however, that we assume that the reader is already familiar with the R programming language for specific examples and applications.
+Examples and specific applications are based on the R programming language. However, this book provides recommendations and guidelines useful for any programming language.
 
-## About the Authors
+## About the Authors {-}
 
-During our careers, we both moved into the field of Data Science after our PhD in Psychological Sciences. This book is our attempt to bring back into scientific research what we have learned outside of academia.
+During our careers, we both moved into the field of Data Science after a PhD in Psychological Sciences. This book is our attempt to bring back into scientific research what we have learned outside of academia.
 
-- [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/). During my PhD, I fell in love with data science. Understanding the complex phenomena that affect our lives by exploring data, formulating hypotheses, building models, and validating them. I find this whole process extremely challenging and motivating. Moreover, I am excited about new tools and solutions to enhance the replicability and transparency of scientific results.
-- [Davide Massidda](https://www.linkedin.com/in/davidemassidda/).
+- [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) (claudiozandonella@gmail.com). During my PhD, I fell in love with data science. Understanding the complex phenomena that affect our lives by exploring data, formulating hypotheses, building models, and validating them. I find this whole process extremely challenging and motivating. Moreover, I am excited about new tools and solutions to enhance the replicability and transparency of scientific results.
+- [Davide Massidda](https://www.linkedin.com/in/davidemassidda/) (d.massidda@kode-solutions.net).
 
 ## ARCA
 
@@ -57,19 +55,36 @@ During our careers, we both moved into the field of Data Science after our PhD i
 
 ARCA courses are advanced and highly applicable courses on modern tools for research in Psychology. They are organised by the Department of Developmental and Social Psychology at the University of Padua.
 
-## Contribute
+## Contribute {-}
 
 Surely there are many typos to fix and new arguments to include. Anyone is welcome to contribute to this book. For small typos just send a pull request with all the corrections. To propose new chapters or paragraphs, instead, open an issue to discuss and plan them.
 
-## Acknowledgements
+View book source at GitHub repository https://github.com/arca-dpss/manual-open-science.
 
-This book was inspired by Richard McElreath's talk *“Science as Amateur Software Development”*   [https://youtu.be/zwRdO9_GGhY](https://youtu.be/zwRdO9_GGhY). Talk abstract: 
+## Cite {-}
 
-> Science is one of humanity's greatest inventions. Academia, on the other hand, is not. It is remarkable how successful science has been, given the often chaotic habits of scientists. In contrast to other fields, like say landscaping or software engineering, science as a profession is largely *unprofessional* - apprentice scientists are taught less about how to work responsibly than about how to earn promotions. This results in ubiquitous and costly errors. Software development has become indispensable to scientific work. I want to playfully ask how it can become even more useful by transferring some aspects of its professionalism, the day-to-day tracking and back-tracking and testing that is especially part of distributed, open-source software development. Science, after all, aspires to be distributed, open-source knowledge development.
+For attribution, please cite this work as:
 
-## License
+Zandonella Callegher, C., & Massidda, D. (2022). The Open Science Manual: Make Your Scientific Research Accessible and Reproducible. https://arca-dpss.github.io/manual-open-science/
 
-This book is released under the [CC BY-SA 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/).
+BibTeX citation:
+
+```bash
+@book{zandonellaMassiddaOpenScience2022,
+  title = {The Open Science Manual: Make Your Scientific Research Accessible and Reproducible},
+  author = {Zandonella Callegher, Claudio and Massidda, Davide},
+  date = {2022},
+  url = {https://arca-dpss.github.io/manual-open-science/}
+}
+```
+
+## License {-}
+
+```{r, fig.align="left", out.width="20%"}
+knitr::include_graphics("images/cc-nc-sa.png")
+```
+
+This book is released under the [CC BY-NC-SA 4.0 License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 This book is based on the [ARCA Bookown Template](https://github.com/arca-dpss/template-bookdown) released under [CC BY-SA 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/).
 

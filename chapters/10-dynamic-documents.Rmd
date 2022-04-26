@@ -1,3 +1,89 @@
 # Dynamic Documents {#dynamic-documents-chapter} 
 
 [Work in Progress]
+
+## Quarto
+
+https://quarto.org/
+
+## `trackdown`
+
+```{r, results ="asis"}
+package_logo("images/dynamic-documents/trackdown-logo.png", format = output_format, tex_width = .25)
+```
+
+One of the authors of this book is also the maintainer of the `trackdown` R package. `trackdown` \index{R package!trackdown} [@R-trackdown] offers a simple solution for collaborative writing and editing of R Markdown (or Sweave) documents. Using  `trackdown`, we can upload the local `.Rmd` (or `.Rnw`) file as a plain-text file to Google Drive. 
+
+By taking advantage of the easily readable Markdown (or `r latex_logo()`) syntax and the well-known online interface offered by Google Docs, collaborators can easily contribute to the writing and editing process. After integrating all authors’ contributions, we can download the final document and render it locally.
+
+The package documentation is available at https://claudiozandonella.github.io/trackdown/.
+
+### The `trackdown` Workflow
+
+During the collaborative writing/editing of an `.Rmd` (or `.Rnw`) document, it is important to employ different workflows for computer code and narrative text:
+
+- **Code** - Collaborative code writing is done most efficiently by following a traditional **Git**-based workflow using an online repository (e.g., GitHub or GitLab; see Chapter \@ref(github-chapter)).
+- **Narrative Text** - Collaborative writing of the narrative text is done most efficiently using **Google Docs** which provides a familiar and simple online interface that allows multiple users to simultaneously write/edit the same document.
+
+Thus, the workflow’s main idea is simple: Upload the `.Rmd` (or `.Rnw`) document to Google Drive to collaboratively write/edit the narrative text in Google Docs; download the document locally to continue working on the code while harnessing the power of Git for version control and collaboration.  This iterative process of uploading to and downloading from Google Drive continues until the desired results are obtained. The workflow can be summarized as:
+
+> Collaborative **code** writing using **Git** & collaborative writing of **narrative text** using **Google Docs**
+
+For a detailed example of the workflow see  https://ekothe.github.io/trackdown/articles/trackdown-workflow.html.
+
+```{r trakdown-workflow, out.width='100%'}
+knitr::include_graphics("images/dynamic-documents/trackdown-workflow.png")
+```
+
+#### Functions and Special Features{-}
+
+`trackdown` offers different functions to manage the workflow:
+
+- `upload_file()` uploads a file for the first time to Google Drive.
+- `update_file()` updates the content of an existing file in Google Drive with the contents of a local file.
+- `download_file()` downloads the edited version of a file from Google Drive and updates the local version.
+- `render_file()` downloads a file from Google Drive and renders it locally.
+
+Moreover, `trackdown` offers additional features to facilitate the collaborative writing and editing of documents in Google Docs. In particular, it is possible to:
+
+- **Hide Code:** Code in the header of the document (YAML header or LaTeX preamble) and code chunks are removed from the document when uploading to Google Drive and are automatically restored during download. This prevents collaborators from inadvertently making changes to the code which might corrupt the file and allows them to focus on the narrative text.
+
+    ```{r, out.width="100%"}
+    knitr::include_graphics("images/dynamic-documents/trackdown-hide-code.png")
+    ```
+
+- **Upload Output:** The actual output document (i.e., the rendered file) can be uploaded to Google Drive in conjunction with the `.Rmd` (or `.Rnw`) document. This helps collaborators to evaluate the overall layout including figures and tables and allows them to add comments to suggest and discuss changes.
+- **Use Google Drive shared drives:** The documents can be uploaded to either a personal Google Drive or to a shared drive to facilitate collaboration.
+
+#### Advantages of Google Docs
+
+Google Docs offers users a familiar, intuitive, and free web-based interface that allows multiple users to simultaneously write/edit the same document. In Google Docs it is possible to:
+
+- track changes (incl. accepting/rejecting suggestions)
+- add comments to suggest and discuss changes
+- check spelling and grammar errors (potentially integrating third-party services like Grammarly)
+
+Moreover, Google Docs allows anyone to contribute to the writing/editing of the document. No programming experience is required, users can just focus on writing/editing the narrative text.
+
+Note that not all collaborators have to have a Google account (although this is recommended to utilize all Google Docs features). Only the person who manages the `trackdown` workflow needs to have a Google account to upload files to Google Drive. Other collaborators can be invited to contribute to the document using a shared link.
+
+:::{.design title="trackdown Development Version" data-latex="[trackdown Development Version]"}
+The developmental version of `trackdown` (v1.3.0, currently only available on GitHub), introduced a new important feature:
+
+- **`rich_text`.** Upload rich documents to Google Docs where important text that should not be changed is automatically highlighted (e.g., placeholders hiding the code, header of the document, code chunks, and in-line code). This prevents collaborators from inadvertently making changes to the code which might corrupt the file. See rich-text feature details.
+
+```{r, out.width="80%"}
+knitr::include_graphics("images/dynamic-documents/trackdown-rich-text.png")
+```
+
+To install the developmental version of `trackdown` form  GitHub (https://github.com/claudiozandonella/trackdown),
+```{r, echo=TRUE, eval=FALSE}
+# install.packages(remotes)
+
+# install the development version
+remotes::install_github("claudiozandonella/trackdown",
+                        build_vignettes = TRUE)
+```
+
+Very soon, we will also add support for Quarto documents as well, see https://github.com/ClaudioZandonella/trackdown/issues/33
+:::

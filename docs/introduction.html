@@ -168,11 +168,11 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -183,6 +183,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
 <li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
@@ -429,7 +430,18 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.1</b> Quarto</a></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown"><i class="fa fa-check"></i><b>10.2</b> <code>trackdown</code></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.2.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.2.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.2.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
@@ -573,17 +585,17 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 1</span> Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p>Science is one of humanity’s greatest inventions. Academia, on the other hand, is not. It is remarkable how successful science has been, given the often chaotic habits of scientists. In contrast to other fields, like say landscaping or software engineering, science as a profession is largely <em>unprofessional</em> - apprentice scientists are taught less about how to work responsibly than about how to earn promotions. This results in ubiquitous and costly errors. Software development has become indispensable to scientific work. I want to playfully ask how it can become even more useful by transferring some aspects of its professionalism, the day-to-day tracking and back-tracking and testing that is especially part of distributed, open-source software development. Science, after all, aspires to be distributed, open-source knowledge development.</p>
-<p>Richard McElreath’s “Science as Amateur Software Development” talk</p>
+<p>“Science as Amateur Software Development” <span class="citation"><a href="#ref-richardmcelreathScienceAmateurSoftware2020" role="doc-biblioref">Richard McElreath</a> (<a href="#ref-richardmcelreathScienceAmateurSoftware2020" role="doc-biblioref">2020</a>)</span></p>
 <p><a href="https://youtu.be/zwRdO9_GGhY" class="uri">https://youtu.be/zwRdO9_GGhY</a></p>
 </blockquote>
-<p>Richard McElreath’s words are as enlightening as always. Usually, researchers start their academic careers led by their great interest in a specific scientific area. They want to answer some specific research question, but these questions quickly turn into data, statistical analysis, and lines of code, hundreds of lines of code. Most researchers, however, receive essentially no training about programming and software development good practices resulting in very chaotic habits that can lead to costly errors. Moreover, bad practices may hinder the transparency and reproducibility of the analysis results.</p>
+<p>McElreath’s words are as enlightening as always. Usually, researchers start their academic careers led by their great interest in a specific scientific area. They want to answer some specific research question, but these questions quickly turn into data, statistical analysis, and lines of code, hundreds of lines of code. Most researchers, however, receive essentially no training about programming and software development good practices resulting in very chaotic habits that can lead to costly errors. Moreover, bad practices may hinder the transparency and reproducibility of the analysis results.</p>
 <p>Thanks to the Open Science movement, transparency and reproducibility are recognized as fundamental requirements of modern scientific research. In fact, openly sharing study materials and analyses code are prerequisites for allowing results replicability by new studies. Note the difference between replicability and reproducibility <span class="citation">(<a href="#ref-nosekWhatReplication2020" role="doc-biblioref">Nosek &amp; Errington, 2020</a>)</span>:</p>
 <ul>
 <li><strong>Reproducibility</strong>, obtaining the results reported in the original study using the <em>same data</em> and the <em>same analysis</em>.</li>
 <li><strong>Replicability</strong>, obtaining the results reported in the original study using <em>new data</em> but the <em>same analysis</em> (a new study with the same experimental design).</li>
 </ul>
 <p>So, reproducibility simply means re-running someone else’s code on the same data to obtain the same result. At first, this may seem a very simple task, but actually, it requires properly organising and managing all the analysis material. Without adequate programming and software development skills, it is very difficult to guarantee the reproducibility of the analysis results.</p>
-<p>The aim of the present book is to describe programming good practices and introduce common tools used in software development to guarantee reproducibility of the analysis results. Inspired by Richard McElreath’s talk, we want to make scientific research an open-source knowledge development.</p>
+<p>The present book aims to describe programming good practices and introduce common tools used in software development to guarantee the reproducibility of analysis results. Inspired by Richard McElreath’s talk, we want to make scientific research an open-source knowledge development.</p>
 <div id="book-structure" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Book Structure<a href="introduction.html#book-structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The book is structured as follows.</p>
@@ -593,7 +605,7 @@ div.csl-indent {
 <li>In Chapter <a href="data-chapter.html#data-chapter">4</a>, we discuss the main guidelines regarding organizing, documenting, and sharing data.</li>
 <li>In Chapter <a href="coding-chapter.html#coding-chapter">5</a>, we provide general good practices to create readable and maintainable code and we describe the functional style approach.</li>
 <li>In Chapter <a href="terminal-chapter.html#terminal-chapter">6</a>, we provide a basic tutorial about the use of the terminal.</li>
-<li>In Chapter <a href="git-chapter.html#git-chapter">7</a>, we introduce Git, a software for tracking changes in any file during the development of our project.</li>
+<li>In Chapter <a href="git-chapter.html#git-chapter">7</a>, we introduce Git software for tracking changes in any file during the development of our project.</li>
 <li>In Chapter <a href="github-chapter.html#github-chapter">8</a>, we introduce GitHub for managing collaboration using remote repositories.</li>
 <li>In Chapter <a href="workflow-analysis-chapter.html#workflow-analysis-chapter">9</a>, we discuss how to manage the analysis workflow to enhance results reproducibility and code maintainability.</li>
 <li>In Chapter <a href="dynamic-documents-chapter.html#dynamic-documents-chapter">10</a> [work in progress], we introduce the main tools to create dynamic documents that integrate narrative text and code describing the advantages.</li>
@@ -633,6 +645,32 @@ div.csl-indent {
 <h3><span class="header-section-number">1.2.3</span> Non-Programmer Friendly<a href="introduction.html#non-programmer-friendly" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Most of the arguments discussed in this book are the A-B-C of the daily workflow of many programmers. The problem is that most researchers lack any kind of formal training in programming and software development.</p>
 <p>The aim of the book is exactly that: to introduce popular tools and common guidelines of software development into scientific research. We try to provide a very gentle introduction to many programming concepts and tools without assuming any previous knowledge. Note, however, that we assume the reader is already familiar with the R programming language for specific examples and applications.</p>
+</div>
+<div id="info-boxes" class="section level3 hasAnchor" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Info Boxes<a href="introduction.html#info-boxes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Inside the book, there are special Info-Boxes that provide further details.</p>
+<div class="tip" title="My title">
+<p>Tip-Boxes are used to provide insight into specific topics.</p>
+</div>
+<div class="warning" title="My title">
+<p>Warning-Boxes are used to provide important warnings.</p>
+</div>
+<div class="deffun" title="My title">
+<p>Instructions-Boxes are used to provide detailed instructions.</p>
+</div>
+<div class="design" title="My title">
+<p>Details-Boxes are used to provide further details about advanced topics.</p>
+</div>
+<div class="trick" title="My title">
+<p>Trick-Boxes are used to describe special useful tricks.</p>
+</div>
+<div class="foil" title="My title">
+<p>Command Cheatsheets are used to summarize commands of a specific software.</p>
+</div>
+<p>Moreover, at the end of each chapter, we list all useful links to external documentation in a dedicated box.</p>
+<div class="doclinks">
+<p>Documentation-Boxes are used to collect all useful links to external documentation.</p>
+</div>
 <!-- # Notes -->
 <!-- In recent years, there has been much debate about the replicability crisis of scientific findings. This methodological crisis has undetermined the credibility of many scientific fields. If you have been working in academic research recently, I am sure you are already familiar with all these issues. -->
 <!-- Fortunately, however, one of the greatest strengths of scientific research is its ability to correct itself. In this perspective, the replicability crisis has become a great opportunity to revise, improve, and innovate our research practice and, certainly, the Open Science movement has become the main answer to this methodological crisis. -->
@@ -641,7 +679,7 @@ div.csl-indent {
 <!-- failure to reproduce scientific results undermining the credibility of many scientific fields. If you have been working in academic research, I am sure you have already heard a lot about the replicability crisis. -->
 <!-- The Open Science movement is changing modern scientific research. -->
 <!-- Open Science is not only the publishing industry's new commercial breakthrough -->
-<!-- cumulating articles and citation is what moves your career but cumulating data is what moves science -->
+<!-- cumulating articles and citation is what moves your career but accumulating data is what moves science -->
 <!-- > Gelman 2021: the most important part of your study is not your conclusion but your data -->
 <!-- > https://youtu.be/j_1tVewtURI?t=1753 -->
 
@@ -653,13 +691,16 @@ div.csl-indent {
 <div id="ref-nosekWhatReplication2020" class="csl-entry">
 Nosek, B. A., &amp; Errington, T. M. (2020). What is replication? <em>PLOS Biology</em>, <em>18</em>(3), e3000691. <a href="https://doi.org/10.1371/journal.pbio.3000691">https://doi.org/10.1371/journal.pbio.3000691</a>
 </div>
+<div id="ref-richardmcelreathScienceAmateurSoftware2020" class="csl-entry">
+Richard McElreath (Director). (2020, September 26). <em>Science as <span>Amateur Software Development</span></em>. <a href="https://www.youtube.com/watch?v=zwRdO9_GGhY">https://www.youtube.com/watch?v=zwRdO9_GGhY</a>
+</div>
 </div>
 <hr>
 <center>
   <div class="footer">
     Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
     <br>
-    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
     <br>
     To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
   </div>

@@ -168,11 +168,11 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -183,6 +183,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
 <li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
@@ -429,7 +430,18 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.1</b> Quarto</a></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown"><i class="fa fa-check"></i><b>10.2</b> <code>trackdown</code></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.2.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.2.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.2.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
@@ -587,7 +599,7 @@ div.csl-indent {
 <li><strong>Virtual Machines (VM).</strong> VMs are an abstraction of the physical hardware. A special software layer, called <em>hypervisor</em>, manages the virtualization of multiple environments connecting the machine infrastructure (i.e. the physical hardware) to the different VMs. Each VM has its own <em>Guest</em> Operating System, libraries and applications. VMs are robust and secure systems, isolated from each other. However, they are usually large in size (tens of gigabytes) and they require minutes to boot (i.e., start).</li>
 <li><strong>Containers.</strong> Containers are an abstraction at the Operating System (OS) level. A special container engine (e.g., Docker) manages the different containers. Each container has its own applications and dependencies but they share the same <em>Host</em> OS kernel (see <a href="#using-rprofile"><em>“Details-Box: A Linux Kernel for Everyone”</em></a> below). Containers are usually lightweight (tens of megabytes-few gigabytes) and they take just seconds to start. Thanks to their scalability and portability, containers have become industry standards for services and application deployment.</li>
 </ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-224"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-229"></span>
 <img src="images/docker/container-vs-vm.png" alt="Image retrieved from Docker official documentation (https://www.docker.com/resources/what-container)" width="90%" />
 <p class="caption">
 Figure 12.1: Image retrieved from Docker official documentation (<a href="https://www.docker.com/resources/what-container" class="uri">https://www.docker.com/resources/what-container</a>)
@@ -639,17 +651,17 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <div id="dockerfile" class="section level3 hasAnchor" number="12.2.3">
 <h3><span class="header-section-number">12.2.3</span> <strong><code>Dockerfile</code></strong><a href="docker-chapter.html#dockerfile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A <code>Dockerfile</code> is a text file with all the instructions to build an image. An example of <code>Dockerfile</code> is,</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb190-1"><a href="docker-chapter.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
-<span id="cb190-2"><a href="docker-chapter.html#cb190-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> ubuntu:18.04</span>
-<span id="cb190-3"><a href="docker-chapter.html#cb190-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb190-4"><a href="docker-chapter.html#cb190-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
-<span id="cb190-5"><a href="docker-chapter.html#cb190-5" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> apt-get update <span class="dt">\</span></span>
-<span id="cb190-6"><a href="docker-chapter.html#cb190-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> curl</span>
-<span id="cb190-7"><a href="docker-chapter.html#cb190-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb190-8"><a href="docker-chapter.html#cb190-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Get and run my app</span></span>
-<span id="cb190-9"><a href="docker-chapter.html#cb190-9" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /app</span>
-<span id="cb190-10"><a href="docker-chapter.html#cb190-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> make /app</span>
-<span id="cb190-11"><a href="docker-chapter.html#cb190-11" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span> python /app/app.py</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb192-1"><a href="docker-chapter.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb192-2"><a href="docker-chapter.html#cb192-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> ubuntu:18.04</span>
+<span id="cb192-3"><a href="docker-chapter.html#cb192-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-4"><a href="docker-chapter.html#cb192-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
+<span id="cb192-5"><a href="docker-chapter.html#cb192-5" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> apt-get update <span class="dt">\</span></span>
+<span id="cb192-6"><a href="docker-chapter.html#cb192-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> curl</span>
+<span id="cb192-7"><a href="docker-chapter.html#cb192-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-8"><a href="docker-chapter.html#cb192-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Get and run my app</span></span>
+<span id="cb192-9"><a href="docker-chapter.html#cb192-9" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /app</span>
+<span id="cb192-10"><a href="docker-chapter.html#cb192-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> make /app</span>
+<span id="cb192-11"><a href="docker-chapter.html#cb192-11" aria-hidden="true" tabindex="-1"></a><span class="ex">CMD</span> python /app/app.py</span></code></pre></div>
 <p>Comments are preceded by <code>#</code> (note that <code>#</code> could also assume different meanings in some conditions; see <a href="https://docs.docker.com/engine/reference/builder/#syntax" class="uri">https://docs.docker.com/engine/reference/builder/#syntax</a>). Whereas, all the other commands in the <code>Dockerfile</code> are the instructions to create the image and each command is a new layer of the image. Let’s introduce the main instructions:</p>
 <ul>
 <li><strong><code>From &lt;image&gt;:&lt;version&gt;</code>.</strong> The <code>From</code> instruction allows us to define a <em>Base Image</em> from which we can start building our image. By doing this, we can take advantage of the images already available online on Docker Hub (<a href="https://hub.docker.com/" class="uri">https://hub.docker.com/</a>). We can find plenty of images for all possible needs and some images are even officially supported by Docker. Usually, these images provide a good starting point for the majority of users. We only have to find the image that better suits our needs and point to it specifying <code>&lt;DockerHub-Namespace&gt;/&lt;Repository&gt;:&lt;version&gt;</code> (e.g., <code>nvidia/cuda:&lt;version&gt;</code>). Note that it is important to always indicate the exact starting image by specifying the version tag (see Section <a href="docker-chapter.html#tag-version">12.2.3.2</a>). In Chapter <a href="rocker-chapter.html#rocker-chapter">13</a>, we introduce available images to work in R.</li>
@@ -687,7 +699,7 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <div id="tag-version" class="section level4 hasAnchor" number="12.2.3.2">
 <h4><span class="header-section-number">12.2.3.2</span> Image Version Tag<a href="docker-chapter.html#tag-version" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>When indicating a <em>Base Image</em> in the <code>Dockerfile</code>, we should always specify the exact version tag. For example,</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb191-1"><a href="docker-chapter.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> alpine:3.15.0</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb193-1"><a href="docker-chapter.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> alpine:3.15.0</span></code></pre></div>
 <p>If we do not specify the version tag, <code>latest</code> will be automatically applied by default. This approach, however, is <strong>not recommended</strong>. The <code>latest</code> tag does not have any special meaning per se, but it is simply the default tag when no other tags have been specified. That is, the <code>latest</code> tag does not automatically indicate the latest published image version but it is a simple word as could have been <code>notag</code>.</p>
 <p>However, many developers tag their latest image version with the <code>latest</code> tag. In these cases, without specifying the version tag we will obtain the latest published image version. However, this is still <strong>not recommended</strong> for two main reasons:</p>
 <ul>
@@ -717,14 +729,14 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <p>Users and groups management in Linux and Docker is quite an advanced topic beyond the aim of this chapter. To learn more about usernames and groups in Docker, consider <a href="https://medium.com/@mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf" class="uri">https://medium.com/@mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf</a> and <a href="https://github.com/docker/labs/tree/master/security/userns" class="uri">https://github.com/docker/labs/tree/master/security/userns</a>. Security is a relevant topic if we are developing a service that will be deployed on a server. In these cases, we should adopt best practices to limit security issues. For example, we could consider creating containers with isolated user namespaces (see <a href="https://docs.docker.com/engine/security/userns-remap/" class="uri">https://docs.docker.com/engine/security/userns-remap/</a>).</p>
 <p>Fortunately, security issues are not so relevant in most research projects, as Docker containers are mainly used to replicate the results on a local machine. However, most <em>Base Images</em> do define a specific default user to use when running the image. In these cases, we must guarantee the required permission to the files added in the <code>Dockerfile</code>.</p>
 <p>For example, suppose we start from a base image (<code>my-base-image</code>) in which the default user is <code>my-user</code>. Next, we copy a folder from our host system to the container. Remember <code>Dockerfile</code> instructions are executed as root so the added files will be owned by the user. To allow <code>my-user</code> to modify these files, we need to change the ownership (<code>chown</code>) or permissions (<code>chmod</code>). The <code>Dockerfile</code> will look like something similar to,</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb192-1"><a href="docker-chapter.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
-<span id="cb192-2"><a href="docker-chapter.html#cb192-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> my-base-image</span>
-<span id="cb192-3"><a href="docker-chapter.html#cb192-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb192-4"><a href="docker-chapter.html#cb192-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The default user is &quot;my-user&quot;</span></span>
-<span id="cb192-5"><a href="docker-chapter.html#cb192-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb192-6"><a href="docker-chapter.html#cb192-6" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> host-folder docker-folder</span>
-<span id="cb192-7"><a href="docker-chapter.html#cb192-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb192-8"><a href="docker-chapter.html#cb192-8" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> my-user docker-folder</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb194-1"><a href="docker-chapter.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb194-2"><a href="docker-chapter.html#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> my-base-image</span>
+<span id="cb194-3"><a href="docker-chapter.html#cb194-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-4"><a href="docker-chapter.html#cb194-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The default user is &quot;my-user&quot;</span></span>
+<span id="cb194-5"><a href="docker-chapter.html#cb194-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-6"><a href="docker-chapter.html#cb194-6" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> host-folder docker-folder</span>
+<span id="cb194-7"><a href="docker-chapter.html#cb194-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-8"><a href="docker-chapter.html#cb194-8" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> my-user docker-folder</span></code></pre></div>
 <p>To learn more about Docker file permission, see <a href="https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca" class="uri">https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca</a>.</p>
 </div>
 <div id="dockerignore" class="section level4 hasAnchor" number="12.2.3.4">
@@ -739,22 +751,22 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <p>If we are on macOS or Windows, first, remember to start the Docker daemon by opening the Docker Desktop application. This is required any time we are working with Docker.</p>
 </div>
 <p>Suppose, we are in our project directory (<code>my-project/</code>) and the project has the following structure,</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb193-1"><a href="docker-chapter.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="ex">my-project/</span></span>
-<span id="cb193-2"><a href="docker-chapter.html#cb193-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> Dockerfile</span>
-<span id="cb193-3"><a href="docker-chapter.html#cb193-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> README</span>
-<span id="cb193-4"><a href="docker-chapter.html#cb193-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
-<span id="cb193-5"><a href="docker-chapter.html#cb193-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> documents/</span>
-<span id="cb193-6"><a href="docker-chapter.html#cb193-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> code/</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb195-1"><a href="docker-chapter.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="ex">my-project/</span></span>
+<span id="cb195-2"><a href="docker-chapter.html#cb195-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> Dockerfile</span>
+<span id="cb195-3"><a href="docker-chapter.html#cb195-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> README</span>
+<span id="cb195-4"><a href="docker-chapter.html#cb195-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
+<span id="cb195-5"><a href="docker-chapter.html#cb195-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> documents/</span>
+<span id="cb195-6"><a href="docker-chapter.html#cb195-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> code/</span></code></pre></div>
 <p>In the <code>Dockerfile</code>, we simply copy all the project files in the image home directory.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb194-1"><a href="docker-chapter.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
-<span id="cb194-2"><a href="docker-chapter.html#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> alpine:3.15.0</span>
-<span id="cb194-3"><a href="docker-chapter.html#cb194-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-4"><a href="docker-chapter.html#cb194-4" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb196-1"><a href="docker-chapter.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb196-2"><a href="docker-chapter.html#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> alpine:3.15.0</span>
+<span id="cb196-3"><a href="docker-chapter.html#cb196-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-4"><a href="docker-chapter.html#cb196-4" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/</span></code></pre></div>
 <p>Once the <code>Dockerfile</code> is ready, we can move on and build our first image by using the command,</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb195-1"><a href="docker-chapter.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker build [OPTIONS] PATH</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb197-1"><a href="docker-chapter.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker build [OPTIONS] PATH</span></code></pre></div>
 <p>where <code>PATH</code> indicates the path to the directory with the <code>Dockerfile</code>. This directory will be also used by Docker as <em>context</em> to execute all the instructions. This means that all the required files should be collected in the same folder as the <code>Dockerfile</code>.</p>
 <p>To assign a name to our image (and optionally a tag), we can specify the option <code>-t</code> (or <code>--tag</code>) indicating the image name in the format <code>image-name:tag</code>. For example,</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb196-1"><a href="docker-chapter.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker build <span class="at">-t</span> my-image:1.0.0 .</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb198-1"><a href="docker-chapter.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker build <span class="at">-t</span> my-image:1.0.0 .</span></code></pre></div>
 <p>Note that the final <code>"."</code> indicates the current directory since the <code>Dockerfile</code> is placed in the project root directory (as it is commonly done). For more details on the <code>build</code> command and a complete list of available options, see the official documentation <a href="https://docs.docker.com/engine/reference/commandline/build/" class="uri">https://docs.docker.com/engine/reference/commandline/build/</a>.</p>
 <div class="tip" title="Linux sudo docker">
 <p>On Linux, we need to use <code>sudo</code> to run Docker commands. Without going into too technical details, the Docker daemon is owned by the root user. Therefore, if other users want to use Docker, we have to preface any <code>docker</code> command with the <code>sudo</code> command.</p>
@@ -763,19 +775,19 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <div id="list-and-remove-images" class="section level4 hasAnchor" number="12.2.4.1">
 <h4><span class="header-section-number">12.2.4.1</span> List and Remove Images<a href="docker-chapter.html#list-and-remove-images" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can get a list of our currently available images using the command <code>docker images</code> (or <code>docker image ls</code>). For example,</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb197-1"><a href="docker-chapter.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker images</span>
-<span id="cb197-2"><a href="docker-chapter.html#cb197-2" aria-hidden="true" tabindex="-1"></a><span class="ex">REPOSITORY</span>                 TAG                 IMAGE ID            CREATED             SIZE</span>
-<span id="cb197-3"><a href="docker-chapter.html#cb197-3" aria-hidden="true" tabindex="-1"></a><span class="ex">my-image</span>                   1.0.0               bdcd08818a09        2 minutes ago       5.59MB</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb199-1"><a href="docker-chapter.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker images</span>
+<span id="cb199-2"><a href="docker-chapter.html#cb199-2" aria-hidden="true" tabindex="-1"></a><span class="ex">REPOSITORY</span>                 TAG                 IMAGE ID            CREATED             SIZE</span>
+<span id="cb199-3"><a href="docker-chapter.html#cb199-3" aria-hidden="true" tabindex="-1"></a><span class="ex">my-image</span>                   1.0.0               bdcd08818a09        2 minutes ago       5.59MB</span></code></pre></div>
 <p>Together with the image name and tag, we obtain the <code>Image ID</code> that can be used to uniquely identify each image (we can have different versions of the same image, each one with its unique ID).</p>
 <p>To remove an image, we can use the command</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb198-1"><a href="docker-chapter.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker image rm <span class="op">&lt;</span>Image-ID<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb200-1"><a href="docker-chapter.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker image rm <span class="op">&lt;</span>Image-ID<span class="op">&gt;</span></span></code></pre></div>
 <p>For a list of all image commands, see <a href="https://docs.docker.com/engine/reference/commandline/image/" class="uri">https://docs.docker.com/engine/reference/commandline/image/</a>.</p>
 </div>
 </div>
 <div id="run-an-image" class="section level3 hasAnchor" number="12.2.5">
 <h3><span class="header-section-number">12.2.5</span> Run an Image<a href="docker-chapter.html#run-an-image" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We defined the <code>Dockerfile</code> and we built our image. Now it’s time to run our first container by using the command,</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb199-1"><a href="docker-chapter.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run [OPTIONS] IMAGE</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb201-1"><a href="docker-chapter.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run [OPTIONS] IMAGE</span></code></pre></div>
 <p>We need to specify the desired image used to create the container (<code>IMAGE</code>). Moreover, we can indicate different options according to our needs. Commonly used options are:</p>
 <ul>
 <li><strong><code>--name &lt;name-container&gt;</code>.</strong> Assign a name to the container. Remember that it is possible to initialize multiple containers from the same image, thus we can use different names to identify them.</li>
@@ -792,28 +804,28 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 </ul>
 <p>For more details on the <code>run</code> command and a complete list of available options, see the official documentation <a href="https://docs.docker.com/engine/reference/run/" class="uri">https://docs.docker.com/engine/reference/run/</a>.</p>
 <p>Using the image from the previous example, we can run our container named <code>my-container</code> in an interactive session by,</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb200-1"><a href="docker-chapter.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">--name</span> my-container <span class="at">-it</span> my-image:1.0.0</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb202-1"><a href="docker-chapter.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">--name</span> my-container <span class="at">-it</span> my-image:1.0.0</span></code></pre></div>
 <p>Once the container is initialized, a new interactive session will start in our terminal. Now, we are inside our container. Note the <code>#</code> prompt symbol, instead of <code>$</code>, indicating that we are root users (see Section <a href="docker-chapter.html#files-permissions">12.2.3.3</a>). We can check whether our project files were copied in the <code>home/</code> directory and end the session by running <code>exit</code>.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb201-1"><a href="docker-chapter.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/</span> <span class="co"># ls -l home/</span></span>
-<span id="cb201-2"><a href="docker-chapter.html#cb201-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 20</span>
-<span id="cb201-3"><a href="docker-chapter.html#cb201-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>    2 root     root          4096 Jan 17 11:00 code</span>
-<span id="cb201-4"><a href="docker-chapter.html#cb201-4" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>    2 root     root          4096 Jan 17 11:00 data</span>
-<span id="cb201-5"><a href="docker-chapter.html#cb201-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>    1 root     root            74 Jan 17 10:55 Dockerfile</span>
-<span id="cb201-6"><a href="docker-chapter.html#cb201-6" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>    2 root     root          4096 Jan 17 11:00 documents</span>
-<span id="cb201-7"><a href="docker-chapter.html#cb201-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>    1 root     root            24 Jan 14 14:45 README</span>
-<span id="cb201-8"><a href="docker-chapter.html#cb201-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb201-9"><a href="docker-chapter.html#cb201-9" aria-hidden="true" tabindex="-1"></a><span class="ex">/</span> <span class="co"># exit</span></span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb203-1"><a href="docker-chapter.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/</span> <span class="co"># ls -l home/</span></span>
+<span id="cb203-2"><a href="docker-chapter.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 20</span>
+<span id="cb203-3"><a href="docker-chapter.html#cb203-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>    2 root     root          4096 Jan 17 11:00 code</span>
+<span id="cb203-4"><a href="docker-chapter.html#cb203-4" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>    2 root     root          4096 Jan 17 11:00 data</span>
+<span id="cb203-5"><a href="docker-chapter.html#cb203-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>    1 root     root            74 Jan 17 10:55 Dockerfile</span>
+<span id="cb203-6"><a href="docker-chapter.html#cb203-6" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span>    2 root     root          4096 Jan 17 11:00 documents</span>
+<span id="cb203-7"><a href="docker-chapter.html#cb203-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>    1 root     root            24 Jan 14 14:45 README</span>
+<span id="cb203-8"><a href="docker-chapter.html#cb203-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb203-9"><a href="docker-chapter.html#cb203-9" aria-hidden="true" tabindex="-1"></a><span class="ex">/</span> <span class="co"># exit</span></span></code></pre></div>
 <p>In this case, ending the session will also automatically stop the container. This could not be the case for other containers with long-running processes (e.g., web services; for more information see <a href="https://www.tutorialworks.com/why-containers-stop/" class="uri">https://www.tutorialworks.com/why-containers-stop/</a>).</p>
 <div id="stop-list-and-remove-containers" class="section level4 hasAnchor" number="12.2.5.1">
 <h4><span class="header-section-number">12.2.5.1</span> Stop List and Remove Containers<a href="docker-chapter.html#stop-list-and-remove-containers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To stop the container, we can use the command</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb202-1"><a href="docker-chapter.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker stop <span class="op">&lt;</span>container-name<span class="op">&gt;</span> </span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb204-1"><a href="docker-chapter.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker stop <span class="op">&lt;</span>container-name<span class="op">&gt;</span> </span></code></pre></div>
 <p>If we did not specify the flag <code>--rm</code>, the container will still be available after it is stopped. We can use the command <code>docker container ls</code> (or <code>docker ps</code>) with the flag <code>-a</code> to list all the containers available (default shows only running containers).</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb203-1"><a href="docker-chapter.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker container ls <span class="at">-a</span></span>
-<span id="cb203-2"><a href="docker-chapter.html#cb203-2" aria-hidden="true" tabindex="-1"></a><span class="ex">CONTAINER</span> ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES</span>
-<span id="cb203-3"><a href="docker-chapter.html#cb203-3" aria-hidden="true" tabindex="-1"></a><span class="ex">fa28e5e1c2fc</span>        my-image:1.0.0      <span class="st">&quot;/bin/sh&quot;</span>           5 minutes ago       Exited <span class="er">(</span><span class="ex">0</span><span class="kw">)</span> <span class="ex">2</span> minutes ago                       my-container</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb205-1"><a href="docker-chapter.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker container ls <span class="at">-a</span></span>
+<span id="cb205-2"><a href="docker-chapter.html#cb205-2" aria-hidden="true" tabindex="-1"></a><span class="ex">CONTAINER</span> ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES</span>
+<span id="cb205-3"><a href="docker-chapter.html#cb205-3" aria-hidden="true" tabindex="-1"></a><span class="ex">fa28e5e1c2fc</span>        my-image:1.0.0      <span class="st">&quot;/bin/sh&quot;</span>           5 minutes ago       Exited <span class="er">(</span><span class="ex">0</span><span class="kw">)</span> <span class="ex">2</span> minutes ago                       my-container</span></code></pre></div>
 <p>This allows us to quickly start the container again using the command <code>docker start &lt;container-name&gt;</code>. Instead, if we want to definitively remove a container to free space, we use the command</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb204-1"><a href="docker-chapter.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker rm <span class="op">&lt;</span>container-name<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb206-1"><a href="docker-chapter.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker rm <span class="op">&lt;</span>container-name<span class="op">&gt;</span></span></code></pre></div>
 <div class="warning" title="Removing Container = Losing Files">
 <p>Note that removing a container will also delete all its files. Even if we copied our project folder from the host machine to the container using the <code>COPY</code> instruction, changes made in the container will not affect files on the host machine.</p>
 <p>Remember that containers are isolated from the host machine so files in the containers are distinct from the files on the host machine. This is a problem as, removing a container, we would also lose all our results. In Section <a href="docker-chapter.html#data-storage">12.3.1</a>, we discuss solutions to allow persisting data storage in Docker.</p>
@@ -822,17 +834,17 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <div id="moving-files" class="section level4 hasAnchor" number="12.2.5.2">
 <h4><span class="header-section-number">12.2.5.2</span> Moving Files<a href="docker-chapter.html#moving-files" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We could copy files (e.g., analysis results) from the container to the host machine (or the reverse way) using the command</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb205-1"><a href="docker-chapter.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Form container to host</span></span>
-<span id="cb205-2"><a href="docker-chapter.html#cb205-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker cp <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>container-path<span class="op">&gt;</span> <span class="op">&lt;</span>host-path<span class="op">&gt;</span></span>
-<span id="cb205-3"><a href="docker-chapter.html#cb205-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb205-4"><a href="docker-chapter.html#cb205-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Form host to container</span></span>
-<span id="cb205-5"><a href="docker-chapter.html#cb205-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker cp <span class="op">&lt;</span>host-path<span class="op">&gt;</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>container-path<span class="op">&gt;</span> </span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb207-1"><a href="docker-chapter.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Form container to host</span></span>
+<span id="cb207-2"><a href="docker-chapter.html#cb207-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker cp <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>container-path<span class="op">&gt;</span> <span class="op">&lt;</span>host-path<span class="op">&gt;</span></span>
+<span id="cb207-3"><a href="docker-chapter.html#cb207-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb207-4"><a href="docker-chapter.html#cb207-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Form host to container</span></span>
+<span id="cb207-5"><a href="docker-chapter.html#cb207-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker cp <span class="op">&lt;</span>host-path<span class="op">&gt;</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>container-path<span class="op">&gt;</span> </span></code></pre></div>
 <p>For more details, see official documentation <a href="https://docs.docker.com/engine/reference/commandline/cp/" class="uri">https://docs.docker.com/engine/reference/commandline/cp/</a>.</p>
 </div>
 <div id="running-commands" class="section level4 hasAnchor" number="12.2.5.3">
 <h4><span class="header-section-number">12.2.5.3</span> Running Commands<a href="docker-chapter.html#running-commands" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Finally, to run a command in a running container, we use <code>docker exec &lt;container-name&gt; &lt;command&gt;</code> (see official documentation at <a href="https://docs.docker.com/engine/reference/commandline/exec/" class="uri">https://docs.docker.com/engine/reference/commandline/exec/</a>). For example, to connect to the shell of a running container (in this case <code>bin/sh</code>), we can use the command</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb206-1"><a href="docker-chapter.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker exec <span class="at">-it</span> my-container bin/sh</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb208-1"><a href="docker-chapter.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker exec <span class="at">-it</span> my-container bin/sh</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -849,7 +861,7 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <h4><span class="header-section-number">12.3.1.1</span> Bind Mounts<a href="docker-chapter.html#bind-mounts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Bind mounts allow mounting (i.e., connecting) a directory (or a single file) from the host machine to a container. This allows the container to access the files on the host machine and save the changes made. When removing the container, all changes will be preserved in the directory on the host machine.</p>
 <p>We can mount a local directory when running a container specifying the option <code>-v &lt;host-absolute-path&gt;:&lt;container-absolute-path&gt;</code>. For example,</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb207-1"><a href="docker-chapter.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">-v</span> /Users/<span class="op">&lt;</span>user-name<span class="op">&gt;</span>/Desktop/Trial:/home/Trial/ <span class="at">-it</span> my-image:1.0.0</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb209-1"><a href="docker-chapter.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">-v</span> /Users/<span class="op">&lt;</span>user-name<span class="op">&gt;</span>/Desktop/Trial:/home/Trial/ <span class="at">-it</span> my-image:1.0.0</span></code></pre></div>
 <p>Note that both paths have to be absolute. The directory (or file) does not need to exist already neither in the host machine nor in the container. If not existing yet, the directory (or file) is created on-demand.</p>
 <p>Bind mounts are simple solutions to allow direct access from the container to a directory (or a file) in the host system. Changes made to the files in the container are saved directly in the host system and changes made from the host system will be immediately visible in the container as well.</p>
 <p>However, bind mounts have two main drawbacks. First, bind mounts rely on the host machine specific file system (absolute paths are different on different machines). Second, allowing the container direct access to the host file system could have important security implications.</p>
@@ -859,15 +871,15 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <h4><span class="header-section-number">12.3.1.2</span> Volumes<a href="docker-chapter.html#volumes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Volumes are the preferred mechanism for persisting data storage. Think of volumes as storage units that are independent of the containers. We can mount (i.e., connect) volumes to one or multiple containers allowing accessing data and saving data. When removing the container, mounted volumes will be still available allowing us to save our work between sessions.</p>
 <p>Volumes are created and managed directly by Docker and they are isolated from the host machine. To create a named volume use the command,</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb208-1"><a href="docker-chapter.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker volume create <span class="op">&lt;</span>name-volume<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb210-1"><a href="docker-chapter.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker volume create <span class="op">&lt;</span>name-volume<span class="op">&gt;</span></span></code></pre></div>
 <p>We can mount a named volume when running a container specifying the option <code>-v &lt;name-volume&gt;:&lt;container-absolute-path&gt;</code>. For example,</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb209-1"><a href="docker-chapter.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">-v</span> my-volume:/home/my-volume/ <span class="at">-it</span> my-image:1.0.0</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb211-1"><a href="docker-chapter.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">-v</span> my-volume:/home/my-volume/ <span class="at">-it</span> my-image:1.0.0</span></code></pre></div>
 <p>Note that, if we initialize a container with a named volume that does not exist yet, Docker will automatically create it. In this case, any data that exists at the specified location within the Docker image is added to the created named volume.</p>
 <p>Volumes can be also defined in the <code>Dockerfile</code> using the instruction <code>VOLUMES</code>(see Section <a href="docker-chapter.html#dockerfile">12.2.3</a>). This would create a new mount point. In this case, if we do not mount a named volume at the running time (using the <code>-v</code> option), an <strong>anonymous</strong> volume will be automatically created with any data that exists at the specified location within the docker image. Anonymous volumes behave in the same way as named volumes. The only difference is that anonymous volumes do not have a name but they are referred to by a (not very handy) random alphanumeric sequence.</p>
 <p>We can list all the currently available volumes by,</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb210-1"><a href="docker-chapter.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker volume ls</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb212-1"><a href="docker-chapter.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker volume ls</span></code></pre></div>
 <p>To remove a specific volume, use the command,</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb211-1"><a href="docker-chapter.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker volume rm <span class="op">&lt;</span>name-volume<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb213-1"><a href="docker-chapter.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker volume rm <span class="op">&lt;</span>name-volume<span class="op">&gt;</span></span></code></pre></div>
 <p>For more details and options about volumes, see <a href="https://docs.docker.com/storage/volumes/" class="uri">https://docs.docker.com/storage/volumes/</a>.</p>
 </div>
 <div id="bind-mounts-vs-volumes" class="section level4 hasAnchor" number="12.3.1.3">
@@ -882,36 +894,36 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <h3><span class="header-section-number">12.3.2</span> Docker Compose<a href="docker-chapter.html#docker-compose" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Multiple containers can be used to create complex applications or services. Docker Compose is a tool that helps us manage multi-container applications. Docker Compose needs to be installed separately on Linux (see <a href="https://docs.docker.com/compose/install/" class="uri">https://docs.docker.com/compose/install/</a>), whereas Docker Compose is already available within Docker Desktop on macOS and Windows.</p>
 <p>With Compose, we use a YAML file named <code>docker-compose.yml</code> to configure all our application’s services. In this file, we define and manage all the containers, volumes, and other elements of our application. A <code>docker-compose.yml</code> looks like this:</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb212-1"><a href="docker-chapter.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    docker-compose.yaml    ----#</span></span>
-<span id="cb212-2"><a href="docker-chapter.html#cb212-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-3"><a href="docker-chapter.html#cb212-3" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;3.9&quot;</span></span>
-<span id="cb212-4"><a href="docker-chapter.html#cb212-4" aria-hidden="true" tabindex="-1"></a><span class="at">   </span></span>
-<span id="cb212-5"><a href="docker-chapter.html#cb212-5" aria-hidden="true" tabindex="-1"></a><span class="fu">services</span><span class="kw">:</span></span>
-<span id="cb212-6"><a href="docker-chapter.html#cb212-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">db</span><span class="kw">:</span><span class="co">        # First container</span></span>
-<span id="cb212-7"><a href="docker-chapter.html#cb212-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> postgres</span></span>
-<span id="cb212-8"><a href="docker-chapter.html#cb212-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
-<span id="cb212-9"><a href="docker-chapter.html#cb212-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> db_data:/var/lib/postgresql/data</span></span>
-<span id="cb212-10"><a href="docker-chapter.html#cb212-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
-<span id="cb212-11"><a href="docker-chapter.html#cb212-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> POSTGRES_USER=postgres</span></span>
-<span id="cb212-12"><a href="docker-chapter.html#cb212-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> POSTGRES_PASSWORD=postgres</span></span>
-<span id="cb212-13"><a href="docker-chapter.html#cb212-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">app</span><span class="kw">:</span><span class="co">       # Second container</span></span>
-<span id="cb212-14"><a href="docker-chapter.html#cb212-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span><span class="at"> .</span></span>
-<span id="cb212-15"><a href="docker-chapter.html#cb212-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
-<span id="cb212-16"><a href="docker-chapter.html#cb212-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> app_volume:/code</span></span>
-<span id="cb212-17"><a href="docker-chapter.html#cb212-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
-<span id="cb212-18"><a href="docker-chapter.html#cb212-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;8000:8000&quot;</span></span>
-<span id="cb212-19"><a href="docker-chapter.html#cb212-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
-<span id="cb212-20"><a href="docker-chapter.html#cb212-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> DEBUG=1</span></span>
-<span id="cb212-21"><a href="docker-chapter.html#cb212-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">depends_on</span><span class="kw">:</span></span>
-<span id="cb212-22"><a href="docker-chapter.html#cb212-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> db</span></span>
-<span id="cb212-23"><a href="docker-chapter.html#cb212-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-24"><a href="docker-chapter.html#cb212-24" aria-hidden="true" tabindex="-1"></a><span class="fu">volumes</span><span class="kw">:</span></span>
-<span id="cb212-25"><a href="docker-chapter.html#cb212-25" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">db_data</span><span class="kw">:</span></span>
-<span id="cb212-26"><a href="docker-chapter.html#cb212-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">app_volume</span><span class="kw">:</span></span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb214-1"><a href="docker-chapter.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    docker-compose.yaml    ----#</span></span>
+<span id="cb214-2"><a href="docker-chapter.html#cb214-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-3"><a href="docker-chapter.html#cb214-3" aria-hidden="true" tabindex="-1"></a><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;3.9&quot;</span></span>
+<span id="cb214-4"><a href="docker-chapter.html#cb214-4" aria-hidden="true" tabindex="-1"></a><span class="at">   </span></span>
+<span id="cb214-5"><a href="docker-chapter.html#cb214-5" aria-hidden="true" tabindex="-1"></a><span class="fu">services</span><span class="kw">:</span></span>
+<span id="cb214-6"><a href="docker-chapter.html#cb214-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">db</span><span class="kw">:</span><span class="co">        # First container</span></span>
+<span id="cb214-7"><a href="docker-chapter.html#cb214-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">image</span><span class="kw">:</span><span class="at"> postgres</span></span>
+<span id="cb214-8"><a href="docker-chapter.html#cb214-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb214-9"><a href="docker-chapter.html#cb214-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> db_data:/var/lib/postgresql/data</span></span>
+<span id="cb214-10"><a href="docker-chapter.html#cb214-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb214-11"><a href="docker-chapter.html#cb214-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> POSTGRES_USER=postgres</span></span>
+<span id="cb214-12"><a href="docker-chapter.html#cb214-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> POSTGRES_PASSWORD=postgres</span></span>
+<span id="cb214-13"><a href="docker-chapter.html#cb214-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">app</span><span class="kw">:</span><span class="co">       # Second container</span></span>
+<span id="cb214-14"><a href="docker-chapter.html#cb214-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">build</span><span class="kw">:</span><span class="at"> .</span></span>
+<span id="cb214-15"><a href="docker-chapter.html#cb214-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb214-16"><a href="docker-chapter.html#cb214-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> app_volume:/code</span></span>
+<span id="cb214-17"><a href="docker-chapter.html#cb214-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">ports</span><span class="kw">:</span></span>
+<span id="cb214-18"><a href="docker-chapter.html#cb214-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;8000:8000&quot;</span></span>
+<span id="cb214-19"><a href="docker-chapter.html#cb214-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb214-20"><a href="docker-chapter.html#cb214-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> DEBUG=1</span></span>
+<span id="cb214-21"><a href="docker-chapter.html#cb214-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">depends_on</span><span class="kw">:</span></span>
+<span id="cb214-22"><a href="docker-chapter.html#cb214-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> db</span></span>
+<span id="cb214-23"><a href="docker-chapter.html#cb214-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-24"><a href="docker-chapter.html#cb214-24" aria-hidden="true" tabindex="-1"></a><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb214-25"><a href="docker-chapter.html#cb214-25" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">db_data</span><span class="kw">:</span></span>
+<span id="cb214-26"><a href="docker-chapter.html#cb214-26" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">app_volume</span><span class="kw">:</span></span></code></pre></div>
 <p>Next, we can start our application simply using the command,</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb213-1"><a href="docker-chapter.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker-compose up</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb215-1"><a href="docker-chapter.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker-compose up</span></code></pre></div>
 <p>When we are done, we can stop the application simply by using the command,</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb214-1"><a href="docker-chapter.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker-compose down</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb216-1"><a href="docker-chapter.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker-compose down</span></code></pre></div>
 <p>Docker Compose has many features and options that allow us to manage complex applications and services. Docker Compose, however, is an advanced topic that goes beyond the aim of the present chapter. Interested readers can find an introduction to Docker Compose at
 <a href="https://docs.docker.com/get-started/08_using_compose/" class="uri">https://docs.docker.com/get-started/08_using_compose/</a> and detailed instructions at
 <a href="https://docs.docker.com/compose/" class="uri">https://docs.docker.com/compose/</a>.</p>
@@ -922,9 +934,9 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <div class="packages-logo-box", style="width: 250px;"><img src="images/docker/docker-hub-logo.png"></div>
 <p>Docker Hub (<a href="https://hub.docker.com/" class="uri">https://hub.docker.com/</a>) is an online repository with thousands of Docker images that can be used as <em>Base Images</em> for our containers. As we have already pointed out, many images are officially supported by Docker. Therefore, as the first step, we should usually spend some time online finding which image provides a good starting point for our needs.</p>
 <p>We can start a container using any of the Docker images available online using the <code>docker run</code> command as we would do for locally available images.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb215-1"><a href="docker-chapter.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="va">$docker</span> run [OPTIONS] <span class="op">&lt;</span>DockerHub-Namespace<span class="op">&gt;</span>/<span class="op">&lt;</span>Repository<span class="op">&gt;</span>:<span class="op">&lt;</span>version<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb217-1"><a href="docker-chapter.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="va">$docker</span> run [OPTIONS] <span class="op">&lt;</span>DockerHub-Namespace<span class="op">&gt;</span>/<span class="op">&lt;</span>Repository<span class="op">&gt;</span>:<span class="op">&lt;</span>version<span class="op">&gt;</span></span></code></pre></div>
 <p>If the specified image is not already available on our machine, Docker will automatically download the specified image from Docker Hub. Alternatively, we can explicitly download the desired image using the command,</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb216-1"><a href="docker-chapter.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="va">$docker</span> pull [OPTIONS] <span class="op">&lt;</span>DockerHub-Namespace<span class="op">&gt;</span>/<span class="op">&lt;</span>Repository<span class="op">&gt;</span>:<span class="op">&lt;</span>version<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb218-1"><a href="docker-chapter.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="va">$docker</span> pull [OPTIONS] <span class="op">&lt;</span>DockerHub-Namespace<span class="op">&gt;</span>/<span class="op">&lt;</span>Repository<span class="op">&gt;</span>:<span class="op">&lt;</span>version<span class="op">&gt;</span></span></code></pre></div>
 <p>For more details, see official documentation <a href="https://docs.docker.com/engine/reference/commandline/pull/" class="uri">https://docs.docker.com/engine/reference/commandline/pull/</a>.</p>
 <div id="sharing-images" class="section level4 hasAnchor" number="12.3.3.1">
 <h4><span class="header-section-number">12.3.3.1</span> Sharing Images<a href="docker-chapter.html#sharing-images" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -933,15 +945,15 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <li><p>Create an account on Docker Hub (<a href="https://hub.docker.com/" class="uri">https://hub.docker.com/</a>) following the instructions at <a href="https://docs.docker.com/docker-id/" class="uri">https://docs.docker.com/docker-id/</a>.</p></li>
 <li><p>Log into Docker Hub and press the <em>“Create Repository”</em> button. We need to specify a name and a description for our repository. Next, click <em>“Create”</em>.</p></li>
 <li><p>Log into Docker Hub from our local terminal specifying using the command</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb217-1"><a href="docker-chapter.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker login <span class="at">--username</span><span class="op">=&lt;</span>username<span class="op">&gt;</span> --email=<span class="op">&lt;</span>name@email.com<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb219-1"><a href="docker-chapter.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker login <span class="at">--username</span><span class="op">=&lt;</span>username<span class="op">&gt;</span> --email=<span class="op">&lt;</span>name@email.com<span class="op">&gt;</span></span></code></pre></div>
 <p>Next, we will be prompted to enter the password.</p></li>
 <li><p>Tag our image using the command</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb218-1"><a href="docker-chapter.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker tag <span class="op">&lt;</span>image-id<span class="op">&gt;</span> <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb220-1"><a href="docker-chapter.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker tag <span class="op">&lt;</span>image-id<span class="op">&gt;</span> <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span></span></code></pre></div>
 <p>Remember, we can get the image id from the <code>docker images</code> output.</p></li>
 <li><p>Push the image to the repository using the command,</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb219-1"><a href="docker-chapter.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker push <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb221"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb221-1"><a href="docker-chapter.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker push <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span></span></code></pre></div></li>
 <li><p>Now the image is available online and other colleagues can download it simply using the command,</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb220-1"><a href="docker-chapter.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker pull <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb222"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb222-1"><a href="docker-chapter.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker pull <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span></span></code></pre></div></li>
 </ol>
 <p>For more details on Docker Hub, see <a href="https://docs.docker.com/docker-hub/" class="uri">https://docs.docker.com/docker-hub/</a>.</p>
 </div>
@@ -968,52 +980,52 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
 <p>We went through many commands and things could be confused. Here is a summary of all the main Docker commands.</p>
 <div id="images" class="section level5 unnumbered hasAnchor">
 <h5>Images<a href="docker-chapter.html#images" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb221"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb221-1"><a href="docker-chapter.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> <span class="op">&lt;</span>name-image<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span> .   <span class="co"># Build an image from Dockerfile</span></span>
-<span id="cb221-2"><a href="docker-chapter.html#cb221-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb221-3"><a href="docker-chapter.html#cb221-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> images                          <span class="co"># List all images</span></span>
-<span id="cb221-4"><a href="docker-chapter.html#cb221-4" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> image ls                        <span class="co"># List all images</span></span>
-<span id="cb221-5"><a href="docker-chapter.html#cb221-5" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> image rm <span class="op">&lt;</span>id-image<span class="op">&gt;</span>             # Remove Image</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb223-1"><a href="docker-chapter.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> <span class="op">&lt;</span>name-image<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span> .   <span class="co"># Build an image from Dockerfile</span></span>
+<span id="cb223-2"><a href="docker-chapter.html#cb223-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb223-3"><a href="docker-chapter.html#cb223-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> images                          <span class="co"># List all images</span></span>
+<span id="cb223-4"><a href="docker-chapter.html#cb223-4" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> image ls                        <span class="co"># List all images</span></span>
+<span id="cb223-5"><a href="docker-chapter.html#cb223-5" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> image rm <span class="op">&lt;</span>id-image<span class="op">&gt;</span>             # Remove Image</span></code></pre></div>
 </div>
 <div id="container" class="section level5 unnumbered hasAnchor">
 <h5>Container<a href="docker-chapter.html#container" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb222"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb222-1"><a href="docker-chapter.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--name</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span> <span class="op">&lt;</span>image<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span> # Run a container from an Image</span>
-<span id="cb222-2"><a href="docker-chapter.html#cb222-2" aria-hidden="true" tabindex="-1"></a>           <span class="co"># Other flags and options</span></span>
-<span id="cb222-3"><a href="docker-chapter.html#cb222-3" aria-hidden="true" tabindex="-1"></a>           <span class="ex">--rm</span>     <span class="co"># Remove at exit      </span></span>
-<span id="cb222-4"><a href="docker-chapter.html#cb222-4" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-it</span>      <span class="co"># Interactive terminal</span></span>
-<span id="cb222-5"><a href="docker-chapter.html#cb222-5" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-d</span>       <span class="co"># Detached mode</span></span>
-<span id="cb222-6"><a href="docker-chapter.html#cb222-6" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-v</span> <span class="op">&lt;</span>host-path<span class="op">&gt;</span>:<span class="op">&lt;</span>container-path<span class="op">&gt;</span>  # Attach a volume or bind mount</span>
-<span id="cb222-7"><a href="docker-chapter.html#cb222-7" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-e</span> <span class="op">&lt;</span>name<span class="op">&gt;</span>=<span class="op">&lt;</span>value<span class="op">&gt;</span>                # Define environment variable</span>
-<span id="cb222-8"><a href="docker-chapter.html#cb222-8" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-p</span> <span class="op">&lt;</span>host-port<span class="op">&gt;</span>:<span class="op">&lt;</span>container-port<span class="op">&gt;</span>  # Map port</span>
-<span id="cb222-9"><a href="docker-chapter.html#cb222-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb222-10"><a href="docker-chapter.html#cb222-10" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> ps <span class="at">-a</span>              <span class="co"># List all containers</span></span>
-<span id="cb222-11"><a href="docker-chapter.html#cb222-11" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> container ls  <span class="at">-a</span>     <span class="co"># List all containers</span></span>
-<span id="cb222-12"><a href="docker-chapter.html#cb222-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb222-13"><a href="docker-chapter.html#cb222-13" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> stop <span class="op">&lt;</span>container-name<span class="op">&gt;</span>    # Stop container</span>
-<span id="cb222-14"><a href="docker-chapter.html#cb222-14" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> start <span class="op">&lt;</span>container-name<span class="op">&gt;</span>   # Start container</span>
-<span id="cb222-15"><a href="docker-chapter.html#cb222-15" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> rm <span class="op">&lt;</span>container-name<span class="op">&gt;</span>        # Remove container</span>
-<span id="cb222-16"><a href="docker-chapter.html#cb222-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb222-17"><a href="docker-chapter.html#cb222-17" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> cp <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>path<span class="op">&gt;</span> <span class="op">&lt;</span>host-path<span class="op">&gt;</span> # Copy from container to host</span>
-<span id="cb222-18"><a href="docker-chapter.html#cb222-18" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> cp <span class="op">&lt;</span>host-path<span class="op">&gt;</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>path<span class="op">&gt;</span> # Copy from host to container</span>
-<span id="cb222-19"><a href="docker-chapter.html#cb222-19" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> <span class="op">&lt;</span>name-container<span class="op">&gt;</span> bin/bash     <span class="co"># Connect to container bin/bash</span></span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb224-1"><a href="docker-chapter.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--name</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span> <span class="op">&lt;</span>image<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span> # Run a container from an Image</span>
+<span id="cb224-2"><a href="docker-chapter.html#cb224-2" aria-hidden="true" tabindex="-1"></a>           <span class="co"># Other flags and options</span></span>
+<span id="cb224-3"><a href="docker-chapter.html#cb224-3" aria-hidden="true" tabindex="-1"></a>           <span class="ex">--rm</span>     <span class="co"># Remove at exit      </span></span>
+<span id="cb224-4"><a href="docker-chapter.html#cb224-4" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-it</span>      <span class="co"># Interactive terminal</span></span>
+<span id="cb224-5"><a href="docker-chapter.html#cb224-5" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-d</span>       <span class="co"># Detached mode</span></span>
+<span id="cb224-6"><a href="docker-chapter.html#cb224-6" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-v</span> <span class="op">&lt;</span>host-path<span class="op">&gt;</span>:<span class="op">&lt;</span>container-path<span class="op">&gt;</span>  # Attach a volume or bind mount</span>
+<span id="cb224-7"><a href="docker-chapter.html#cb224-7" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-e</span> <span class="op">&lt;</span>name<span class="op">&gt;</span>=<span class="op">&lt;</span>value<span class="op">&gt;</span>                # Define environment variable</span>
+<span id="cb224-8"><a href="docker-chapter.html#cb224-8" aria-hidden="true" tabindex="-1"></a>           <span class="ex">-p</span> <span class="op">&lt;</span>host-port<span class="op">&gt;</span>:<span class="op">&lt;</span>container-port<span class="op">&gt;</span>  # Map port</span>
+<span id="cb224-9"><a href="docker-chapter.html#cb224-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-10"><a href="docker-chapter.html#cb224-10" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> ps <span class="at">-a</span>              <span class="co"># List all containers</span></span>
+<span id="cb224-11"><a href="docker-chapter.html#cb224-11" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> container ls  <span class="at">-a</span>     <span class="co"># List all containers</span></span>
+<span id="cb224-12"><a href="docker-chapter.html#cb224-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-13"><a href="docker-chapter.html#cb224-13" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> stop <span class="op">&lt;</span>container-name<span class="op">&gt;</span>    # Stop container</span>
+<span id="cb224-14"><a href="docker-chapter.html#cb224-14" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> start <span class="op">&lt;</span>container-name<span class="op">&gt;</span>   # Start container</span>
+<span id="cb224-15"><a href="docker-chapter.html#cb224-15" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> rm <span class="op">&lt;</span>container-name<span class="op">&gt;</span>        # Remove container</span>
+<span id="cb224-16"><a href="docker-chapter.html#cb224-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-17"><a href="docker-chapter.html#cb224-17" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> cp <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>path<span class="op">&gt;</span> <span class="op">&lt;</span>host-path<span class="op">&gt;</span> # Copy from container to host</span>
+<span id="cb224-18"><a href="docker-chapter.html#cb224-18" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> cp <span class="op">&lt;</span>host-path<span class="op">&gt;</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span>:<span class="op">&lt;</span>path<span class="op">&gt;</span> # Copy from host to container</span>
+<span id="cb224-19"><a href="docker-chapter.html#cb224-19" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> <span class="op">&lt;</span>name-container<span class="op">&gt;</span> bin/bash     <span class="co"># Connect to container bin/bash</span></span></code></pre></div>
 </div>
 <div id="volumes-1" class="section level5 unnumbered hasAnchor">
 <h5>Volumes<a href="docker-chapter.html#volumes-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb223"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb223-1"><a href="docker-chapter.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume create <span class="op">&lt;</span>name-volume<span class="op">&gt;</span>  # Create named volume</span>
-<span id="cb223-2"><a href="docker-chapter.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume ls                    <span class="co"># List all volumes</span></span>
-<span id="cb223-3"><a href="docker-chapter.html#cb223-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume rm <span class="op">&lt;</span>volume id<span class="op">&gt;</span>        # Remove volume</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb225-1"><a href="docker-chapter.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume create <span class="op">&lt;</span>name-volume<span class="op">&gt;</span>  # Create named volume</span>
+<span id="cb225-2"><a href="docker-chapter.html#cb225-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume ls                    <span class="co"># List all volumes</span></span>
+<span id="cb225-3"><a href="docker-chapter.html#cb225-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume rm <span class="op">&lt;</span>volume id<span class="op">&gt;</span>        # Remove volume</span></code></pre></div>
 </div>
 <div id="docker-compose-1" class="section level5 unnumbered hasAnchor">
 <h5>Docker Compose<a href="docker-chapter.html#docker-compose-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb224"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb224-1"><a href="docker-chapter.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> up    <span class="co"># Start service</span></span>
-<span id="cb224-2"><a href="docker-chapter.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> down  <span class="co"># Stop service</span></span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb226-1"><a href="docker-chapter.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> up    <span class="co"># Start service</span></span>
+<span id="cb226-2"><a href="docker-chapter.html#cb226-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker-compose</span> down  <span class="co"># Stop service</span></span></code></pre></div>
 </div>
 <div id="docker-hub-1" class="section level5 unnumbered hasAnchor">
 <h5>Docker Hub<a href="docker-chapter.html#docker-hub-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div class="sourceCode" id="cb225"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb225-1"><a href="docker-chapter.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull  <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span>   # Pull image</span>
-<span id="cb225-2"><a href="docker-chapter.html#cb225-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> push  <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>         # Push image</span>
-<span id="cb225-3"><a href="docker-chapter.html#cb225-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-4"><a href="docker-chapter.html#cb225-4" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> login <span class="at">--username</span><span class="op">=&lt;</span>username<span class="op">&gt;</span> --email=<span class="op">&lt;</span>email@com<span class="op">&gt;</span>  # Login  </span>
-<span id="cb225-5"><a href="docker-chapter.html#cb225-5" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> tag <span class="op">&lt;</span>image-id<span class="op">&gt;</span> <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span> # Tag image for repository</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb227-1"><a href="docker-chapter.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull  <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span>   # Pull image</span>
+<span id="cb227-2"><a href="docker-chapter.html#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> push  <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>         # Push image</span>
+<span id="cb227-3"><a href="docker-chapter.html#cb227-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb227-4"><a href="docker-chapter.html#cb227-4" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> login <span class="at">--username</span><span class="op">=&lt;</span>username<span class="op">&gt;</span> --email=<span class="op">&lt;</span>email@com<span class="op">&gt;</span>  # Login  </span>
+<span id="cb227-5"><a href="docker-chapter.html#cb227-5" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> tag <span class="op">&lt;</span>image-id<span class="op">&gt;</span> <span class="op">&lt;</span>username<span class="op">&gt;</span>/<span class="op">&lt;</span>name-repo<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span> # Tag image for repository</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1129,7 +1141,7 @@ Figure 12.1: Image retrieved from Docker official documentation (<a href="https:
   <div class="footer">
     Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
     <br>
-    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
     <br>
     To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
   </div>

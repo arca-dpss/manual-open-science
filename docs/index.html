@@ -168,11 +168,11 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -183,6 +183,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
 <li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
@@ -429,7 +430,18 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.1</b> Quarto</a></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown"><i class="fa fa-check"></i><b>10.2</b> <code>trackdown</code></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.2.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.2.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.2.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
@@ -574,36 +586,39 @@ div.csl-indent {
 <h2 class="subtitle"><em>Make Your Scientific Research Accessible and Reproducible</em></h2>
 <p class="author"><em><p><a href="https://claudiozandonella.netlify.app/">Claudio Zandonella Callegher</a> and
 <a href="https://www.linkedin.com/in/davidemassidda/">Davide Massidda</a></p></em></p>
-<p class="date"><em>25 April, 2022 [last-updated]</em></p>
+<p class="date"><em>26 April, 2022 [last-updated]</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered hasAnchor">
 <h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The present book aims to describe programming good practices and introduce common tools used in software development to guarantee the reproducibility of the analysis results. We want to make scientific research open-source knowledge development.</p>
+<blockquote>
+<p>Science is one of humanity’s greatest inventions. Academia, on the other hand, is not. It is remarkable how successful science has been, given the often chaotic habits of scientists. In contrast to other fields, like say landscaping or software engineering, science as a profession is largely <em>unprofessional</em> - apprentice scientists are taught less about how to work responsibly than about how to earn promotions. This results in ubiquitous and costly errors. Software development has become indispensable to scientific work. I want to playfully ask how it can become even more useful by transferring some aspects of its professionalism, the day-to-day tracking and back-tracking and testing that is especially part of distributed, open-source software development. Science, after all, aspires to be distributed, open-source knowledge development.</p>
+<p>“Science as Amateur Software Development” <span class="citation"><a href="#ref-richardmcelreathScienceAmateurSoftware2020" role="doc-biblioref">Richard McElreath</a> (<a href="#ref-richardmcelreathScienceAmateurSoftware2020" role="doc-biblioref">2020</a>)</span></p>
+<p><a href="https://youtu.be/zwRdO9_GGhY" class="uri">https://youtu.be/zwRdO9_GGhY</a></p>
+</blockquote>
+<p>Inspired by McElreath’s words, this book aims to describe programming good practices and introduce common tools used in software development to guarantee the reproducibility of analysis results. We want to make scientific research an open-source knowledge development.</p>
 <p>The book is available online at <a href="https://arca-dpss.github.io/manual-open-science/" class="uri">https://arca-dpss.github.io/manual-open-science/</a>.</p>
 <p>A PDF copy is available at <a href="https://arca-dpss.github.io/manual-open-science/manual-open-science.pdf" class="uri">https://arca-dpss.github.io/manual-open-science/manual-open-science.pdf</a>.</p>
-<div id="book-content" class="section level2 unnumbered hasAnchor">
-<h2>Book Content<a href="index.html#book-content" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="book-summary" class="section level2 unnumbered hasAnchor">
+<h2>Book Summary<a href="index.html#book-summary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the book, we will learn to:</p>
 <ul>
-<li>Share our materials using the Open Science Framework (<strong>OSF</strong>)</li>
-<li>Learn how appropriately to structure and organize our materials in a <strong>repository</strong></li>
-<li>Follow recommendations about data organization and data sharing</li>
-<li>Improve code readability and maintainability using a <strong>Functional Style</strong></li>
-<li>Learn version control and collaboration using <strong>Git</strong> and <strong>Github</strong></li>
-<li>Manage analysis workflow with dedicated tools</li>
-<li>Create dynamic documents</li>
-<li>Manage project requirements and dependencies using dedicated tools</li>
-<li>Create a container to guarantee reproducibility using <strong>Docker</strong></li>
+<li>Share our materials using the <strong>Open Science Framework</strong></li>
+<li>Organize project files and data in a well structured and documented <strong>Repository</strong></li>
+<li>Write readable and maintainable code using a <strong>Functional Style</strong> approach</li>
+<li>Use <strong>Git</strong> and <strong>GitHub</strong> for tracking changes and managing collaboration during the development</li>
+<li>Use dedicated tools for managing the <strong>Analysis Workflow</strong> pipeline</li>
+<li>Use dedicated tools for creating <strong>Dynamic Documents</strong></li>
+<li>Manage project requirements and dependencies using <strong>Docker</strong></li>
 </ul>
-<p>This book provides useful recommendations and guidelines that can be applied independently of the specific programming language. However, examples and specific applications are based on the R programming language. Readers working with programming languages other than R can still find valuable guidelines and information and can later apply the same workflow and ideas using dedicated tools specific to their preferred programming language.</p>
-<p>Finally, as most researchers have no formal training in programming and software development, we provide a very gentle introduction to many programming concepts and tools without assuming any previous knowledge. Note, however, that we assume that the reader is already familiar with the R programming language for specific examples and applications.</p>
+<p>As most researchers have no formal training in programming and software development, we provide a very gentle introduction to many programming concepts and tools without assuming any previous knowledge.</p>
+<p>Examples and specific applications are based on the R programming language. However, this book provides recommendations and guidelines useful for any programming language.</p>
 </div>
 <div id="about-the-authors" class="section level2 unnumbered hasAnchor">
 <h2>About the Authors<a href="index.html#about-the-authors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>During our careers, we both moved into the field of Data Science after our PhD in Psychological Sciences. This book is our attempt to bring back into scientific research what we have learned outside of academia.</p>
+<p>During our careers, we both moved into the field of Data Science after a PhD in Psychological Sciences. This book is our attempt to bring back into scientific research what we have learned outside of academia.</p>
 <ul>
-<li><a href="https://claudiozandonella.netlify.app/">Claudio Zandonella Callegher</a>. During my PhD, I fell in love with data science. Understanding the complex phenomena that affect our lives by exploring data, formulating hypotheses, building models, and validating them. I find this whole process extremely challenging and motivating. Moreover, I am excited about new tools and solutions to enhance the replicability and transparency of scientific results.</li>
-<li><a href="https://www.linkedin.com/in/davidemassidda/">Davide Massidda</a>.</li>
+<li><a href="https://claudiozandonella.netlify.app/">Claudio Zandonella Callegher</a> (<a href="mailto:claudiozandonella@gmail.com" class="email">claudiozandonella@gmail.com</a>). During my PhD, I fell in love with data science. Understanding the complex phenomena that affect our lives by exploring data, formulating hypotheses, building models, and validating them. I find this whole process extremely challenging and motivating. Moreover, I am excited about new tools and solutions to enhance the replicability and transparency of scientific results.</li>
+<li><a href="https://www.linkedin.com/in/davidemassidda/">Davide Massidda</a> (<a href="mailto:d.massidda@kode-solutions.net" class="email">d.massidda@kode-solutions.net</a>).</li>
 </ul>
 </div>
 <div id="arca" class="section level2 unnumbered hasAnchor">
@@ -614,20 +629,33 @@ div.csl-indent {
 <div id="contribute" class="section level2 unnumbered hasAnchor">
 <h2>Contribute<a href="index.html#contribute" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Surely there are many typos to fix and new arguments to include. Anyone is welcome to contribute to this book. For small typos just send a pull request with all the corrections. To propose new chapters or paragraphs, instead, open an issue to discuss and plan them.</p>
+<p>View book source at GitHub repository <a href="https://github.com/arca-dpss/manual-open-science" class="uri">https://github.com/arca-dpss/manual-open-science</a>.</p>
 </div>
-<div id="acknowledgements" class="section level2 unnumbered hasAnchor">
-<h2>Acknowledgements<a href="index.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This book was inspired by Richard McElreath’s talk <em>“Science as Amateur Software Development”</em> <a href="https://youtu.be/zwRdO9_GGhY">https://youtu.be/zwRdO9_GGhY</a>. Talk abstract:</p>
-<blockquote>
-<p>Science is one of humanity’s greatest inventions. Academia, on the other hand, is not. It is remarkable how successful science has been, given the often chaotic habits of scientists. In contrast to other fields, like say landscaping or software engineering, science as a profession is largely <em>unprofessional</em> - apprentice scientists are taught less about how to work responsibly than about how to earn promotions. This results in ubiquitous and costly errors. Software development has become indispensable to scientific work. I want to playfully ask how it can become even more useful by transferring some aspects of its professionalism, the day-to-day tracking and back-tracking and testing that is especially part of distributed, open-source software development. Science, after all, aspires to be distributed, open-source knowledge development.</p>
-</blockquote>
+<div id="cite" class="section level2 unnumbered hasAnchor">
+<h2>Cite<a href="index.html#cite" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For attribution, please cite this work as:</p>
+<p>Zandonella Callegher, C., &amp; Massidda, D. (2022). The Open Science Manual: Make Your Scientific Research Accessible and Reproducible. <a href="https://arca-dpss.github.io/manual-open-science/" class="uri">https://arca-dpss.github.io/manual-open-science/</a></p>
+<p>BibTeX citation:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">@book{zandonellaMassiddaOpenScience2022,</span></span>
+<span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">title</span> = {The Open Science Manual: Make Your Scientific Research Accessible and Reproducible},</span>
+<span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">author</span> = {Zandonella Callegher, Claudio and Massidda, Davide},</span>
+<span id="cb1-4"><a href="index.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">date</span> = {2022},</span>
+<span id="cb1-5"><a href="index.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = {https://arca-dpss.github.io/manual-open-science/}</span>
+<span id="cb1-6"><a href="index.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div>
 </div>
 <div id="license" class="section level2 unnumbered hasAnchor">
 <h2>License<a href="index.html#license" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This book is released under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.</p>
+<p><img src="images/cc-nc-sa.png" width="20%" style="display: block; margin: auto auto auto 0;" /></p>
+<p>This book is released under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a>.</p>
 <p>This book is based on the <a href="https://github.com/arca-dpss/template-bookdown">ARCA Bookown Template</a> released under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.</p>
 <p>The icons used belong to <a href="https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu-book</a> and are licensed under under <a href="https://creativecommons.org/licenses/by-nc/2.0/">CC BY-NC 2.0 License</a>.</p>
 
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-richardmcelreathScienceAmateurSoftware2020" class="csl-entry">
+Richard McElreath (Director). (2020, September 26). <em>Science as <span>Amateur Software Development</span></em>. <a href="https://www.youtube.com/watch?v=zwRdO9_GGhY">https://www.youtube.com/watch?v=zwRdO9_GGhY</a>
 </div>
 </div>
 <hr>
@@ -635,7 +663,7 @@ div.csl-indent {
   <div class="footer">
     Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
     <br>
-    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
     <br>
     To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
   </div>

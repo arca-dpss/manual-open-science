@@ -168,11 +168,11 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -183,6 +183,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
 <li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
@@ -429,7 +430,18 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.1</b> Quarto</a></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown"><i class="fa fa-check"></i><b>10.2</b> <code>trackdown</code></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.2.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.2.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.2.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
@@ -586,7 +598,7 @@ div.csl-indent {
 <h2><span class="header-section-number">13.1</span> Rocker Getting Started<a href="rocker-chapter.html#rocker-getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s see how we can use R and Rstudio inside a Docker container. To do that we choose the image <code>rocker/rstudio</code>. Note that this image is not based on RStudio Desktop (i.e., our usual desktop application) but is based on RStudio Server (i.e., a web-browser-based interface). Don’t worry, they look almost the same. The main difference is just that we open RStudio Server through our web browser. To dig a little bit deeper regarding the differences between Desktop and Server versions, see <a href="https://support.rstudio.com/hc/en-us/articles/217799198-What-is-the-difference-between-RStudio-Desktop-RStudio-Workbench-and-RStudio-Server-" class="uri">https://support.rstudio.com/hc/en-us/articles/217799198-What-is-the-difference-between-RStudio-Desktop-RStudio-Workbench-and-RStudio-Server-</a>.</p>
 <p>If we are on macOS or Windows, first, remember to start the Docker daemon by opening the Docker Desktop application. Next, to create a container with the <code>rocker/rstudio</code> image, run the following command,</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb226-1"><a href="rocker-chapter.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> PASSWORD=my-password rocker/rstudio:4.1.0</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb228-1"><a href="rocker-chapter.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> PASSWORD=my-password rocker/rstudio:4.1.0</span></code></pre></div>
 <p>In the command we specified several options:</p>
 <ul>
 <li><strong><code>--rm</code> (optional).</strong> Remove the container once it exits.</li>
@@ -595,15 +607,15 @@ div.csl-indent {
 <li><strong><code>4.1.0</code>.</strong> By specifying the image tag, we define the desired R version, in this case, R <code>4.1.0</code>. Remember that it is always recommended to specify the image tag.</li>
 </ul>
 <p>The first time we run this command it can take a few minutes (and gigabytes) for Docker to download the <code>rocker/rstudio</code> image from Docker Hub. We will see something similar to this on our terminal,</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb227-1"><a href="rocker-chapter.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Unable</span> to find image <span class="st">&#39;rocker/rstudio:4.1.0&#39;</span> locally</span>
-<span id="cb227-2"><a href="rocker-chapter.html#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="ex">4.1.0:</span> Pulling from rocker/rstudio</span>
-<span id="cb227-3"><a href="rocker-chapter.html#cb227-3" aria-hidden="true" tabindex="-1"></a><span class="ex">7b1a6ab2e44d:</span> Pull complete </span>
-<span id="cb227-4"><a href="rocker-chapter.html#cb227-4" aria-hidden="true" tabindex="-1"></a><span class="ex">34cb923ed704:</span> Pull complete </span>
-<span id="cb227-5"><a href="rocker-chapter.html#cb227-5" aria-hidden="true" tabindex="-1"></a><span class="ex">f2f213d01c8c:</span> Downloading [=======================<span class="op">&gt;</span>         ]  200.7MB/295.8MB</span>
-<span id="cb227-6"><a href="rocker-chapter.html#cb227-6" aria-hidden="true" tabindex="-1"></a><span class="ex">7c05c07f0160:</span> Download complete </span>
-<span id="cb227-7"><a href="rocker-chapter.html#cb227-7" aria-hidden="true" tabindex="-1"></a><span class="ex">f72cf49d9462:</span> Download complete </span>
-<span id="cb227-8"><a href="rocker-chapter.html#cb227-8" aria-hidden="true" tabindex="-1"></a><span class="ex">6abf17a5ebed:</span> Downloading [===========================<span class="op">&gt;</span>     ]  171.7MB/218.4MB</span>
-<span id="cb227-9"><a href="rocker-chapter.html#cb227-9" aria-hidden="true" tabindex="-1"></a><span class="ex">9a11ac2d5af1:</span> Download complete </span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb229-1"><a href="rocker-chapter.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Unable</span> to find image <span class="st">&#39;rocker/rstudio:4.1.0&#39;</span> locally</span>
+<span id="cb229-2"><a href="rocker-chapter.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="ex">4.1.0:</span> Pulling from rocker/rstudio</span>
+<span id="cb229-3"><a href="rocker-chapter.html#cb229-3" aria-hidden="true" tabindex="-1"></a><span class="ex">7b1a6ab2e44d:</span> Pull complete </span>
+<span id="cb229-4"><a href="rocker-chapter.html#cb229-4" aria-hidden="true" tabindex="-1"></a><span class="ex">34cb923ed704:</span> Pull complete </span>
+<span id="cb229-5"><a href="rocker-chapter.html#cb229-5" aria-hidden="true" tabindex="-1"></a><span class="ex">f2f213d01c8c:</span> Downloading [=======================<span class="op">&gt;</span>         ]  200.7MB/295.8MB</span>
+<span id="cb229-6"><a href="rocker-chapter.html#cb229-6" aria-hidden="true" tabindex="-1"></a><span class="ex">7c05c07f0160:</span> Download complete </span>
+<span id="cb229-7"><a href="rocker-chapter.html#cb229-7" aria-hidden="true" tabindex="-1"></a><span class="ex">f72cf49d9462:</span> Download complete </span>
+<span id="cb229-8"><a href="rocker-chapter.html#cb229-8" aria-hidden="true" tabindex="-1"></a><span class="ex">6abf17a5ebed:</span> Downloading [===========================<span class="op">&gt;</span>     ]  171.7MB/218.4MB</span>
+<span id="cb229-9"><a href="rocker-chapter.html#cb229-9" aria-hidden="true" tabindex="-1"></a><span class="ex">9a11ac2d5af1:</span> Download complete </span></code></pre></div>
 <p>Once downloaded, the container will be initialized and a few other lines will be printed on the terminal. Now, the terminal will become non-responsive: what is going on? Where is my container? Actually, the container is alive and running, the terminal has become not responsive because we attached it to the container without specifying other commands. Using <code>rocker/rstudio</code> we do not need the terminal but only our web browser.</p>
 <div class="trick" title="Attach Options">
 <p>Running a <code>rocker/rstudio</code> container will leave our terminal not responsive. If we need the terminal we can simply open a new tab or terminal window</p>
@@ -633,27 +645,27 @@ div.csl-indent {
 <p>To export a file, select the file and from the <em>“More”</em> menu in the File RStudio panel, click <em>“Export…”</em>.
 <img src="images/rocker/RStudio-Server-export.png" width="50%" style="display: block; margin: auto;" /></p></li>
 <li><p><strong>Bind Mounts.</strong> We can mount a local directory when running the container using the option <code>-v &lt;host-absolute-path&gt;:&lt;container-absolute-path&gt;</code>. The default user in the <code>rocker/rstudio</code> image is named <code>rstudio</code>. Therefore, the container absolute path would be <code>/home/rstudio/&lt;path&gt;</code>. For example, to mount the directory <code>/Users/&lt;user-name&gt;/my-project/</code>, we would specify,</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb228-1"><a href="rocker-chapter.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-v</span> /Users/<span class="op">&lt;</span>user-name<span class="op">&gt;</span>/my-project/:/home/rstudio/my-project/</span></code></pre></div></li>
+<div class="sourceCode" id="cb230"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb230-1"><a href="rocker-chapter.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-v</span> /Users/<span class="op">&lt;</span>user-name<span class="op">&gt;</span>/my-project/:/home/rstudio/my-project/</span></code></pre></div></li>
 <li><p><strong>Volumes.</strong> We can mount a named volume when running the container specifying the option <code>-v &lt;name-volume&gt;:&lt;container-absolute-path&gt;</code>. Again, the default user is <code>rstudio</code>, thus we would specify,</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb229-1"><a href="rocker-chapter.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-v</span> My-volume:/home/rstudio/my-volume/</span></code></pre></div></li>
+<div class="sourceCode" id="cb231"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb231-1"><a href="rocker-chapter.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-v</span> My-volume:/home/rstudio/my-volume/</span></code></pre></div></li>
 </ul>
 <div class="deffun" title="Rocker User Permissions">
 <p>As always, when we deal with files we also deal with permissions. Mounting <strong>bind mounts</strong> at the runtime will automatically assign ownerships to the default users (<code>rstudio</code>), thus there should be no problem when modifying and saving files.</p>
 <p>On the contrary, named <strong>volumes</strong> permissions depend on the settings specified when they are created. If mounting a new named volume at the runtime, this will be created but owned by the root user. Therefore, the <code>rstudio</code> user would not be able to modify and save files.</p>
 <p>Assigning volume ownership to the <code>rstudio</code> user can be done, for example, by creating a new image using the following <code>Dockerfile</code>,</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb230-1"><a href="rocker-chapter.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----#</span></span>
-<span id="cb230-2"><a href="rocker-chapter.html#cb230-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Base image</span></span>
-<span id="cb230-3"><a href="rocker-chapter.html#cb230-3" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.0</span>
-<span id="cb230-4"><a href="rocker-chapter.html#cb230-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb230-5"><a href="rocker-chapter.html#cb230-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create folder and change owner (user:group)</span></span>
-<span id="cb230-6"><a href="rocker-chapter.html#cb230-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> mkdir /home/rstudio/My-project <span class="dt">\</span></span>
-<span id="cb230-7"><a href="rocker-chapter.html#cb230-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&amp;&amp;</span> <span class="fu">chown</span> <span class="at">-R</span> rstudio:rstudio /home/rstudio/my-project</span>
-<span id="cb230-8"><a href="rocker-chapter.html#cb230-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb230-9"><a href="rocker-chapter.html#cb230-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define volume</span></span>
-<span id="cb230-10"><a href="rocker-chapter.html#cb230-10" aria-hidden="true" tabindex="-1"></a><span class="ex">VOLUME</span> /home/rstudio/my-project</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb232-1"><a href="rocker-chapter.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----#</span></span>
+<span id="cb232-2"><a href="rocker-chapter.html#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Base image</span></span>
+<span id="cb232-3"><a href="rocker-chapter.html#cb232-3" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.0</span>
+<span id="cb232-4"><a href="rocker-chapter.html#cb232-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-5"><a href="rocker-chapter.html#cb232-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create folder and change owner (user:group)</span></span>
+<span id="cb232-6"><a href="rocker-chapter.html#cb232-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> mkdir /home/rstudio/My-project <span class="dt">\</span></span>
+<span id="cb232-7"><a href="rocker-chapter.html#cb232-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&amp;&amp;</span> <span class="fu">chown</span> <span class="at">-R</span> rstudio:rstudio /home/rstudio/my-project</span>
+<span id="cb232-8"><a href="rocker-chapter.html#cb232-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-9"><a href="rocker-chapter.html#cb232-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define volume</span></span>
+<span id="cb232-10"><a href="rocker-chapter.html#cb232-10" aria-hidden="true" tabindex="-1"></a><span class="ex">VOLUME</span> /home/rstudio/my-project</span></code></pre></div>
 <p>Note that it is important to change the directory ownership before the <code>VOLUME</code> instruction. Changes done to the directory (e.g., assign ownership) or to its content after the <code>VOLUME</code> instruction are ignored (see <a href="https://docs.docker.com/engine/reference/builder/#volume" class="uri">https://docs.docker.com/engine/reference/builder/#volume</a>).</p>
 <p>Next, to create a named volume, the first time we run the new image we have to specify the option</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb231-1"><a href="rocker-chapter.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-v</span> my-project:/home/rstudio/my-project</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb233-1"><a href="rocker-chapter.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-v</span> my-project:/home/rstudio/my-project</span></code></pre></div>
 <p>Doing this, a new volume named <code>my-project</code> owned by <code>rstudio</code> user will be created.</p>
 <p>To summarize, volume permissions are slightly more difficult to manage. If we do not need to care about security, bind mounts are a much easier solution. To learn more about file permission in Rocker containers, see the discussion at <a href="https://github.com/rocker-org/rocker/issues/246#issuecomment-316124359" class="uri">https://github.com/rocker-org/rocker/issues/246#issuecomment-316124359</a>.</p>
 <p>To learn more about user management (e.g., custom users, run as root group) in Rocker containers, see <a href="https://www.rocker-project.org/use/managing_users/" class="uri">https://www.rocker-project.org/use/managing_users/</a>.</p>
@@ -663,24 +675,24 @@ div.csl-indent {
 <h2><span class="header-section-number">13.3</span> Custom <code>Dockerfile</code><a href="rocker-chapter.html#custom-dockerfile" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now we know how to start a container with RStudio Server using <code>rocker/rstudio</code> and how to manage bind mounts (or volumes) for persistent data storage. However, we note that each time we run the container we need to reinstall all the required R packages as they are not available in the base image. Moreover, we can not install dependencies external to the R ecosystem as we have no root permission.</p>
 <p>If none of the images provided by Rocker satisfies our requirements, we can create our own custom image. As we have already seen in Chapter <a href="docker-chapter.html#dockerfile">12.2.3</a>, we simply need to define a <code>Dockerfile</code> for our project. A possible <code>Dockerfile</code> may look like the following one,</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb232-1"><a href="rocker-chapter.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----#</span></span>
-<span id="cb232-2"><a href="rocker-chapter.html#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Base image</span></span>
-<span id="cb232-3"><a href="rocker-chapter.html#cb232-3" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.0</span>
-<span id="cb232-4"><a href="rocker-chapter.html#cb232-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb232-5"><a href="rocker-chapter.html#cb232-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Install external dependencies</span></span>
-<span id="cb232-6"><a href="rocker-chapter.html#cb232-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> apt-get update <span class="dt">\</span></span>
-<span id="cb232-7"><a href="rocker-chapter.html#cb232-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> curl</span>
-<span id="cb232-8"><a href="rocker-chapter.html#cb232-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb232-9"><a href="rocker-chapter.html#cb232-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R packages</span></span>
-<span id="cb232-10"><a href="rocker-chapter.html#cb232-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;install.packages(&#39;trackdown&#39;)&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb234-1"><a href="rocker-chapter.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----#</span></span>
+<span id="cb234-2"><a href="rocker-chapter.html#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Base image</span></span>
+<span id="cb234-3"><a href="rocker-chapter.html#cb234-3" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.0</span>
+<span id="cb234-4"><a href="rocker-chapter.html#cb234-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-5"><a href="rocker-chapter.html#cb234-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Install external dependencies</span></span>
+<span id="cb234-6"><a href="rocker-chapter.html#cb234-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> apt-get update <span class="dt">\</span></span>
+<span id="cb234-7"><a href="rocker-chapter.html#cb234-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> curl</span>
+<span id="cb234-8"><a href="rocker-chapter.html#cb234-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-9"><a href="rocker-chapter.html#cb234-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R packages</span></span>
+<span id="cb234-10"><a href="rocker-chapter.html#cb234-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;install.packages(&#39;trackdown&#39;)&quot;</span></span></code></pre></div>
 <p>Note the particular combined use of <code>"</code> and <code>'</code> to correctly specify the command.</p>
 <p>Alternatively, we could run an R script (or a bash script) created ad-hoc with the instructions to install all the R packages (or external dependencies). In this case, the <code>Dockerfile</code> will be similar to</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb233-1"><a href="rocker-chapter.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----#</span></span>
-<span id="cb233-2"><a href="rocker-chapter.html#cb233-2" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
-<span id="cb233-3"><a href="rocker-chapter.html#cb233-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb233-4"><a href="rocker-chapter.html#cb233-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R packages</span></span>
-<span id="cb233-5"><a href="rocker-chapter.html#cb233-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> my-install.R /my-install.R</span>
-<span id="cb233-6"><a href="rocker-chapter.html#cb233-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> Rscript my-install.R</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb235-1"><a href="rocker-chapter.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----#</span></span>
+<span id="cb235-2"><a href="rocker-chapter.html#cb235-2" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb235-3"><a href="rocker-chapter.html#cb235-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb235-4"><a href="rocker-chapter.html#cb235-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R packages</span></span>
+<span id="cb235-5"><a href="rocker-chapter.html#cb235-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> my-install.R /my-install.R</span>
+<span id="cb235-6"><a href="rocker-chapter.html#cb235-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> Rscript my-install.R</span></code></pre></div>
 <p>However, as we have described in Chapter <a href="requirements-chapter.html#renv-section">11.3</a>, there are better solutions to manage dependencies and guarantee reproducibility. In Section <a href="rocker-chapter.html#docker-workflow">13.4</a>, we discuss how to manage the workflow introduced in the previous chapters when using Docker containers.</p>
 <p>For more suggestions and best practices when using Docker with R, see <a href="https://www.r-bloggers.com/2021/05/best-practices-for-r-with-docker/" class="uri">https://www.r-bloggers.com/2021/05/best-practices-for-r-with-docker/</a>.</p>
 <div class="trick" title="Commit Changes">
@@ -688,7 +700,7 @@ div.csl-indent {
 <p>Following this approach, we simply install all the required R-packages from RStudio as we are used to.</p>
 <p>In the case of external dependencies, instead, we can overcome the non-root user issue by running the following command <code>docker exec -it &lt;container-name&gt; bin/bash</code> on a new terminal window in our host machine. This command allows us to connect to the container terminal as the root user.</p>
 <p>Once we have installed all the required dependencies, we can commit our changes using the command,</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb234-1"><a href="rocker-chapter.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> commit <span class="at">-m</span> <span class="st">&quot;&lt;a descriptive message&gt;&quot;</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span>  <span class="op">&lt;</span>image-name<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb236-1"><a href="rocker-chapter.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> commit <span class="at">-m</span> <span class="st">&quot;&lt;a descriptive message&gt;&quot;</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span>  <span class="op">&lt;</span>image-name<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span></span></code></pre></div>
 <p>For more details and options, see <a href="https://docs.docker.com/engine/reference/commandline/commit/" class="uri">https://docs.docker.com/engine/reference/commandline/commit/</a>.</p>
 <p>This approach, however, is not recommended as it is not reproducible. Of course, we can share our custom image, but colleagues would have a hard time figuring out what exactly the image contains and how it was created. Using a <code>Dockerfile</code> is recommended as it indicates all the instructions allowing reproducibility and facilitating debugging.</p>
 </div>
@@ -708,40 +720,40 @@ div.csl-indent {
 <div id="after-the-development" class="section level3 hasAnchor" number="13.4.1">
 <h3><span class="header-section-number">13.4.1</span> After the Development<a href="rocker-chapter.html#after-the-development" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Imagine that we structured <code>my-project/</code> following all recommendations from the previous chapters: we created an <code>.Rproj</code>, Git is used to track our project, the analysis workflow is managed by <code>targets</code>, and dependencies are recorded by <code>renv</code>. At this point, to guarantee results reproducibility, we add a <code>Dockerfile</code> defining a Docker container for our analysis. The project is structured as follows,</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb235-1"><a href="rocker-chapter.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="ex">My-project/</span></span>
-<span id="cb235-2"><a href="rocker-chapter.html#cb235-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> .gitignore</span>
-<span id="cb235-3"><a href="rocker-chapter.html#cb235-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> .Rprofile</span>
-<span id="cb235-4"><a href="rocker-chapter.html#cb235-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> _targets.yaml</span>
-<span id="cb235-5"><a href="rocker-chapter.html#cb235-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> DESCRIPTION</span>
-<span id="cb235-6"><a href="rocker-chapter.html#cb235-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> Dockerfile</span>
-<span id="cb235-7"><a href="rocker-chapter.html#cb235-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> my-project.Rproj</span>
-<span id="cb235-8"><a href="rocker-chapter.html#cb235-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> README</span>
-<span id="cb235-9"><a href="rocker-chapter.html#cb235-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> renv.lock</span>
-<span id="cb235-10"><a href="rocker-chapter.html#cb235-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> .git/</span>
-<span id="cb235-11"><a href="rocker-chapter.html#cb235-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> analysis/</span>
-<span id="cb235-12"><a href="rocker-chapter.html#cb235-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> _taregts/</span>
-<span id="cb235-13"><a href="rocker-chapter.html#cb235-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> targets-analysis.R</span>
-<span id="cb235-14"><a href="rocker-chapter.html#cb235-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> targets-workflow.R</span>
-<span id="cb235-15"><a href="rocker-chapter.html#cb235-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
-<span id="cb235-16"><a href="rocker-chapter.html#cb235-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> raw-data.csv</span>
-<span id="cb235-17"><a href="rocker-chapter.html#cb235-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> documents/</span>
-<span id="cb235-18"><a href="rocker-chapter.html#cb235-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> _targets.yaml</span>
-<span id="cb235-19"><a href="rocker-chapter.html#cb235-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> report.Rmd</span>
-<span id="cb235-20"><a href="rocker-chapter.html#cb235-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> R/</span>
-<span id="cb235-21"><a href="rocker-chapter.html#cb235-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> my-functions.R</span>
-<span id="cb235-22"><a href="rocker-chapter.html#cb235-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> targets-utils.R</span>
-<span id="cb235-23"><a href="rocker-chapter.html#cb235-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> renv/</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb237-1"><a href="rocker-chapter.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="ex">My-project/</span></span>
+<span id="cb237-2"><a href="rocker-chapter.html#cb237-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> .gitignore</span>
+<span id="cb237-3"><a href="rocker-chapter.html#cb237-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> .Rprofile</span>
+<span id="cb237-4"><a href="rocker-chapter.html#cb237-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> _targets.yaml</span>
+<span id="cb237-5"><a href="rocker-chapter.html#cb237-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> DESCRIPTION</span>
+<span id="cb237-6"><a href="rocker-chapter.html#cb237-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> Dockerfile</span>
+<span id="cb237-7"><a href="rocker-chapter.html#cb237-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> my-project.Rproj</span>
+<span id="cb237-8"><a href="rocker-chapter.html#cb237-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> README</span>
+<span id="cb237-9"><a href="rocker-chapter.html#cb237-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> renv.lock</span>
+<span id="cb237-10"><a href="rocker-chapter.html#cb237-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> .git/</span>
+<span id="cb237-11"><a href="rocker-chapter.html#cb237-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> analysis/</span>
+<span id="cb237-12"><a href="rocker-chapter.html#cb237-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> _taregts/</span>
+<span id="cb237-13"><a href="rocker-chapter.html#cb237-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> targets-analysis.R</span>
+<span id="cb237-14"><a href="rocker-chapter.html#cb237-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> targets-workflow.R</span>
+<span id="cb237-15"><a href="rocker-chapter.html#cb237-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
+<span id="cb237-16"><a href="rocker-chapter.html#cb237-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> raw-data.csv</span>
+<span id="cb237-17"><a href="rocker-chapter.html#cb237-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> documents/</span>
+<span id="cb237-18"><a href="rocker-chapter.html#cb237-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> _targets.yaml</span>
+<span id="cb237-19"><a href="rocker-chapter.html#cb237-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> report.Rmd</span>
+<span id="cb237-20"><a href="rocker-chapter.html#cb237-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> R/</span>
+<span id="cb237-21"><a href="rocker-chapter.html#cb237-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> my-functions.R</span>
+<span id="cb237-22"><a href="rocker-chapter.html#cb237-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> targets-utils.R</span>
+<span id="cb237-23"><a href="rocker-chapter.html#cb237-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> renv/</span></code></pre></div>
 <div id="fix-r-version" class="section level4 hasAnchor" number="13.4.1.1">
 <h4><span class="header-section-number">13.4.1.1</span> Fix R-version<a href="rocker-chapter.html#fix-r-version" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The first step is to fix the R-version used in the analysis and copy all the required files in the image. The <code>Dockerfile</code> will look similar to</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb236-1"><a href="rocker-chapter.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
-<span id="cb236-2"><a href="rocker-chapter.html#cb236-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.2</span>
-<span id="cb236-3"><a href="rocker-chapter.html#cb236-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb236-4"><a href="rocker-chapter.html#cb236-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project files</span></span>
-<span id="cb236-5"><a href="rocker-chapter.html#cb236-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/rstudio/my-project</span>
-<span id="cb236-6"><a href="rocker-chapter.html#cb236-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb236-7"><a href="rocker-chapter.html#cb236-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership</span></span>
-<span id="cb236-8"><a href="rocker-chapter.html#cb236-8" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> rstudio:rstudio /home/rstudio/</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb238-1"><a href="rocker-chapter.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb238-2"><a href="rocker-chapter.html#cb238-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.2</span>
+<span id="cb238-3"><a href="rocker-chapter.html#cb238-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb238-4"><a href="rocker-chapter.html#cb238-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project files</span></span>
+<span id="cb238-5"><a href="rocker-chapter.html#cb238-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/rstudio/my-project</span>
+<span id="cb238-6"><a href="rocker-chapter.html#cb238-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb238-7"><a href="rocker-chapter.html#cb238-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership</span></span>
+<span id="cb238-8"><a href="rocker-chapter.html#cb238-8" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> rstudio:rstudio /home/rstudio/</span></code></pre></div>
 <p>In particular, in the <code>Dockerfile</code>:</p>
 <ul>
 <li>First, we define as base image <code>rocker/rstudio:4.1.2</code>.</li>
@@ -753,11 +765,11 @@ div.csl-indent {
 <p>To reproduce the analysis:</p>
 <ol style="list-style-type: decimal">
 <li><p>Download the project repository at <link-repository> or by running,</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb237-1"><a href="rocker-chapter.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>link-repository<span class="op">&gt;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb239"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb239-1"><a href="rocker-chapter.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>link-repository<span class="op">&gt;</span></span></code></pre></div></li>
 <li><p>Build the image by running,</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb238-1"><a href="rocker-chapter.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> my-project:1.0.0 .</span></code></pre></div></li>
+<div class="sourceCode" id="cb240"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb240-1"><a href="rocker-chapter.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> my-project:1.0.0 .</span></code></pre></div></li>
 <li><p>Run the container by running,</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb239-1"><a href="rocker-chapter.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> PASSWORD=<span class="st">&quot;&lt;your-PW&gt;&quot;</span> my-project:1.0.0</span></code></pre></div></li>
+<div class="sourceCode" id="cb241"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb241-1"><a href="rocker-chapter.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> PASSWORD=<span class="st">&quot;&lt;your-PW&gt;&quot;</span> my-project:1.0.0</span></code></pre></div></li>
 <li><p>In your browser, go to <a href="http://localhost:8787" class="uri">http://localhost:8787</a> and login to RStudio Server (username: rstudio; PW: <your-PW>).</p></li>
 <li><p>Open the R project by double-clicking the file <code>my-project/my-project.Rproj</code> file you can find in the project. A new R-studio session will open.</p></li>
 <li><p>Run <code>renv::restore()</code> to install the project’s dependencies (have a coffee, it takes some time).</p></li>
@@ -771,54 +783,54 @@ clicking the <code>Knitr</code> button (or run <code>rmarkdown::render(input = '
 <div id="add-r-packages" class="section level4 hasAnchor" number="13.4.1.2">
 <h4><span class="header-section-number">13.4.1.2</span> Add R-packages<a href="rocker-chapter.html#add-r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The previous image would require collaborators to re-install all the dependencies each time they run the container. This is very time-consuming. Moreover, we can not guarantee that all R-packages will be available in the future. A better approach is to execute the <code>renv::restore()</code> step directly in the <code>Dockerfile</code>. To do that, we can use the following instructions,</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb240-1"><a href="rocker-chapter.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
-<span id="cb240-2"><a href="rocker-chapter.html#cb240-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.2</span>
-<span id="cb240-3"><a href="rocker-chapter.html#cb240-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-4"><a href="rocker-chapter.html#cb240-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project files</span></span>
-<span id="cb240-5"><a href="rocker-chapter.html#cb240-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/rstudio/my-project</span>
-<span id="cb240-6"><a href="rocker-chapter.html#cb240-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-7"><a href="rocker-chapter.html#cb240-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install renv</span></span>
-<span id="cb240-8"><a href="rocker-chapter.html#cb240-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_VERSION 0.15.1</span>
-<span id="cb240-9"><a href="rocker-chapter.html#cb240-9" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_PATHS_CACHE /home/rstudio/.cache/R/renv</span>
-<span id="cb240-10"><a href="rocker-chapter.html#cb240-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;install.packages(&#39;remotes&#39;, repos = c(CRAN = &#39;https://cloud.r-project.org&#39;))&quot;</span></span>
-<span id="cb240-11"><a href="rocker-chapter.html#cb240-11" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;remotes::install_github(&#39;rstudio/renv@</span><span class="va">${RENV_VERSION}</span><span class="st">&#39;)&quot;</span></span>
-<span id="cb240-12"><a href="rocker-chapter.html#cb240-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-13"><a href="rocker-chapter.html#cb240-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
-<span id="cb240-14"><a href="rocker-chapter.html#cb240-14" aria-hidden="true" tabindex="-1"></a><span class="ex">WORKDIR</span> /home/rstudio/my-project</span>
-<span id="cb240-15"><a href="rocker-chapter.html#cb240-15" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;renv::restore()&quot;</span></span>
-<span id="cb240-16"><a href="rocker-chapter.html#cb240-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-17"><a href="rocker-chapter.html#cb240-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership</span></span>
-<span id="cb240-18"><a href="rocker-chapter.html#cb240-18" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> rstudio:rstudio /home/rstudio/</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb242-1"><a href="rocker-chapter.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb242-2"><a href="rocker-chapter.html#cb242-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.2</span>
+<span id="cb242-3"><a href="rocker-chapter.html#cb242-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-4"><a href="rocker-chapter.html#cb242-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project files</span></span>
+<span id="cb242-5"><a href="rocker-chapter.html#cb242-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/rstudio/my-project</span>
+<span id="cb242-6"><a href="rocker-chapter.html#cb242-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-7"><a href="rocker-chapter.html#cb242-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install renv</span></span>
+<span id="cb242-8"><a href="rocker-chapter.html#cb242-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_VERSION 0.15.1</span>
+<span id="cb242-9"><a href="rocker-chapter.html#cb242-9" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_PATHS_CACHE /home/rstudio/.cache/R/renv</span>
+<span id="cb242-10"><a href="rocker-chapter.html#cb242-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;install.packages(&#39;remotes&#39;, repos = c(CRAN = &#39;https://cloud.r-project.org&#39;))&quot;</span></span>
+<span id="cb242-11"><a href="rocker-chapter.html#cb242-11" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;remotes::install_github(&#39;rstudio/renv@</span><span class="va">${RENV_VERSION}</span><span class="st">&#39;)&quot;</span></span>
+<span id="cb242-12"><a href="rocker-chapter.html#cb242-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-13"><a href="rocker-chapter.html#cb242-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
+<span id="cb242-14"><a href="rocker-chapter.html#cb242-14" aria-hidden="true" tabindex="-1"></a><span class="ex">WORKDIR</span> /home/rstudio/my-project</span>
+<span id="cb242-15"><a href="rocker-chapter.html#cb242-15" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;renv::restore()&quot;</span></span>
+<span id="cb242-16"><a href="rocker-chapter.html#cb242-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-17"><a href="rocker-chapter.html#cb242-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership</span></span>
+<span id="cb242-18"><a href="rocker-chapter.html#cb242-18" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> rstudio:rstudio /home/rstudio/</span></code></pre></div>
 <p>Without going into details, first, we install <code>renv</code> specifying the required version. Next, we run <code>renv::restore()</code> to install all the required R-package inside the image. Note that, when opening the project in RStudio Server, it could be still required to run <code>renv::restore()</code> to install the package inside the project. This operation, however, will now require less than a second as packages are linked directly from the cache.</p>
 <p>To know more about how to use <code>renv</code> inside a Docker container, see <a href="https://rstudio.github.io/renv/articles/docker.html" class="uri">https://rstudio.github.io/renv/articles/docker.html</a>. For more details about <code>renv</code> workflow path customization options, see <a href="https://rstudio.github.io/renv/reference/paths.html" class="uri">https://rstudio.github.io/renv/reference/paths.html</a>.</p>
 </div>
 <div id="run-the-analysis-and-report" class="section level4 hasAnchor" number="13.4.1.3">
 <h4><span class="header-section-number">13.4.1.3</span> Run the Analysis and Report<a href="rocker-chapter.html#run-the-analysis-and-report" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Finally, we could also include in the <code>Dockerfile</code> the instructions <code>targets::tar_make()</code> and <code>rmarkdown::render(input = 'Documents/Report.Rmd')</code> to run the analysis and compile the report, respectively. In this case, the <code>Dockerfile</code> will looks like as follow,</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb241-1"><a href="rocker-chapter.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
-<span id="cb241-2"><a href="rocker-chapter.html#cb241-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.2</span>
-<span id="cb241-3"><a href="rocker-chapter.html#cb241-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-4"><a href="rocker-chapter.html#cb241-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project files</span></span>
-<span id="cb241-5"><a href="rocker-chapter.html#cb241-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/rstudio/My-project</span>
-<span id="cb241-6"><a href="rocker-chapter.html#cb241-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-7"><a href="rocker-chapter.html#cb241-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install renv</span></span>
-<span id="cb241-8"><a href="rocker-chapter.html#cb241-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_VERSION 0.15.1</span>
-<span id="cb241-9"><a href="rocker-chapter.html#cb241-9" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_PATHS_CACHE /home/rstudio/.cache/R/renv</span>
-<span id="cb241-10"><a href="rocker-chapter.html#cb241-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;install.packages(&#39;remotes&#39;, repos = c(CRAN = &#39;https://cloud.r-project.org&#39;))&quot;</span></span>
-<span id="cb241-11"><a href="rocker-chapter.html#cb241-11" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;remotes::install_github(&#39;rstudio/renv@</span><span class="va">${RENV_VERSION}</span><span class="st">&#39;)&quot;</span></span>
-<span id="cb241-12"><a href="rocker-chapter.html#cb241-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-13"><a href="rocker-chapter.html#cb241-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
-<span id="cb241-14"><a href="rocker-chapter.html#cb241-14" aria-hidden="true" tabindex="-1"></a><span class="ex">WORKDIR</span> /home/rstudio/My-project</span>
-<span id="cb241-15"><a href="rocker-chapter.html#cb241-15" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;renv::restore()&quot;</span></span>
-<span id="cb241-16"><a href="rocker-chapter.html#cb241-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-17"><a href="rocker-chapter.html#cb241-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Run targets</span></span>
-<span id="cb241-18"><a href="rocker-chapter.html#cb241-18" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;targets::tar_make()&quot;</span></span>
-<span id="cb241-19"><a href="rocker-chapter.html#cb241-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-20"><a href="rocker-chapter.html#cb241-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Render report</span></span>
-<span id="cb241-21"><a href="rocker-chapter.html#cb241-21" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;rmarkdown::render(input = &#39;documents/report.Rmd&#39;)&quot;</span></span>
-<span id="cb241-22"><a href="rocker-chapter.html#cb241-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb241-23"><a href="rocker-chapter.html#cb241-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership</span></span>
-<span id="cb241-24"><a href="rocker-chapter.html#cb241-24" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> rstudio:rstudio /home/rstudio/</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb243-1"><a href="rocker-chapter.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb243-2"><a href="rocker-chapter.html#cb243-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.2</span>
+<span id="cb243-3"><a href="rocker-chapter.html#cb243-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-4"><a href="rocker-chapter.html#cb243-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project files</span></span>
+<span id="cb243-5"><a href="rocker-chapter.html#cb243-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/rstudio/My-project</span>
+<span id="cb243-6"><a href="rocker-chapter.html#cb243-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-7"><a href="rocker-chapter.html#cb243-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install renv</span></span>
+<span id="cb243-8"><a href="rocker-chapter.html#cb243-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_VERSION 0.15.1</span>
+<span id="cb243-9"><a href="rocker-chapter.html#cb243-9" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_PATHS_CACHE /home/rstudio/.cache/R/renv</span>
+<span id="cb243-10"><a href="rocker-chapter.html#cb243-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;install.packages(&#39;remotes&#39;, repos = c(CRAN = &#39;https://cloud.r-project.org&#39;))&quot;</span></span>
+<span id="cb243-11"><a href="rocker-chapter.html#cb243-11" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;remotes::install_github(&#39;rstudio/renv@</span><span class="va">${RENV_VERSION}</span><span class="st">&#39;)&quot;</span></span>
+<span id="cb243-12"><a href="rocker-chapter.html#cb243-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-13"><a href="rocker-chapter.html#cb243-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
+<span id="cb243-14"><a href="rocker-chapter.html#cb243-14" aria-hidden="true" tabindex="-1"></a><span class="ex">WORKDIR</span> /home/rstudio/My-project</span>
+<span id="cb243-15"><a href="rocker-chapter.html#cb243-15" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;renv::restore()&quot;</span></span>
+<span id="cb243-16"><a href="rocker-chapter.html#cb243-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-17"><a href="rocker-chapter.html#cb243-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Run targets</span></span>
+<span id="cb243-18"><a href="rocker-chapter.html#cb243-18" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;targets::tar_make()&quot;</span></span>
+<span id="cb243-19"><a href="rocker-chapter.html#cb243-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-20"><a href="rocker-chapter.html#cb243-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Render report</span></span>
+<span id="cb243-21"><a href="rocker-chapter.html#cb243-21" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;rmarkdown::render(input = &#39;documents/report.Rmd&#39;)&quot;</span></span>
+<span id="cb243-22"><a href="rocker-chapter.html#cb243-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-23"><a href="rocker-chapter.html#cb243-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership</span></span>
+<span id="cb243-24"><a href="rocker-chapter.html#cb243-24" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> rstudio:rstudio /home/rstudio/</span></code></pre></div>
 <p>Note the particular use of <code>'</code> and <code>"</code> to correctly define the instructions. Moreover, the command <code>targets::tar_make()</code> will properly work because we defined the targets script and the store locations in the <code>_targets.yaml</code> file.</p>
 <p>In this way, collaborators will automatically run the analysis and compile the report when building the image. Our workflow is entirely automatized.</p>
 </div>
@@ -832,19 +844,19 @@ clicking the <code>Knitr</code> button (or run <code>rmarkdown::render(input = '
 <div id="rocker-as-ide" class="section level3 hasAnchor" number="13.4.2">
 <h3><span class="header-section-number">13.4.2</span> Rocker as IDE<a href="rocker-chapter.html#rocker-as-ide" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Finally, let’s say we want to use RStudio Server as our IDE and develop our projects from within a container. In this case, we could simply use one of the Rocker images and mount a bind mount with all the project files (see Chapter <a href="docker-chapter.html#data-storage">12.3.1</a>). For example, we can use <code>rocker/verse</code> (which has more features) by running the command,</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb242-1"><a href="rocker-chapter.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> DISABLE_AUTH=true <span class="dt">\</span></span>
-<span id="cb242-2"><a href="rocker-chapter.html#cb242-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Desktop/My-project:/home/rstudio/my-project <span class="dt">\</span></span>
-<span id="cb242-3"><a href="rocker-chapter.html#cb242-3" aria-hidden="true" tabindex="-1"></a>    rocker/verse:4.1.2</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb244-1"><a href="rocker-chapter.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> DISABLE_AUTH=true <span class="dt">\</span></span>
+<span id="cb244-2"><a href="rocker-chapter.html#cb244-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Desktop/My-project:/home/rstudio/my-project <span class="dt">\</span></span>
+<span id="cb244-3"><a href="rocker-chapter.html#cb244-3" aria-hidden="true" tabindex="-1"></a>    rocker/verse:4.1.2</span></code></pre></div>
 <p>Opening the browser at <a href="http://localhost:8787" class="uri">http://localhost:8787</a>, we will find the <code>my-project</code> directory inside RStudio Server ready to keep developing our project. Note that ownership of bind mounts (or volumes) mounted at the running time is automatically assigned to the current user, in this case, <code>rstudio</code>.</p>
 <p>However, when developing our project from within the container, we will find two main annoying issues: <code>renv</code> cache and GitHub authentication.</p>
 <div id="renv-cache" class="section level4 hasAnchor" number="13.4.2.1">
 <h4><span class="header-section-number">13.4.2.1</span> <code>renv</code> Cache<a href="rocker-chapter.html#renv-cache" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Packages installed in a session are lost when removing the container. Therefore, we are required to reinstall all R-packages each session, a huge waste of time. An easy solution is to get advantage of the <code>renv</code> cache system. To do that, we need to save <code>renv</code> caches in a bind mount (or a volume) and indicate <code>renv</code> to use that directory by setting the environment variable <code>RENV_PATHS_CACHE</code>. For example, we can create a folder in our host system <code>~/Docker/renv-cache</code> and use it as a bind mount. To run the container, we use the command</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb243-1"><a href="rocker-chapter.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> DISABLE_AUTH=true <span class="dt">\</span></span>
-<span id="cb243-2"><a href="rocker-chapter.html#cb243-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Docker/renv-cache:/home/rstudio/.cache/R/renv <span class="dt">\</span></span>
-<span id="cb243-3"><a href="rocker-chapter.html#cb243-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span>  RENV_PATHS_CACHE=home/rstudio/.cache/R/renv <span class="dt">\</span></span>
-<span id="cb243-4"><a href="rocker-chapter.html#cb243-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Desktop/my-project:/home/rstudio/my-project <span class="dt">\</span></span>
-<span id="cb243-5"><a href="rocker-chapter.html#cb243-5" aria-hidden="true" tabindex="-1"></a>    rocker/verse:4.1.2</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb245-1"><a href="rocker-chapter.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> DISABLE_AUTH=true <span class="dt">\</span></span>
+<span id="cb245-2"><a href="rocker-chapter.html#cb245-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Docker/renv-cache:/home/rstudio/.cache/R/renv <span class="dt">\</span></span>
+<span id="cb245-3"><a href="rocker-chapter.html#cb245-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span>  RENV_PATHS_CACHE=home/rstudio/.cache/R/renv <span class="dt">\</span></span>
+<span id="cb245-4"><a href="rocker-chapter.html#cb245-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Desktop/my-project:/home/rstudio/my-project <span class="dt">\</span></span>
+<span id="cb245-5"><a href="rocker-chapter.html#cb245-5" aria-hidden="true" tabindex="-1"></a>    rocker/verse:4.1.2</span></code></pre></div>
 <p>In this way, running <code>renv::restore()</code> to install the package inside the project will now require less than a second as packages are linked directly from the cache. To know more about how to use <code>renv</code> inside a Docker container, see <a href="https://rstudio.github.io/renv/articles/docker.html" class="uri">https://rstudio.github.io/renv/articles/docker.html</a>. For more details about <code>renv</code> workflow path customization options, see <a href="https://rstudio.github.io/renv/reference/paths.html" class="uri">https://rstudio.github.io/renv/reference/paths.html</a>.</p>
 </div>
 <div id="github-authentication" class="section level4 hasAnchor" number="13.4.2.2">
@@ -852,25 +864,25 @@ clicking the <code>Knitr</code> button (or run <code>rmarkdown::render(input = '
 <p>If we try to clone, push, or pull our commits from/to GitHub from within the container, we are required to authenticate at each session. To avoid this, we can add our SSH keys and <code>gitconfig</code> file to the container.</p>
 <p>Rather than using our local host computer SSH keys, we can create a new pair of SSH keys and register it to GitHub (see Chapter <a href="github-chapter.html#authentication">8.1.2</a>). In this way, we can set different permissions when forking from the host computer or the Docker container. Next, we save the new SSH keys in a folder <code>~/Docker/ssh-key</code> and we use it as a bind mount.</p>
 <p>We also need a <code>gitconfig</code> file with username, email, and other settings. For example,</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb244-1"><a href="rocker-chapter.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    gitconfig    ----#</span></span>
-<span id="cb244-2"><a href="rocker-chapter.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[user]</span></span>
-<span id="cb244-3"><a href="rocker-chapter.html#cb244-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">name</span> = <span class="op">&lt;</span>username<span class="op">&gt;</span></span>
-<span id="cb244-4"><a href="rocker-chapter.html#cb244-4" aria-hidden="true" tabindex="-1"></a>        <span class="ex">email</span> = <span class="op">&lt;</span>user-email<span class="op">&gt;</span></span>
-<span id="cb244-5"><a href="rocker-chapter.html#cb244-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[merge]</span></span>
-<span id="cb244-6"><a href="rocker-chapter.html#cb244-6" aria-hidden="true" tabindex="-1"></a>        <span class="ex">conflictstyle</span> = diff3</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb246-1"><a href="rocker-chapter.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    gitconfig    ----#</span></span>
+<span id="cb246-2"><a href="rocker-chapter.html#cb246-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[user]</span></span>
+<span id="cb246-3"><a href="rocker-chapter.html#cb246-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">name</span> = <span class="op">&lt;</span>username<span class="op">&gt;</span></span>
+<span id="cb246-4"><a href="rocker-chapter.html#cb246-4" aria-hidden="true" tabindex="-1"></a>        <span class="ex">email</span> = <span class="op">&lt;</span>user-email<span class="op">&gt;</span></span>
+<span id="cb246-5"><a href="rocker-chapter.html#cb246-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[merge]</span></span>
+<span id="cb246-6"><a href="rocker-chapter.html#cb246-6" aria-hidden="true" tabindex="-1"></a>        <span class="ex">conflictstyle</span> = diff3</span></code></pre></div>
 <p>and we save the file as <code>~/Docker/docker-gitconfig.txt</code>. Therefore, we end up having a folder with all the files needed to work with Docker between different sessions. Something like,</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb245-1"><a href="rocker-chapter.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/Docker/</span></span>
-<span id="cb245-2"><a href="rocker-chapter.html#cb245-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> docker-gitconfig.txt</span>
-<span id="cb245-3"><a href="rocker-chapter.html#cb245-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> renv-cache/</span>
-<span id="cb245-4"><a href="rocker-chapter.html#cb245-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> ssh-key</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb247-1"><a href="rocker-chapter.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/Docker/</span></span>
+<span id="cb247-2"><a href="rocker-chapter.html#cb247-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> docker-gitconfig.txt</span>
+<span id="cb247-3"><a href="rocker-chapter.html#cb247-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> renv-cache/</span>
+<span id="cb247-4"><a href="rocker-chapter.html#cb247-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> ssh-key</span></code></pre></div>
 <p>To run the container, we use the command</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb246-1"><a href="rocker-chapter.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> DISABLE_AUTH=true <span class="dt">\</span></span>
-<span id="cb246-2"><a href="rocker-chapter.html#cb246-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Docker/renv-cache:/home/rstudio/.cache/R/renv <span class="dt">\</span></span>
-<span id="cb246-3"><a href="rocker-chapter.html#cb246-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span>  RENV_PATHS_CACHE=home/rstudio/.cache/R/renv <span class="dt">\</span></span>
-<span id="cb246-4"><a href="rocker-chapter.html#cb246-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span> ~/Docker/ssh-key:/home/rstudio/.ssh<span class="dt">\</span></span>
-<span id="cb246-5"><a href="rocker-chapter.html#cb246-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span> ~/Docker/docker-gitconfig.txt:/etc/gitconfig<span class="dt">\</span></span>
-<span id="cb246-6"><a href="rocker-chapter.html#cb246-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Desktop/my-project:/home/rstudio/my-project <span class="dt">\</span></span>
-<span id="cb246-7"><a href="rocker-chapter.html#cb246-7" aria-hidden="true" tabindex="-1"></a>    rocker/verse:4.1.2</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb248-1"><a href="rocker-chapter.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> DISABLE_AUTH=true <span class="dt">\</span></span>
+<span id="cb248-2"><a href="rocker-chapter.html#cb248-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Docker/renv-cache:/home/rstudio/.cache/R/renv <span class="dt">\</span></span>
+<span id="cb248-3"><a href="rocker-chapter.html#cb248-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span>  RENV_PATHS_CACHE=home/rstudio/.cache/R/renv <span class="dt">\</span></span>
+<span id="cb248-4"><a href="rocker-chapter.html#cb248-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span> ~/Docker/ssh-key:/home/rstudio/.ssh<span class="dt">\</span></span>
+<span id="cb248-5"><a href="rocker-chapter.html#cb248-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span> ~/Docker/docker-gitconfig.txt:/etc/gitconfig<span class="dt">\</span></span>
+<span id="cb248-6"><a href="rocker-chapter.html#cb248-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Desktop/my-project:/home/rstudio/my-project <span class="dt">\</span></span>
+<span id="cb248-7"><a href="rocker-chapter.html#cb248-7" aria-hidden="true" tabindex="-1"></a>    rocker/verse:4.1.2</span></code></pre></div>
 <p>Note that here the <code>rocker/verse</code> is necessary, as in this image some Linux packages required to deal with SSH authentication are already installed.</p>
 <p>When dealing with credentials and containers, we have to pay a little bit of attention to avoid sharing our private SSH keys with others. Using bind mounts (or volumes) allows us to mount private information at runtime, without including them directly in the image.</p>
 <p>Finally, as the commands became quite long, this may be a good occasion to have a look at Docker Compose (see Chapter <a href="docker-chapter.html#docker-compose">12.3.2</a>) or try to create our first Bash script (see <a href="https://ryanstutorials.net/bash-scripting-tutorial/" class="uri">https://ryanstutorials.net/bash-scripting-tutorial/</a>).</p>
@@ -930,7 +942,7 @@ clicking the <code>Knitr</code> button (or run <code>rmarkdown::render(input = '
   <div class="footer">
     Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
     <br>
-    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
     <br>
     To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
   </div>

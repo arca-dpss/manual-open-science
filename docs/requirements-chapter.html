@@ -168,11 +168,11 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -183,6 +183,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
 <li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
@@ -429,7 +430,18 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.1</b> Quarto</a></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown"><i class="fa fa-check"></i><b>10.2</b> <code>trackdown</code></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.2.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.2.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.2.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
@@ -604,9 +616,9 @@ div.csl-indent {
 <h4><span class="header-section-number">11.1.1.3</span> Libraries<a href="requirements-chapter.html#libraries" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Finally, most of the currently popular programming languages for statistical analysis rely on multiple libraries to implement several features. Also, these libraries are regularly updated and their backward compatibility may be compromised. Therefore, it is necessary to list all the required libraries with their exact versions.</p>
 <p>The number of required libraries can grow quite large very easily. For this reason, listing all of them in the <code>README</code> file may not be the best solution. Alternatively, we could list all the libraries in another file in our project. For example, we can create a <code>requirements.txt</code> file with each library name and version. Ideally, this file should be structured smartly to allow other colleagues to automatically retrieve the required information to install the libraries using some function. For example, the <code>requirements.txt</code> file can be structured as follows.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb183-1"><a href="requirements-chapter.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="va">library_1</span><span class="op">=</span>=x.xx.xx</span>
-<span id="cb183-2"><a href="requirements-chapter.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="va">library_2</span><span class="op">=</span>=x.xx.xx</span>
-<span id="cb183-3"><a href="requirements-chapter.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb185-1"><a href="requirements-chapter.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="va">library_1</span><span class="op">=</span>=x.xx.xx</span>
+<span id="cb185-2"><a href="requirements-chapter.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="va">library_2</span><span class="op">=</span>=x.xx.xx</span>
+<span id="cb185-3"><a href="requirements-chapter.html#cb185-3" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span></code></pre></div>
 <p>In this way, using regular expressions (for a tutorial on regular expressions see <a href="https://ryanstutorials.net/regular-expressions-tutorial/" class="uri">https://ryanstutorials.net/regular-expressions-tutorial/</a>) library name and version can be easily retrieved and used to install all the dependencies.</p>
 <p>In the <code>README</code> file, we should still point to the <code>requirements.txt</code> file providing relevant indications on how to use it and how to install the required libraries. We could also provide a custom function to automate this process. However, major programming languages already provide ad-hoc solutions to manage project dependencies easily and automatically. In Section <a href="requirements-chapter.html#r-dependencies">11.2</a>, we describe how to manage dependencies in R (for Python, see <a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files" class="uri">https://pip.pypa.io/en/stable/user_guide/#requirements-files</a> and <a href="https://www.geeksforgeeks.org/pipenv-python-package-management-tool" class="uri">https://www.geeksforgeeks.org/pipenv-python-package-management-tool</a> ).</p>
 </div>
@@ -630,22 +642,22 @@ div.csl-indent {
 <h3><span class="header-section-number">11.2.1</span> R version<a href="requirements-chapter.html#r-version" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The first thing to take into account is the actual R version used in the project. This is particularly relevant as, on the 24th of April 2020 (curiously, the birthday of one of the book authors), R 4.0.0 was released introducing several new features that were not available before. Moreover, as for any major release, backward compatibility is not guaranteed. Thus, guess what?<span class="math inline">\(\ldots\)</span>Code working on the old 3.6.x versions may fail (or give surprisingly different results) if run on the new 4.x.x. versions. For these reasons, it is important to use the exact required R version.</p>
 <p>We can check our current R version (plus other system info) by running the command <code>version</code> (without parenthesis, it is an object, not a function; see <code>?version</code> for further details).</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="requirements-chapter.html#cb184-1" aria-hidden="true" tabindex="-1"></a>version</span>
-<span id="cb184-2"><a href="requirements-chapter.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="do">##                _                           </span></span>
-<span id="cb184-3"><a href="requirements-chapter.html#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="do">## platform       x86_64-apple-darwin17.0     </span></span>
-<span id="cb184-4"><a href="requirements-chapter.html#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="do">## arch           x86_64                      </span></span>
-<span id="cb184-5"><a href="requirements-chapter.html#cb184-5" aria-hidden="true" tabindex="-1"></a><span class="do">## os             darwin17.0                  </span></span>
-<span id="cb184-6"><a href="requirements-chapter.html#cb184-6" aria-hidden="true" tabindex="-1"></a><span class="do">## system         x86_64, darwin17.0          </span></span>
-<span id="cb184-7"><a href="requirements-chapter.html#cb184-7" aria-hidden="true" tabindex="-1"></a><span class="do">## status                                     </span></span>
-<span id="cb184-8"><a href="requirements-chapter.html#cb184-8" aria-hidden="true" tabindex="-1"></a><span class="do">## major          4                           </span></span>
-<span id="cb184-9"><a href="requirements-chapter.html#cb184-9" aria-hidden="true" tabindex="-1"></a><span class="do">## minor          1.2                         </span></span>
-<span id="cb184-10"><a href="requirements-chapter.html#cb184-10" aria-hidden="true" tabindex="-1"></a><span class="do">## year           2021                        </span></span>
-<span id="cb184-11"><a href="requirements-chapter.html#cb184-11" aria-hidden="true" tabindex="-1"></a><span class="do">## month          11                          </span></span>
-<span id="cb184-12"><a href="requirements-chapter.html#cb184-12" aria-hidden="true" tabindex="-1"></a><span class="do">## day            01                          </span></span>
-<span id="cb184-13"><a href="requirements-chapter.html#cb184-13" aria-hidden="true" tabindex="-1"></a><span class="do">## svn rev        81115                       </span></span>
-<span id="cb184-14"><a href="requirements-chapter.html#cb184-14" aria-hidden="true" tabindex="-1"></a><span class="do">## language       R                           </span></span>
-<span id="cb184-15"><a href="requirements-chapter.html#cb184-15" aria-hidden="true" tabindex="-1"></a><span class="do">## version.string R version 4.1.2 (2021-11-01)</span></span>
-<span id="cb184-16"><a href="requirements-chapter.html#cb184-16" aria-hidden="true" tabindex="-1"></a><span class="do">## nickname       Bird Hippie</span></span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="requirements-chapter.html#cb186-1" aria-hidden="true" tabindex="-1"></a>version</span>
+<span id="cb186-2"><a href="requirements-chapter.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="do">##                _                           </span></span>
+<span id="cb186-3"><a href="requirements-chapter.html#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="do">## platform       x86_64-apple-darwin17.0     </span></span>
+<span id="cb186-4"><a href="requirements-chapter.html#cb186-4" aria-hidden="true" tabindex="-1"></a><span class="do">## arch           x86_64                      </span></span>
+<span id="cb186-5"><a href="requirements-chapter.html#cb186-5" aria-hidden="true" tabindex="-1"></a><span class="do">## os             darwin17.0                  </span></span>
+<span id="cb186-6"><a href="requirements-chapter.html#cb186-6" aria-hidden="true" tabindex="-1"></a><span class="do">## system         x86_64, darwin17.0          </span></span>
+<span id="cb186-7"><a href="requirements-chapter.html#cb186-7" aria-hidden="true" tabindex="-1"></a><span class="do">## status                                     </span></span>
+<span id="cb186-8"><a href="requirements-chapter.html#cb186-8" aria-hidden="true" tabindex="-1"></a><span class="do">## major          4                           </span></span>
+<span id="cb186-9"><a href="requirements-chapter.html#cb186-9" aria-hidden="true" tabindex="-1"></a><span class="do">## minor          1.2                         </span></span>
+<span id="cb186-10"><a href="requirements-chapter.html#cb186-10" aria-hidden="true" tabindex="-1"></a><span class="do">## year           2021                        </span></span>
+<span id="cb186-11"><a href="requirements-chapter.html#cb186-11" aria-hidden="true" tabindex="-1"></a><span class="do">## month          11                          </span></span>
+<span id="cb186-12"><a href="requirements-chapter.html#cb186-12" aria-hidden="true" tabindex="-1"></a><span class="do">## day            01                          </span></span>
+<span id="cb186-13"><a href="requirements-chapter.html#cb186-13" aria-hidden="true" tabindex="-1"></a><span class="do">## svn rev        81115                       </span></span>
+<span id="cb186-14"><a href="requirements-chapter.html#cb186-14" aria-hidden="true" tabindex="-1"></a><span class="do">## language       R                           </span></span>
+<span id="cb186-15"><a href="requirements-chapter.html#cb186-15" aria-hidden="true" tabindex="-1"></a><span class="do">## version.string R version 4.1.2 (2021-11-01)</span></span>
+<span id="cb186-16"><a href="requirements-chapter.html#cb186-16" aria-hidden="true" tabindex="-1"></a><span class="do">## nickname       Bird Hippie</span></span></code></pre></div>
 <div class="design" title="R Release Updates">
 <p><strong>Info-Box: R Release Updates</strong>
 To know the new feature introduced in R 4.0.0 see <a href="https://www.r-bloggers.com/2020/04/r-4-0-0-now-available-and-a-look-back-at-rs-history/" class="uri">https://www.r-bloggers.com/2020/04/r-4-0-0-now-available-and-a-look-back-at-rs-history/</a></p>
@@ -661,18 +673,18 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 <h4><span class="header-section-number">11.2.1.2</span> Other Related Software<a href="requirements-chapter.html#other-related-software" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The specific R version may not be the only software requirement. In fact, some R functions rely heavily on other software. The main example is <code>pandoc</code>, a software used by the <code>rmarkdown</code> package to create documents. <code>pandoc</code> is not bundled with the <code>rmarkdown</code> package, but is normally provided by RStudio. Also, a specific RStudio version may be required if the project is based on some of its features (e.g., addins). Given the strong bond between R and RStudio and <code>pandoc</code> it is reasonable to list their version as well.</p>
 <p>Using the function <code>sessioninfo::session_info()$platform</code>, we get a list of useful information about the current R session. These include the R version, the pandoc version, the operating system, CPU, and other local settings. The RStudio version is also provided if used in the session (check on your machine). See <code>?sessioninfo::session_info()</code> for further details.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="requirements-chapter.html#cb185-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()<span class="sc">$</span>platform</span>
-<span id="cb185-2"><a href="requirements-chapter.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  setting  value</span></span>
-<span id="cb185-3"><a href="requirements-chapter.html#cb185-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  version  R version 4.1.2 (2021-11-01)</span></span>
-<span id="cb185-4"><a href="requirements-chapter.html#cb185-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  os       macOS Big Sur 10.16</span></span>
-<span id="cb185-5"><a href="requirements-chapter.html#cb185-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  system   x86_64, darwin17.0</span></span>
-<span id="cb185-6"><a href="requirements-chapter.html#cb185-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  ui       X11</span></span>
-<span id="cb185-7"><a href="requirements-chapter.html#cb185-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  language (EN)</span></span>
-<span id="cb185-8"><a href="requirements-chapter.html#cb185-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  collate  en_US.UTF-8</span></span>
-<span id="cb185-9"><a href="requirements-chapter.html#cb185-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  ctype    en_US.UTF-8</span></span>
-<span id="cb185-10"><a href="requirements-chapter.html#cb185-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  tz       Europe/Rome</span></span>
-<span id="cb185-11"><a href="requirements-chapter.html#cb185-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  date     2022-04-25</span></span>
-<span id="cb185-12"><a href="requirements-chapter.html#cb185-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)</span></span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="requirements-chapter.html#cb187-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()<span class="sc">$</span>platform</span>
+<span id="cb187-2"><a href="requirements-chapter.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  setting  value</span></span>
+<span id="cb187-3"><a href="requirements-chapter.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  version  R version 4.1.2 (2021-11-01)</span></span>
+<span id="cb187-4"><a href="requirements-chapter.html#cb187-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  os       macOS Big Sur 10.16</span></span>
+<span id="cb187-5"><a href="requirements-chapter.html#cb187-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  system   x86_64, darwin17.0</span></span>
+<span id="cb187-6"><a href="requirements-chapter.html#cb187-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  ui       X11</span></span>
+<span id="cb187-7"><a href="requirements-chapter.html#cb187-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  language (EN)</span></span>
+<span id="cb187-8"><a href="requirements-chapter.html#cb187-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  collate  en_US.UTF-8</span></span>
+<span id="cb187-9"><a href="requirements-chapter.html#cb187-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  ctype    en_US.UTF-8</span></span>
+<span id="cb187-10"><a href="requirements-chapter.html#cb187-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  tz       Europe/Rome</span></span>
+<span id="cb187-11"><a href="requirements-chapter.html#cb187-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  date     2022-04-26</span></span>
+<span id="cb187-12"><a href="requirements-chapter.html#cb187-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)</span></span></code></pre></div>
 <p>Providing all this information about the session used to obtain the original results may be useful in the case of inexplicable reproducibility issues. For example, we can save the output as an object or print it in the project <code>README</code> or another file.</p>
 </div>
 </div>
@@ -680,7 +692,7 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 <h3><span class="header-section-number">11.2.2</span> R packages<a href="requirements-chapter.html#r-packages-requirements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The R packages ecosystem changes quite rapidly, new packages are released every month and already available packages are updated from time to time. New package versions can solve bugs, add new functions, or introduce new features. At the same time, old functions can be deprecated or removed from the package itself. This means that in a year or two, our code may fail due to some changes in the underlying dependencies. To avoid this issue it is important to ensure that we install the same package versions used in the original analysis.</p>
 <p>We can obtain a list of the packages used in the project and their version number using the function <code>sessioninfo::session_info()</code>. In the example below, we limited the number of packages displayed (usually quite long). See <code>?sessioninfo::session_info()</code> for all the options and output details.</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="requirements-chapter.html#cb186-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="requirements-chapter.html#cb188-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
 <pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
 ##  version  R version 4.1.2 (2021-11-01)
@@ -691,7 +703,7 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Europe/Rome
-##  date     2022-04-25
+##  date     2022-04-26
 ##  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -722,13 +734,13 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 ## 
 ## ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</code></pre>
 <p>This output provides all the main information about the R session to reproduce the original results. We can save it as an object or print it in the project <code>README</code> or another file. Saving it as an object is particularly helpful as it can be later used to automatically install all project dependencies with some custom function.</p>
-<p>However, as different package versions may be required in different projects, we will need to reinstall the packages each time we move from one project to another. This would be very annoying. Fortunately, in R there is always a package to solve our problems. COncerning package management, the answer is <code>renv</code>.</p>
+<p>However, as different package versions may be required in different projects, we will need to reinstall the packages each time we move from one project to another. This would be very annoying. Fortunately, in R there is always a package to solve our problems. Concerning package management, the answer is <code>renv</code>.</p>
 </div>
 </div>
 <div id="renv-section" class="section level2 hasAnchor" number="11.3">
 <h2><span class="header-section-number">11.3</span> <code>renv</code> a Package to Rule Them All<a href="requirements-chapter.html#renv-section" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="packages-logo-box", style="width: 200px;"><img src="images/requirements/renv-hex.png"></div>
-<p>The idea behind <code>renv</code> (successor of <code>packrat</code>) is to create an isolated, portable, and reproducible environment for our projects. Using <code>renv</code>, we can easily manage the dependencies of all our projects in a very smooth workflow. In the next sections, we introduce the main features of <code>renv</code>, how to use the <code>renv</code> workflow in our project and some other more advanced aspects.</p>
+<p>The idea behind <code>renv</code> (successor of <code>packrat</code>) is to create an isolated, portable, and reproducible environment for our projects. Using <code>renv</code> <span class="citation">(<a href="#ref-R-renv" role="doc-biblioref">Ushey, 2022</a>)</span>, we can easily manage the dependencies of all our projects in a very smooth workflow. In the next sections, we introduce the main features of <code>renv</code>, how to use the <code>renv</code> workflow in our project and some other more advanced aspects.</p>
 <p>This should be enough to get started, however, we highly encourage everyone to take a tour of <code>renv</code> official documentation available at <a href="https://rstudio.github.io/renv/" class="uri">https://rstudio.github.io/renv/</a>. There are many more aspects to learn and solutions for possible issues.</p>
 <div id="introduction-to-renv" class="section level3 hasAnchor" number="11.3.1">
 <h3><span class="header-section-number">11.3.1</span> Introduction to <code>renv</code><a href="requirements-chapter.html#introduction-to-renv" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -825,19 +837,19 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 <div id="detecting-packages" class="section level4 hasAnchor" number="11.3.3.4">
 <h4><span class="header-section-number">11.3.3.4</span> Detecting Packages<a href="requirements-chapter.html#detecting-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Using the default settings (i.e., <code>"implicit"</code>), <code>renv</code> captures in the <code>renv.lock</code> file only the packages which appear to be used in our project. However, <code>renv</code> may fail to discover some dependencies or packages loaded indirectly (see <a href="https://rstudio.github.io/renv/articles/faq.html#why-isn-t-my-package-being-snapshotted-into-the-lockfile-" class="uri">https://rstudio.github.io/renv/articles/faq.html#why-isn-t-my-package-being-snapshotted-into-the-lockfile-</a>).</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="requirements-chapter.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correctly detected by renv</span></span>
-<span id="cb189-2"><a href="requirements-chapter.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
-<span id="cb189-3"><a href="requirements-chapter.html#cb189-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-4"><a href="requirements-chapter.html#cb189-4" aria-hidden="true" tabindex="-1"></a>trackdown<span class="sc">::</span><span class="fu">upload_file</span>(...)</span>
-<span id="cb189-5"><a href="requirements-chapter.html#cb189-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-6"><a href="requirements-chapter.html#cb189-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Not detected by renv</span></span>
-<span id="cb189-7"><a href="requirements-chapter.html#cb189-7" aria-hidden="true" tabindex="-1"></a>packages_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;trackdown&quot;</span>)</span>
-<span id="cb189-8"><a href="requirements-chapter.html#cb189-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-9"><a href="requirements-chapter.html#cb189-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(packages_list, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb189-10"><a href="requirements-chapter.html#cb189-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-11"><a href="requirements-chapter.html#cb189-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (package <span class="cf">in</span> packages_list) {</span>
-<span id="cb189-12"><a href="requirements-chapter.html#cb189-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(package, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb189-13"><a href="requirements-chapter.html#cb189-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="requirements-chapter.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correctly detected by renv</span></span>
+<span id="cb191-2"><a href="requirements-chapter.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb191-3"><a href="requirements-chapter.html#cb191-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-4"><a href="requirements-chapter.html#cb191-4" aria-hidden="true" tabindex="-1"></a>trackdown<span class="sc">::</span><span class="fu">upload_file</span>(...)</span>
+<span id="cb191-5"><a href="requirements-chapter.html#cb191-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-6"><a href="requirements-chapter.html#cb191-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Not detected by renv</span></span>
+<span id="cb191-7"><a href="requirements-chapter.html#cb191-7" aria-hidden="true" tabindex="-1"></a>packages_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;trackdown&quot;</span>)</span>
+<span id="cb191-8"><a href="requirements-chapter.html#cb191-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-9"><a href="requirements-chapter.html#cb191-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(packages_list, library, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb191-10"><a href="requirements-chapter.html#cb191-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-11"><a href="requirements-chapter.html#cb191-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (package <span class="cf">in</span> packages_list) {</span>
+<span id="cb191-12"><a href="requirements-chapter.html#cb191-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(package, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb191-13"><a href="requirements-chapter.html#cb191-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>To overcome this issue, we can list these packages directly in the <code>DESCRIPTION</code> file.</p>
 </div>
 <div id="renvignore-file" class="section level4 hasAnchor" number="11.3.3.5">
@@ -897,12 +909,18 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 </div>
 </div>
 </div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-R-renv" class="csl-entry">
+Ushey, K. (2022). <em>Renv: Project environments</em>. <a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a>
+</div>
+</div>
 <hr>
 <center>
   <div class="footer">
     Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
     <br>
-    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
     <br>
     To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
   </div>

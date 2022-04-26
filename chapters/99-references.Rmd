@@ -9,8 +9,10 @@ pkgs <- c(
   'renv',
   'roxygen2',
   'tarchetypes',
+  'targets',
   'testthat',
-  'trackdown'
+  'trackdown',
+  'workflowr'
 )
 
 # automatically create a bib database for R packages

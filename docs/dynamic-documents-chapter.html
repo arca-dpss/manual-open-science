@@ -168,11 +168,11 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -183,6 +183,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
 <li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
@@ -429,7 +430,18 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.1</b> Quarto</a></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown"><i class="fa fa-check"></i><b>10.2</b> <code>trackdown</code></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.2.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.2.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.2.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
@@ -572,14 +584,87 @@ div.csl-indent {
 <div id="dynamic-documents-chapter" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">Chapter 10</span> Dynamic Documents<a href="dynamic-documents-chapter.html#dynamic-documents-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>[Work in Progress]</p>
+<div id="quarto" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Quarto<a href="dynamic-documents-chapter.html#quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://quarto.org/" class="uri">https://quarto.org/</a></p>
+</div>
+<div id="trackdown" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> <code>trackdown</code><a href="dynamic-documents-chapter.html#trackdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="packages-logo-box", style="width: 200px;"><img src="images/dynamic-documents/trackdown-logo.png"></div>
+<p>One of the authors of this book is also the maintainer of the <code>trackdown</code> R package. <code>trackdown</code> <span class="citation">(<a href="#ref-R-trackdown" role="doc-biblioref">Kothe et al., 2021</a>)</span> offers a simple solution for collaborative writing and editing of R Markdown (or Sweave) documents. Using <code>trackdown</code>, we can upload the local <code>.Rmd</code> (or <code>.Rnw</code>) file as a plain-text file to Google Drive.</p>
+<p>By taking advantage of the easily readable Markdown (or <span class="latex">L<sup>A</sup>T<sub>E</sub>X</span>) syntax and the well-known online interface offered by Google Docs, collaborators can easily contribute to the writing and editing process. After integrating all authors’ contributions, we can download the final document and render it locally.</p>
+<p>The package documentation is available at <a href="https://claudiozandonella.github.io/trackdown/" class="uri">https://claudiozandonella.github.io/trackdown/</a>.</p>
+<div id="the-trackdown-workflow" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> The <code>trackdown</code> Workflow<a href="dynamic-documents-chapter.html#the-trackdown-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>During the collaborative writing/editing of an <code>.Rmd</code> (or <code>.Rnw</code>) document, it is important to employ different workflows for computer code and narrative text:</p>
+<ul>
+<li><strong>Code</strong> - Collaborative code writing is done most efficiently by following a traditional <strong>Git</strong>-based workflow using an online repository (e.g., GitHub or GitLab; see Chapter <a href="github-chapter.html#github-chapter">8</a>).</li>
+<li><strong>Narrative Text</strong> - Collaborative writing of the narrative text is done most efficiently using <strong>Google Docs</strong> which provides a familiar and simple online interface that allows multiple users to simultaneously write/edit the same document.</li>
+</ul>
+<p>Thus, the workflow’s main idea is simple: Upload the <code>.Rmd</code> (or <code>.Rnw</code>) document to Google Drive to collaboratively write/edit the narrative text in Google Docs; download the document locally to continue working on the code while harnessing the power of Git for version control and collaboration. This iterative process of uploading to and downloading from Google Drive continues until the desired results are obtained. The workflow can be summarized as:</p>
+<blockquote>
+<p>Collaborative <strong>code</strong> writing using <strong>Git</strong> &amp; collaborative writing of <strong>narrative text</strong> using <strong>Google Docs</strong></p>
+</blockquote>
+<p>For a detailed example of the workflow see <a href="https://ekothe.github.io/trackdown/articles/trackdown-workflow.html" class="uri">https://ekothe.github.io/trackdown/articles/trackdown-workflow.html</a>.</p>
+<p><img src="images/dynamic-documents/trackdown-workflow.png" width="100%" style="display: block; margin: auto;" /></p>
+<div id="functions-and-special-features" class="section level4 unnumbered hasAnchor">
+<h4>Functions and Special Features<a href="dynamic-documents-chapter.html#functions-and-special-features" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>trackdown</code> offers different functions to manage the workflow:</p>
+<ul>
+<li><code>upload_file()</code> uploads a file for the first time to Google Drive.</li>
+<li><code>update_file()</code> updates the content of an existing file in Google Drive with the contents of a local file.</li>
+<li><code>download_file()</code> downloads the edited version of a file from Google Drive and updates the local version.</li>
+<li><code>render_file()</code> downloads a file from Google Drive and renders it locally.</li>
+</ul>
+<p>Moreover, <code>trackdown</code> offers additional features to facilitate the collaborative writing and editing of documents in Google Docs. In particular, it is possible to:</p>
+<ul>
+<li><p><strong>Hide Code:</strong> Code in the header of the document (YAML header or LaTeX preamble) and code chunks are removed from the document when uploading to Google Drive and are automatically restored during download. This prevents collaborators from inadvertently making changes to the code which might corrupt the file and allows them to focus on the narrative text.</p>
+<p><img src="images/dynamic-documents/trackdown-hide-code.png" width="100%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Upload Output:</strong> The actual output document (i.e., the rendered file) can be uploaded to Google Drive in conjunction with the <code>.Rmd</code> (or <code>.Rnw</code>) document. This helps collaborators to evaluate the overall layout including figures and tables and allows them to add comments to suggest and discuss changes.</p></li>
+<li><p><strong>Use Google Drive shared drives:</strong> The documents can be uploaded to either a personal Google Drive or to a shared drive to facilitate collaboration.</p></li>
+</ul>
+</div>
+<div id="advantages-of-google-docs" class="section level4 hasAnchor" number="10.2.1.1">
+<h4><span class="header-section-number">10.2.1.1</span> Advantages of Google Docs<a href="dynamic-documents-chapter.html#advantages-of-google-docs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Google Docs offers users a familiar, intuitive, and free web-based interface that allows multiple users to simultaneously write/edit the same document. In Google Docs it is possible to:</p>
+<ul>
+<li>track changes (incl. accepting/rejecting suggestions)</li>
+<li>add comments to suggest and discuss changes</li>
+<li>check spelling and grammar errors (potentially integrating third-party services like Grammarly)</li>
+</ul>
+<p>Moreover, Google Docs allows anyone to contribute to the writing/editing of the document. No programming experience is required, users can just focus on writing/editing the narrative text.</p>
+<p>Note that not all collaborators have to have a Google account (although this is recommended to utilize all Google Docs features). Only the person who manages the <code>trackdown</code> workflow needs to have a Google account to upload files to Google Drive. Other collaborators can be invited to contribute to the document using a shared link.</p>
+<div class="design" title="trackdown Development Version">
+<p>The developmental version of <code>trackdown</code> (v1.3.0, currently only available on GitHub), introduced a new important feature:</p>
+<ul>
+<li><strong><code>rich_text</code>.</strong> Upload rich documents to Google Docs where important text that should not be changed is automatically highlighted (e.g., placeholders hiding the code, header of the document, code chunks, and in-line code). This prevents collaborators from inadvertently making changes to the code which might corrupt the file. See rich-text feature details.</li>
+</ul>
+<p><img src="images/dynamic-documents/trackdown-rich-text.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>To install the developmental version of <code>trackdown</code> form GitHub (<a href="https://github.com/claudiozandonella/trackdown" class="uri">https://github.com/claudiozandonella/trackdown</a>),</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="dynamic-documents-chapter.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(remotes)</span></span>
+<span id="cb184-2"><a href="dynamic-documents-chapter.html#cb184-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-3"><a href="dynamic-documents-chapter.html#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install the development version</span></span>
+<span id="cb184-4"><a href="dynamic-documents-chapter.html#cb184-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;claudiozandonella/trackdown&quot;</span>,</span>
+<span id="cb184-5"><a href="dynamic-documents-chapter.html#cb184-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Very soon, we will also add support for Quarto documents as well, see <a href="https://github.com/ClaudioZandonella/trackdown/issues/33" class="uri">https://github.com/ClaudioZandonella/trackdown/issues/33</a></p>
+</div>
 
+</div>
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-R-trackdown" class="csl-entry">
+Kothe, E., Zandonella Callegher, C., Gambarota, F., Linkersdörfer, J., &amp; Ling, M. (2021). <em>Trackdown: Collaborative editing of rmd (or rnw) documents in google drive</em>. <a href="https://CRAN.R-project.org/package=trackdown">https://CRAN.R-project.org/package=trackdown</a>
+</div>
 </div>
 <hr>
 <center>
   <div class="footer">
     Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
     <br>
-    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
     <br>
     To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
   </div>

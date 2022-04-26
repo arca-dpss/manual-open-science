@@ -168,11 +168,11 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -183,6 +183,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
 <li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
@@ -429,7 +430,18 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.1</b> Quarto</a></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown"><i class="fa fa-check"></i><b>10.2</b> <code>trackdown</code></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.2.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.2.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.2.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
@@ -577,15 +589,15 @@ div.csl-indent {
 <h2><span class="header-section-number">3.1</span> Project Structure<a href="project-chapter.html#project-structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To facilitate the reproducibility of our study results, it is important to organize our analysis into a project. A project is simply a directory where to collect all the analysis files and materials. So, instead of having all our files spread around the computer, it is a good practice to create a separate directory for each new analysis.</p>
 <p>However, collecting all the files in the same directory without any order will only create a mess. We need to organize the files according to some logic, we need a structure for our project. A possible general project template is,</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="project-chapter.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> my-project/</span>
-<span id="cb1-2"><a href="project-chapter.html#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span></span>
-<span id="cb1-3"><a href="project-chapter.html#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
-<span id="cb1-4"><a href="project-chapter.html#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> analysis/</span>
-<span id="cb1-5"><a href="project-chapter.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> code/</span>
-<span id="cb1-6"><a href="project-chapter.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> outputs/</span>
-<span id="cb1-7"><a href="project-chapter.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> documents/</span>
-<span id="cb1-8"><a href="project-chapter.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> README</span>
-<span id="cb1-9"><a href="project-chapter.html#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> LICENSE</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="project-chapter.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> my-project/</span>
+<span id="cb2-2"><a href="project-chapter.html#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span></span>
+<span id="cb2-3"><a href="project-chapter.html#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
+<span id="cb2-4"><a href="project-chapter.html#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> analysis/</span>
+<span id="cb2-5"><a href="project-chapter.html#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> code/</span>
+<span id="cb2-6"><a href="project-chapter.html#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> outputs/</span>
+<span id="cb2-7"><a href="project-chapter.html#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> documents/</span>
+<span id="cb2-8"><a href="project-chapter.html#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> README</span>
+<span id="cb2-9"><a href="project-chapter.html#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> LICENSE</span></code></pre></div>
 <p>Of course, this is just indicative, as project structures could vary according to the specific aims and needs. However, this can help us to start organizing our files (and also our ideas). A well structured and documented project will allow other colleagues to easily navigate around all the files and reproduce the analysis. Remember, our best colleague is the future us!</p>
 <div id="project-elements" class="section level3 hasAnchor" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Project Elements<a href="project-chapter.html#project-elements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -683,9 +695,9 @@ div.csl-indent {
 <li><p>Copy the selected license template in a plain-text file (i.e., <code>.txt</code> or <code>.md</code>) named <code>LICENSE</code> at the root of our project. Many online repositories allow us to select from common license directly through their online interface. In Chapter <a href="github-chapter.html#github-add-license">8.2.1</a>, we describe how to add a License on GitHub (see also <a href="https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository" class="uri">https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository</a>).</p></li>
 <li><p>Indicate the selected license also in the <code>README</code> specifying possible other information (e.g., different materials could be released under different conditions).</p></li>
 <li><p>In the case of software, it is a good practice to attach a short notice at the beginning of each source file. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="project-chapter.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copyright (C) &lt;year&gt;  &lt;name of author&gt;</span></span>
-<span id="cb2-2"><a href="project-chapter.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This file is part of &lt;project&gt; which is released under &lt;license&gt;.</span></span>
-<span id="cb2-3"><a href="project-chapter.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># See file &lt;filename&gt; or go to &lt;url&gt; for full license details.</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="project-chapter.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Copyright (C) &lt;year&gt;  &lt;name of author&gt;</span></span>
+<span id="cb3-2"><a href="project-chapter.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This file is part of &lt;project&gt; which is released under &lt;license&gt;.</span></span>
+<span id="cb3-3"><a href="project-chapter.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># See file &lt;filename&gt; or go to &lt;url&gt; for full license details.</span></span></code></pre></div></li>
 </ol>
 <p>Now that we have added a license, other colleagues can use our project according to the specified conditions.</p>
 </div>
@@ -697,33 +709,33 @@ div.csl-indent {
 <ul>
 <li><p><strong>Use Meaningful Names.</strong> Provide clear names that describe the content and aim of the file (or directory).</p>
 <div class="code-tex-bad">
-<div class="sourceCode" id="cb3"><pre class="sourceCode r bad-code"><code class="sourceCode r"><span id="cb3-1"><a href="project-chapter.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;untitled.R&quot;</span> <span class="co"># not meaningful name</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r bad-code"><code class="sourceCode r"><span id="cb4-1"><a href="project-chapter.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;untitled.R&quot;</span> <span class="co"># not meaningful name</span></span></code></pre></div>
 </div>
 <div class="code-tex-good">
-<div class="sourceCode" id="cb4"><pre class="sourceCode r good-code"><code class="sourceCode r"><span id="cb4-1"><a href="project-chapter.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;analysis-experiment-A.R&quot;</span>        <span class="co"># clear descriptive name</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r good-code"><code class="sourceCode r"><span id="cb5-1"><a href="project-chapter.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;analysis-experiment-A.R&quot;</span>        <span class="co"># clear descriptive name</span></span></code></pre></div>
 </div>
 <p>Note that prefix numbers can be used if files (or directories) are required to appear in a specific order.</p>
 <div class="code-tex-good">
-<div class="sourceCode" id="cb5"><pre class="sourceCode r good-code"><code class="sourceCode r"><span id="cb5-1"><a href="project-chapter.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ordered list of files</span></span>
-<span id="cb5-2"><a href="project-chapter.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;01-data-cleaning.R&quot;</span>        </span>
-<span id="cb5-3"><a href="project-chapter.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;02-descriptive-analysis.R&quot;</span></span>
-<span id="cb5-4"><a href="project-chapter.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;03-statistical-models.R&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r good-code"><code class="sourceCode r"><span id="cb6-1"><a href="project-chapter.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ordered list of files</span></span>
+<span id="cb6-2"><a href="project-chapter.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;01-data-cleaning.R&quot;</span>        </span>
+<span id="cb6-3"><a href="project-chapter.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;02-descriptive-analysis.R&quot;</span></span>
+<span id="cb6-4"><a href="project-chapter.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;03-statistical-models.R&quot;</span></span></code></pre></div>
 </div></li>
 <li><p><strong>Prefer <em>lower-case</em> Names.</strong> There is nothing wrong with capital letters. However, case sensitivity depends on the specific operating system. For example, in macOS and Linux systems, the files <code>my-file.txt</code> and <code>My-File.txt</code> can not coexist in the same directory. Therefore, it is recommended to always use lower-case names.</p></li>
 <li><p><strong>Specify Files Extension.</strong> Always indicate the specific file extension.</p></li>
 <li><p><strong>Avoid Spaces.</strong> In many programming languages, spaces are used to separate arguments or variable names. We should always use underscores (<code>"_"</code>) or dashes (<code>"-"</code>) instead of spaces.</p>
 <div class="code-tex-bad">
-<div class="sourceCode" id="cb6"><pre class="sourceCode r bad-code"><code class="sourceCode r"><span id="cb6-1"><a href="project-chapter.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;I like to/mess things up.txt&quot;</span> <span class="co"># Your machine is gonna hate you </span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r bad-code"><code class="sourceCode r"><span id="cb7-1"><a href="project-chapter.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;I like to/mess things up.txt&quot;</span> <span class="co"># Your machine is gonna hate you </span></span></code></pre></div>
 </div>
 <div class="code-tex-good">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r good-code"><code class="sourceCode r"><span id="cb7-1"><a href="project-chapter.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;path-to/my-file.txt&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r good-code"><code class="sourceCode r"><span id="cb8-1"><a href="project-chapter.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;path-to/my-file.txt&quot;</span></span></code></pre></div>
 </div></li>
 <li><p><strong>Avoid Special Characters.</strong> Character encoding (i.e., how the characters are represented by the computer) can become a problematic issue when files are shared between different systems. We should always name files and directories using only basic Latin characters and avoiding any special character (accented characters or other symbols). This would save us from lots of troubles.</p>
 <div class="code-tex-bad">
-<div class="sourceCode" id="cb8"><pre class="sourceCode r bad-code"><code class="sourceCode r"><span id="cb8-1"><a href="project-chapter.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;brûlée-recipe.txt&quot;</span> <span class="co"># surely a good recipe for troubles</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r bad-code"><code class="sourceCode r"><span id="cb9-1"><a href="project-chapter.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;brûlée-recipe.txt&quot;</span> <span class="co"># surely a good recipe for troubles</span></span></code></pre></div>
 </div>
 <div class="code-tex-good">
-<div class="sourceCode" id="cb9"><pre class="sourceCode r good-code"><code class="sourceCode r"><span id="cb9-1"><a href="project-chapter.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;brulee-reciepe.txt&quot;</span> <span class="co"># use only basic Latin characters</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r good-code"><code class="sourceCode r"><span id="cb10-1"><a href="project-chapter.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;brulee-reciepe.txt&quot;</span> <span class="co"># use only basic Latin characters</span></span></code></pre></div>
 </div></li>
 </ul>
 </div>
@@ -739,29 +751,29 @@ div.csl-indent {
 <li><strong>File Paths:</strong> A character string that indicates the location of a given file on our computer. We can think of it as the instruction to reach a specific file.</li>
 </ul>
 <p>When pointing to a file during our analysis (for example to load the data or to save the results), we need to provide a valid file path for the command to be executed correctly. Suppose we want to point to a data file (<code>my-data.csv</code>) that is on the Desktop in the project directory (<code>my-project/</code>).</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="project-chapter.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Desktop/</span></span>
-<span id="cb10-2"><a href="project-chapter.html#cb10-2" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span></span>
-<span id="cb10-3"><a href="project-chapter.html#cb10-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span><span class="ex">-</span>  my-project/</span>
-<span id="cb10-4"><a href="project-chapter.html#cb10-4" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span>    <span class="kw">|</span></span>
-<span id="cb10-5"><a href="project-chapter.html#cb10-5" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span>    <span class="kw">|</span><span class="ex">-</span> data/</span>
-<span id="cb10-6"><a href="project-chapter.html#cb10-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span>    <span class="kw">|</span>   <span class="kw">|</span><span class="ex">-</span> my-data.csv</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="project-chapter.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Desktop/</span></span>
+<span id="cb11-2"><a href="project-chapter.html#cb11-2" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span></span>
+<span id="cb11-3"><a href="project-chapter.html#cb11-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span><span class="ex">-</span>  my-project/</span>
+<span id="cb11-4"><a href="project-chapter.html#cb11-4" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span>    <span class="kw">|</span></span>
+<span id="cb11-5"><a href="project-chapter.html#cb11-5" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span>    <span class="kw">|</span><span class="ex">-</span> data/</span>
+<span id="cb11-6"><a href="project-chapter.html#cb11-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">|</span>    <span class="kw">|</span>   <span class="kw">|</span><span class="ex">-</span> my-data.csv</span></code></pre></div>
 <p>There are two different possibilities:</p>
 <ul>
 <li><p><strong>Absolute Paths:</strong> Files location is specified relative to the computer root directory. Absolute paths work regardless of the current working directory specification. However, they depend on the computer’s exact directories configuration. Thus, they do not work on someone else’s computer. Considering our example, we would have</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="project-chapter.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mac</span></span>
-<span id="cb11-2"><a href="project-chapter.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span>
-<span id="cb11-3"><a href="project-chapter.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="project-chapter.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux</span></span>
-<span id="cb11-5"><a href="project-chapter.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/home/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span>
-<span id="cb11-6"><a href="project-chapter.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="project-chapter.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
-<span id="cb11-8"><a href="project-chapter.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;c:\Users\&lt;username&gt;\Desktop\my-project\data\my-data.csv&quot;</span></span></code></pre></div></li>
-<li><p><strong>Relative Paths:</strong> Files location is specified relative to the current working directory. They do not depend on the computer’s whole directories configuration but only on the directories configuration relative to the current working directory. Therefore, if the working directory is set to the root of our project (<code>my-project/</code>), we would have</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="project-chapter.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mac and Linux</span></span>
-<span id="cb12-2"><a href="project-chapter.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;data/my-data.csv&quot;</span></span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="project-chapter.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mac</span></span>
+<span id="cb12-2"><a href="project-chapter.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span>
 <span id="cb12-3"><a href="project-chapter.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="project-chapter.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
-<span id="cb12-5"><a href="project-chapter.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;data\my-data.csv&quot;</span></span></code></pre></div></li>
+<span id="cb12-4"><a href="project-chapter.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux</span></span>
+<span id="cb12-5"><a href="project-chapter.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/home/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span>
+<span id="cb12-6"><a href="project-chapter.html#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="project-chapter.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
+<span id="cb12-8"><a href="project-chapter.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;c:\Users\&lt;username&gt;\Desktop\my-project\data\my-data.csv&quot;</span></span></code></pre></div></li>
+<li><p><strong>Relative Paths:</strong> Files location is specified relative to the current working directory. They do not depend on the computer’s whole directories configuration but only on the directories configuration relative to the current working directory. Therefore, if the working directory is set to the root of our project (<code>my-project/</code>), we would have</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="project-chapter.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mac and Linux</span></span>
+<span id="cb13-2"><a href="project-chapter.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;data/my-data.csv&quot;</span></span>
+<span id="cb13-3"><a href="project-chapter.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="project-chapter.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
+<span id="cb13-5"><a href="project-chapter.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;data\my-data.csv&quot;</span></span></code></pre></div></li>
 </ul>
 <p>Absolute paths hinder reproducibility as they do not work on someone else’s computer. We should always set the working directory at the root of our project and then use relative paths to point to any file in the project.</p>
 <p>When opening a project directory, many programs automatically set the working directory at the root of the project but this is not guaranteed. Therefore, we should always ensure that our IDE (Integrated Development Environment; e.g. Rstudio, Visual Studio Code, PyCharm) is doing that automatically or we should do it manually.</p>
@@ -773,24 +785,24 @@ div.csl-indent {
 <h5>Unix Systems<a href="project-chapter.html#unix-systems" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <ul>
 <li><p>The forward slash <code>"/"</code> is used to separate directories in the file paths.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="project-chapter.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="project-chapter.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
 <li><p>The computer <em>root-directory</em> is indicated by starting the file path with a forward slash <code>"/"</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="project-chapter.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mac</span></span>
-<span id="cb14-2"><a href="project-chapter.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span>
-<span id="cb14-3"><a href="project-chapter.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="project-chapter.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux</span></span>
-<span id="cb14-5"><a href="project-chapter.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/home/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="project-chapter.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mac</span></span>
+<span id="cb15-2"><a href="project-chapter.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/Users/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span>
+<span id="cb15-3"><a href="project-chapter.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="project-chapter.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux</span></span>
+<span id="cb15-5"><a href="project-chapter.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;/home/&lt;username&gt;/Desktop/my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
 <li><p>The user <em>home-directory</em> (<code>""/Users/&lt;username&gt;/"</code> in MacOS and <code>""/home/&lt;username&gt;/"</code> in Linux ) is indicated starting the file path with a tilde character <code>"~"</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="project-chapter.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;~/Desktop/my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="project-chapter.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;~/Desktop/my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
 </ul>
 </div>
 <div id="windows-systems" class="section level5 unnumbered hasAnchor">
 <h5>Windows Systems<a href="project-chapter.html#windows-systems" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <ul>
 <li><p>The backslash <code>"\"</code> is used to separate directories in the file paths.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="project-chapter.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="project-chapter.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
 <li><p>The computer <em>root-directory</em> is indicated by starting the file path with <code>"C:\"</code>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="project-chapter.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;C:\Users\&lt;username&gt;\Desktop\my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="project-chapter.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;C:\Users\&lt;username&gt;\Desktop\my-project/data/my-data.csv&quot;</span></span></code></pre></div></li>
 <li><p>Window does not define a user’s <em>home-directory</em>. Therefore, the tilde character <code>"~"</code> actually points to the <code>Documents</code> directory.</p></li>
 </ul>
 </div>
@@ -949,7 +961,7 @@ These commands are executed at the beginning of each session or when the session
   <div class="footer">
     Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
     <br>
-    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
     <br>
     To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
   </div>

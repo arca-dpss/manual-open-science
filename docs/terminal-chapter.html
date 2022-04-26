@@ -168,11 +168,11 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-content"><i class="fa fa-check"></i>Book Content</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
@@ -183,6 +183,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
 <li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a></li>
@@ -429,7 +430,18 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.1</b> Quarto</a></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown"><i class="fa fa-check"></i><b>10.2</b> <code>trackdown</code></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.2.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.2.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.2.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
@@ -714,7 +726,7 @@ Zsh (Z shell)
 <div class="deffun" title="Brew the Missing Package Manager for macOS">
 <p>Brew is a free and open-source package manager that allows us to easily install software and applications (it is the corresponding of <code>apt</code> in Linux distributions). The advantages of using Brew are that all the dependencies and environmental settings are automatically managed, saving us from lots of troubles. Moreover, using Brew we can safely update or remove software and applications with a single command. We highly encourage you to start using Brew to install all software and applications.</p>
 <p>To install Brew, follow the instructions at <a href="https://mac.install.guide/homebrew/3.html" class="uri">https://mac.install.guide/homebrew/3.html</a>. Note that for macOS versions older than Catalina, instructions are slightly different. In particular, the command to run for older versions is</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb78-1"><a href="terminal-chapter.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/bin/ruby</span> <span class="at">-e</span> <span class="st">&quot;</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/master/install<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb79-1"><a href="terminal-chapter.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/bin/ruby</span> <span class="at">-e</span> <span class="st">&quot;</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/master/install<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
 <p>Moreover, on Apple Silicon machines depending on your default Shell (Zsh or Bash), you are required to edit different profile files (<code>.zprofile</code> or <code>.bash_profile</code>).</p>
 <div id="default-shell-zsh-vs-bash" class="section level4 unnumbered hasAnchor">
 <h4>Default Shell: Zsh vs Bash<a href="terminal-chapter.html#default-shell-zsh-vs-bash" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -741,9 +753,9 @@ Zsh (Z shell)
 <p>When we open the Terminal, a similar short text message will appear at the start of the command line.</p>
 <p><img src="images/terminal/terminal.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>This is the <em>“prompt”</em> indicating that the system is ready for the next command. The prompt displays some information depending on the actual shell used and the specific settings. In this case, we have:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb79-1"><a href="terminal-chapter.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="ex">HOST_NAME:CURRENT_DIRECTORY</span> USER_NAME$</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb80-1"><a href="terminal-chapter.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="ex">HOST_NAME:CURRENT_DIRECTORY</span> USER_NAME$</span></code></pre></div>
 <p>To run a command, we simply type the desired command and then we press <code>Enter</code>. Commands usually have the following structure:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb80-1"><a href="terminal-chapter.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Command</span> [Options] Argument1 Argument2 ...</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb81-1"><a href="terminal-chapter.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Command</span> [Options] Argument1 Argument2 ...</span></code></pre></div>
 <ul>
 <li><strong><code>Command</code></strong> is the specific command name.</li>
 <li><strong><code>Options</code></strong> are used to obtain some command specific behaviour. Options are optional (in Bash documentation this is usually indicated by square brackets “<code>[ ]</code>”). Options usually are single letters preceded by a single dash “<code>-</code>” (e.g., <code>-a</code> or <code>-l</code>) or they can be words preceded by a double-dash “<code>--</code>” (e.g., <code>--all</code> or <code>--recursive</code>). Sometimes, options have both forms, the single letter and the single word (e.g., <code>--directory</code> is the same as <code>-d</code> ). Although the single word is more readable, the single letter form is usually preferred as less verbose and it is possible to concatenate multiple options (e.g., <code>-ad</code> stands for <code>-a -d</code> or <code>--all --directory</code>). Note that options are also called <em>“flags”</em> (in reality there is a subtle difference, an option can itself take an argument whereas a flag does not).</li>
@@ -751,7 +763,7 @@ Zsh (Z shell)
 </ul>
 <p>For example, in the command <code>ls -la Desktop/my-project</code>, <code>ls</code> is the specific command, <code>-la</code> are two options, and <code>Desktop/my-project</code> is the command argument.</p>
 <p>Bash has many implemented commands. However, we may need other software to execute some specific operations. To do that we simply specify the required software followed by the desired command and its options and argument</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb81-1"><a href="terminal-chapter.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Software</span> Command [Options] Argument1 Argument2 ...</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb82-1"><a href="terminal-chapter.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Software</span> Command [Options] Argument1 Argument2 ...</span></code></pre></div>
 <p>For example, in the command <code>docker build -t my-image:1.0.0 Desktop/my-project</code>, <code>docker</code> is the software (see Chapter <a href="docker-chapter.html#docker-chapter">12</a>), <code>build</code> is the specific command, <code>-t my-image:1.0.0</code> is an option, and <code>Desktop/my-project</code> is the command argument.</p>
 <div class="warning" title="Avoid Spaces in Names">
 <p>As we already have pointed out, command arguments are separated by spaces. This is particularly relevant in the case of paths. If file or directory names include spaces, we need to use quotes.</p>
@@ -763,36 +775,36 @@ Zsh (Z shell)
 <h3><span class="header-section-number">6.3.2</span> Navigating Directories<a href="terminal-chapter.html#navigating-directories" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Oh yes! Finally, after all these words let’s get into some actions. Firstly, as we no longer have our mouse and nice GUIs, we need to learn how to navigate within our machine from the terminal.</p>
 <p>To check our current position, use the command <code>pwd</code> (print working directory). The repose is printed on the Terminal. In this case, we are in our home directory.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb82-1"><a href="terminal-chapter.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
-<span id="cb82-2"><a href="terminal-chapter.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/myname</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb83-1"><a href="terminal-chapter.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb83-2"><a href="terminal-chapter.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/myname</span></span></code></pre></div>
 <p>To see all the files available in the current directory, use the command <code>ls</code> (list directory contents). By default, <code>ls</code> prints only the names.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb83-1"><a href="terminal-chapter.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
-<span id="cb83-2"><a href="terminal-chapter.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Applications</span>                            Documents                 Library</span>
-<span id="cb83-3"><a href="terminal-chapter.html#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Desktop</span>                                                Downloads                                  Public</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb84-1"><a href="terminal-chapter.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb84-2"><a href="terminal-chapter.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Applications</span>                            Documents                 Library</span>
+<span id="cb84-3"><a href="terminal-chapter.html#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Desktop</span>                                                Downloads                                  Public</span></code></pre></div>
 <p>To get more information, specify the option <code>-l</code> (long listing format). Another useful option is <code>-a</code> to also list hidden files (i.e., file or folder that starts with a dot character usually used to specify preferences and settings).</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb84-1"><a href="terminal-chapter.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
-<span id="cb84-2"><a href="terminal-chapter.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 0</span>
-<span id="cb84-3"><a href="terminal-chapter.html#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span>   4 myname  staff   128 Oct 25  2018 Applications</span>
-<span id="cb84-4"><a href="terminal-chapter.html#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span>  27 myname  staff   864 Feb  3 14:41 Desktop</span>
-<span id="cb84-5"><a href="terminal-chapter.html#cb84-5" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span>  10 myname  staff   320 Jan 17 09:41 Documents</span>
-<span id="cb84-6"><a href="terminal-chapter.html#cb84-6" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span>  10 myname  staff   320 Feb  3 09:56 Downloads</span>
-<span id="cb84-7"><a href="terminal-chapter.html#cb84-7" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span> 104 myname  staff  3328 Jan 13 21:30 Library</span>
-<span id="cb84-8"><a href="terminal-chapter.html#cb84-8" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x+</span>   5 myname  staff   160 Sep  7  2018 Public</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb85-1"><a href="terminal-chapter.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
+<span id="cb85-2"><a href="terminal-chapter.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 0</span>
+<span id="cb85-3"><a href="terminal-chapter.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span>   4 myname  staff   128 Oct 25  2018 Applications</span>
+<span id="cb85-4"><a href="terminal-chapter.html#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span>  27 myname  staff   864 Feb  3 14:41 Desktop</span>
+<span id="cb85-5"><a href="terminal-chapter.html#cb85-5" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span>  10 myname  staff   320 Jan 17 09:41 Documents</span>
+<span id="cb85-6"><a href="terminal-chapter.html#cb85-6" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span>  10 myname  staff   320 Feb  3 09:56 Downloads</span>
+<span id="cb85-7"><a href="terminal-chapter.html#cb85-7" aria-hidden="true" tabindex="-1"></a><span class="ex">drwx------@</span> 104 myname  staff  3328 Jan 13 21:30 Library</span>
+<span id="cb85-8"><a href="terminal-chapter.html#cb85-8" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x+</span>   5 myname  staff   160 Sep  7  2018 Public</span></code></pre></div>
 <p>The initial <code>d</code> indicates that these are all directories, next we get information about permissions and ownerships (see Chapter <a href="docker-chapter.html#files-permissions">12.2.3.3</a>), the file size in bits (use options <code>-h</code> for human-readable file sizes), file modification time, and finally the actual file name.</p>
 <p>Let’s say we now want to see what is inside the <code>Desktop/</code> directory. To do that, we simply specify it as an argument of <code>ls</code>.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb85-1"><a href="terminal-chapter.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span> Desktop/</span>
-<span id="cb85-2"><a href="terminal-chapter.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x@</span> 17 claudio  staff    23544 Dec 17 17:09 Courses</span>
-<span id="cb85-3"><a href="terminal-chapter.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x@</span> 17 claudio  staff    14590 Dec 17 17:09 Presentations</span>
-<span id="cb85-4"><a href="terminal-chapter.html#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>   1 claudio  staff     5928 Feb  3 14:41 Repot.pdf</span>
-<span id="cb85-5"><a href="terminal-chapter.html#cb85-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--@</span>  1 claudio  staff      160 Jan 18 11:10 TODO-list.txt</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb86-1"><a href="terminal-chapter.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span> Desktop/</span>
+<span id="cb86-2"><a href="terminal-chapter.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x@</span> 17 claudio  staff    23544 Dec 17 17:09 Courses</span>
+<span id="cb86-3"><a href="terminal-chapter.html#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x@</span> 17 claudio  staff    14590 Dec 17 17:09 Presentations</span>
+<span id="cb86-4"><a href="terminal-chapter.html#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span>   1 claudio  staff     5928 Feb  3 14:41 Repot.pdf</span>
+<span id="cb86-5"><a href="terminal-chapter.html#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--@</span>  1 claudio  staff      160 Jan 18 11:10 TODO-list.txt</span></code></pre></div>
 <p>To move to another directory, use the command <code>cd</code> (change directory) specifying the desired location. We move <code>Courses/Open-Science</code> and check the current working directory.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb86-1"><a href="terminal-chapter.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd Desktop/Courses/Open-Science</span>
-<span id="cb86-2"><a href="terminal-chapter.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd </span>
-<span id="cb86-3"><a href="terminal-chapter.html#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/myname/Desktop/Courses/Open-Science</span></span></code></pre></div>
-<p>To move back to the parent directory, we use the syntax <code>../</code>. In this case, if we want to return to the <code>Desktop</code> directory, we need to move back to two levels (<code>../../</code>).</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb87-1"><a href="terminal-chapter.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ../../</span>
+<div class="sourceCode" id="cb87"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb87-1"><a href="terminal-chapter.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd Desktop/Courses/Open-Science</span>
 <span id="cb87-2"><a href="terminal-chapter.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd </span>
-<span id="cb87-3"><a href="terminal-chapter.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/myname/Desktop</span></span></code></pre></div>
+<span id="cb87-3"><a href="terminal-chapter.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/myname/Desktop/Courses/Open-Science</span></span></code></pre></div>
+<p>To move back to the parent directory, we use the syntax <code>../</code>. In this case, if we want to return to the <code>Desktop</code> directory, we need to move back to two levels (<code>../../</code>).</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb88-1"><a href="terminal-chapter.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd ../../</span>
+<span id="cb88-2"><a href="terminal-chapter.html#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd </span>
+<span id="cb88-3"><a href="terminal-chapter.html#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/myname/Desktop</span></span></code></pre></div>
 <div class="design" title="Directory Structure">
 <p>As we start using the terminal, we discover how all directories and files are actually organized in our computer and how they are managed by the operating system.</p>
 <p>Modern graphical user interfaces with icons and buttons give a very misleading representation of how a computer is organized. We may think that the Desktop is the entrance of our computer and from there we can reach all the files simply by point-and-click actions.</p>
@@ -808,37 +820,37 @@ Zsh (Z shell)
 <h3><span class="header-section-number">6.3.3</span> Modifying Files<a href="terminal-chapter.html#modifying-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We learned the basics of how to move ourselves inside the machine directory structure. Let’s see now how we can manipulate files.</p>
 <p>To create a new directory, use the command <code>mkdir</code> (make directory) specifying the name (and position). We create the directory <code>my-project</code> and we move inside it.</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb88-1"><a href="terminal-chapter.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir my-project</span>
-<span id="cb88-2"><a href="terminal-chapter.html#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd my-project </span>
-<span id="cb88-3"><a href="terminal-chapter.html#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
-<span id="cb88-4"><a href="terminal-chapter.html#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/myname/my-project</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb89-1"><a href="terminal-chapter.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir my-project</span>
+<span id="cb89-2"><a href="terminal-chapter.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd my-project </span>
+<span id="cb89-3"><a href="terminal-chapter.html#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
+<span id="cb89-4"><a href="terminal-chapter.html#cb89-4" aria-hidden="true" tabindex="-1"></a><span class="ex">/Users/myname/my-project</span></span></code></pre></div>
 <p>To create a blank file, use the command <code>touch</code> specifying the name (and position). Note that this command can also be used to create hidden files (i.e., files that start with a dot character). We create the file <code>README</code>.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb89-1"><a href="terminal-chapter.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> touch README</span>
-<span id="cb89-2"><a href="terminal-chapter.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
-<span id="cb89-3"><a href="terminal-chapter.html#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="ex">README</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb90-1"><a href="terminal-chapter.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> touch README</span>
+<span id="cb90-2"><a href="terminal-chapter.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb90-3"><a href="terminal-chapter.html#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="ex">README</span></span></code></pre></div>
 <p>We can check the file content using the command <code>cat</code> (concatenate; print file content on the screen) or <code>less</code> (visualize the file on the screen allowing to move up and down the page; to quit press <code>q</code>). The file is now empty so if we check its content nothing appears.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb90-1"><a href="terminal-chapter.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat README</span>
-<span id="cb90-2"><a href="terminal-chapter.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb91-1"><a href="terminal-chapter.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat README</span>
+<span id="cb91-2"><a href="terminal-chapter.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code></pre></div>
 <p>To add text to the file we can use a text editor (see Section <a href="terminal-chapter.html#text-editors">6.3.4</a>). Alternatively, we can use the command <code>echo</code>. By default <code>echo</code> prints the desired message on screen, but using the syntax <code>echo "message" &gt;&gt; file</code> we can specify to add the message at the end of the desired file (Wow! Isn’t this magic?!?).</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb91-1"><a href="terminal-chapter.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">&quot;Hello World!&quot;</span></span>
-<span id="cb91-2"><a href="terminal-chapter.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> World!</span>
-<span id="cb91-3"><a href="terminal-chapter.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">&quot;Hello World!&quot;</span> <span class="op">&gt;&gt;</span> README</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb92-1"><a href="terminal-chapter.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">&quot;Hello World!&quot;</span></span>
+<span id="cb92-2"><a href="terminal-chapter.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> World!</span>
+<span id="cb92-3"><a href="terminal-chapter.html#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">&quot;Hello World!&quot;</span> <span class="op">&gt;&gt;</span> README</span></code></pre></div>
 <p>Now we can check the file content again using <code>cat</code>.</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb92-1"><a href="terminal-chapter.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat README</span>
-<span id="cb92-2"><a href="terminal-chapter.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> World!</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb93-1"><a href="terminal-chapter.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat README</span>
+<span id="cb93-2"><a href="terminal-chapter.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> World!</span></code></pre></div>
 <p>To move a file or a directory, use the command <code>mv</code> (move) specifying the source location and the destination. Let’s move the file <code>Report.pdf</code> from the Desktop to the <code>my-project</code> directory.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb93-1"><a href="terminal-chapter.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mv ../Report.pdf .</span>
-<span id="cb93-2"><a href="terminal-chapter.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
-<span id="cb93-3"><a href="terminal-chapter.html#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="ex">README</span>                Report.pdf</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb94-1"><a href="terminal-chapter.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mv ../Report.pdf .</span>
+<span id="cb94-2"><a href="terminal-chapter.html#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb94-3"><a href="terminal-chapter.html#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="ex">README</span>                Report.pdf</span></code></pre></div>
 <p>Note that <code>.</code> is used to indicate here (the current location). The command <code>mv</code> can also be used to rename files and directories by specifying as destination the same initial directory, but with a different name.</p>
 <p>To copy a file, use the command <code>cp</code> (copy) specifying the source location and the destination. Note that to copy a directory the option <code>-r</code>, which stands for recursive, is required. Let’s create a copy of <code>Report.pdf</code> named <code>Report-copy.pdf</code>.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb94-1"><a href="terminal-chapter.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp Report.pdf Report-copy.pdf</span>
-<span id="cb94-2"><a href="terminal-chapter.html#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
-<span id="cb94-3"><a href="terminal-chapter.html#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="ex">README</span>                Report-copy.pdf          Report.pdf</span></code></pre></div>
-<p>Finally to remove a file, use the command <code>rm</code> (or <code>rmdir</code> to remove a directory) specifying the file.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb95-1"><a href="terminal-chapter.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm Report-copy.pdf</span>
+<div class="sourceCode" id="cb95"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb95-1"><a href="terminal-chapter.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp Report.pdf Report-copy.pdf</span>
 <span id="cb95-2"><a href="terminal-chapter.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
-<span id="cb95-3"><a href="terminal-chapter.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="ex">README</span>                Report.pdf</span></code></pre></div>
+<span id="cb95-3"><a href="terminal-chapter.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="ex">README</span>                Report-copy.pdf          Report.pdf</span></code></pre></div>
+<p>Finally to remove a file, use the command <code>rm</code> (or <code>rmdir</code> to remove a directory) specifying the file.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb96-1"><a href="terminal-chapter.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm Report-copy.pdf</span>
+<span id="cb96-2"><a href="terminal-chapter.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span>
+<span id="cb96-3"><a href="terminal-chapter.html#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="ex">README</span>                Report.pdf</span></code></pre></div>
 <p>So far we described how to do simple operations using the terminal. We may wonder why we should bother with all this fuss when we could easily do the same operations using the common point-and-click interface? Well, this may be true if we need to do a single operation a single time, but where the Terminal shines is automation. If we need to repeat the same operation over multiple files or periodically over time, a few command lines would save us a lot of hours wasted in point-and-click menus.</p>
 <p>Hopefully, this brief introduction has shed some light on the potential and utility of using the terminal and made you interested in learning more (or at least less afraid).</p>
 <p>For complete tutorials, we highly recommend (if we do it for the third time there is a reason):</p>
@@ -852,30 +864,30 @@ Zsh (Z shell)
 </div>
 <div class="foil" title="Bash">
 <p>Here is a summary of all the Bash commands introduced so far.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb96-1"><a href="terminal-chapter.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Navigating    ----#</span></span>
-<span id="cb96-2"><a href="terminal-chapter.html#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-3"><a href="terminal-chapter.html#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span>                       <span class="co"># Print working directory</span></span>
-<span id="cb96-4"><a href="terminal-chapter.html#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span>      <span class="op">&lt;</span>directory<span class="op">&gt;</span>       # Change directory</span>
-<span id="cb96-5"><a href="terminal-chapter.html#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>      <span class="op">&lt;</span>directory<span class="op">&gt;</span>       # List files</span>
-<span id="cb96-6"><a href="terminal-chapter.html#cb96-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-l</span>   <span class="co"># Long list with details</span></span>
-<span id="cb96-7"><a href="terminal-chapter.html#cb96-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-a</span>   <span class="co"># List also hidden files and directories</span></span>
-<span id="cb96-8"><a href="terminal-chapter.html#cb96-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-h</span>   <span class="co"># Return file size in readable units</span></span>
-<span id="cb96-9"><a href="terminal-chapter.html#cb96-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-10"><a href="terminal-chapter.html#cb96-10" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Modifying    ----#</span></span>
-<span id="cb96-11"><a href="terminal-chapter.html#cb96-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-12"><a href="terminal-chapter.html#cb96-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span>   <span class="op">&lt;</span>directory<span class="op">&gt;</span>       # Create directory</span>
-<span id="cb96-13"><a href="terminal-chapter.html#cb96-13" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span>   <span class="op">&lt;</span>file<span class="op">&gt;</span>            # Create file</span>
-<span id="cb96-14"><a href="terminal-chapter.html#cb96-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span>      <span class="op">&lt;</span>source<span class="op">&gt;&lt;</span>dest<span class="op">&gt;</span>    # Move <span class="er">(</span><span class="ex">or</span> rename<span class="kw">)</span> <span class="fu">file</span> or directory</span>
-<span id="cb96-15"><a href="terminal-chapter.html#cb96-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span>      <span class="op">&lt;</span>source<span class="op">&gt;&lt;</span>dest<span class="op">&gt;</span>    # Copy file </span>
-<span id="cb96-16"><a href="terminal-chapter.html#cb96-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-r</span>   <span class="co"># For directories</span></span>
-<span id="cb96-17"><a href="terminal-chapter.html#cb96-17" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>      <span class="op">&lt;</span>file<span class="op">&gt;</span>            # Remove file</span>
-<span id="cb96-18"><a href="terminal-chapter.html#cb96-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rmdir</span>   <span class="op">&lt;</span>directory<span class="op">&gt;</span>       # Remove directory</span>
-<span id="cb96-19"><a href="terminal-chapter.html#cb96-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-20"><a href="terminal-chapter.html#cb96-20" aria-hidden="true" tabindex="-1"></a><span class="co">#-----   Other    -----#</span></span>
-<span id="cb96-21"><a href="terminal-chapter.html#cb96-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb96-22"><a href="terminal-chapter.html#cb96-22" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span>    <span class="op">&lt;</span>message<span class="op">&gt;</span>         # Print message in console</span>
-<span id="cb96-23"><a href="terminal-chapter.html#cb96-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>     <span class="op">&lt;</span>file<span class="op">&gt;</span>            # Print file in console</span>
-<span id="cb96-24"><a href="terminal-chapter.html#cb96-24" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span>    <span class="op">&lt;</span>file<span class="op">&gt;</span>            # Open file in a screen</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb97-1"><a href="terminal-chapter.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Navigating    ----#</span></span>
+<span id="cb97-2"><a href="terminal-chapter.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="terminal-chapter.html#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span>                       <span class="co"># Print working directory</span></span>
+<span id="cb97-4"><a href="terminal-chapter.html#cb97-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span>      <span class="op">&lt;</span>directory<span class="op">&gt;</span>       # Change directory</span>
+<span id="cb97-5"><a href="terminal-chapter.html#cb97-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>      <span class="op">&lt;</span>directory<span class="op">&gt;</span>       # List files</span>
+<span id="cb97-6"><a href="terminal-chapter.html#cb97-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-l</span>   <span class="co"># Long list with details</span></span>
+<span id="cb97-7"><a href="terminal-chapter.html#cb97-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-a</span>   <span class="co"># List also hidden files and directories</span></span>
+<span id="cb97-8"><a href="terminal-chapter.html#cb97-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-h</span>   <span class="co"># Return file size in readable units</span></span>
+<span id="cb97-9"><a href="terminal-chapter.html#cb97-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-10"><a href="terminal-chapter.html#cb97-10" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Modifying    ----#</span></span>
+<span id="cb97-11"><a href="terminal-chapter.html#cb97-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-12"><a href="terminal-chapter.html#cb97-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span>   <span class="op">&lt;</span>directory<span class="op">&gt;</span>       # Create directory</span>
+<span id="cb97-13"><a href="terminal-chapter.html#cb97-13" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span>   <span class="op">&lt;</span>file<span class="op">&gt;</span>            # Create file</span>
+<span id="cb97-14"><a href="terminal-chapter.html#cb97-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span>      <span class="op">&lt;</span>source<span class="op">&gt;&lt;</span>dest<span class="op">&gt;</span>    # Move <span class="er">(</span><span class="ex">or</span> rename<span class="kw">)</span> <span class="fu">file</span> or directory</span>
+<span id="cb97-15"><a href="terminal-chapter.html#cb97-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span>      <span class="op">&lt;</span>source<span class="op">&gt;&lt;</span>dest<span class="op">&gt;</span>    # Copy file </span>
+<span id="cb97-16"><a href="terminal-chapter.html#cb97-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">-r</span>   <span class="co"># For directories</span></span>
+<span id="cb97-17"><a href="terminal-chapter.html#cb97-17" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>      <span class="op">&lt;</span>file<span class="op">&gt;</span>            # Remove file</span>
+<span id="cb97-18"><a href="terminal-chapter.html#cb97-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rmdir</span>   <span class="op">&lt;</span>directory<span class="op">&gt;</span>       # Remove directory</span>
+<span id="cb97-19"><a href="terminal-chapter.html#cb97-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-20"><a href="terminal-chapter.html#cb97-20" aria-hidden="true" tabindex="-1"></a><span class="co">#-----   Other    -----#</span></span>
+<span id="cb97-21"><a href="terminal-chapter.html#cb97-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-22"><a href="terminal-chapter.html#cb97-22" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span>    <span class="op">&lt;</span>message<span class="op">&gt;</span>         # Print message in console</span>
+<span id="cb97-23"><a href="terminal-chapter.html#cb97-23" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>     <span class="op">&lt;</span>file<span class="op">&gt;</span>            # Print file in console</span>
+<span id="cb97-24"><a href="terminal-chapter.html#cb97-24" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span>    <span class="op">&lt;</span>file<span class="op">&gt;</span>            # Open file in a screen</span></code></pre></div>
 </div>
 </div>
 <div id="text-editors" class="section level3 hasAnchor" number="6.3.4">
@@ -989,7 +1001,7 @@ Zsh (Z shell)
   <div class="footer">
     Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
     <br>
-    All other materials are released under <a href= "https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 License</a> unless noted otherwise.
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
     <br>
     To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
   </div>

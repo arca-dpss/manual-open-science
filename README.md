@@ -69,10 +69,20 @@ Developmental and Social Psychology at the University of Padua.
 
 ## Contribute
 
-Surely there are many typos to fix and new arguments to include. Anyone
-is welcome to contribute to this book. For small typos just send a pull
-request with all the corrections. To propose new chapters or paragraphs,
-instead, open an issue to discuss and plan them.
+If you think there is something missing, something should be described
+better, or something is wrong, please, feel free to contribute to this
+book. Anyone is welcome to contribute to this book.
+
+This is the hearth of open-source: contribution. We will understand the
+real value of this book not by the number of people that will read it
+but by the number of people who will invest their own time trying to
+improve it.
+
+For typos (the probability of typos per page is always above 1) just
+send a pull request with all the corrections. Instead, if you like to
+add new chapters or paragraphs to include new arguments or discuss more
+in detail some aspects, open an issue so we can find together the best
+way to organize the structure of the book.
 
 View book source at GitHub repository
 <https://github.com/arca-dpss/manual-open-science>.
@@ -97,10 +107,6 @@ BibTeX citation:
 ```
 
 ## License
-
-``` r
-knitr::include_graphics("images/cc-nc-sa.png")
-```
 
 <img src="images/cc-nc-sa.png" width="20%" style="display: block; margin: auto auto auto 0;" />
 

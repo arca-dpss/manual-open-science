@@ -348,7 +348,7 @@ knitr::include_graphics("images/github/github-pr-create.png")
 Note that it is called pull request and not push request as we are not pushing to the original repository but the original repository is pulling the commits from our fork.
 :::
 
-## Advanced Features
+## Advanced Features {#github-adv-features}
 
 Finally, we briefly present some other very useful but more advanced GitHub features. As always we recommend considering the official documentation at https://docs.github.com/ for all the options and features.
 

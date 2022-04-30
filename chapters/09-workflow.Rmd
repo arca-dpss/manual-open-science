@@ -604,7 +604,7 @@ In particular, we have:
 
 
 
-#### `targets` and R Markdown
+#### `targets` and R Markdown {#targets-rmarkdown}
 
 To integrate the `targets` workflow with dynamic documents created by R Markdown, there are two main approaches
 

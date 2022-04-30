@@ -4,9 +4,11 @@
 # list cited packages
 pkgs <- c(
   .packages(),
+  'bookdown',
   'conflicted',
   'devtools',
   'renv',
+  'rmarkdown',
   'roxygen2',
   'tarchetypes',
   'targets',

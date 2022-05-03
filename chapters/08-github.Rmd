@@ -4,7 +4,7 @@ In Chapter \@ref(git-chapter), we introduced Git, a very powerful tool for track
 
 To collaborate with other colleagues using remote repositories, we need dedicated hosting services such as GitHub, GitLab, or Bitbucket. These services are similar to each other and they provide almost the same set of tools. In this chapter, we focus on the use of GitHub.
 
-## Using GitHub
+## Using GitHub {#using-github}
 
 ```{r, results ="asis"}
 package_logo("images/github/GitHub-logo.png", format = output_format,
@@ -26,7 +26,7 @@ However, the OSF and GitHub are designed for different purposes:
 
 Therefore, there are some important differences. For example, considering file tracking, the OSF simply stores all previous versions of a file as new ones are uploaded. This is nothing like a true version control system like Git. Only Git allows to properly track changes and manage collaboration (branching and merging) during the development of a project. The OSF is not a Git repository-hosting service.
 
-However, although OSF lacks the power of Git, it serves a more general purpose allowing to share files of any type (e.g., PDFs and images), does not require specific technical competencies to be used, and provides specific features useful in scientific research (e.g., getting a DOI or anonymization for review process). On the contrary, Git (and therefore GitHub) is recommended only for plain-text files and requires specific technical competencies.
+However, although OSF lacks the power of Git, it serves a more general purpose allowing to share files of any type (e.g., PDFs and images), does not require specific technical competencies to be used, and provides specific features useful in scientific research (e.g., getting a DOI, anonymization for the review process, and preprints). On the contrary, Git (and therefore GitHub) is recommended only for plain-text files and requires specific technical competencies.
 
 To know more about the differences between OSF and GitHub, see  https://ropensci.org/blog/2020/08/04/osf/ or *“Sharing code”* by @kubiliusSharingCode2014 available at https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4130510/.
 

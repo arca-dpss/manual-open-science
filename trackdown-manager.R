@@ -5,13 +5,17 @@ trackdown::download_file("README.Rmd", gpath = "trackdown/ARCA")
 update_readme()
 
 
-#----    Index    ----
+#----    index    ----
 trackdown::update_file("index.Rmd", gpath = "trackdown/ARCA")
 trackdown::download_file("index.Rmd", gpath = "trackdown/ARCA")
 
-#----    01-Intro    ----
+#----    01-intro    ----
 trackdown::update_file("chapters/01-intro.Rmd", gpath = "trackdown/ARCA")
 trackdown::download_file("chapters/01-intro.Rmd", gpath = "trackdown/ARCA")
+
+#----    02-osf    ----
+trackdown::update_file("chapters/02-osf.Rmd", gpath = "trackdown/ARCA")
+trackdown::download_file("chapters/02-osf.Rmd", gpath = "trackdown/ARCA")
 
 #----    03-projects    ----
 trackdown::update_file("chapters/03-projects.Rmd", gpath = "trackdown/ARCA")

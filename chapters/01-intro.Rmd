@@ -21,7 +21,7 @@ The present book aims to describe programming good practices and introduce commo
 
 The book is structured as follows.
 
-- In Chapter \@ref(osf-chapter) [work in progress], we introduce the Open Science Framework (OSF), a free, open-source web application that allows researchers to collaborate, document, archive, share, and register research projects, materials, and data.
+- In Chapter \@ref(osf-chapter), we introduce the Open Science Framework (OSF), a free, open-source web application that allows researchers to collaborate, document, archive, share, and register research projects, materials, and data.
 - In Chapter \@ref(project-chapter), we describe recommended practices to organize all the materials and files of our projects and which are the advantages of creating a well structured, documented, and licensed repository.
 - In Chapter \@ref(data-chapter), we discuss the main guidelines regarding organizing, documenting, and sharing data.
 - In Chapter \@ref(coding-chapter), we provide general good practices to create readable and maintainable code and we describe the functional style approach.
@@ -76,27 +76,27 @@ The aim of the book is exactly that: to introduce popular tools and common guide
 
 Inside the book, there are special Info-Boxes that provide further details.
 
-:::{.tip title="My title" data-latex="[My title]"}
+:::{.tip title="&nbsp;" data-latex="[~]"}
 Tip-Boxes are used to provide insight into specific topics.
 :::
 
-:::{.warning title="My title" data-latex="[My title]"}
+:::{.warning title="&nbsp;" data-latex="[~]"}
 Warning-Boxes are used to provide important warnings.
 :::
 
-:::{.deffun title="My title" data-latex="[My title]"}
+:::{.deffun title="&nbsp;" data-latex="[~]"}
 Instructions-Boxes are used to provide detailed instructions.
 :::
 
-:::{.design title="My title" data-latex="[My title]"}
+:::{.design title="&nbsp;" data-latex="[~]"}
 Details-Boxes are used to provide further details about advanced topics.
 :::
 
-:::{.trick title="My title" data-latex="[My title]"}
+:::{.trick title="&nbsp;" data-latex="[~]"}
 Trick-Boxes are used to describe special useful tricks.
 :::
 
-:::{.foil title="My title" data-latex="[My title]"}
+:::{.foil title="&nbsp;" data-latex="[~]"}
 Command Cheatsheets are used to summarize commands of a specific software.
 :::
 

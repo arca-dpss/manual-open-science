@@ -25,6 +25,7 @@ Imports:
     kableExtra,
     osfr,
     renv,
+    reticulate,
     rmarkdown,
     roxygen2,
     tarchetypes,

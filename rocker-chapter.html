@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Rocker | The Open Science Manual</title>
+  <meta name="description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Rocker | The Open Science Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+  <meta property="og:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="github-repo" content="arca-dpss/manual-open-science" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Rocker | The Open Science Manual" />
+  
+  <meta name="twitter:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="twitter:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="docker-chapter.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="assets/images/arca-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#book-structure"><i class="fa fa-check"></i><b>1.1</b> Book Structure</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#instructions"><i class="fa fa-check"></i><b>1.2</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-introduction"><i class="fa fa-check"></i><b>2.1</b> OSF Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-getting-started"><i class="fa fa-check"></i><b>2.2</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="osf-chapter.html"><a href="osf-chapter.html#subscribe"><i class="fa fa-check"></i><b>2.2.1</b> Subscribe</a></li>
+<li class="chapter" data-level="2.2.2" data-path="osf-chapter.html"><a href="osf-chapter.html#create-a-project"><i class="fa fa-check"></i><b>2.2.2</b> Create a Project</a></li>
+<li class="chapter" data-level="2.2.3" data-path="osf-chapter.html"><a href="osf-chapter.html#project-homepage"><i class="fa fa-check"></i><b>2.2.3</b> Project Homepage</a></li>
+<li class="chapter" data-level="2.2.4" data-path="osf-chapter.html"><a href="osf-chapter.html#adding-files"><i class="fa fa-check"></i><b>2.2.4</b> Adding Files</a></li>
+<li class="chapter" data-level="2.2.5" data-path="osf-chapter.html"><a href="osf-chapter.html#documentation"><i class="fa fa-check"></i><b>2.2.5</b> Documentation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-features"><i class="fa fa-check"></i><b>2.3</b> Research Features</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="osf-chapter.html"><a href="osf-chapter.html#doi"><i class="fa fa-check"></i><b>2.3.1</b> DOI</a></li>
+<li class="chapter" data-level="2.3.2" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-contributors"><i class="fa fa-check"></i><b>2.3.2</b> Contributors</a></li>
+<li class="chapter" data-level="2.3.3" data-path="osf-chapter.html"><a href="osf-chapter.html#sharable-anonymized-links"><i class="fa fa-check"></i><b>2.3.3</b> Sharable Anonymized Links</a></li>
+<li class="chapter" data-level="2.3.4" data-path="osf-chapter.html"><a href="osf-chapter.html#preprints"><i class="fa fa-check"></i><b>2.3.4</b> Preprints</a></li>
+<li class="chapter" data-level="2.3.5" data-path="osf-chapter.html"><a href="osf-chapter.html#add-ons-and-api"><i class="fa fa-check"></i><b>2.3.5</b> Add-ons and API</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="project-chapter.html"><a href="project-chapter.html"><i class="fa fa-check"></i><b>3</b> Projects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project-chapter.html"><a href="project-chapter.html#project-structure"><i class="fa fa-check"></i><b>3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="project-chapter.html"><a href="project-chapter.html#project-elements"><i class="fa fa-check"></i><b>3.1.1</b> Project Elements</a>
+<ul>
+<li class="chapter" data-level="3.1.1.1" data-path="project-chapter.html"><a href="project-chapter.html#data"><i class="fa fa-check"></i><b>3.1.1.1</b> <code>data/</code></a></li>
+<li class="chapter" data-level="3.1.1.2" data-path="project-chapter.html"><a href="project-chapter.html#analysis-code"><i class="fa fa-check"></i><b>3.1.1.2</b> <code>analysis/</code> and <code>code/</code></a></li>
+<li class="chapter" data-level="3.1.1.3" data-path="project-chapter.html"><a href="project-chapter.html#outputs"><i class="fa fa-check"></i><b>3.1.1.3</b> <code>outputs/</code></a></li>
+<li class="chapter" data-level="3.1.1.4" data-path="project-chapter.html"><a href="project-chapter.html#documents"><i class="fa fa-check"></i><b>3.1.1.4</b> <code>documents/</code></a></li>
+<li class="chapter" data-level="3.1.1.5" data-path="project-chapter.html"><a href="project-chapter.html#readme-section"><i class="fa fa-check"></i><b>3.1.1.5</b> <code>README</code></a></li>
+<li class="chapter" data-level="3.1.1.6" data-path="project-chapter.html"><a href="project-chapter.html#license-section"><i class="fa fa-check"></i><b>3.1.1.6</b> <code>LICENSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.1.2" data-path="project-chapter.html"><a href="project-chapter.html#naming-files-dir"><i class="fa fa-check"></i><b>3.1.2</b> Naming Files and Directories</a></li>
+<li class="chapter" data-level="3.1.3" data-path="project-chapter.html"><a href="project-chapter.html#project-advantages"><i class="fa fa-check"></i><b>3.1.3</b> Project Advantages</a>
+<ul>
+<li class="chapter" data-level="3.1.3.1" data-path="project-chapter.html"><a href="project-chapter.html#wd-file-path"><i class="fa fa-check"></i><b>3.1.3.1</b> Working Directory and File Paths</a></li>
+<li class="chapter" data-level="3.1.3.2" data-path="project-chapter.html"><a href="project-chapter.html#centralize-analysis"><i class="fa fa-check"></i><b>3.1.3.2</b> Centralize the Analysis</a></li>
+<li class="chapter" data-level="3.1.3.3" data-path="project-chapter.html"><a href="project-chapter.html#ready-to-share-and-collaborate"><i class="fa fa-check"></i><b>3.1.3.3</b> Ready to Share and Collaborate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-chapter.html"><a href="data-chapter.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-chapter.html"><a href="data-chapter.html#organizing"><i class="fa fa-check"></i><b>4.1</b> Organizing Data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-chapter.html"><a href="data-chapter.html#data-structure"><i class="fa fa-check"></i><b>4.1.1</b> Data Structure</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-chapter.html"><a href="data-chapter.html#data-docs"><i class="fa fa-check"></i><b>4.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-chapter.html"><a href="data-chapter.html#data-good-practices"><i class="fa fa-check"></i><b>4.1.3</b> Data Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-chapter.html"><a href="data-chapter.html#sharing"><i class="fa fa-check"></i><b>4.2</b> Sharing Data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-chapter.html"><a href="data-chapter.html#when-where-who"><i class="fa fa-check"></i><b>4.2.1</b> When, Where, Who?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-chapter.html"><a href="data-chapter.html#legal-aspects"><i class="fa fa-check"></i><b>4.2.2</b> Legal Aspects</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-chapter.html"><a href="data-chapter.html#license-data"><i class="fa fa-check"></i><b>4.2.3</b> License</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-chapter.html"><a href="data-chapter.html#metadata"><i class="fa fa-check"></i><b>4.2.4</b> Metadata</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="coding-chapter.html"><a href="coding-chapter.html"><i class="fa fa-check"></i><b>5</b> Coding</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="coding-chapter.html"><a href="coding-chapter.html#coding-style"><i class="fa fa-check"></i><b>5.1</b> Coding Style</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="coding-chapter.html"><a href="coding-chapter.html#good-practices"><i class="fa fa-check"></i><b>5.1.1</b> General Good Practices</a>
+<ul>
+<li class="chapter" data-level="5.1.1.1" data-path="coding-chapter.html"><a href="coding-chapter.html#variable-names"><i class="fa fa-check"></i><b>5.1.1.1</b> Variable Names</a></li>
+<li class="chapter" data-level="5.1.1.2" data-path="coding-chapter.html"><a href="coding-chapter.html#spacing-and-indentation"><i class="fa fa-check"></i><b>5.1.1.2</b> Spacing and Indentation</a></li>
+<li class="chapter" data-level="5.1.1.3" data-path="coding-chapter.html"><a href="coding-chapter.html#comments"><i class="fa fa-check"></i><b>5.1.1.3</b> Comments</a></li>
+<li class="chapter" data-level="5.1.1.4" data-path="coding-chapter.html"><a href="coding-chapter.html#other-tips"><i class="fa fa-check"></i><b>5.1.1.4</b> Other Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.2" data-path="coding-chapter.html"><a href="coding-chapter.html#functional-style"><i class="fa fa-check"></i><b>5.1.2</b> Functional Style</a>
+<ul>
+<li class="chapter" data-level="5.1.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#functions-good-practices"><i class="fa fa-check"></i><b>5.1.2.1</b> Functions Good Practices</a></li>
+<li class="chapter" data-level="5.1.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#documentation-coding"><i class="fa fa-check"></i><b>5.1.2.2</b> Documentation</a></li>
+<li class="chapter" data-level="5.1.2.3" data-path="coding-chapter.html"><a href="coding-chapter.html#unit-tests"><i class="fa fa-check"></i><b>5.1.2.3</b> Unit Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.3" data-path="coding-chapter.html"><a href="coding-chapter.html#advanced"><i class="fa fa-check"></i><b>5.1.3</b> Advanced</a>
+<ul>
+<li class="chapter" data-level="5.1.3.1" data-path="coding-chapter.html"><a href="coding-chapter.html#performance"><i class="fa fa-check"></i><b>5.1.3.1</b> Performance</a></li>
+<li class="chapter" data-level="5.1.3.2" data-path="coding-chapter.html"><a href="coding-chapter.html#environments"><i class="fa fa-check"></i><b>5.1.3.2</b> Environments</a></li>
+<li class="chapter" data-level="5.1.3.3" data-path="coding-chapter.html"><a href="coding-chapter.html#classes-methods"><i class="fa fa-check"></i><b>5.1.3.3</b> Classes and Methods</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="coding-chapter.html"><a href="coding-chapter.html#R-coding"><i class="fa fa-check"></i><b>5.2</b> R Coding</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#coding-style-1"><i class="fa fa-check"></i><b>5.2.1</b> Coding Style</a></li>
+<li class="chapter" data-level="5.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#r-package-proj"><i class="fa fa-check"></i><b>5.2.2</b> R Package Project</a>
+<ul>
+<li class="chapter" data-level="5.2.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#r-package-structure"><i class="fa fa-check"></i><b>5.2.2.1</b> R Package Structure</a></li>
+<li class="chapter" data-level="5.2.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#devtools-workflow"><i class="fa fa-check"></i><b>5.2.2.2</b> The <code>devtools</code> Workflow</a></li>
+<li class="chapter" data-level="5.2.2.3" data-path="coding-chapter.html"><a href="coding-chapter.html#description"><i class="fa fa-check"></i><b>5.2.2.3</b> DESCRIPTION</a></li>
+<li class="chapter" data-level="5.2.2.4" data-path="coding-chapter.html"><a href="coding-chapter.html#documentation-roxygen"><i class="fa fa-check"></i><b>5.2.2.4</b> Documentation with <code>roxygen2</code></a></li>
+<li class="chapter" data-level="5.2.2.5" data-path="coding-chapter.html"><a href="coding-chapter.html#testthat"><i class="fa fa-check"></i><b>5.2.2.5</b> Unit Tests with <code>testthat</code></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="terminal-chapter.html"><a href="terminal-chapter.html"><i class="fa fa-check"></i><b>6</b> Terminal</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#what-is-a-terminal"><i class="fa fa-check"></i><b>6.1</b> What is a Terminal?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#different-shells"><i class="fa fa-check"></i><b>6.1.1</b> Different Shells</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#install-bash"><i class="fa fa-check"></i><b>6.2</b> Install Bash</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#install-windows-terminal"><i class="fa fa-check"></i><b>6.2.1</b> On Windows</a></li>
+<li class="chapter" data-level="6.2.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#on-macos"><i class="fa fa-check"></i><b>6.2.2</b> On macOS</a></li>
+<li class="chapter" data-level="6.2.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#on-linux"><i class="fa fa-check"></i><b>6.2.3</b> On Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#get-started-terminal"><i class="fa fa-check"></i><b>6.3</b> Get Started</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#prompt-and-commands"><i class="fa fa-check"></i><b>6.3.1</b> Prompt and Commands</a></li>
+<li class="chapter" data-level="6.3.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#navigating-directories"><i class="fa fa-check"></i><b>6.3.2</b> Navigating Directories</a></li>
+<li class="chapter" data-level="6.3.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#modifying-files"><i class="fa fa-check"></i><b>6.3.3</b> Modifying Files</a></li>
+<li class="chapter" data-level="6.3.4" data-path="terminal-chapter.html"><a href="terminal-chapter.html#text-editors"><i class="fa fa-check"></i><b>6.3.4</b> Text Editors</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="terminal-chapter.html"><a href="terminal-chapter.html#terminal-in-rstudio"><i class="fa fa-check"></i><b>6.4</b> Terminal in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-chapter.html"><a href="git-chapter.html"><i class="fa fa-check"></i><b>7</b> Git</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="git-chapter.html"><a href="git-chapter.html#version-control"><i class="fa fa-check"></i><b>7.1</b> Version Control</a></li>
+<li class="chapter" data-level="7.2" data-path="git-chapter.html"><a href="git-chapter.html#git-overview"><i class="fa fa-check"></i><b>7.2</b> Git Overview</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files"><i class="fa fa-check"></i><b>7.2.1</b> Tracking Files</a></li>
+<li class="chapter" data-level="7.2.2" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration"><i class="fa fa-check"></i><b>7.2.2</b> Managing Collaboration</a></li>
+<li class="chapter" data-level="7.2.3" data-path="git-chapter.html"><a href="git-chapter.html#branching-merging"><i class="fa fa-check"></i><b>7.2.3</b> Branching and Merging</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="git-chapter.html"><a href="git-chapter.html#install-git"><i class="fa fa-check"></i><b>7.3</b> Install Git</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="git-chapter.html"><a href="git-chapter.html#on-windows"><i class="fa fa-check"></i><b>7.3.1</b> On Windows</a></li>
+<li class="chapter" data-level="7.3.2" data-path="git-chapter.html"><a href="git-chapter.html#on-macos-1"><i class="fa fa-check"></i><b>7.3.2</b> On macOS</a></li>
+<li class="chapter" data-level="7.3.3" data-path="git-chapter.html"><a href="git-chapter.html#on-linux-1"><i class="fa fa-check"></i><b>7.3.3</b> On Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="git-chapter.html"><a href="git-chapter.html#get-started"><i class="fa fa-check"></i><b>7.4</b> Get Started</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="git-chapter.html"><a href="git-chapter.html#configure-settings"><i class="fa fa-check"></i><b>7.4.1</b> Configure Settings</a></li>
+<li class="chapter" data-level="7.4.2" data-path="git-chapter.html"><a href="git-chapter.html#initialize-a-git-repository"><i class="fa fa-check"></i><b>7.4.2</b> Initialize a Git Repository</a></li>
+<li class="chapter" data-level="7.4.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files-1"><i class="fa fa-check"></i><b>7.4.3</b> Tracking Files</a>
+<ul>
+<li class="chapter" data-level="7.4.3.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-files-to-staging-area"><i class="fa fa-check"></i><b>7.4.3.1</b> Adding Files to Staging Area</a></li>
+<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#commiting-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Commiting Changes</a></li>
+<li class="chapter" data-level="7.4.3.3" data-path="git-chapter.html"><a href="git-chapter.html#checking-commit-history"><i class="fa fa-check"></i><b>7.4.3.3</b> Checking Commit History</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.4" data-path="git-chapter.html"><a href="git-chapter.html#undoing-commits"><i class="fa fa-check"></i><b>7.4.4</b> Undoing Commits</a>
+<ul>
+<li class="chapter" data-level="7.4.4.1" data-path="git-chapter.html"><a href="git-chapter.html#checkout"><i class="fa fa-check"></i><b>7.4.4.1</b> Checkout</a></li>
+<li class="chapter" data-level="7.4.4.2" data-path="git-chapter.html"><a href="git-chapter.html#revert"><i class="fa fa-check"></i><b>7.4.4.2</b> Revert</a></li>
+<li class="chapter" data-level="7.4.4.3" data-path="git-chapter.html"><a href="git-chapter.html#reset"><i class="fa fa-check"></i><b>7.4.4.3</b> Reset</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.5" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration-1"><i class="fa fa-check"></i><b>7.4.5</b> Managing Collaboration</a>
+<ul>
+<li class="chapter" data-level="7.4.5.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-a-remote-repository"><i class="fa fa-check"></i><b>7.4.5.1</b> Adding a Remote Repository</a></li>
+<li class="chapter" data-level="7.4.5.2" data-path="git-chapter.html"><a href="git-chapter.html#pulling-commits"><i class="fa fa-check"></i><b>7.4.5.2</b> Pulling Commits</a></li>
+<li class="chapter" data-level="7.4.5.3" data-path="git-chapter.html"><a href="git-chapter.html#pushing-commits"><i class="fa fa-check"></i><b>7.4.5.3</b> Pushing Commits</a></li>
+<li class="chapter" data-level="7.4.5.4" data-path="git-chapter.html"><a href="git-chapter.html#setting-upstream"><i class="fa fa-check"></i><b>7.4.5.4</b> Setting Upstream</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.6" data-path="git-chapter.html"><a href="git-chapter.html#branching-merging-2"><i class="fa fa-check"></i><b>7.4.6</b> Branching and Merging</a>
+<ul>
+<li class="chapter" data-level="7.4.6.1" data-path="git-chapter.html"><a href="git-chapter.html#creating-branches"><i class="fa fa-check"></i><b>7.4.6.1</b> Creating Branches</a></li>
+<li class="chapter" data-level="7.4.6.2" data-path="git-chapter.html"><a href="git-chapter.html#selecting-branches"><i class="fa fa-check"></i><b>7.4.6.2</b> Selecting Branches</a></li>
+<li class="chapter" data-level="7.4.6.3" data-path="git-chapter.html"><a href="git-chapter.html#merging-branches"><i class="fa fa-check"></i><b>7.4.6.3</b> Merging Branches</a></li>
+<li class="chapter" data-level="7.4.6.4" data-path="git-chapter.html"><a href="git-chapter.html#solving-conflicts"><i class="fa fa-check"></i><b>7.4.6.4</b> Solving Conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.7" data-path="git-chapter.html"><a href="git-chapter.html#summary"><i class="fa fa-check"></i><b>7.4.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="git-chapter.html"><a href="git-chapter.html#git-workflow"><i class="fa fa-check"></i><b>7.5</b> Git Workflow</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="git-chapter.html"><a href="git-chapter.html#two-branches-approach"><i class="fa fa-check"></i><b>7.5.1</b> Two Branches Approach</a></li>
+<li class="chapter" data-level="7.5.2" data-path="git-chapter.html"><a href="git-chapter.html#multiple-branches-approach"><i class="fa fa-check"></i><b>7.5.2</b> Multiple Branches Approach</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="git-chapter.html"><a href="git-chapter.html#git-rstudio"><i class="fa fa-check"></i><b>7.6</b> RStudio Git GUI</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="git-chapter.html"><a href="git-chapter.html#configure-git-in-rstudio"><i class="fa fa-check"></i><b>7.6.1</b> Configure Git in RStudio</a></li>
+<li class="chapter" data-level="7.6.2" data-path="git-chapter.html"><a href="git-chapter.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>7.6.2</b> Using Git in Rstudio</a>
+<ul>
+<li class="chapter" data-level="7.6.2.1" data-path="git-chapter.html"><a href="git-chapter.html#create-a-git-repository"><i class="fa fa-check"></i><b>7.6.2.1</b> Create a Git Repository</a></li>
+<li class="chapter" data-level="7.6.2.2" data-path="git-chapter.html"><a href="git-chapter.html#git-panel"><i class="fa fa-check"></i><b>7.6.2.2</b> Git Panel</a></li>
+<li class="chapter" data-level="7.6.2.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-changes"><i class="fa fa-check"></i><b>7.6.2.3</b> Tracking Changes</a></li>
+<li class="chapter" data-level="7.6.2.4" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration-2"><i class="fa fa-check"></i><b>7.6.2.4</b> Managing Collaboration</a></li>
+<li class="chapter" data-level="7.6.2.5" data-path="git-chapter.html"><a href="git-chapter.html#branching-and-merging"><i class="fa fa-check"></i><b>7.6.2.5</b> Branching and Merging</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="github-chapter.html"><a href="github-chapter.html"><i class="fa fa-check"></i><b>8</b> GitHub</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="github-chapter.html"><a href="github-chapter.html#using-github"><i class="fa fa-check"></i><b>8.1</b> Using GitHub</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="github-chapter.html"><a href="github-chapter.html#initial-set-up"><i class="fa fa-check"></i><b>8.1.1</b> Initial Set Up</a></li>
+<li class="chapter" data-level="8.1.2" data-path="github-chapter.html"><a href="github-chapter.html#authentication"><i class="fa fa-check"></i><b>8.1.2</b> Authentication</a></li>
+<li class="chapter" data-level="8.1.3" data-path="github-chapter.html"><a href="github-chapter.html#create-a-repository"><i class="fa fa-check"></i><b>8.1.3</b> Create a Repository</a></li>
+<li class="chapter" data-level="8.1.4" data-path="github-chapter.html"><a href="github-chapter.html#add-collaborators"><i class="fa fa-check"></i><b>8.1.4</b> Add Collaborators</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="github-chapter.html"><a href="github-chapter.html#main-features"><i class="fa fa-check"></i><b>8.2</b> Main Features</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="github-chapter.html"><a href="github-chapter.html#github-add-license"><i class="fa fa-check"></i><b>8.2.1</b> Adding License</a></li>
+<li class="chapter" data-level="8.2.2" data-path="github-chapter.html"><a href="github-chapter.html#documentation-github"><i class="fa fa-check"></i><b>8.2.2</b> Documentation</a></li>
+<li class="chapter" data-level="8.2.3" data-path="github-chapter.html"><a href="github-chapter.html#commit-history-and-diff"><i class="fa fa-check"></i><b>8.2.3</b> Commit History and Diff</a></li>
+<li class="chapter" data-level="8.2.4" data-path="github-chapter.html"><a href="github-chapter.html#get-doi"><i class="fa fa-check"></i><b>8.2.4</b> Get DOI</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="github-chapter.html"><a href="github-chapter.html#contributing"><i class="fa fa-check"></i><b>8.3</b> Contributing</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="github-chapter.html"><a href="github-chapter.html#issues"><i class="fa fa-check"></i><b>8.3.1</b> Issues</a></li>
+<li class="chapter" data-level="8.3.2" data-path="github-chapter.html"><a href="github-chapter.html#pull-request"><i class="fa fa-check"></i><b>8.3.2</b> Pull Request</a>
+<ul>
+<li class="chapter" data-level="8.3.2.1" data-path="github-chapter.html"><a href="github-chapter.html#fork-and-fetch"><i class="fa fa-check"></i><b>8.3.2.1</b> Fork and Fetch</a></li>
+<li class="chapter" data-level="8.3.2.2" data-path="github-chapter.html"><a href="github-chapter.html#create-a-pull-request"><i class="fa fa-check"></i><b>8.3.2.2</b> Create a Pull Request</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="github-chapter.html"><a href="github-chapter.html#github-adv-features"><i class="fa fa-check"></i><b>8.4</b> Advanced Features</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html"><i class="fa fa-check"></i><b>9</b> Workflow Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducible-workflow"><i class="fa fa-check"></i><b>9.1</b> Reproducible Workflow</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#run-the-analysis"><i class="fa fa-check"></i><b>9.1.1</b> Run the Analysis</a></li>
+<li class="chapter" data-level="9.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#documentation-1"><i class="fa fa-check"></i><b>9.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="9.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility-issues"><i class="fa fa-check"></i><b>9.1.3</b> Reproducibility Issues</a></li>
+<li class="chapter" data-level="9.1.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#workflow-manager"><i class="fa fa-check"></i><b>9.1.4</b> Workflow Manager</a>
+<ul>
+<li class="chapter" data-level="9.1.4.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#make"><i class="fa fa-check"></i><b>9.1.4.1</b> Make</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#r"><i class="fa fa-check"></i><b>9.2</b> R</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#analysis-workflow"><i class="fa fa-check"></i><b>9.2.1</b> Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="9.2.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#script-sections"><i class="fa fa-check"></i><b>9.2.1.1</b> Script Sections</a></li>
+<li class="chapter" data-level="9.2.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#load-functions"><i class="fa fa-check"></i><b>9.2.1.2</b> Loading Functions</a></li>
+<li class="chapter" data-level="9.2.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#loading-r-packages"><i class="fa fa-check"></i><b>9.2.1.3</b> Loading R-packages</a></li>
+<li class="chapter" data-level="9.2.1.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility"><i class="fa fa-check"></i><b>9.2.1.4</b> Reproducibility</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#workflow-manager-1"><i class="fa fa-check"></i><b>9.2.2</b> Workflow Manager</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets"><i class="fa fa-check"></i><b>9.3</b> Targets</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#project-structure-1"><i class="fa fa-check"></i><b>9.3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="9.3.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-script"><i class="fa fa-check"></i><b>9.3.1.1</b> The <code>_targets.R</code> Script</a></li>
+<li class="chapter" data-level="9.3.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#defining-targets"><i class="fa fa-check"></i><b>9.3.1.2</b> Defining Targets</a></li>
+<li class="chapter" data-level="9.3.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-store"><i class="fa fa-check"></i><b>9.3.1.3</b> The <code>_targets/</code> Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#the-targets-workflow"><i class="fa fa-check"></i><b>9.3.2</b> The <code>targets</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="9.3.2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#check-the-pipeline"><i class="fa fa-check"></i><b>9.3.2.1</b> Check the Pipeline</a></li>
+<li class="chapter" data-level="9.3.2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#run-the-pipeline"><i class="fa fa-check"></i><b>9.3.2.2</b> Run the Pipeline</a></li>
+<li class="chapter" data-level="9.3.2.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#make-changes"><i class="fa fa-check"></i><b>9.3.2.3</b> Make Changes</a></li>
+<li class="chapter" data-level="9.3.2.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#get-the-results"><i class="fa fa-check"></i><b>9.3.2.4</b> Get the Results</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#advanced-features-1"><i class="fa fa-check"></i><b>9.3.3</b> Advanced Features</a>
+<ul>
+<li class="chapter" data-level="9.3.3.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-proj"><i class="fa fa-check"></i><b>9.3.3.1</b> Project Structure</a></li>
+<li class="chapter" data-level="9.3.3.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-rmarkdown"><i class="fa fa-check"></i><b>9.3.3.2</b> <code>targets</code> and R Markdown</a></li>
+<li class="chapter" data-level="9.3.3.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility-1"><i class="fa fa-check"></i><b>9.3.3.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="9.3.3.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#branching"><i class="fa fa-check"></i><b>9.3.3.4</b> Branching</a></li>
+<li class="chapter" data-level="9.3.3.5" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#high-performance-computing"><i class="fa fa-check"></i><b>9.3.3.5</b> High-Performance Computing</a></li>
+<li class="chapter" data-level="9.3.3.6" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#load-all-targets"><i class="fa fa-check"></i><b>9.3.3.6</b> Load All Targets</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#literate-programming"><i class="fa fa-check"></i><b>10.1</b> Literate Programming</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#analysis-code-and-dynamic-documents"><i class="fa fa-check"></i><b>10.1.1</b> Analysis Code and Dynamic Documents</a></li>
+<li class="chapter" data-level="10.1.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#output-formats"><i class="fa fa-check"></i><b>10.1.2</b> Output Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.2</b> Quarto</a></li>
+<li class="chapter" data-level="10.3" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown-collaboration"><i class="fa fa-check"></i><b>10.3</b> <code>trackdown</code> Enhancing Collaboration</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.3.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.3.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.3.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#requirements"><i class="fa fa-check"></i><b>11.1.1</b> Requirements</a>
+<ul>
+<li class="chapter" data-level="11.1.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#system-prerequisites"><i class="fa fa-check"></i><b>11.1.1.1</b> System Prerequisites</a></li>
+<li class="chapter" data-level="11.1.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#software"><i class="fa fa-check"></i><b>11.1.1.2</b> Software</a></li>
+<li class="chapter" data-level="11.1.1.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#libraries"><i class="fa fa-check"></i><b>11.1.1.3</b> Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="11.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#installation"><i class="fa fa-check"></i><b>11.1.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-dependencies"><i class="fa fa-check"></i><b>11.2</b> R Dependencies</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-version"><i class="fa fa-check"></i><b>11.2.1</b> R version</a>
+<ul>
+<li class="chapter" data-level="11.2.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#multiple-r-versions"><i class="fa fa-check"></i><b>11.2.1.1</b> Multiple R versions</a></li>
+<li class="chapter" data-level="11.2.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#other-related-software"><i class="fa fa-check"></i><b>11.2.1.2</b> Other Related Software</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-packages-requirements"><i class="fa fa-check"></i><b>11.2.2</b> R packages</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renv-section"><i class="fa fa-check"></i><b>11.3</b> <code>renv</code> a Package to Rule Them All</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#introduction-to-renv"><i class="fa fa-check"></i><b>11.3.1</b> Introduction to <code>renv</code></a></li>
+<li class="chapter" data-level="11.3.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#the-renv-workflow"><i class="fa fa-check"></i><b>11.3.2</b> The <code>renv</code> workflow</a></li>
+<li class="chapter" data-level="11.3.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#advanced-features-2"><i class="fa fa-check"></i><b>11.3.3</b> Advanced Features</a>
+<ul>
+<li class="chapter" data-level="11.3.3.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#reproducibility-issues-1"><i class="fa fa-check"></i><b>11.3.3.1</b> Reproducibility Issues</a></li>
+<li class="chapter" data-level="11.3.3.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renv-files"><i class="fa fa-check"></i><b>11.3.3.2</b> <code>renv</code> Files</a></li>
+<li class="chapter" data-level="11.3.3.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#snapshot-types"><i class="fa fa-check"></i><b>11.3.3.3</b> Snapshot Types</a></li>
+<li class="chapter" data-level="11.3.3.4" data-path="requirements-chapter.html"><a href="requirements-chapter.html#detecting-packages"><i class="fa fa-check"></i><b>11.3.3.4</b> Detecting Packages</a></li>
+<li class="chapter" data-level="11.3.3.5" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renvignore-file"><i class="fa fa-check"></i><b>11.3.3.5</b> <code>.renvignore</code> File</a></li>
+<li class="chapter" data-level="11.3.3.6" data-path="requirements-chapter.html"><a href="requirements-chapter.html#restore-issue"><i class="fa fa-check"></i><b>11.3.3.6</b> Restore Issue</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="docker-chapter.html"><a href="docker-chapter.html"><i class="fa fa-check"></i><b>12</b> Docker</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="docker-chapter.html"><a href="docker-chapter.html#containers"><i class="fa fa-check"></i><b>12.1</b> Containers</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="docker-chapter.html"><a href="docker-chapter.html#containers-and-virtual-machines"><i class="fa fa-check"></i><b>12.1.1</b> Containers and Virtual Machines</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-get-started"><i class="fa fa-check"></i><b>12.2</b> Docker Getting Started</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-elements"><i class="fa fa-check"></i><b>12.2.1</b> Docker Elements</a></li>
+<li class="chapter" data-level="12.2.2" data-path="docker-chapter.html"><a href="docker-chapter.html#install-docker"><i class="fa fa-check"></i><b>12.2.2</b> Install Docker</a></li>
+<li class="chapter" data-level="12.2.3" data-path="docker-chapter.html"><a href="docker-chapter.html#dockerfile"><i class="fa fa-check"></i><b>12.2.3</b> <strong><code>Dockerfile</code></strong></a>
+<ul>
+<li class="chapter" data-level="12.2.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#layer-caching"><i class="fa fa-check"></i><b>12.2.3.1</b> Layer Caching</a></li>
+<li class="chapter" data-level="12.2.3.2" data-path="docker-chapter.html"><a href="docker-chapter.html#tag-version"><i class="fa fa-check"></i><b>12.2.3.2</b> Image Version Tag</a></li>
+<li class="chapter" data-level="12.2.3.3" data-path="docker-chapter.html"><a href="docker-chapter.html#files-permissions"><i class="fa fa-check"></i><b>12.2.3.3</b> Files Permissions</a></li>
+<li class="chapter" data-level="12.2.3.4" data-path="docker-chapter.html"><a href="docker-chapter.html#dockerignore"><i class="fa fa-check"></i><b>12.2.3.4</b> <code>.dockerignore</code> File</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2.4" data-path="docker-chapter.html"><a href="docker-chapter.html#build-an-image"><i class="fa fa-check"></i><b>12.2.4</b> Build an Image</a>
+<ul>
+<li class="chapter" data-level="12.2.4.1" data-path="docker-chapter.html"><a href="docker-chapter.html#list-and-remove-images"><i class="fa fa-check"></i><b>12.2.4.1</b> List and Remove Images</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2.5" data-path="docker-chapter.html"><a href="docker-chapter.html#run-an-image"><i class="fa fa-check"></i><b>12.2.5</b> Run an Image</a>
+<ul>
+<li class="chapter" data-level="12.2.5.1" data-path="docker-chapter.html"><a href="docker-chapter.html#stop-list-and-remove-containers"><i class="fa fa-check"></i><b>12.2.5.1</b> Stop List and Remove Containers</a></li>
+<li class="chapter" data-level="12.2.5.2" data-path="docker-chapter.html"><a href="docker-chapter.html#moving-files"><i class="fa fa-check"></i><b>12.2.5.2</b> Moving Files</a></li>
+<li class="chapter" data-level="12.2.5.3" data-path="docker-chapter.html"><a href="docker-chapter.html#running-commands"><i class="fa fa-check"></i><b>12.2.5.3</b> Running Commands</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-features"><i class="fa fa-check"></i><b>12.3</b> Other Features</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#data-storage"><i class="fa fa-check"></i><b>12.3.1</b> Data Storage</a>
+<ul>
+<li class="chapter" data-level="12.3.1.1" data-path="docker-chapter.html"><a href="docker-chapter.html#bind-mounts"><i class="fa fa-check"></i><b>12.3.1.1</b> Bind Mounts</a></li>
+<li class="chapter" data-level="12.3.1.2" data-path="docker-chapter.html"><a href="docker-chapter.html#volumes"><i class="fa fa-check"></i><b>12.3.1.2</b> Volumes</a></li>
+<li class="chapter" data-level="12.3.1.3" data-path="docker-chapter.html"><a href="docker-chapter.html#bind-mounts-vs-volumes"><i class="fa fa-check"></i><b>12.3.1.3</b> Bind Mounts VS Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3.2" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-compose"><i class="fa fa-check"></i><b>12.3.2</b> Docker Compose</a></li>
+<li class="chapter" data-level="12.3.3" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-hub"><i class="fa fa-check"></i><b>12.3.3</b> Docker Hub</a>
+<ul>
+<li class="chapter" data-level="12.3.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#sharing-images"><i class="fa fa-check"></i><b>12.3.3.1</b> Sharing Images</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3.4" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-gui"><i class="fa fa-check"></i><b>12.3.4</b> Docker GUI</a>
+<ul>
+<li class="chapter" data-level="12.3.4.1" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-desktop"><i class="fa fa-check"></i><b>12.3.4.1</b> Docker Desktop</a></li>
+<li class="chapter" data-level="12.3.4.2" data-path="docker-chapter.html"><a href="docker-chapter.html#visual-studio-code"><i class="fa fa-check"></i><b>12.3.4.2</b> Visual Studio Code</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="rocker-chapter.html"><a href="rocker-chapter.html"><i class="fa fa-check"></i><b>13</b> Rocker</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#rocker-getting-started"><i class="fa fa-check"></i><b>13.1</b> Rocker Getting Started</a></li>
+<li class="chapter" data-level="13.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#data-storage-rstudio"><i class="fa fa-check"></i><b>13.2</b> Data Storage</a></li>
+<li class="chapter" data-level="13.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#custom-dockerfile"><i class="fa fa-check"></i><b>13.3</b> Custom <code>Dockerfile</code></a></li>
+<li class="chapter" data-level="13.4" data-path="rocker-chapter.html"><a href="rocker-chapter.html#docker-workflow"><i class="fa fa-check"></i><b>13.4</b> Docker Workflow</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#after-the-development"><i class="fa fa-check"></i><b>13.4.1</b> After the Development</a>
+<ul>
+<li class="chapter" data-level="13.4.1.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#fix-r-version"><i class="fa fa-check"></i><b>13.4.1.1</b> Fix R-version</a></li>
+<li class="chapter" data-level="13.4.1.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#add-r-packages"><i class="fa fa-check"></i><b>13.4.1.2</b> Add R-packages</a></li>
+<li class="chapter" data-level="13.4.1.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#run-the-analysis-and-report"><i class="fa fa-check"></i><b>13.4.1.3</b> Run the Analysis and Report</a></li>
+<li class="chapter" data-level="13.4.1.4" data-path="rocker-chapter.html"><a href="rocker-chapter.html#considerations"><i class="fa fa-check"></i><b>13.4.1.4</b> Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#rocker-as-ide"><i class="fa fa-check"></i><b>13.4.2</b> Rocker as IDE</a>
+<ul>
+<li class="chapter" data-level="13.4.2.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#renv-cache"><i class="fa fa-check"></i><b>13.4.2.1</b> <code>renv</code> Cache</a></li>
+<li class="chapter" data-level="13.4.2.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#github-authentication"><i class="fa fa-check"></i><b>13.4.2.2</b> GitHub Authentication</a></li>
+<li class="chapter" data-level="13.4.2.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#considerations-1"><i class="fa fa-check"></i><b>13.4.2.3</b> Considerations</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Open Science Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="assets/images/banner.png">
+</div>
+<div id="rocker-chapter" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Rocker<a href="rocker-chapter.html#rocker-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In Chapter <a href="docker-chapter.html#docker-chapter">12</a>, we discussed Docker, the <em>Holy Grail</em> of reproducibility. In this chapter, we introduce the Rocker Project which provides Docker Containers for the R Environment.</p>
+<div class="packages-logo-box", style="width: 200px;"><img src="images/rocker/rocker-logo.png"></div>
+<p>The Rocker Project (<a href="https://www.rocker-project.org/" class="uri">https://www.rocker-project.org/</a>) provides and maintains several Docker images very useful when working with R programming language. Starting from simple images where only base-R is available, Rocker provides gradually more complex images stacking new elements and tools on top of the previous images. The main images stack is composed by,</p>
+<ul>
+<li><strong><code>r-ver</code></strong> with Base-R.</li>
+<li><strong><code>rstudio</code></strong> adds RStudio.</li>
+<li><strong><code>tidyverse</code></strong> adds tidyverse and devtools packages.</li>
+<li><strong><code>verse</code></strong> adds tex and publishing-related packages.</li>
+</ul>
+<p>We only need to find the base image that better suits our needs. Moreover, by specifying the version tag we can define the desired version of R. For example, by indicating <code>rocker/rstudio:4.1.0</code> we obtain the R version <code>4.1.0</code>.</p>
+<p>In addition to this images stack, Rocker provides several other images for specific use cases (e.g, Shiny, Stan, Keras, CUDA). For a list of all available images provided by Rocker, see <a href="https://hub.docker.com/u/rocker" class="uri">https://hub.docker.com/u/rocker</a>.</p>
+<div id="rocker-getting-started" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Rocker Getting Started<a href="rocker-chapter.html#rocker-getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s see how we can use R and Rstudio inside a Docker container. To do that we choose the image <code>rocker/rstudio</code>. Note that this image is not based on RStudio Desktop (i.e., our usual desktop application) but is based on RStudio Server (i.e., a web-browser-based interface). Don’t worry, they look almost the same. The main difference is just that we open RStudio Server through our web browser. To dig a little bit deeper regarding the differences between Desktop and Server versions, see <a href="https://support.rstudio.com/hc/en-us/articles/217799198-What-is-the-difference-between-RStudio-Desktop-RStudio-Workbench-and-RStudio-Server-" class="uri">https://support.rstudio.com/hc/en-us/articles/217799198-What-is-the-difference-between-RStudio-Desktop-RStudio-Workbench-and-RStudio-Server-</a>.</p>
+<p>If we are on macOS or Windows, first, remember to start the Docker daemon by opening the Docker Desktop application. Next, to create a container with the <code>rocker/rstudio</code> image, run the following command,</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb228-1"><a href="rocker-chapter.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> PASSWORD=my-password rocker/rstudio:4.1.0</span></code></pre></div>
+<p>In the command we specified several options:</p>
+<ul>
+<li><strong><code>--rm</code> (optional).</strong> Remove the container once it exits.</li>
+<li><strong><code>-p 8787:8787</code>.</strong> Map the port on which we can access RStudio Server from the browser. <code>rocker/rstudio</code> uses the <code>8787</code> port, thus, for consistency, we map on the same port on our machine.</li>
+<li><strong><code>-e PASSWORD=my-password</code>.</strong> Specify password for RStudio Servers login. The default username is **<code>rstudio``**. Alternatively, we can disable authentication by setting the options</code>-e DISABLE_AUTH=true`.</li>
+<li><strong><code>4.1.0</code>.</strong> By specifying the image tag, we define the desired R version, in this case, R <code>4.1.0</code>. Remember that it is always recommended to specify the image tag.</li>
+</ul>
+<p>The first time we run this command it can take a few minutes (and gigabytes) for Docker to download the <code>rocker/rstudio</code> image from Docker Hub. We will see something similar to this on our terminal,</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb229-1"><a href="rocker-chapter.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Unable</span> to find image <span class="st">&#39;rocker/rstudio:4.1.0&#39;</span> locally</span>
+<span id="cb229-2"><a href="rocker-chapter.html#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="ex">4.1.0:</span> Pulling from rocker/rstudio</span>
+<span id="cb229-3"><a href="rocker-chapter.html#cb229-3" aria-hidden="true" tabindex="-1"></a><span class="ex">7b1a6ab2e44d:</span> Pull complete </span>
+<span id="cb229-4"><a href="rocker-chapter.html#cb229-4" aria-hidden="true" tabindex="-1"></a><span class="ex">34cb923ed704:</span> Pull complete </span>
+<span id="cb229-5"><a href="rocker-chapter.html#cb229-5" aria-hidden="true" tabindex="-1"></a><span class="ex">f2f213d01c8c:</span> Downloading [=======================<span class="op">&gt;</span>         ]  200.7MB/295.8MB</span>
+<span id="cb229-6"><a href="rocker-chapter.html#cb229-6" aria-hidden="true" tabindex="-1"></a><span class="ex">7c05c07f0160:</span> Download complete </span>
+<span id="cb229-7"><a href="rocker-chapter.html#cb229-7" aria-hidden="true" tabindex="-1"></a><span class="ex">f72cf49d9462:</span> Download complete </span>
+<span id="cb229-8"><a href="rocker-chapter.html#cb229-8" aria-hidden="true" tabindex="-1"></a><span class="ex">6abf17a5ebed:</span> Downloading [===========================<span class="op">&gt;</span>     ]  171.7MB/218.4MB</span>
+<span id="cb229-9"><a href="rocker-chapter.html#cb229-9" aria-hidden="true" tabindex="-1"></a><span class="ex">9a11ac2d5af1:</span> Download complete </span></code></pre></div>
+<p>Once downloaded, the container will be initialized and a few other lines will be printed on the terminal. Now, the terminal will become non-responsive: what is going on? Where is my container? Actually, the container is alive and running, the terminal has become not responsive because we attached it to the container without specifying other commands. Using <code>rocker/rstudio</code> we do not need the terminal but only our web browser.</p>
+<div class="trick" title="Attach Options">
+<p>Running a <code>rocker/rstudio</code> container will leave our terminal not responsive. If we need the terminal we can simply open a new tab or terminal window</p>
+<p>Alternatively, we can specify the <code>-d</code> flag to run the container in detached mode (i.e., in a background process) allowing us to continue working on the current terminal (connected to the host machine).</p>
+<p>Note that, using the <code>-it rocker/rstudio:4.1.0 bin/bash</code> option, we can connect directly to the container terminal.</p>
+</div>
+<p>To connect to RStudio Server, open the web browser and go to <a href="http://localhost:8787/" class="uri">http://localhost:8787/</a> (or <a href="http://127.0.0.1:8787" class="uri">http://127.0.0.1:8787</a>) [TODO: check windows]. Wait! What’s that?
+<a href="http://localhost" class="uri">http://localhost</a> (or <a href="http://127.0.0.1" class="uri">http://127.0.0.1</a>) is analogous to our home address in computer networks terms. We are saying, connect to our computer at the port <code>8787</code>, which is the one specified in the Docker command. And, <em>“Knock, knock! Who’s there?”</em>, surprise surprise, RStudio Server is waiting for us. On the login page, use the following credentials:</p>
+<ul>
+<li>username: <strong>rstudio</strong></li>
+<li>password: the password we have previously specified</li>
+</ul>
+<p><img src="images/rocker/RStudio-Server-login.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Next, here we are, doesn’t it look familiar? RStudio Server interface looks almost the same as our RStudio Desktop interface.</p>
+<p><img src="images/rocker/RStudio-Server-interface.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>In RStudio Server we can work as we would normally do in RStudio Desktop. Writing scripts, running code, creating graphs, everything is the same, but remember, we are in a container.</p>
+<p>If we close the browser and open a new page at <a href="http://localhost:8787/" class="uri">http://localhost:8787/</a>, we will still find all our files and analysis because the container is still running. But what happens if we stop the container? Well as we know (see Chapter <a href="docker-chapter.html#data-storage">12.3.1</a>), we will lose everything. Running a new container would not allow us to retrieve our files as the container is initialized from the image. Therefore, in RStudio Server we need to manage all our files and data appropriately, see Section <a href="rocker-chapter.html#data-storage-rstudio">13.2</a>.</p>
+<p>To stop the container, go to the terminal window from where we launched the Docker container and press <code>control + C</code> (or run <code>docker stop &lt;container-name&gt;</code>). As we specified the <code>--rm</code> flag, once stopped the container is automatically removed as well. Alternatively, we can use <code>docker rm &lt;container-name&gt;</code>.</p>
+</div>
+<div id="data-storage-rstudio" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Data Storage<a href="rocker-chapter.html#data-storage-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Again, containers are isolated from the host machine, thus all changes made to the files or the results we obtain are available only in the container. If we remove the container, we will lose everything. In Chapter <a href="docker-chapter.html#data-storage">12.3.1</a>, we introduced <em>bind mounts</em> and <em>volumes</em> to overcome this issue. Let’s see how we can apply them and other solutions for persistent data storage when using <code>rocker/rstudio</code>.</p>
+<ul>
+<li><p><strong>Upload/Export.</strong> A naive solution is to upload and export the data at each session form and to the host machine. Of course, this is the worst approach and it is not recommended. However, upload/export functions may still be useful for moving a few files during our working session.</p>
+<p>To upload a file, use the <em>“Upload”</em> button in the File RStudio panel. To upload multiple files or a directory, create a zip file first.
+<img src="images/rocker/RStudio-Server-upload.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>To export a file, select the file and from the <em>“More”</em> menu in the File RStudio panel, click <em>“Export…”</em>.
+<img src="images/rocker/RStudio-Server-export.png" width="50%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Bind Mounts.</strong> We can mount a local directory when running the container using the option <code>-v &lt;host-absolute-path&gt;:&lt;container-absolute-path&gt;</code>. The default user in the <code>rocker/rstudio</code> image is named <code>rstudio</code>. Therefore, the container absolute path would be <code>/home/rstudio/&lt;path&gt;</code>. For example, to mount the directory <code>/Users/&lt;user-name&gt;/my-project/</code>, we would specify,</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb230-1"><a href="rocker-chapter.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-v</span> /Users/<span class="op">&lt;</span>user-name<span class="op">&gt;</span>/my-project/:/home/rstudio/my-project/</span></code></pre></div></li>
+<li><p><strong>Volumes.</strong> We can mount a named volume when running the container specifying the option <code>-v &lt;name-volume&gt;:&lt;container-absolute-path&gt;</code>. Again, the default user is <code>rstudio</code>, thus we would specify,</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb231-1"><a href="rocker-chapter.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-v</span> My-volume:/home/rstudio/my-volume/</span></code></pre></div></li>
+</ul>
+<div class="deffun" title="Rocker User Permissions">
+<p>As always, when we deal with files we also deal with permissions. Mounting <strong>bind mounts</strong> at the runtime will automatically assign ownerships to the default users (<code>rstudio</code>), thus there should be no problem when modifying and saving files.</p>
+<p>On the contrary, named <strong>volumes</strong> permissions depend on the settings specified when they are created. If mounting a new named volume at the runtime, this will be created but owned by the root user. Therefore, the <code>rstudio</code> user would not be able to modify and save files.</p>
+<p>Assigning volume ownership to the <code>rstudio</code> user can be done, for example, by creating a new image using the following <code>Dockerfile</code>,</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb232-1"><a href="rocker-chapter.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----#</span></span>
+<span id="cb232-2"><a href="rocker-chapter.html#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Base image</span></span>
+<span id="cb232-3"><a href="rocker-chapter.html#cb232-3" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.0</span>
+<span id="cb232-4"><a href="rocker-chapter.html#cb232-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-5"><a href="rocker-chapter.html#cb232-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create folder and change owner (user:group)</span></span>
+<span id="cb232-6"><a href="rocker-chapter.html#cb232-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> mkdir /home/rstudio/My-project <span class="dt">\</span></span>
+<span id="cb232-7"><a href="rocker-chapter.html#cb232-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&amp;&amp;</span> <span class="fu">chown</span> <span class="at">-R</span> rstudio:rstudio /home/rstudio/my-project</span>
+<span id="cb232-8"><a href="rocker-chapter.html#cb232-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-9"><a href="rocker-chapter.html#cb232-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define volume</span></span>
+<span id="cb232-10"><a href="rocker-chapter.html#cb232-10" aria-hidden="true" tabindex="-1"></a><span class="ex">VOLUME</span> /home/rstudio/my-project</span></code></pre></div>
+<p>Note that it is important to change the directory ownership before the <code>VOLUME</code> instruction. Changes done to the directory (e.g., assign ownership) or to its content after the <code>VOLUME</code> instruction are ignored (see <a href="https://docs.docker.com/engine/reference/builder/#volume" class="uri">https://docs.docker.com/engine/reference/builder/#volume</a>).</p>
+<p>Next, to create a named volume, the first time we run the new image we have to specify the option</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb233-1"><a href="rocker-chapter.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-v</span> my-project:/home/rstudio/my-project</span></code></pre></div>
+<p>Doing this, a new volume named <code>my-project</code> owned by <code>rstudio</code> user will be created.</p>
+<p>To summarize, volume permissions are slightly more difficult to manage. If we do not need to care about security, bind mounts are a much easier solution. To learn more about file permission in Rocker containers, see the discussion at <a href="https://github.com/rocker-org/rocker/issues/246#issuecomment-316124359" class="uri">https://github.com/rocker-org/rocker/issues/246#issuecomment-316124359</a>.</p>
+<p>To learn more about user management (e.g., custom users, run as root group) in Rocker containers, see <a href="https://www.rocker-project.org/use/managing_users/" class="uri">https://www.rocker-project.org/use/managing_users/</a>.</p>
+</div>
+</div>
+<div id="custom-dockerfile" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Custom <code>Dockerfile</code><a href="rocker-chapter.html#custom-dockerfile" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we know how to start a container with RStudio Server using <code>rocker/rstudio</code> and how to manage bind mounts (or volumes) for persistent data storage. However, we note that each time we run the container we need to reinstall all the required R packages as they are not available in the base image. Moreover, we can not install dependencies external to the R ecosystem as we have no root permission.</p>
+<p>If none of the images provided by Rocker satisfies our requirements, we can create our own custom image. As we have already seen in Chapter <a href="docker-chapter.html#dockerfile">12.2.3</a>, we simply need to define a <code>Dockerfile</code> for our project. A possible <code>Dockerfile</code> may look like the following one,</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb234-1"><a href="rocker-chapter.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----#</span></span>
+<span id="cb234-2"><a href="rocker-chapter.html#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Base image</span></span>
+<span id="cb234-3"><a href="rocker-chapter.html#cb234-3" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.0</span>
+<span id="cb234-4"><a href="rocker-chapter.html#cb234-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-5"><a href="rocker-chapter.html#cb234-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Install external dependencies</span></span>
+<span id="cb234-6"><a href="rocker-chapter.html#cb234-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> apt-get update <span class="dt">\</span></span>
+<span id="cb234-7"><a href="rocker-chapter.html#cb234-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&amp;&amp;</span> <span class="ex">apt-get</span> install <span class="at">-y</span> curl</span>
+<span id="cb234-8"><a href="rocker-chapter.html#cb234-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-9"><a href="rocker-chapter.html#cb234-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R packages</span></span>
+<span id="cb234-10"><a href="rocker-chapter.html#cb234-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;install.packages(&#39;trackdown&#39;)&quot;</span></span></code></pre></div>
+<p>Note the particular combined use of <code>"</code> and <code>'</code> to correctly specify the command.</p>
+<p>Alternatively, we could run an R script (or a bash script) created ad-hoc with the instructions to install all the R packages (or external dependencies). In this case, the <code>Dockerfile</code> will be similar to</p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb235-1"><a href="rocker-chapter.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----#</span></span>
+<span id="cb235-2"><a href="rocker-chapter.html#cb235-2" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb235-3"><a href="rocker-chapter.html#cb235-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb235-4"><a href="rocker-chapter.html#cb235-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R packages</span></span>
+<span id="cb235-5"><a href="rocker-chapter.html#cb235-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> my-install.R /my-install.R</span>
+<span id="cb235-6"><a href="rocker-chapter.html#cb235-6" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> Rscript my-install.R</span></code></pre></div>
+<p>However, as we have described in Chapter <a href="requirements-chapter.html#renv-section">11.3</a>, there are better solutions to manage dependencies and guarantee reproducibility. In Section <a href="rocker-chapter.html#docker-workflow">13.4</a>, we discuss how to manage the workflow introduced in the previous chapters when using Docker containers.</p>
+<p>For more suggestions and best practices when using Docker with R, see <a href="https://www.r-bloggers.com/2021/05/best-practices-for-r-with-docker/" class="uri">https://www.r-bloggers.com/2021/05/best-practices-for-r-with-docker/</a>.</p>
+<div class="trick" title="Commit Changes">
+<p>There is an alternative approach that allows us to permanently modify an image without changing the <code>Dockerfile</code>. We can commit the changes made (this should sound familiar if we are already using git).</p>
+<p>Following this approach, we simply install all the required R-packages from RStudio as we are used to.</p>
+<p>In the case of external dependencies, instead, we can overcome the non-root user issue by running the following command <code>docker exec -it &lt;container-name&gt; bin/bash</code> on a new terminal window in our host machine. This command allows us to connect to the container terminal as the root user.</p>
+<p>Once we have installed all the required dependencies, we can commit our changes using the command,</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb236-1"><a href="rocker-chapter.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> commit <span class="at">-m</span> <span class="st">&quot;&lt;a descriptive message&gt;&quot;</span> <span class="op">&lt;</span>container-name<span class="op">&gt;</span>  <span class="op">&lt;</span>image-name<span class="op">&gt;</span>:<span class="op">&lt;</span>tag<span class="op">&gt;</span></span></code></pre></div>
+<p>For more details and options, see <a href="https://docs.docker.com/engine/reference/commandline/commit/" class="uri">https://docs.docker.com/engine/reference/commandline/commit/</a>.</p>
+<p>This approach, however, is not recommended as it is not reproducible. Of course, we can share our custom image, but colleagues would have a hard time figuring out what exactly the image contains and how it was created. Using a <code>Dockerfile</code> is recommended as it indicates all the instructions allowing reproducibility and facilitating debugging.</p>
+</div>
+</div>
+<div id="docker-workflow" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Docker Workflow<a href="rocker-chapter.html#docker-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s see how we can combine the workflow introduced in the previous chapters together with Docker containers to guarantee results reproducibility.</p>
+<p>Of course, the optimal approach will depend on the specific project aims and needs. However, we can think of two main scenarios in which Docker containers are used in our projects:</p>
+<ul>
+<li><p><strong>After the Development.</strong> Imagine that we have finished the development of our project and we have already obtained our results. However, as we did everything on our personal machine, we want to use a Docker container to guarantee results reproducibility. Therefore, we create a <code>Dockerfile</code>, in which we define the project dependencies, add all the required files and set everything to reproduce the results. Next, we re-run the analysis from within the container to obtain the <em>official</em> results. Except for small variations, results obtained from within the container should be essentially identical to those obtained on our host machine.</p></li>
+<li><p><strong>During the Development.</strong> Alternatively, we might want to manage the whole development of our project directly from within the container. In this case, the first thing we do is to create a container. During the development, we use RStudio Server provided by Rocker as our preferred integrated development environment (IDE) adding the required dependencies and all the relevant files for our project. Once we obtain the results, we are already sure these will be reproducible from within the container (as long as we correctly followed the workflow). Nevertheless, a second run of the analysis to check that everything flows smoothly never hurts.</p></li>
+</ul>
+<p>Of course, there is not a strict line between the two scenarios and many other solutions are possible. We are free to choose (or create) the solution that better suits our needs. The only important thing to keep in mind is that to guarantee reproducibility, the final results should be obtained by running the whole analysis from within the container.</p>
+<p>In most cases, creating the container after the development is fine. Most projects do not have strict requirements that could potentially hinder results replicability (we would obtain essentially the same results on the host machine and from within the container) and rerunning the whole analysis should not be a problem in terms of time and power required. On the other side, following this approach, we have the advantage of working with our familiar tools on the host system. Moreover, we do a double check of the results by re-running the analysis from within the container.</p>
+<p>Developing the project directly from within the container could be necessary if there are specific requirements (e.g., OS, specific software, compilers) or to avoid unexpected (rare) issues when re-running the analysis in the container instead of on our host machine. However, managing the development from within the container requires some extra tricks about how to deal with GitHub authentication or the <code>renv</code> caching system.</p>
+<p>Let’s clarify everything by considering two examples.</p>
+<div id="after-the-development" class="section level3 hasAnchor" number="13.4.1">
+<h3><span class="header-section-number">13.4.1</span> After the Development<a href="rocker-chapter.html#after-the-development" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Imagine that we structured <code>my-project/</code> following all recommendations from the previous chapters: we created an <code>.Rproj</code>, Git is used to track our project, the analysis workflow is managed by <code>targets</code>, and dependencies are recorded by <code>renv</code>. At this point, to guarantee results reproducibility, we add a <code>Dockerfile</code> defining a Docker container for our analysis. The project is structured as follows,</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb237-1"><a href="rocker-chapter.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="ex">My-project/</span></span>
+<span id="cb237-2"><a href="rocker-chapter.html#cb237-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> .gitignore</span>
+<span id="cb237-3"><a href="rocker-chapter.html#cb237-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> .Rprofile</span>
+<span id="cb237-4"><a href="rocker-chapter.html#cb237-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> _targets.yaml</span>
+<span id="cb237-5"><a href="rocker-chapter.html#cb237-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> DESCRIPTION</span>
+<span id="cb237-6"><a href="rocker-chapter.html#cb237-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> Dockerfile</span>
+<span id="cb237-7"><a href="rocker-chapter.html#cb237-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> my-project.Rproj</span>
+<span id="cb237-8"><a href="rocker-chapter.html#cb237-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> README</span>
+<span id="cb237-9"><a href="rocker-chapter.html#cb237-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> renv.lock</span>
+<span id="cb237-10"><a href="rocker-chapter.html#cb237-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> .git/</span>
+<span id="cb237-11"><a href="rocker-chapter.html#cb237-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> analysis/</span>
+<span id="cb237-12"><a href="rocker-chapter.html#cb237-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> _taregts/</span>
+<span id="cb237-13"><a href="rocker-chapter.html#cb237-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> targets-analysis.R</span>
+<span id="cb237-14"><a href="rocker-chapter.html#cb237-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> targets-workflow.R</span>
+<span id="cb237-15"><a href="rocker-chapter.html#cb237-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
+<span id="cb237-16"><a href="rocker-chapter.html#cb237-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> raw-data.csv</span>
+<span id="cb237-17"><a href="rocker-chapter.html#cb237-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> documents/</span>
+<span id="cb237-18"><a href="rocker-chapter.html#cb237-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> _targets.yaml</span>
+<span id="cb237-19"><a href="rocker-chapter.html#cb237-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> report.Rmd</span>
+<span id="cb237-20"><a href="rocker-chapter.html#cb237-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> R/</span>
+<span id="cb237-21"><a href="rocker-chapter.html#cb237-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> my-functions.R</span>
+<span id="cb237-22"><a href="rocker-chapter.html#cb237-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>       <span class="kw">|</span><span class="ex">--</span> targets-utils.R</span>
+<span id="cb237-23"><a href="rocker-chapter.html#cb237-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> renv/</span></code></pre></div>
+<div id="fix-r-version" class="section level4 hasAnchor" number="13.4.1.1">
+<h4><span class="header-section-number">13.4.1.1</span> Fix R-version<a href="rocker-chapter.html#fix-r-version" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The first step is to fix the R-version used in the analysis and copy all the required files in the image. The <code>Dockerfile</code> will look similar to</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb238-1"><a href="rocker-chapter.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb238-2"><a href="rocker-chapter.html#cb238-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.2</span>
+<span id="cb238-3"><a href="rocker-chapter.html#cb238-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb238-4"><a href="rocker-chapter.html#cb238-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project files</span></span>
+<span id="cb238-5"><a href="rocker-chapter.html#cb238-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/rstudio/my-project</span>
+<span id="cb238-6"><a href="rocker-chapter.html#cb238-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb238-7"><a href="rocker-chapter.html#cb238-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership</span></span>
+<span id="cb238-8"><a href="rocker-chapter.html#cb238-8" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> rstudio:rstudio /home/rstudio/</span></code></pre></div>
+<p>In particular, in the <code>Dockerfile</code>:</p>
+<ul>
+<li>First, we define as base image <code>rocker/rstudio:4.1.2</code>.</li>
+<li>Next, we copy all the files from the project folder to the <code>/home/rstudio/my-project</code> directory in the image. Note that we need to copy all the files required to run the analysis but not the results themselves. Ideally, this command is executed on the project downloaded from GitHub (or other online repositories). As discussed in Chapter <a href="git-chapter.html#git-chapter">7</a>, we push on the online repository only the code and files required to obtain the analysis using the <code>.gitignore</code> file to avoid Git tracking the results. Alternatively, we can also use the analogues <code>.dockerignore</code> file to prevent Docker from copying in the image unwanted files (see Section <a href="docker-chapter.html#dockerignore">12.2.3.4</a>).</li>
+<li>Finally, we ensure that all files and folders added inside <code>/home/rstudio/</code> are owned by the <code>rstudio</code> user. In this way, we avoid any permission issues.</li>
+</ul>
+<p>Moreover, we need to provide appropriate instructions in the <code>README</code> to allow other colleagues to reproduce the analysis. In this case, it could be something similar to:</p>
+<blockquote>
+<p>To reproduce the analysis:</p>
+<ol style="list-style-type: decimal">
+<li><p>Download the project repository at <link-repository> or by running,</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb239-1"><a href="rocker-chapter.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>link-repository<span class="op">&gt;</span></span></code></pre></div></li>
+<li><p>Build the image by running,</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb240-1"><a href="rocker-chapter.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="at">-t</span> my-project:1.0.0 .</span></code></pre></div></li>
+<li><p>Run the container by running,</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb241-1"><a href="rocker-chapter.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> PASSWORD=<span class="st">&quot;&lt;your-PW&gt;&quot;</span> my-project:1.0.0</span></code></pre></div></li>
+<li><p>In your browser, go to <a href="http://localhost:8787" class="uri">http://localhost:8787</a> and login to RStudio Server (username: rstudio; PW: <your-PW>).</p></li>
+<li><p>Open the R project by double-clicking the file <code>my-project/my-project.Rproj</code> file you can find in the project. A new R-studio session will open.</p></li>
+<li><p>Run <code>renv::restore()</code> to install the project’s dependencies (have a coffee, it takes some time).</p></li>
+<li><p>Run <code>targets::tar_make()</code> to run the analysis using <code>targets</code>. (Note that this will properly work because we defined targets script and store locations in the <code>_targets.yaml</code> file).</p></li>
+<li><p>To compile the report, open <code>documents/report.Rmd</code> and compile the file
+clicking the <code>Knitr</code> button (or run <code>rmarkdown::render(input = 'documents/report.Rmd')</code>).</p></li>
+</ol>
+</blockquote>
+<p>Colleagues not familiar with the workflow may require some more details, but following the instructions step by step, they should always be able to reproduce the results.</p>
+</div>
+<div id="add-r-packages" class="section level4 hasAnchor" number="13.4.1.2">
+<h4><span class="header-section-number">13.4.1.2</span> Add R-packages<a href="rocker-chapter.html#add-r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The previous image would require collaborators to re-install all the dependencies each time they run the container. This is very time-consuming. Moreover, we can not guarantee that all R-packages will be available in the future. A better approach is to execute the <code>renv::restore()</code> step directly in the <code>Dockerfile</code>. To do that, we can use the following instructions,</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb242-1"><a href="rocker-chapter.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb242-2"><a href="rocker-chapter.html#cb242-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.2</span>
+<span id="cb242-3"><a href="rocker-chapter.html#cb242-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-4"><a href="rocker-chapter.html#cb242-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project files</span></span>
+<span id="cb242-5"><a href="rocker-chapter.html#cb242-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/rstudio/my-project</span>
+<span id="cb242-6"><a href="rocker-chapter.html#cb242-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-7"><a href="rocker-chapter.html#cb242-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install renv</span></span>
+<span id="cb242-8"><a href="rocker-chapter.html#cb242-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_VERSION 0.15.1</span>
+<span id="cb242-9"><a href="rocker-chapter.html#cb242-9" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_PATHS_CACHE /home/rstudio/.cache/R/renv</span>
+<span id="cb242-10"><a href="rocker-chapter.html#cb242-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;install.packages(&#39;remotes&#39;, repos = c(CRAN = &#39;https://cloud.r-project.org&#39;))&quot;</span></span>
+<span id="cb242-11"><a href="rocker-chapter.html#cb242-11" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;remotes::install_github(&#39;rstudio/renv@</span><span class="va">${RENV_VERSION}</span><span class="st">&#39;)&quot;</span></span>
+<span id="cb242-12"><a href="rocker-chapter.html#cb242-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-13"><a href="rocker-chapter.html#cb242-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
+<span id="cb242-14"><a href="rocker-chapter.html#cb242-14" aria-hidden="true" tabindex="-1"></a><span class="ex">WORKDIR</span> /home/rstudio/my-project</span>
+<span id="cb242-15"><a href="rocker-chapter.html#cb242-15" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;renv::restore()&quot;</span></span>
+<span id="cb242-16"><a href="rocker-chapter.html#cb242-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb242-17"><a href="rocker-chapter.html#cb242-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership</span></span>
+<span id="cb242-18"><a href="rocker-chapter.html#cb242-18" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> rstudio:rstudio /home/rstudio/</span></code></pre></div>
+<p>Without going into details, first, we install <code>renv</code> specifying the required version. Next, we run <code>renv::restore()</code> to install all the required R-package inside the image. Note that, when opening the project in RStudio Server, it could be still required to run <code>renv::restore()</code> to install the package inside the project. This operation, however, will now require less than a second as packages are linked directly from the cache.</p>
+<p>To know more about how to use <code>renv</code> inside a Docker container, see <a href="https://rstudio.github.io/renv/articles/docker.html" class="uri">https://rstudio.github.io/renv/articles/docker.html</a>. For more details about <code>renv</code> workflow path customization options, see <a href="https://rstudio.github.io/renv/reference/paths.html" class="uri">https://rstudio.github.io/renv/reference/paths.html</a>.</p>
+</div>
+<div id="run-the-analysis-and-report" class="section level4 hasAnchor" number="13.4.1.3">
+<h4><span class="header-section-number">13.4.1.3</span> Run the Analysis and Report<a href="rocker-chapter.html#run-the-analysis-and-report" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finally, we could also include in the <code>Dockerfile</code> the instructions <code>targets::tar_make()</code> and <code>rmarkdown::render(input = 'Documents/Report.Rmd')</code> to run the analysis and compile the report, respectively. In this case, the <code>Dockerfile</code> will looks like as follow,</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb243-1"><a href="rocker-chapter.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Dockerfile    ----</span></span>
+<span id="cb243-2"><a href="rocker-chapter.html#cb243-2" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rocker/rstudio:4.1.2</span>
+<span id="cb243-3"><a href="rocker-chapter.html#cb243-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-4"><a href="rocker-chapter.html#cb243-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy project files</span></span>
+<span id="cb243-5"><a href="rocker-chapter.html#cb243-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COPY</span> . /home/rstudio/My-project</span>
+<span id="cb243-6"><a href="rocker-chapter.html#cb243-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-7"><a href="rocker-chapter.html#cb243-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install renv</span></span>
+<span id="cb243-8"><a href="rocker-chapter.html#cb243-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_VERSION 0.15.1</span>
+<span id="cb243-9"><a href="rocker-chapter.html#cb243-9" aria-hidden="true" tabindex="-1"></a><span class="ex">ENV</span> RENV_PATHS_CACHE /home/rstudio/.cache/R/renv</span>
+<span id="cb243-10"><a href="rocker-chapter.html#cb243-10" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;install.packages(&#39;remotes&#39;, repos = c(CRAN = &#39;https://cloud.r-project.org&#39;))&quot;</span></span>
+<span id="cb243-11"><a href="rocker-chapter.html#cb243-11" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;remotes::install_github(&#39;rstudio/renv@</span><span class="va">${RENV_VERSION}</span><span class="st">&#39;)&quot;</span></span>
+<span id="cb243-12"><a href="rocker-chapter.html#cb243-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-13"><a href="rocker-chapter.html#cb243-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Install packages</span></span>
+<span id="cb243-14"><a href="rocker-chapter.html#cb243-14" aria-hidden="true" tabindex="-1"></a><span class="ex">WORKDIR</span> /home/rstudio/My-project</span>
+<span id="cb243-15"><a href="rocker-chapter.html#cb243-15" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;renv::restore()&quot;</span></span>
+<span id="cb243-16"><a href="rocker-chapter.html#cb243-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-17"><a href="rocker-chapter.html#cb243-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Run targets</span></span>
+<span id="cb243-18"><a href="rocker-chapter.html#cb243-18" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;targets::tar_make()&quot;</span></span>
+<span id="cb243-19"><a href="rocker-chapter.html#cb243-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-20"><a href="rocker-chapter.html#cb243-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Render report</span></span>
+<span id="cb243-21"><a href="rocker-chapter.html#cb243-21" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> R <span class="at">-e</span> <span class="st">&quot;rmarkdown::render(input = &#39;documents/report.Rmd&#39;)&quot;</span></span>
+<span id="cb243-22"><a href="rocker-chapter.html#cb243-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-23"><a href="rocker-chapter.html#cb243-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Change ownership</span></span>
+<span id="cb243-24"><a href="rocker-chapter.html#cb243-24" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> chown <span class="at">-R</span> rstudio:rstudio /home/rstudio/</span></code></pre></div>
+<p>Note the particular use of <code>'</code> and <code>"</code> to correctly define the instructions. Moreover, the command <code>targets::tar_make()</code> will properly work because we defined the targets script and the store locations in the <code>_targets.yaml</code> file.</p>
+<p>In this way, collaborators will automatically run the analysis and compile the report when building the image. Our workflow is entirely automatized.</p>
+</div>
+<div id="considerations" class="section level4 hasAnchor" number="13.4.1.4">
+<h4><span class="header-section-number">13.4.1.4</span> Considerations<a href="rocker-chapter.html#considerations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A downside of the presented approach is that we are required to rebuild the whole image each time we make a change inside the project folder. We can mitigate this issue by modifying the <code>Dockerfile</code> to take advantage of the Docker layers caching system (see Section <a href="docker-chapter.html#layer-caching">12.2.3.1</a>). For this reason, the present approach is recommended once the project development is finished.</p>
+<p>Moreover, following the presented approach, we create a specific image for each project. Having too many images could result in a waste of storage space. Of course, we can remove and rebuild the image when needed, but a good idea is also to publish the resulting image on Docker Hub (see Chapter <a href="docker-chapter.html#docker-hub">12.3.3</a>). In this way, collages can download the already built image, and, no matter what, it will be always possible to reproduce our analysis (even if R-packages were removed from CRAN).</p>
+<p>As we have seen, we can run the analysis and compile the documents directly in the container allowing us to completely automate our workflow. In the case of PDF, however, we have to deal with LaTeX installation. That may require some extra tricks to make everything work. A good starting point is to use as base image <code>rocker:verse</code>, which already implements tex and publishing-related packages. Moreover, we may require some specific settings in RStudio Server (see <a href="https://support.rstudio.com/hc/en-us/articles/200532247-Weaving-Rnw-Files-in-the-RStudio-IDE" class="uri">https://support.rstudio.com/hc/en-us/articles/200532247-Weaving-Rnw-Files-in-the-RStudio-IDE</a> and <a href="https://support.rstudio.com/hc/en-us/articles/200532257-Customizing-LaTeX-Options-in-the-RStudio-IDE" class="uri">https://support.rstudio.com/hc/en-us/articles/200532257-Customizing-LaTeX-Options-in-the-RStudio-IDE</a>) and we may need to learn how the <code>tinytex</code> R-package works (see <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>).</p>
+</div>
+</div>
+<div id="rocker-as-ide" class="section level3 hasAnchor" number="13.4.2">
+<h3><span class="header-section-number">13.4.2</span> Rocker as IDE<a href="rocker-chapter.html#rocker-as-ide" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Finally, let’s say we want to use RStudio Server as our IDE and develop our projects from within a container. In this case, we could simply use one of the Rocker images and mount a bind mount with all the project files (see Chapter <a href="docker-chapter.html#data-storage">12.3.1</a>). For example, we can use <code>rocker/verse</code> (which has more features) by running the command,</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb244-1"><a href="rocker-chapter.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> DISABLE_AUTH=true <span class="dt">\</span></span>
+<span id="cb244-2"><a href="rocker-chapter.html#cb244-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Desktop/My-project:/home/rstudio/my-project <span class="dt">\</span></span>
+<span id="cb244-3"><a href="rocker-chapter.html#cb244-3" aria-hidden="true" tabindex="-1"></a>    rocker/verse:4.1.2</span></code></pre></div>
+<p>Opening the browser at <a href="http://localhost:8787" class="uri">http://localhost:8787</a>, we will find the <code>my-project</code> directory inside RStudio Server ready to keep developing our project. Note that ownership of bind mounts (or volumes) mounted at the running time is automatically assigned to the current user, in this case, <code>rstudio</code>.</p>
+<p>However, when developing our project from within the container, we will find two main annoying issues: <code>renv</code> cache and GitHub authentication.</p>
+<div id="renv-cache" class="section level4 hasAnchor" number="13.4.2.1">
+<h4><span class="header-section-number">13.4.2.1</span> <code>renv</code> Cache<a href="rocker-chapter.html#renv-cache" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Packages installed in a session are lost when removing the container. Therefore, we are required to reinstall all R-packages each session, a huge waste of time. An easy solution is to get advantage of the <code>renv</code> cache system. To do that, we need to save <code>renv</code> caches in a bind mount (or a volume) and indicate <code>renv</code> to use that directory by setting the environment variable <code>RENV_PATHS_CACHE</code>. For example, we can create a folder in our host system <code>~/Docker/renv-cache</code> and use it as a bind mount. To run the container, we use the command</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb245-1"><a href="rocker-chapter.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> DISABLE_AUTH=true <span class="dt">\</span></span>
+<span id="cb245-2"><a href="rocker-chapter.html#cb245-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Docker/renv-cache:/home/rstudio/.cache/R/renv <span class="dt">\</span></span>
+<span id="cb245-3"><a href="rocker-chapter.html#cb245-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span>  RENV_PATHS_CACHE=home/rstudio/.cache/R/renv <span class="dt">\</span></span>
+<span id="cb245-4"><a href="rocker-chapter.html#cb245-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Desktop/my-project:/home/rstudio/my-project <span class="dt">\</span></span>
+<span id="cb245-5"><a href="rocker-chapter.html#cb245-5" aria-hidden="true" tabindex="-1"></a>    rocker/verse:4.1.2</span></code></pre></div>
+<p>In this way, running <code>renv::restore()</code> to install the package inside the project will now require less than a second as packages are linked directly from the cache. To know more about how to use <code>renv</code> inside a Docker container, see <a href="https://rstudio.github.io/renv/articles/docker.html" class="uri">https://rstudio.github.io/renv/articles/docker.html</a>. For more details about <code>renv</code> workflow path customization options, see <a href="https://rstudio.github.io/renv/reference/paths.html" class="uri">https://rstudio.github.io/renv/reference/paths.html</a>.</p>
+</div>
+<div id="github-authentication" class="section level4 hasAnchor" number="13.4.2.2">
+<h4><span class="header-section-number">13.4.2.2</span> GitHub Authentication<a href="rocker-chapter.html#github-authentication" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If we try to clone, push, or pull our commits from/to GitHub from within the container, we are required to authenticate at each session. To avoid this, we can add our SSH keys and <code>gitconfig</code> file to the container.</p>
+<p>Rather than using our local host computer SSH keys, we can create a new pair of SSH keys and register it to GitHub (see Chapter <a href="github-chapter.html#authentication">8.1.2</a>). In this way, we can set different permissions when forking from the host computer or the Docker container. Next, we save the new SSH keys in a folder <code>~/Docker/ssh-key</code> and we use it as a bind mount.</p>
+<p>We also need a <code>gitconfig</code> file with username, email, and other settings. For example,</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb246-1"><a href="rocker-chapter.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    gitconfig    ----#</span></span>
+<span id="cb246-2"><a href="rocker-chapter.html#cb246-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[user]</span></span>
+<span id="cb246-3"><a href="rocker-chapter.html#cb246-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">name</span> = <span class="op">&lt;</span>username<span class="op">&gt;</span></span>
+<span id="cb246-4"><a href="rocker-chapter.html#cb246-4" aria-hidden="true" tabindex="-1"></a>        <span class="ex">email</span> = <span class="op">&lt;</span>user-email<span class="op">&gt;</span></span>
+<span id="cb246-5"><a href="rocker-chapter.html#cb246-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[merge]</span></span>
+<span id="cb246-6"><a href="rocker-chapter.html#cb246-6" aria-hidden="true" tabindex="-1"></a>        <span class="ex">conflictstyle</span> = diff3</span></code></pre></div>
+<p>and we save the file as <code>~/Docker/docker-gitconfig.txt</code>. Therefore, we end up having a folder with all the files needed to work with Docker between different sessions. Something like,</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb247-1"><a href="rocker-chapter.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/Docker/</span></span>
+<span id="cb247-2"><a href="rocker-chapter.html#cb247-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> docker-gitconfig.txt</span>
+<span id="cb247-3"><a href="rocker-chapter.html#cb247-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> renv-cache/</span>
+<span id="cb247-4"><a href="rocker-chapter.html#cb247-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> ssh-key</span></code></pre></div>
+<p>To run the container, we use the command</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb248-1"><a href="rocker-chapter.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-p</span> 8787:8787 <span class="at">-e</span> DISABLE_AUTH=true <span class="dt">\</span></span>
+<span id="cb248-2"><a href="rocker-chapter.html#cb248-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Docker/renv-cache:/home/rstudio/.cache/R/renv <span class="dt">\</span></span>
+<span id="cb248-3"><a href="rocker-chapter.html#cb248-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span>  RENV_PATHS_CACHE=home/rstudio/.cache/R/renv <span class="dt">\</span></span>
+<span id="cb248-4"><a href="rocker-chapter.html#cb248-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span> ~/Docker/ssh-key:/home/rstudio/.ssh<span class="dt">\</span></span>
+<span id="cb248-5"><a href="rocker-chapter.html#cb248-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span> ~/Docker/docker-gitconfig.txt:/etc/gitconfig<span class="dt">\</span></span>
+<span id="cb248-6"><a href="rocker-chapter.html#cb248-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span>  ~/Desktop/my-project:/home/rstudio/my-project <span class="dt">\</span></span>
+<span id="cb248-7"><a href="rocker-chapter.html#cb248-7" aria-hidden="true" tabindex="-1"></a>    rocker/verse:4.1.2</span></code></pre></div>
+<p>Note that here the <code>rocker/verse</code> is necessary, as in this image some Linux packages required to deal with SSH authentication are already installed.</p>
+<p>When dealing with credentials and containers, we have to pay a little bit of attention to avoid sharing our private SSH keys with others. Using bind mounts (or volumes) allows us to mount private information at runtime, without including them directly in the image.</p>
+<p>Finally, as the commands became quite long, this may be a good occasion to have a look at Docker Compose (see Chapter <a href="docker-chapter.html#docker-compose">12.3.2</a>) or try to create our first Bash script (see <a href="https://ryanstutorials.net/bash-scripting-tutorial/" class="uri">https://ryanstutorials.net/bash-scripting-tutorial/</a>).</p>
+</div>
+<div id="considerations-1" class="section level4 hasAnchor" number="13.4.2.3">
+<h4><span class="header-section-number">13.4.2.3</span> Considerations<a href="rocker-chapter.html#considerations-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Following this approach, we develop our project directly from within the container. The important thing to keep in mind is that, to guarantee reproducibility and avoid strange issues, if we start working from within the container we should consistently develop the project working from the container.</p>
+<p>An advantage of this approach is that, except for projects that require specific system requirements (i.e., libraries, software), we can use the same base image to work on many different projects. We simply change the bind mounts to mount at runtime. However, once the project is finished, it is recommended to create a Docker image with all the dependencies already installed to guarantee the reproducibility of the results<span class="math inline">\(\ldots\)</span>FOREVER.</p>
+</div>
+<div class="doclinks">
+<div id="rocker" class="section level4 unnumbered hasAnchor">
+<h4>Rocker<a href="rocker-chapter.html#rocker" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>The Rocker Project<br>
+<a href="https://www.rocker-project.org/" class="uri">https://www.rocker-project.org/</a></li>
+<li>Available images<br>
+<a href="https://hub.docker.com/u/rocker" class="uri">https://hub.docker.com/u/rocker</a></li>
+<li>Best practices<br>
+<a href="https://www.r-bloggers.com/2021/05/best-practices-for-r-with-docker/" class="uri">https://www.r-bloggers.com/2021/05/best-practices-for-r-with-docker/</a></li>
+<li>Permissions Rocker<br>
+<a href="https://github.com/rocker-org/rocker/issues/246#issuecomment-316124359" class="uri">https://github.com/rocker-org/rocker/issues/246#issuecomment-316124359</a></li>
+<li>Users Rocker<br>
+<a href="https://www.rocker-project.org/use/managing_users/" class="uri">https://www.rocker-project.org/use/managing_users/</a></li>
+</ul>
+</div>
+<div id="renv-and-docker" class="section level4 unnumbered hasAnchor">
+<h4><code>renv</code> and Docker<a href="rocker-chapter.html#renv-and-docker" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Guidelines<br>
+<a href="https://rstudio.github.io/renv/articles/docker.html" class="uri">https://rstudio.github.io/renv/articles/docker.html</a></li>
+<li>Paths<br>
+<a href="https://rstudio.github.io/renv/reference/paths.html" class="uri">https://rstudio.github.io/renv/reference/paths.html</a></li>
+</ul>
+</div>
+<div id="extra-3" class="section level4 unnumbered hasAnchor">
+<h4>Extra<a href="rocker-chapter.html#extra-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Rstudio Server and Desktop<br>
+<a href="https://support.rstudio.com/hc/en-us/articles/217799198-What-is-the-difference-between-RStudio-Desktop-RStudio-Workbench-and-RStudio-Server" class="uri">https://support.rstudio.com/hc/en-us/articles/217799198-What-is-the-difference-between-RStudio-Desktop-RStudio-Workbench-and-RStudio-Server</a></li>
+<li>Docker commit<br>
+<a href="https://docs.docker.com/engine/reference/commandline/commit/" class="uri">https://docs.docker.com/engine/reference/commandline/commit/</a></li>
+<li>Rocker and Latex<br>
+<a href="https://support.rstudio.com/hc/en-us/articles/200532247-Weaving-Rnw-Files-in-the-RStudio-IDE" class="uri">https://support.rstudio.com/hc/en-us/articles/200532247-Weaving-Rnw-Files-in-the-RStudio-IDE</a></li>
+<li>Rocker and Latex (II)<br>
+<a href="https://support.rstudio.com/hc/en-us/articles/200532257-Customizing-LaTeX-Options-in-the-RStudio-IDE" class="uri">https://support.rstudio.com/hc/en-us/articles/200532257-Customizing-LaTeX-Options-in-the-RStudio-IDE</a></li>
+<li>tinytex<br>
+<a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a></li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
+    <br>
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
+    <br>
+    To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="docker-chapter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/arca-dpss/manual-open-science/edit/master/chapters/13-rocker.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["manual-open-science.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

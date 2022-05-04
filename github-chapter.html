@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 GitHub | The Open Science Manual</title>
+  <meta name="description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 GitHub | The Open Science Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+  <meta property="og:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="github-repo" content="arca-dpss/manual-open-science" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 GitHub | The Open Science Manual" />
+  
+  <meta name="twitter:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="twitter:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="git-chapter.html"/>
+<link rel="next" href="workflow-analysis-chapter.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="assets/images/arca-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#book-structure"><i class="fa fa-check"></i><b>1.1</b> Book Structure</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#instructions"><i class="fa fa-check"></i><b>1.2</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-introduction"><i class="fa fa-check"></i><b>2.1</b> OSF Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-getting-started"><i class="fa fa-check"></i><b>2.2</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="osf-chapter.html"><a href="osf-chapter.html#subscribe"><i class="fa fa-check"></i><b>2.2.1</b> Subscribe</a></li>
+<li class="chapter" data-level="2.2.2" data-path="osf-chapter.html"><a href="osf-chapter.html#create-a-project"><i class="fa fa-check"></i><b>2.2.2</b> Create a Project</a></li>
+<li class="chapter" data-level="2.2.3" data-path="osf-chapter.html"><a href="osf-chapter.html#project-homepage"><i class="fa fa-check"></i><b>2.2.3</b> Project Homepage</a></li>
+<li class="chapter" data-level="2.2.4" data-path="osf-chapter.html"><a href="osf-chapter.html#adding-files"><i class="fa fa-check"></i><b>2.2.4</b> Adding Files</a></li>
+<li class="chapter" data-level="2.2.5" data-path="osf-chapter.html"><a href="osf-chapter.html#documentation"><i class="fa fa-check"></i><b>2.2.5</b> Documentation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-features"><i class="fa fa-check"></i><b>2.3</b> Research Features</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="osf-chapter.html"><a href="osf-chapter.html#doi"><i class="fa fa-check"></i><b>2.3.1</b> DOI</a></li>
+<li class="chapter" data-level="2.3.2" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-contributors"><i class="fa fa-check"></i><b>2.3.2</b> Contributors</a></li>
+<li class="chapter" data-level="2.3.3" data-path="osf-chapter.html"><a href="osf-chapter.html#sharable-anonymized-links"><i class="fa fa-check"></i><b>2.3.3</b> Sharable Anonymized Links</a></li>
+<li class="chapter" data-level="2.3.4" data-path="osf-chapter.html"><a href="osf-chapter.html#preprints"><i class="fa fa-check"></i><b>2.3.4</b> Preprints</a></li>
+<li class="chapter" data-level="2.3.5" data-path="osf-chapter.html"><a href="osf-chapter.html#add-ons-and-api"><i class="fa fa-check"></i><b>2.3.5</b> Add-ons and API</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="project-chapter.html"><a href="project-chapter.html"><i class="fa fa-check"></i><b>3</b> Projects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project-chapter.html"><a href="project-chapter.html#project-structure"><i class="fa fa-check"></i><b>3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="project-chapter.html"><a href="project-chapter.html#project-elements"><i class="fa fa-check"></i><b>3.1.1</b> Project Elements</a>
+<ul>
+<li class="chapter" data-level="3.1.1.1" data-path="project-chapter.html"><a href="project-chapter.html#data"><i class="fa fa-check"></i><b>3.1.1.1</b> <code>data/</code></a></li>
+<li class="chapter" data-level="3.1.1.2" data-path="project-chapter.html"><a href="project-chapter.html#analysis-code"><i class="fa fa-check"></i><b>3.1.1.2</b> <code>analysis/</code> and <code>code/</code></a></li>
+<li class="chapter" data-level="3.1.1.3" data-path="project-chapter.html"><a href="project-chapter.html#outputs"><i class="fa fa-check"></i><b>3.1.1.3</b> <code>outputs/</code></a></li>
+<li class="chapter" data-level="3.1.1.4" data-path="project-chapter.html"><a href="project-chapter.html#documents"><i class="fa fa-check"></i><b>3.1.1.4</b> <code>documents/</code></a></li>
+<li class="chapter" data-level="3.1.1.5" data-path="project-chapter.html"><a href="project-chapter.html#readme-section"><i class="fa fa-check"></i><b>3.1.1.5</b> <code>README</code></a></li>
+<li class="chapter" data-level="3.1.1.6" data-path="project-chapter.html"><a href="project-chapter.html#license-section"><i class="fa fa-check"></i><b>3.1.1.6</b> <code>LICENSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.1.2" data-path="project-chapter.html"><a href="project-chapter.html#naming-files-dir"><i class="fa fa-check"></i><b>3.1.2</b> Naming Files and Directories</a></li>
+<li class="chapter" data-level="3.1.3" data-path="project-chapter.html"><a href="project-chapter.html#project-advantages"><i class="fa fa-check"></i><b>3.1.3</b> Project Advantages</a>
+<ul>
+<li class="chapter" data-level="3.1.3.1" data-path="project-chapter.html"><a href="project-chapter.html#wd-file-path"><i class="fa fa-check"></i><b>3.1.3.1</b> Working Directory and File Paths</a></li>
+<li class="chapter" data-level="3.1.3.2" data-path="project-chapter.html"><a href="project-chapter.html#centralize-analysis"><i class="fa fa-check"></i><b>3.1.3.2</b> Centralize the Analysis</a></li>
+<li class="chapter" data-level="3.1.3.3" data-path="project-chapter.html"><a href="project-chapter.html#ready-to-share-and-collaborate"><i class="fa fa-check"></i><b>3.1.3.3</b> Ready to Share and Collaborate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-chapter.html"><a href="data-chapter.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-chapter.html"><a href="data-chapter.html#organizing"><i class="fa fa-check"></i><b>4.1</b> Organizing Data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-chapter.html"><a href="data-chapter.html#data-structure"><i class="fa fa-check"></i><b>4.1.1</b> Data Structure</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-chapter.html"><a href="data-chapter.html#data-docs"><i class="fa fa-check"></i><b>4.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-chapter.html"><a href="data-chapter.html#data-good-practices"><i class="fa fa-check"></i><b>4.1.3</b> Data Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-chapter.html"><a href="data-chapter.html#sharing"><i class="fa fa-check"></i><b>4.2</b> Sharing Data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-chapter.html"><a href="data-chapter.html#when-where-who"><i class="fa fa-check"></i><b>4.2.1</b> When, Where, Who?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-chapter.html"><a href="data-chapter.html#legal-aspects"><i class="fa fa-check"></i><b>4.2.2</b> Legal Aspects</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-chapter.html"><a href="data-chapter.html#license-data"><i class="fa fa-check"></i><b>4.2.3</b> License</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-chapter.html"><a href="data-chapter.html#metadata"><i class="fa fa-check"></i><b>4.2.4</b> Metadata</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="coding-chapter.html"><a href="coding-chapter.html"><i class="fa fa-check"></i><b>5</b> Coding</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="coding-chapter.html"><a href="coding-chapter.html#coding-style"><i class="fa fa-check"></i><b>5.1</b> Coding Style</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="coding-chapter.html"><a href="coding-chapter.html#good-practices"><i class="fa fa-check"></i><b>5.1.1</b> General Good Practices</a>
+<ul>
+<li class="chapter" data-level="5.1.1.1" data-path="coding-chapter.html"><a href="coding-chapter.html#variable-names"><i class="fa fa-check"></i><b>5.1.1.1</b> Variable Names</a></li>
+<li class="chapter" data-level="5.1.1.2" data-path="coding-chapter.html"><a href="coding-chapter.html#spacing-and-indentation"><i class="fa fa-check"></i><b>5.1.1.2</b> Spacing and Indentation</a></li>
+<li class="chapter" data-level="5.1.1.3" data-path="coding-chapter.html"><a href="coding-chapter.html#comments"><i class="fa fa-check"></i><b>5.1.1.3</b> Comments</a></li>
+<li class="chapter" data-level="5.1.1.4" data-path="coding-chapter.html"><a href="coding-chapter.html#other-tips"><i class="fa fa-check"></i><b>5.1.1.4</b> Other Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.2" data-path="coding-chapter.html"><a href="coding-chapter.html#functional-style"><i class="fa fa-check"></i><b>5.1.2</b> Functional Style</a>
+<ul>
+<li class="chapter" data-level="5.1.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#functions-good-practices"><i class="fa fa-check"></i><b>5.1.2.1</b> Functions Good Practices</a></li>
+<li class="chapter" data-level="5.1.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#documentation-coding"><i class="fa fa-check"></i><b>5.1.2.2</b> Documentation</a></li>
+<li class="chapter" data-level="5.1.2.3" data-path="coding-chapter.html"><a href="coding-chapter.html#unit-tests"><i class="fa fa-check"></i><b>5.1.2.3</b> Unit Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.3" data-path="coding-chapter.html"><a href="coding-chapter.html#advanced"><i class="fa fa-check"></i><b>5.1.3</b> Advanced</a>
+<ul>
+<li class="chapter" data-level="5.1.3.1" data-path="coding-chapter.html"><a href="coding-chapter.html#performance"><i class="fa fa-check"></i><b>5.1.3.1</b> Performance</a></li>
+<li class="chapter" data-level="5.1.3.2" data-path="coding-chapter.html"><a href="coding-chapter.html#environments"><i class="fa fa-check"></i><b>5.1.3.2</b> Environments</a></li>
+<li class="chapter" data-level="5.1.3.3" data-path="coding-chapter.html"><a href="coding-chapter.html#classes-methods"><i class="fa fa-check"></i><b>5.1.3.3</b> Classes and Methods</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="coding-chapter.html"><a href="coding-chapter.html#R-coding"><i class="fa fa-check"></i><b>5.2</b> R Coding</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#coding-style-1"><i class="fa fa-check"></i><b>5.2.1</b> Coding Style</a></li>
+<li class="chapter" data-level="5.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#r-package-proj"><i class="fa fa-check"></i><b>5.2.2</b> R Package Project</a>
+<ul>
+<li class="chapter" data-level="5.2.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#r-package-structure"><i class="fa fa-check"></i><b>5.2.2.1</b> R Package Structure</a></li>
+<li class="chapter" data-level="5.2.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#devtools-workflow"><i class="fa fa-check"></i><b>5.2.2.2</b> The <code>devtools</code> Workflow</a></li>
+<li class="chapter" data-level="5.2.2.3" data-path="coding-chapter.html"><a href="coding-chapter.html#description"><i class="fa fa-check"></i><b>5.2.2.3</b> DESCRIPTION</a></li>
+<li class="chapter" data-level="5.2.2.4" data-path="coding-chapter.html"><a href="coding-chapter.html#documentation-roxygen"><i class="fa fa-check"></i><b>5.2.2.4</b> Documentation with <code>roxygen2</code></a></li>
+<li class="chapter" data-level="5.2.2.5" data-path="coding-chapter.html"><a href="coding-chapter.html#testthat"><i class="fa fa-check"></i><b>5.2.2.5</b> Unit Tests with <code>testthat</code></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="terminal-chapter.html"><a href="terminal-chapter.html"><i class="fa fa-check"></i><b>6</b> Terminal</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#what-is-a-terminal"><i class="fa fa-check"></i><b>6.1</b> What is a Terminal?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#different-shells"><i class="fa fa-check"></i><b>6.1.1</b> Different Shells</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#install-bash"><i class="fa fa-check"></i><b>6.2</b> Install Bash</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#install-windows-terminal"><i class="fa fa-check"></i><b>6.2.1</b> On Windows</a></li>
+<li class="chapter" data-level="6.2.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#on-macos"><i class="fa fa-check"></i><b>6.2.2</b> On macOS</a></li>
+<li class="chapter" data-level="6.2.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#on-linux"><i class="fa fa-check"></i><b>6.2.3</b> On Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#get-started-terminal"><i class="fa fa-check"></i><b>6.3</b> Get Started</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#prompt-and-commands"><i class="fa fa-check"></i><b>6.3.1</b> Prompt and Commands</a></li>
+<li class="chapter" data-level="6.3.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#navigating-directories"><i class="fa fa-check"></i><b>6.3.2</b> Navigating Directories</a></li>
+<li class="chapter" data-level="6.3.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#modifying-files"><i class="fa fa-check"></i><b>6.3.3</b> Modifying Files</a></li>
+<li class="chapter" data-level="6.3.4" data-path="terminal-chapter.html"><a href="terminal-chapter.html#text-editors"><i class="fa fa-check"></i><b>6.3.4</b> Text Editors</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="terminal-chapter.html"><a href="terminal-chapter.html#terminal-in-rstudio"><i class="fa fa-check"></i><b>6.4</b> Terminal in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-chapter.html"><a href="git-chapter.html"><i class="fa fa-check"></i><b>7</b> Git</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="git-chapter.html"><a href="git-chapter.html#version-control"><i class="fa fa-check"></i><b>7.1</b> Version Control</a></li>
+<li class="chapter" data-level="7.2" data-path="git-chapter.html"><a href="git-chapter.html#git-overview"><i class="fa fa-check"></i><b>7.2</b> Git Overview</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files"><i class="fa fa-check"></i><b>7.2.1</b> Tracking Files</a></li>
+<li class="chapter" data-level="7.2.2" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration"><i class="fa fa-check"></i><b>7.2.2</b> Managing Collaboration</a></li>
+<li class="chapter" data-level="7.2.3" data-path="git-chapter.html"><a href="git-chapter.html#branching-merging"><i class="fa fa-check"></i><b>7.2.3</b> Branching and Merging</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="git-chapter.html"><a href="git-chapter.html#install-git"><i class="fa fa-check"></i><b>7.3</b> Install Git</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="git-chapter.html"><a href="git-chapter.html#on-windows"><i class="fa fa-check"></i><b>7.3.1</b> On Windows</a></li>
+<li class="chapter" data-level="7.3.2" data-path="git-chapter.html"><a href="git-chapter.html#on-macos-1"><i class="fa fa-check"></i><b>7.3.2</b> On macOS</a></li>
+<li class="chapter" data-level="7.3.3" data-path="git-chapter.html"><a href="git-chapter.html#on-linux-1"><i class="fa fa-check"></i><b>7.3.3</b> On Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="git-chapter.html"><a href="git-chapter.html#get-started"><i class="fa fa-check"></i><b>7.4</b> Get Started</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="git-chapter.html"><a href="git-chapter.html#configure-settings"><i class="fa fa-check"></i><b>7.4.1</b> Configure Settings</a></li>
+<li class="chapter" data-level="7.4.2" data-path="git-chapter.html"><a href="git-chapter.html#initialize-a-git-repository"><i class="fa fa-check"></i><b>7.4.2</b> Initialize a Git Repository</a></li>
+<li class="chapter" data-level="7.4.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files-1"><i class="fa fa-check"></i><b>7.4.3</b> Tracking Files</a>
+<ul>
+<li class="chapter" data-level="7.4.3.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-files-to-staging-area"><i class="fa fa-check"></i><b>7.4.3.1</b> Adding Files to Staging Area</a></li>
+<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#commiting-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Commiting Changes</a></li>
+<li class="chapter" data-level="7.4.3.3" data-path="git-chapter.html"><a href="git-chapter.html#checking-commit-history"><i class="fa fa-check"></i><b>7.4.3.3</b> Checking Commit History</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.4" data-path="git-chapter.html"><a href="git-chapter.html#undoing-commits"><i class="fa fa-check"></i><b>7.4.4</b> Undoing Commits</a>
+<ul>
+<li class="chapter" data-level="7.4.4.1" data-path="git-chapter.html"><a href="git-chapter.html#checkout"><i class="fa fa-check"></i><b>7.4.4.1</b> Checkout</a></li>
+<li class="chapter" data-level="7.4.4.2" data-path="git-chapter.html"><a href="git-chapter.html#revert"><i class="fa fa-check"></i><b>7.4.4.2</b> Revert</a></li>
+<li class="chapter" data-level="7.4.4.3" data-path="git-chapter.html"><a href="git-chapter.html#reset"><i class="fa fa-check"></i><b>7.4.4.3</b> Reset</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.5" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration-1"><i class="fa fa-check"></i><b>7.4.5</b> Managing Collaboration</a>
+<ul>
+<li class="chapter" data-level="7.4.5.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-a-remote-repository"><i class="fa fa-check"></i><b>7.4.5.1</b> Adding a Remote Repository</a></li>
+<li class="chapter" data-level="7.4.5.2" data-path="git-chapter.html"><a href="git-chapter.html#pulling-commits"><i class="fa fa-check"></i><b>7.4.5.2</b> Pulling Commits</a></li>
+<li class="chapter" data-level="7.4.5.3" data-path="git-chapter.html"><a href="git-chapter.html#pushing-commits"><i class="fa fa-check"></i><b>7.4.5.3</b> Pushing Commits</a></li>
+<li class="chapter" data-level="7.4.5.4" data-path="git-chapter.html"><a href="git-chapter.html#setting-upstream"><i class="fa fa-check"></i><b>7.4.5.4</b> Setting Upstream</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.6" data-path="git-chapter.html"><a href="git-chapter.html#branching-merging-2"><i class="fa fa-check"></i><b>7.4.6</b> Branching and Merging</a>
+<ul>
+<li class="chapter" data-level="7.4.6.1" data-path="git-chapter.html"><a href="git-chapter.html#creating-branches"><i class="fa fa-check"></i><b>7.4.6.1</b> Creating Branches</a></li>
+<li class="chapter" data-level="7.4.6.2" data-path="git-chapter.html"><a href="git-chapter.html#selecting-branches"><i class="fa fa-check"></i><b>7.4.6.2</b> Selecting Branches</a></li>
+<li class="chapter" data-level="7.4.6.3" data-path="git-chapter.html"><a href="git-chapter.html#merging-branches"><i class="fa fa-check"></i><b>7.4.6.3</b> Merging Branches</a></li>
+<li class="chapter" data-level="7.4.6.4" data-path="git-chapter.html"><a href="git-chapter.html#solving-conflicts"><i class="fa fa-check"></i><b>7.4.6.4</b> Solving Conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.7" data-path="git-chapter.html"><a href="git-chapter.html#summary"><i class="fa fa-check"></i><b>7.4.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="git-chapter.html"><a href="git-chapter.html#git-workflow"><i class="fa fa-check"></i><b>7.5</b> Git Workflow</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="git-chapter.html"><a href="git-chapter.html#two-branches-approach"><i class="fa fa-check"></i><b>7.5.1</b> Two Branches Approach</a></li>
+<li class="chapter" data-level="7.5.2" data-path="git-chapter.html"><a href="git-chapter.html#multiple-branches-approach"><i class="fa fa-check"></i><b>7.5.2</b> Multiple Branches Approach</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="git-chapter.html"><a href="git-chapter.html#git-rstudio"><i class="fa fa-check"></i><b>7.6</b> RStudio Git GUI</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="git-chapter.html"><a href="git-chapter.html#configure-git-in-rstudio"><i class="fa fa-check"></i><b>7.6.1</b> Configure Git in RStudio</a></li>
+<li class="chapter" data-level="7.6.2" data-path="git-chapter.html"><a href="git-chapter.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>7.6.2</b> Using Git in Rstudio</a>
+<ul>
+<li class="chapter" data-level="7.6.2.1" data-path="git-chapter.html"><a href="git-chapter.html#create-a-git-repository"><i class="fa fa-check"></i><b>7.6.2.1</b> Create a Git Repository</a></li>
+<li class="chapter" data-level="7.6.2.2" data-path="git-chapter.html"><a href="git-chapter.html#git-panel"><i class="fa fa-check"></i><b>7.6.2.2</b> Git Panel</a></li>
+<li class="chapter" data-level="7.6.2.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-changes"><i class="fa fa-check"></i><b>7.6.2.3</b> Tracking Changes</a></li>
+<li class="chapter" data-level="7.6.2.4" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration-2"><i class="fa fa-check"></i><b>7.6.2.4</b> Managing Collaboration</a></li>
+<li class="chapter" data-level="7.6.2.5" data-path="git-chapter.html"><a href="git-chapter.html#branching-and-merging"><i class="fa fa-check"></i><b>7.6.2.5</b> Branching and Merging</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="github-chapter.html"><a href="github-chapter.html"><i class="fa fa-check"></i><b>8</b> GitHub</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="github-chapter.html"><a href="github-chapter.html#using-github"><i class="fa fa-check"></i><b>8.1</b> Using GitHub</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="github-chapter.html"><a href="github-chapter.html#initial-set-up"><i class="fa fa-check"></i><b>8.1.1</b> Initial Set Up</a></li>
+<li class="chapter" data-level="8.1.2" data-path="github-chapter.html"><a href="github-chapter.html#authentication"><i class="fa fa-check"></i><b>8.1.2</b> Authentication</a></li>
+<li class="chapter" data-level="8.1.3" data-path="github-chapter.html"><a href="github-chapter.html#create-a-repository"><i class="fa fa-check"></i><b>8.1.3</b> Create a Repository</a></li>
+<li class="chapter" data-level="8.1.4" data-path="github-chapter.html"><a href="github-chapter.html#add-collaborators"><i class="fa fa-check"></i><b>8.1.4</b> Add Collaborators</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="github-chapter.html"><a href="github-chapter.html#main-features"><i class="fa fa-check"></i><b>8.2</b> Main Features</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="github-chapter.html"><a href="github-chapter.html#github-add-license"><i class="fa fa-check"></i><b>8.2.1</b> Adding License</a></li>
+<li class="chapter" data-level="8.2.2" data-path="github-chapter.html"><a href="github-chapter.html#documentation-github"><i class="fa fa-check"></i><b>8.2.2</b> Documentation</a></li>
+<li class="chapter" data-level="8.2.3" data-path="github-chapter.html"><a href="github-chapter.html#commit-history-and-diff"><i class="fa fa-check"></i><b>8.2.3</b> Commit History and Diff</a></li>
+<li class="chapter" data-level="8.2.4" data-path="github-chapter.html"><a href="github-chapter.html#get-doi"><i class="fa fa-check"></i><b>8.2.4</b> Get DOI</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="github-chapter.html"><a href="github-chapter.html#contributing"><i class="fa fa-check"></i><b>8.3</b> Contributing</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="github-chapter.html"><a href="github-chapter.html#issues"><i class="fa fa-check"></i><b>8.3.1</b> Issues</a></li>
+<li class="chapter" data-level="8.3.2" data-path="github-chapter.html"><a href="github-chapter.html#pull-request"><i class="fa fa-check"></i><b>8.3.2</b> Pull Request</a>
+<ul>
+<li class="chapter" data-level="8.3.2.1" data-path="github-chapter.html"><a href="github-chapter.html#fork-and-fetch"><i class="fa fa-check"></i><b>8.3.2.1</b> Fork and Fetch</a></li>
+<li class="chapter" data-level="8.3.2.2" data-path="github-chapter.html"><a href="github-chapter.html#create-a-pull-request"><i class="fa fa-check"></i><b>8.3.2.2</b> Create a Pull Request</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="github-chapter.html"><a href="github-chapter.html#github-adv-features"><i class="fa fa-check"></i><b>8.4</b> Advanced Features</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html"><i class="fa fa-check"></i><b>9</b> Workflow Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducible-workflow"><i class="fa fa-check"></i><b>9.1</b> Reproducible Workflow</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#run-the-analysis"><i class="fa fa-check"></i><b>9.1.1</b> Run the Analysis</a></li>
+<li class="chapter" data-level="9.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#documentation-1"><i class="fa fa-check"></i><b>9.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="9.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility-issues"><i class="fa fa-check"></i><b>9.1.3</b> Reproducibility Issues</a></li>
+<li class="chapter" data-level="9.1.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#workflow-manager"><i class="fa fa-check"></i><b>9.1.4</b> Workflow Manager</a>
+<ul>
+<li class="chapter" data-level="9.1.4.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#make"><i class="fa fa-check"></i><b>9.1.4.1</b> Make</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#r"><i class="fa fa-check"></i><b>9.2</b> R</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#analysis-workflow"><i class="fa fa-check"></i><b>9.2.1</b> Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="9.2.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#script-sections"><i class="fa fa-check"></i><b>9.2.1.1</b> Script Sections</a></li>
+<li class="chapter" data-level="9.2.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#load-functions"><i class="fa fa-check"></i><b>9.2.1.2</b> Loading Functions</a></li>
+<li class="chapter" data-level="9.2.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#loading-r-packages"><i class="fa fa-check"></i><b>9.2.1.3</b> Loading R-packages</a></li>
+<li class="chapter" data-level="9.2.1.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility"><i class="fa fa-check"></i><b>9.2.1.4</b> Reproducibility</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#workflow-manager-1"><i class="fa fa-check"></i><b>9.2.2</b> Workflow Manager</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets"><i class="fa fa-check"></i><b>9.3</b> Targets</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#project-structure-1"><i class="fa fa-check"></i><b>9.3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="9.3.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-script"><i class="fa fa-check"></i><b>9.3.1.1</b> The <code>_targets.R</code> Script</a></li>
+<li class="chapter" data-level="9.3.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#defining-targets"><i class="fa fa-check"></i><b>9.3.1.2</b> Defining Targets</a></li>
+<li class="chapter" data-level="9.3.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-store"><i class="fa fa-check"></i><b>9.3.1.3</b> The <code>_targets/</code> Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#the-targets-workflow"><i class="fa fa-check"></i><b>9.3.2</b> The <code>targets</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="9.3.2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#check-the-pipeline"><i class="fa fa-check"></i><b>9.3.2.1</b> Check the Pipeline</a></li>
+<li class="chapter" data-level="9.3.2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#run-the-pipeline"><i class="fa fa-check"></i><b>9.3.2.2</b> Run the Pipeline</a></li>
+<li class="chapter" data-level="9.3.2.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#make-changes"><i class="fa fa-check"></i><b>9.3.2.3</b> Make Changes</a></li>
+<li class="chapter" data-level="9.3.2.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#get-the-results"><i class="fa fa-check"></i><b>9.3.2.4</b> Get the Results</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#advanced-features-1"><i class="fa fa-check"></i><b>9.3.3</b> Advanced Features</a>
+<ul>
+<li class="chapter" data-level="9.3.3.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-proj"><i class="fa fa-check"></i><b>9.3.3.1</b> Project Structure</a></li>
+<li class="chapter" data-level="9.3.3.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-rmarkdown"><i class="fa fa-check"></i><b>9.3.3.2</b> <code>targets</code> and R Markdown</a></li>
+<li class="chapter" data-level="9.3.3.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility-1"><i class="fa fa-check"></i><b>9.3.3.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="9.3.3.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#branching"><i class="fa fa-check"></i><b>9.3.3.4</b> Branching</a></li>
+<li class="chapter" data-level="9.3.3.5" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#high-performance-computing"><i class="fa fa-check"></i><b>9.3.3.5</b> High-Performance Computing</a></li>
+<li class="chapter" data-level="9.3.3.6" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#load-all-targets"><i class="fa fa-check"></i><b>9.3.3.6</b> Load All Targets</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#literate-programming"><i class="fa fa-check"></i><b>10.1</b> Literate Programming</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#analysis-code-and-dynamic-documents"><i class="fa fa-check"></i><b>10.1.1</b> Analysis Code and Dynamic Documents</a></li>
+<li class="chapter" data-level="10.1.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#output-formats"><i class="fa fa-check"></i><b>10.1.2</b> Output Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.2</b> Quarto</a></li>
+<li class="chapter" data-level="10.3" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown-collaboration"><i class="fa fa-check"></i><b>10.3</b> <code>trackdown</code> Enhancing Collaboration</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.3.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.3.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.3.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#requirements"><i class="fa fa-check"></i><b>11.1.1</b> Requirements</a>
+<ul>
+<li class="chapter" data-level="11.1.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#system-prerequisites"><i class="fa fa-check"></i><b>11.1.1.1</b> System Prerequisites</a></li>
+<li class="chapter" data-level="11.1.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#software"><i class="fa fa-check"></i><b>11.1.1.2</b> Software</a></li>
+<li class="chapter" data-level="11.1.1.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#libraries"><i class="fa fa-check"></i><b>11.1.1.3</b> Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="11.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#installation"><i class="fa fa-check"></i><b>11.1.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-dependencies"><i class="fa fa-check"></i><b>11.2</b> R Dependencies</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-version"><i class="fa fa-check"></i><b>11.2.1</b> R version</a>
+<ul>
+<li class="chapter" data-level="11.2.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#multiple-r-versions"><i class="fa fa-check"></i><b>11.2.1.1</b> Multiple R versions</a></li>
+<li class="chapter" data-level="11.2.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#other-related-software"><i class="fa fa-check"></i><b>11.2.1.2</b> Other Related Software</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-packages-requirements"><i class="fa fa-check"></i><b>11.2.2</b> R packages</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renv-section"><i class="fa fa-check"></i><b>11.3</b> <code>renv</code> a Package to Rule Them All</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#introduction-to-renv"><i class="fa fa-check"></i><b>11.3.1</b> Introduction to <code>renv</code></a></li>
+<li class="chapter" data-level="11.3.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#the-renv-workflow"><i class="fa fa-check"></i><b>11.3.2</b> The <code>renv</code> workflow</a></li>
+<li class="chapter" data-level="11.3.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#advanced-features-2"><i class="fa fa-check"></i><b>11.3.3</b> Advanced Features</a>
+<ul>
+<li class="chapter" data-level="11.3.3.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#reproducibility-issues-1"><i class="fa fa-check"></i><b>11.3.3.1</b> Reproducibility Issues</a></li>
+<li class="chapter" data-level="11.3.3.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renv-files"><i class="fa fa-check"></i><b>11.3.3.2</b> <code>renv</code> Files</a></li>
+<li class="chapter" data-level="11.3.3.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#snapshot-types"><i class="fa fa-check"></i><b>11.3.3.3</b> Snapshot Types</a></li>
+<li class="chapter" data-level="11.3.3.4" data-path="requirements-chapter.html"><a href="requirements-chapter.html#detecting-packages"><i class="fa fa-check"></i><b>11.3.3.4</b> Detecting Packages</a></li>
+<li class="chapter" data-level="11.3.3.5" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renvignore-file"><i class="fa fa-check"></i><b>11.3.3.5</b> <code>.renvignore</code> File</a></li>
+<li class="chapter" data-level="11.3.3.6" data-path="requirements-chapter.html"><a href="requirements-chapter.html#restore-issue"><i class="fa fa-check"></i><b>11.3.3.6</b> Restore Issue</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="docker-chapter.html"><a href="docker-chapter.html"><i class="fa fa-check"></i><b>12</b> Docker</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="docker-chapter.html"><a href="docker-chapter.html#containers"><i class="fa fa-check"></i><b>12.1</b> Containers</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="docker-chapter.html"><a href="docker-chapter.html#containers-and-virtual-machines"><i class="fa fa-check"></i><b>12.1.1</b> Containers and Virtual Machines</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-get-started"><i class="fa fa-check"></i><b>12.2</b> Docker Getting Started</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-elements"><i class="fa fa-check"></i><b>12.2.1</b> Docker Elements</a></li>
+<li class="chapter" data-level="12.2.2" data-path="docker-chapter.html"><a href="docker-chapter.html#install-docker"><i class="fa fa-check"></i><b>12.2.2</b> Install Docker</a></li>
+<li class="chapter" data-level="12.2.3" data-path="docker-chapter.html"><a href="docker-chapter.html#dockerfile"><i class="fa fa-check"></i><b>12.2.3</b> <strong><code>Dockerfile</code></strong></a>
+<ul>
+<li class="chapter" data-level="12.2.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#layer-caching"><i class="fa fa-check"></i><b>12.2.3.1</b> Layer Caching</a></li>
+<li class="chapter" data-level="12.2.3.2" data-path="docker-chapter.html"><a href="docker-chapter.html#tag-version"><i class="fa fa-check"></i><b>12.2.3.2</b> Image Version Tag</a></li>
+<li class="chapter" data-level="12.2.3.3" data-path="docker-chapter.html"><a href="docker-chapter.html#files-permissions"><i class="fa fa-check"></i><b>12.2.3.3</b> Files Permissions</a></li>
+<li class="chapter" data-level="12.2.3.4" data-path="docker-chapter.html"><a href="docker-chapter.html#dockerignore"><i class="fa fa-check"></i><b>12.2.3.4</b> <code>.dockerignore</code> File</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2.4" data-path="docker-chapter.html"><a href="docker-chapter.html#build-an-image"><i class="fa fa-check"></i><b>12.2.4</b> Build an Image</a>
+<ul>
+<li class="chapter" data-level="12.2.4.1" data-path="docker-chapter.html"><a href="docker-chapter.html#list-and-remove-images"><i class="fa fa-check"></i><b>12.2.4.1</b> List and Remove Images</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2.5" data-path="docker-chapter.html"><a href="docker-chapter.html#run-an-image"><i class="fa fa-check"></i><b>12.2.5</b> Run an Image</a>
+<ul>
+<li class="chapter" data-level="12.2.5.1" data-path="docker-chapter.html"><a href="docker-chapter.html#stop-list-and-remove-containers"><i class="fa fa-check"></i><b>12.2.5.1</b> Stop List and Remove Containers</a></li>
+<li class="chapter" data-level="12.2.5.2" data-path="docker-chapter.html"><a href="docker-chapter.html#moving-files"><i class="fa fa-check"></i><b>12.2.5.2</b> Moving Files</a></li>
+<li class="chapter" data-level="12.2.5.3" data-path="docker-chapter.html"><a href="docker-chapter.html#running-commands"><i class="fa fa-check"></i><b>12.2.5.3</b> Running Commands</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-features"><i class="fa fa-check"></i><b>12.3</b> Other Features</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#data-storage"><i class="fa fa-check"></i><b>12.3.1</b> Data Storage</a>
+<ul>
+<li class="chapter" data-level="12.3.1.1" data-path="docker-chapter.html"><a href="docker-chapter.html#bind-mounts"><i class="fa fa-check"></i><b>12.3.1.1</b> Bind Mounts</a></li>
+<li class="chapter" data-level="12.3.1.2" data-path="docker-chapter.html"><a href="docker-chapter.html#volumes"><i class="fa fa-check"></i><b>12.3.1.2</b> Volumes</a></li>
+<li class="chapter" data-level="12.3.1.3" data-path="docker-chapter.html"><a href="docker-chapter.html#bind-mounts-vs-volumes"><i class="fa fa-check"></i><b>12.3.1.3</b> Bind Mounts VS Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3.2" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-compose"><i class="fa fa-check"></i><b>12.3.2</b> Docker Compose</a></li>
+<li class="chapter" data-level="12.3.3" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-hub"><i class="fa fa-check"></i><b>12.3.3</b> Docker Hub</a>
+<ul>
+<li class="chapter" data-level="12.3.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#sharing-images"><i class="fa fa-check"></i><b>12.3.3.1</b> Sharing Images</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3.4" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-gui"><i class="fa fa-check"></i><b>12.3.4</b> Docker GUI</a>
+<ul>
+<li class="chapter" data-level="12.3.4.1" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-desktop"><i class="fa fa-check"></i><b>12.3.4.1</b> Docker Desktop</a></li>
+<li class="chapter" data-level="12.3.4.2" data-path="docker-chapter.html"><a href="docker-chapter.html#visual-studio-code"><i class="fa fa-check"></i><b>12.3.4.2</b> Visual Studio Code</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="rocker-chapter.html"><a href="rocker-chapter.html"><i class="fa fa-check"></i><b>13</b> Rocker</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#rocker-getting-started"><i class="fa fa-check"></i><b>13.1</b> Rocker Getting Started</a></li>
+<li class="chapter" data-level="13.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#data-storage-rstudio"><i class="fa fa-check"></i><b>13.2</b> Data Storage</a></li>
+<li class="chapter" data-level="13.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#custom-dockerfile"><i class="fa fa-check"></i><b>13.3</b> Custom <code>Dockerfile</code></a></li>
+<li class="chapter" data-level="13.4" data-path="rocker-chapter.html"><a href="rocker-chapter.html#docker-workflow"><i class="fa fa-check"></i><b>13.4</b> Docker Workflow</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#after-the-development"><i class="fa fa-check"></i><b>13.4.1</b> After the Development</a>
+<ul>
+<li class="chapter" data-level="13.4.1.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#fix-r-version"><i class="fa fa-check"></i><b>13.4.1.1</b> Fix R-version</a></li>
+<li class="chapter" data-level="13.4.1.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#add-r-packages"><i class="fa fa-check"></i><b>13.4.1.2</b> Add R-packages</a></li>
+<li class="chapter" data-level="13.4.1.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#run-the-analysis-and-report"><i class="fa fa-check"></i><b>13.4.1.3</b> Run the Analysis and Report</a></li>
+<li class="chapter" data-level="13.4.1.4" data-path="rocker-chapter.html"><a href="rocker-chapter.html#considerations"><i class="fa fa-check"></i><b>13.4.1.4</b> Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#rocker-as-ide"><i class="fa fa-check"></i><b>13.4.2</b> Rocker as IDE</a>
+<ul>
+<li class="chapter" data-level="13.4.2.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#renv-cache"><i class="fa fa-check"></i><b>13.4.2.1</b> <code>renv</code> Cache</a></li>
+<li class="chapter" data-level="13.4.2.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#github-authentication"><i class="fa fa-check"></i><b>13.4.2.2</b> GitHub Authentication</a></li>
+<li class="chapter" data-level="13.4.2.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#considerations-1"><i class="fa fa-check"></i><b>13.4.2.3</b> Considerations</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Open Science Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="assets/images/banner.png">
+</div>
+<div id="github-chapter" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> GitHub<a href="github-chapter.html#github-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In Chapter <a href="git-chapter.html#git-chapter">7</a>, we introduced Git, a very powerful tool for tracking changes and managing the development of our project. To collaborate with other colleagues, however, we need to share a remote repository. We can not share a Git repository on common cloud storage services (e.g., Google Drive or DropBox) as they do not have Git running behind.</p>
+<p>To collaborate with other colleagues using remote repositories, we need dedicated hosting services such as GitHub, GitLab, or Bitbucket. These services are similar to each other and they provide almost the same set of tools. In this chapter, we focus on the use of GitHub.</p>
+<div id="using-github" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Using GitHub<a href="github-chapter.html#using-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="packages-logo-box", style="width: 250px;"><img src="images/github/GitHub-logo.png"></div>
+<p>GitHub (<a href="https://github.com/" class="uri">https://github.com/</a>) is the most popular service and it is commonly used to share open-source projects or as an online portfolio for developers. Using Github, we can share our projects allowing other users to easily navigate our code and documentation, report issues or contribute to the development by suggesting new features or other improvements.</p>
+<p>In this section, we provide a brief guide on how to work with Git in combination with GitHub. For more details and advanced features, see the official documentation at <a href="https://docs.github.com/" class="uri">https://docs.github.com/</a>.</p>
+<div class="design" title="OSF vs GitHub">
+<p>OSF and GitHub may seem very similar tools, as both services allow us to share files and keep track of the different file versions.</p>
+<p>However, the OSF and GitHub are designed for different purposes:</p>
+<ul>
+<li><strong>OSF</strong> aims to facilitate scientific research by allowing easy sharing of research materials.</li>
+<li><strong>GitHub</strong> is a Git repository-hosting service with a focus on software development.</li>
+</ul>
+<p>Therefore, there are some important differences. For example, considering file tracking, the OSF simply stores all previous versions of a file as new ones are uploaded. This is nothing like a true version control system like Git. Only Git allows to properly track changes and manage collaboration (branching and merging) during the development of a project. The OSF is not a Git repository-hosting service.</p>
+<p>However, although OSF lacks the power of Git, it serves a more general purpose allowing to share files of any type (e.g., PDFs and images), does not require specific technical competencies to be used, and provides specific features useful in scientific research (e.g., getting a DOI, anonymization for the review process, and preprints). On the contrary, Git (and therefore GitHub) is recommended only for plain-text files and requires specific technical competencies.</p>
+<p>To know more about the differences between OSF and GitHub, see <a href="https://ropensci.org/blog/2020/08/04/osf/" class="uri">https://ropensci.org/blog/2020/08/04/osf/</a> or <em>“Sharing code”</em> by <span class="citation">Kubilius (<a href="#ref-kubiliusSharingCode2014" role="doc-biblioref">2014</a>)</span> available at <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4130510/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4130510/</a>.</p>
+<p>Fortunately, we do not need to decide between the two, but we can connect our GitHub repository to an OSF project. To do that, follow the instructions at <a href="https://help.osf.io/article/211-connect-github-to-a-project" class="uri">https://help.osf.io/article/211-connect-github-to-a-project</a>.</p>
+</div>
+<div id="initial-set-up" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Initial Set Up<a href="github-chapter.html#initial-set-up" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As a first step, we need to register on GitHub:</p>
+<ul>
+<li><p><strong>Create a GitHub Account.</strong> Go to <a href="https://github.com" class="uri">https://github.com</a> and follow all the <em>“Sign up”</em> steps.</p>
+<p><img src="images/github/github-sign-in.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Edit your Profile.</strong> GitHub is often used also as an online portfolio. Therefore, it is a good idea to fill our profile with useful information. To do that, click the <em>“Edit profile”</em> button on the profile page or go to <em>“Settings”</em>.</p>
+<p><img src="images/github/github-profile-settings-2.png" width="80%" style="display: block; margin: auto;" /></p></li>
+</ul>
+</div>
+<div id="authentication" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Authentication<a href="github-chapter.html#authentication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When working on a remote repository, we need to authenticate using our password each time we pull from or push to the remote repository. This is extremely annoying. To authenticate without a password we need to use the <strong>SSH protocol</strong>.</p>
+<p>The SSH protocol is based on two keys:</p>
+<ul>
+<li>A <em>private key</em> (<code>id_rsa</code>) that is saved on our local machine and should never be shared with others. We need to manage it with care.</li>
+<li>A <em>public key</em> (<code>id_rsa.pub</code>) that we share with online services to allow authentication.</li>
+</ul>
+<p>SSH protocol allows our machine to communicate with online services without a password only if there is a matching pair of keys.</p>
+<p>To enable SSH protocol:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Generate SSH keys.</strong> First we need to check if we already have an SSH key-pair available. These are usually saved in the <code>"~/.ssh/"</code> directory.</p>
+<p>If no SSH key is available, we can generate a new pair following the instructions at <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" class="uri">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a>. Note that we need to choose instructions according to our operating system. Moreover, if using WLS on Windows, check the dedicated section at <a href="https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/" class="uri">https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/</a>.</p>
+<p>Alternatively, we can generate an SSH key-pair directly from RStudio (see Box below).</p></li>
+<li><p><strong>Copy the Public Key.</strong> Next, we need to share our public key with GitHub. By default, our public key is saved at <code>"~/.ssh/id_rsa.pub"</code>. Open the file and copy the public key. We can do that directly from the command line by running,</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb159-1"><a href="github-chapter.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
+<span id="cb159-2"><a href="github-chapter.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="ex">clip</span> <span class="op">&lt;</span> ~/.ssh/id_rsa.pub </span>
+<span id="cb159-3"><a href="github-chapter.html#cb159-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux or macOS</span></span>
+<span id="cb159-4"><a href="github-chapter.html#cb159-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/id_rsa.pub </span></code></pre></div>
+<p>Our public key is automatically copied into our clipboard and we can now paste it with <code>Ctrl + V</code> (<code>command + V</code> in macOS).</p></li>
+<li><p><strong>Share the Public Key.</strong> Now we need to add our public key to our profile on GitHub. To do that, we open our profile settings,</p>
+<p><img src="images/github/github-profile-settings.png" width="80%" style="display: block; margin: auto;" />
+select the <em>“SSH and GPG keys”</em> panel and click on the <em>“New SSH key”</em> button.</p>
+<p><img src="images/github/github-ssh-keys.png" width="80%" style="display: block; margin: auto;" />
+Next, we paste our public key and assign a name. Finally, we press <em>“Add SSH key”</em>.</p>
+<p><img src="images/github/github-ssh-new.png" width="80%" style="display: block; margin: auto;" /></p></li>
+</ol>
+<p>If we work using different machines (e.g., home and office), the best approach is to create a new pair of SSH keys for each machine and add them to our profile using descriptive names.</p>
+<div class="warning" title="Never Share the Private Key!">
+<p>The <em>private key</em> (<code>id_rsa</code>) is extremely important, as it is used to identify our machine. Therefore we should keep it in a safe place and never share it with others.</p>
+<p>In particular, we should pay attention to not sharing our private keys unintentionally by saving them inside directories shared with others or synchronized with cloud services.</p>
+<p>If someone manages to copy our private key, it will be able to access all services on which we registered the SSH key pairs.</p>
+</div>
+<div class="deffun" title="SSH Keys in RStudio">
+<p>In RStudio, we can easily view and copy our public SSH key. From <em>Tools &gt; Global Options &gt; Git/SVN</em>, we can view and copy our public SSH key by clicking <em>“View public key”</em>. If SSH keys are not available, we can create a new pair of keys by clicking the <em>“Create RSA Key…”</em> button.</p>
+<p><img src="images/github/git-settings-2.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>A new pop-up window will appear, and we click <em>“Create”</em>.</p>
+<p><img src="images/github/rstudio-ssh.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="create-a-repository" class="section level3 hasAnchor" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Create a Repository<a href="github-chapter.html#create-a-repository" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ready to create our first remote repository? Here is how to do it:</p>
+<ol style="list-style-type: decimal">
+<li><p>First, from our profile page we select the <em>“Repositories”</em> tab and then we click the <em>“New”</em> green button.</p>
+<p><img src="images/github/github-new-repo.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p>Next we complete a form with all the information about our repository. We need to specify a name for the repository (this has to be unique) and provide a description (optional but recommended if you want to help other users). Importantly, we have to choose the repository visibility:</p>
+<ul>
+<li><strong>Public.</strong> Anyone can see (and clone) the repository but only added collaborators can contribute (see Section <a href="github-chapter.html#add-collaborators">8.1.4</a>).</li>
+<li><strong>Private.</strong> Only we and added collaborators can see and contribute to the repository.</li>
+</ul>
+<p>Moreover, if we are creating a repository from scratch, we can initialize it with some important files (e.g., <code>README</code>, <code>.gitignore</code>, <code>LICENSE</code>). We should not add any file if we intend to upload an already existing local repository.</p>
+<p>Once ready, we press the <em>“Create repository”</em> green button at the bottom. Note that we can also modify repository visibility or any other setting (e.g., name, owner, description, etc.) later from the repository settings.</p>
+<p><img src="images/github/github-create-new-repo.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p>If we create an empty repository, it will display only some useful instructions. In particular, we obtain the remote repository URL that we can now add to our local repository and push all commits using the command,</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb160-1"><a href="github-chapter.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin <span class="op">&lt;</span>URL-repository<span class="op">&gt;</span></span>
+<span id="cb160-2"><a href="github-chapter.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin master</span></code></pre></div>
+<p>Note that two options are available: <code>HTTPS</code> and <code>SSH</code>. We should always select the <code>SSH</code> specific URL to allow authentication using the SSH protocol and without the password.</p>
+<p><img src="images/github/github-empty-repo.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Once we added the remote URL and pushed all commits, all our files will be available online and we can now explore our project directly from GitHub. We can add further details about our repository (e.g., description, website link, or keywords) by clicking the gear icon on the top-right corner.</p>
+<p><img src="images/github/github-repo-readme.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p>In the case we need the remote URL of any repository available on GitHub, we can obtain it by clicking the <em>“Code”</em> green button. Remember, we should always use the SSH one to allow automatic authentication.</p>
+<p><img src="images/github/github-clone.png" width="80%" style="display: block; margin: auto;" /></p></li>
+</ol>
+</div>
+<div id="add-collaborators" class="section level3 hasAnchor" number="8.1.4">
+<h3><span class="header-section-number">8.1.4</span> Add Collaborators<a href="github-chapter.html#add-collaborators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Independently of the repository visibility status (private or remote), only the owner and collaborators can contribute directly to a remote repository. Therefore, we need to add our collaborators to allow them to push their commits. To do that:</p>
+<ol style="list-style-type: decimal">
+<li><p>Open the repository settings and select the <em>“Collaborators and teams”</em> tab. Next, click the <em>“Add people”</em> green button.</p>
+<p><img src="images/github/github-add-collaborators.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p>A pop-up window will open allowing us to search and add our collaborators.</p>
+<p><img src="images/github/github-add-collaborators-2.png" width="80%" style="display: block; margin: auto;" /></p></li>
+</ol>
+<p>Even if a repository is public, only collaborators can contribute by pushing their commits directly to the repository. Other users from the GitHub community are not allowed to push commits directly to the repository. However, they can still contribute to any public repository using <em>Pull-Requests</em> as described in Section <a href="github-chapter.html#pull-request">8.3.2</a>.</p>
+<p>Finally, note that, even if we do not have any collaborator on a project, we can still use a remote repository on GitHub as a personal backup or to share the project results with the whole community.</p>
+</div>
+</div>
+<div id="main-features" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Main Features<a href="github-chapter.html#main-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s look at some of the main features of GitHub. Again, there are many things we can do with GitHub. It is worth spending some time reading the official documentation at <a href="https://docs.github.com/" class="uri">https://docs.github.com/</a>.</p>
+<div id="github-add-license" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Adding License<a href="github-chapter.html#github-add-license" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>GitHub provides many License templates we can use for our repository. To add a license to our repository using a template:</p>
+<ol style="list-style-type: decimal">
+<li><p>Click the <em>“Add file”</em> button and select <em>“Create new file”</em></p>
+<p><img src="images/github/github-new-file.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p>Type <code>"LICENSE"</code> in the file name field. The button <em>“Choose a license template”</em> will appear. Click it.</p>
+<p><img src="images/github/github-license-create.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p>Now we can choose the preferred license and click the <em>“Review and submit”</em> button.</p>
+<p><img src="images/github/github-license-template.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p>To add the license, we need to create a new commit. We write the commit message and click the <em>“Commit new file”</em> green button. Note that changes will be committed in the remote repository, thus, we need to pull the new commit from the local repository. Moreover, depending on the branch we used, we could be required to merge changes in the principal branch.</p>
+<p><img src="images/github/github-license-commit.png" width="80%" style="display: block; margin: auto;" /></p></li>
+</ol>
+</div>
+<div id="documentation-github" class="section level3 hasAnchor" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Documentation<a href="github-chapter.html#documentation-github" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>GitHub automatically renders any <code>.md</code> file as an HTML allowing us to create nice-looking documentation for our project. In particular, if we include a <code>README.md</code> file in the root directory of our project, this will be displayed on the project homepage.</p>
+<p>It is important to always create a <code>README.md</code> file providing an appropriate description of our project and all relevant information. Remember this is the first thing users will see when opening our project. We should use it to grab their attention and make them interested in learning more.</p>
+<p><img src="images/github/github-readme-2.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Note that, when navigating between the project directories, GitHub will automatically display any <code>README.md</code> file available in the current directory. We can take advantage of this by adding a <code>README.md</code> file within each directory providing specific information useful to guide other users.</p>
+</div>
+<div id="commit-history-and-diff" class="section level3 hasAnchor" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Commit History and Diff<a href="github-chapter.html#commit-history-and-diff" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>From the repository home page, we can select the specific Git branch from the left drop-down menu and navigate between all our project files. Moreover, we can check the commit history by clicking the clock icon on the right with the number of commits.</p>
+<p><img src="images/github/github-repo-menu.png" width="80%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><p><strong>Commit History.</strong> We can visualize the commit history of the whole project by selecting a specific branch. Alternatively, if we open the commit history from a single file, we get only the commits relative to that file.</p>
+<p><img src="images/github/github-history.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Commit Diff.</strong> By clicking a single commit, we get more details together with the specific commit changes for each file.</p>
+<p><img src="images/github/github-diff.png" width="80%" style="display: block; margin: auto;" /></p></li>
+</ul>
+</div>
+<div id="get-doi" class="section level3 hasAnchor" number="8.2.4">
+<h3><span class="header-section-number">8.2.4</span> Get DOI<a href="github-chapter.html#get-doi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="packages-logo-box", style="width: 250px;"><img src="images/github/zenodo-logo.png"></div>
+<p>To obtain a DOI for our repository, we need to use Zenodo. Zenodo is a general-purpose open repository developed under the European OpenAIRE program and operated by CERN that allows us to store research materials and creates a DOI for citing the content (from Wikipedia <a href="https://en.wikipedia.org/wiki/Zenodo" class="uri">https://en.wikipedia.org/wiki/Zenodo</a>).</p>
+<p>To obtain a DOI for our GitHub repository, follow the instructions available at <a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content" class="uri">https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content</a>.</p>
+</div>
+</div>
+<div id="contributing" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Contributing<a href="github-chapter.html#contributing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One of the greatest things about Open Source is its community. Anyone can contribute to the improvement of Open Source projects and it is a very rewarding feeling. There are two main ways to contribute to someone else repository:</p>
+<ul>
+<li><strong>Issues.</strong> Open an issue to report any bug, suggest possible improvements, or propose new features.</li>
+<li><strong>Pull Requests.</strong> Contribute directly to project development by sending your code.</li>
+</ul>
+<p>Let’s describe these processes in more detail.</p>
+<div id="issues" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Issues<a href="github-chapter.html#issues" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The first way to contribute to a project is to report any bug, suggest possible improvements, or propose new features. On GitHub, we can create an issue describing the bugs or new ideas. To open an issue:</p>
+<ol style="list-style-type: decimal">
+<li><p>Open the <em>“Issues”</em> tab from the repository homepage.</p>
+<p><img src="images/github/github-repo-menu-issues.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p>Click the <em>“New issue”</em> green button on the right.</p>
+<p><img src="images/github/github-issues.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p>We can now provide all the details about the bugs or the new ideas. If we are reporting some bugs or errors, it is extremely important to provide a minimal working example that allows reproducing the problems. By doing this, we help developers find a solution.</p></li>
+<li><p>Once an issue is opened, we can write new comments to further discuss the issue with the project maintainers or other issues.</p></li>
+</ol>
+<p>Note that by opening an issue, we do not need to work on the project code ourselves. By opening an issue, we contribute indirectly to the project development simply by reporting bugs or suggesting some improvements. Project maintainers would take care of solving the problems of implementing the new features (if considered appropriate).</p>
+<p>Maintainers are usually very friendly and willing to help (they love to know that other people are using their products). However, we should be aware the majority of developers working on open source projects do not get paid for them. Therefore, we must always be nice and patient if we do not get an answer immediately.</p>
+<p>Moreover, we should avoid creating duplicate issues. Therefore, before opening a new issue, check if there are similar issues already opened or that have been already answered (remember to check the closed issues as well).</p>
+<p>Finally, note that issues are used to report bugs and problems that require modifications of the project code itself. Anything related to the misuse or misunderstanding of the code is better addressed on other websites such as Stack Overflow.</p>
+</div>
+<div id="pull-request" class="section level3 hasAnchor" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> Pull Request<a href="github-chapter.html#pull-request" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Besides issues, we can also contribute directly to project development by sending our code. However, as discussed in Section <a href="github-chapter.html#add-collaborators">8.1.4</a>, only users added to the repository as collaborators can push their commits directly to the remote repository. So, how can other users contribute to project development? The solution is to fork the repository, make the changes, and create a pull request.</p>
+<div id="fork-and-fetch" class="section level4 hasAnchor" number="8.3.2.1">
+<h4><span class="header-section-number">8.3.2.1</span> Fork and Fetch<a href="github-chapter.html#fork-and-fetch" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p><strong>Fork.</strong> Forking allows us to create a personal copy of any public repository. In this way, we can make the desired changes to our personal copy without affecting the original repository. To create a fork, click the <em>“Fork”</em> button on the top-right corner of the repository homepage. The forked repository is automatically added to our GitHub profile.</p>
+<p><img src="images/github/github-fork.png" width="80%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Fetch.</strong> Creating a fork is more than a simple copy of a repository. A forked repository always maintains a link to the original repository. This allows us to keep our forked copy up-to-date with the original repository.</p>
+<p>If new changes are available in the original repository, we can make them available in our fork by clicking <em>“Fetch upstream”</em> on our forked repository homepage and selecting <em>“Fetch and Merge”</em>.</p>
+<p><img src="images/github/github-fork-fetch.png" width="80%" style="display: block; margin: auto;" /></p></li>
+</ul>
+</div>
+<div id="create-a-pull-request" class="section level4 hasAnchor" number="8.3.2.2">
+<h4><span class="header-section-number">8.3.2.2</span> Create a Pull Request<a href="github-chapter.html#create-a-pull-request" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Once we made the desired changes and pushed the new commits, these will be available only in our forked repository but not in the original repository. If we want to share our changes with the original repository as well, we can create a <em>“pull request”</em>.</p>
+<p>Creating a pull request, we inform the maintainers of the original repository about our changes. Once a pull request is opened, maintainers will evaluate and review our changes and we can discuss them. Maintainers could ask us for further improvements or other modifications and, when everything is ready and stable, they will merge our commits in the original repository.</p>
+<p>To create a pull request, open the <em>“Pull request”</em> tab in our forked repository homepage and click the <em>“New pull request”</em> green button.</p>
+<p><img src="images/github/github-pr-open-2.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Alternatively, if we just pushed the commits to our remote repository, we can visit the original repository homepage. A message is displayed about our recent push and we can click the <em>“Compare &amp; pull request”</em> green button.</p>
+<p><img src="images/github/github-pr-available.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Next, we need to choose the branch in our fork repository from which to pull and the destination branch in the original repository. Finally, we fill the form with all the details about our changes and we click the <em>“Create pull request”</em> green button.</p>
+<p><img src="images/github/github-pr-create.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="tip" title="Pulling or Pushing?">
+<p>Note that it is called pull request and not push request as we are not pushing to the original repository but the original repository is pulling the commits from our fork.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="github-adv-features" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Advanced Features<a href="github-chapter.html#github-adv-features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Finally, we briefly present some other very useful but more advanced GitHub features. As always we recommend considering the official documentation at <a href="https://docs.github.com/" class="uri">https://docs.github.com/</a> for all the options and features.</p>
+<ul>
+<li><p><strong>Github Pages.</strong> We can create a website directly from our GitHub repository. This is an extremely useful feature for documenting our repository or sharing our results. For example, consider this R package documentation <a href="https://claudiozandonella.github.io/trackdown/" class="uri">https://claudiozandonella.github.io/trackdown/</a>. Even the online version of this book is hosted by GitHub Pages!</p>
+<p>In particular, we can collect all the files used to create the website in a specific project folder or a specific project branch. Github Pages will build the website using a static site generator. By default, GitHub uses Jekyll but we can also use other static site generators.</p>
+<p>For more details about GitHub Pages, see the official documentation at <a href="https://docs.github.com/en/pages" class="uri">https://docs.github.com/en/pages</a>.</p></li>
+<li><p><strong>Github Actions.</strong> We can define a specific set of actions that are automatically executed each time we push new commits to the remote repository (or a specific branch). For example, we could ask Github to run unit tests, compile the documentation, or run the analysis each time we push new commits. These tools are commonly used in the continuous integration and continuous delivery (CI/CD) workflow to automate the process.</p>
+<p>For more details about GitHub Actions, see the official documentation at <a href="https://docs.github.com/en/actions" class="uri">https://docs.github.com/en/actions</a>.</p></li>
+<li><p><strong>GitHub Gists.</strong> If we have some useful snippets of code, we can share them using GitHub Gists. A gist is like a minimal repository for easily sharing code. However, Gists are still Git repositories. Therefore, we can fork or clone any gist and view the commit history.</p>
+<p>For more details about GitHub Gists, see the official documentation at <a href="https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists" class="uri">https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists</a>.</p></li>
+<li><p><strong>GitHub Desktop.</strong> GitHub provides a Desktop application to manage the Git and GitHub workflow. For more details about GitHub Desktop, see <a href="https://docs.github.com/en/desktop" class="uri">https://docs.github.com/en/desktop</a>.</p></li>
+</ul>
+<div style="page-break-after: always;"></div>
+<div class="doclinks">
+<div id="github" class="section level4 unnumbered hasAnchor">
+<h4>GitHub<a href="github-chapter.html#github" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>GitHub link<br>
+<a href="https://github.com/" class="uri">https://github.com/</a></li>
+</ul>
+</div>
+<div id="github-extra" class="section level4 unnumbered hasAnchor">
+<h4>GitHub Extra<a href="github-chapter.html#github-extra" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Generate SSH Keys<br>
+<a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" class="uri">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a></li>
+<li>Add DOI<br>
+<a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content" class="uri">https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content</a></li>
+<li>GitHub Pages<br>
+<a href="https://docs.github.com/en/pages" class="uri">https://docs.github.com/en/pages</a></li>
+<li>GitHub Actions<br>
+<a href="https://docs.github.com/en/actions" class="uri">https://docs.github.com/en/actions</a></li>
+<li>GitHub Gists<br>
+<a href="https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists" class="uri">https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists</a></li>
+<li>GitHub Desktop<br>
+<a href="https://docs.github.com/en/desktop" class="uri">https://docs.github.com/en/desktop</a></li>
+</ul>
+</div>
+<div id="osf-and-github" class="section level4 unnumbered hasAnchor">
+<h4>OSF and GitHub<a href="github-chapter.html#osf-and-github" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>OSF vs GitHub<br>
+<a href="https://ropensci.org/blog/2020/08/04/osf/" class="uri">https://ropensci.org/blog/2020/08/04/osf/</a></li>
+<li>“Sharing code” by <span class="citation">Kubilius (<a href="#ref-kubiliusSharingCode2014" role="doc-biblioref">2014</a>)</span> <br>
+<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4130510/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4130510/</a></li>
+<li>Connect GitHub and OSF<br>
+<a href="https://help.osf.io/article/211-connect-github-to-a-project" class="uri">https://help.osf.io/article/211-connect-github-to-a-project</a>.</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-kubiliusSharingCode2014" class="csl-entry">
+Kubilius, J. (2014). Sharing <span>Code</span>. <em>Iperception</em>, <em>5</em>(1), 75–78. <a href="https://doi.org/10.1068/i004ir">https://doi.org/10.1068/i004ir</a>
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
+    <br>
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
+    <br>
+    To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="git-chapter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="workflow-analysis-chapter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/arca-dpss/manual-open-science/edit/master/chapters/08-github.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["manual-open-science.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

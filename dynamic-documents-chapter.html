@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Dynamic Documents | The Open Science Manual</title>
+  <meta name="description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Dynamic Documents | The Open Science Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+  <meta property="og:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="github-repo" content="arca-dpss/manual-open-science" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Dynamic Documents | The Open Science Manual" />
+  
+  <meta name="twitter:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="twitter:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="workflow-analysis-chapter.html"/>
+<link rel="next" href="requirements-chapter.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="assets/images/arca-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#book-structure"><i class="fa fa-check"></i><b>1.1</b> Book Structure</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#instructions"><i class="fa fa-check"></i><b>1.2</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="osf-chapter.html"><a href="osf-chapter.html"><i class="fa fa-check"></i><b>2</b> The Open Science Framework</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-introduction"><i class="fa fa-check"></i><b>2.1</b> OSF Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-getting-started"><i class="fa fa-check"></i><b>2.2</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="osf-chapter.html"><a href="osf-chapter.html#subscribe"><i class="fa fa-check"></i><b>2.2.1</b> Subscribe</a></li>
+<li class="chapter" data-level="2.2.2" data-path="osf-chapter.html"><a href="osf-chapter.html#create-a-project"><i class="fa fa-check"></i><b>2.2.2</b> Create a Project</a></li>
+<li class="chapter" data-level="2.2.3" data-path="osf-chapter.html"><a href="osf-chapter.html#project-homepage"><i class="fa fa-check"></i><b>2.2.3</b> Project Homepage</a></li>
+<li class="chapter" data-level="2.2.4" data-path="osf-chapter.html"><a href="osf-chapter.html#adding-files"><i class="fa fa-check"></i><b>2.2.4</b> Adding Files</a></li>
+<li class="chapter" data-level="2.2.5" data-path="osf-chapter.html"><a href="osf-chapter.html#documentation"><i class="fa fa-check"></i><b>2.2.5</b> Documentation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-features"><i class="fa fa-check"></i><b>2.3</b> Research Features</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="osf-chapter.html"><a href="osf-chapter.html#doi"><i class="fa fa-check"></i><b>2.3.1</b> DOI</a></li>
+<li class="chapter" data-level="2.3.2" data-path="osf-chapter.html"><a href="osf-chapter.html#osf-contributors"><i class="fa fa-check"></i><b>2.3.2</b> Contributors</a></li>
+<li class="chapter" data-level="2.3.3" data-path="osf-chapter.html"><a href="osf-chapter.html#sharable-anonymized-links"><i class="fa fa-check"></i><b>2.3.3</b> Sharable Anonymized Links</a></li>
+<li class="chapter" data-level="2.3.4" data-path="osf-chapter.html"><a href="osf-chapter.html#preprints"><i class="fa fa-check"></i><b>2.3.4</b> Preprints</a></li>
+<li class="chapter" data-level="2.3.5" data-path="osf-chapter.html"><a href="osf-chapter.html#add-ons-and-api"><i class="fa fa-check"></i><b>2.3.5</b> Add-ons and API</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="project-chapter.html"><a href="project-chapter.html"><i class="fa fa-check"></i><b>3</b> Projects</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project-chapter.html"><a href="project-chapter.html#project-structure"><i class="fa fa-check"></i><b>3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="project-chapter.html"><a href="project-chapter.html#project-elements"><i class="fa fa-check"></i><b>3.1.1</b> Project Elements</a>
+<ul>
+<li class="chapter" data-level="3.1.1.1" data-path="project-chapter.html"><a href="project-chapter.html#data"><i class="fa fa-check"></i><b>3.1.1.1</b> <code>data/</code></a></li>
+<li class="chapter" data-level="3.1.1.2" data-path="project-chapter.html"><a href="project-chapter.html#analysis-code"><i class="fa fa-check"></i><b>3.1.1.2</b> <code>analysis/</code> and <code>code/</code></a></li>
+<li class="chapter" data-level="3.1.1.3" data-path="project-chapter.html"><a href="project-chapter.html#outputs"><i class="fa fa-check"></i><b>3.1.1.3</b> <code>outputs/</code></a></li>
+<li class="chapter" data-level="3.1.1.4" data-path="project-chapter.html"><a href="project-chapter.html#documents"><i class="fa fa-check"></i><b>3.1.1.4</b> <code>documents/</code></a></li>
+<li class="chapter" data-level="3.1.1.5" data-path="project-chapter.html"><a href="project-chapter.html#readme-section"><i class="fa fa-check"></i><b>3.1.1.5</b> <code>README</code></a></li>
+<li class="chapter" data-level="3.1.1.6" data-path="project-chapter.html"><a href="project-chapter.html#license-section"><i class="fa fa-check"></i><b>3.1.1.6</b> <code>LICENSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.1.2" data-path="project-chapter.html"><a href="project-chapter.html#naming-files-dir"><i class="fa fa-check"></i><b>3.1.2</b> Naming Files and Directories</a></li>
+<li class="chapter" data-level="3.1.3" data-path="project-chapter.html"><a href="project-chapter.html#project-advantages"><i class="fa fa-check"></i><b>3.1.3</b> Project Advantages</a>
+<ul>
+<li class="chapter" data-level="3.1.3.1" data-path="project-chapter.html"><a href="project-chapter.html#wd-file-path"><i class="fa fa-check"></i><b>3.1.3.1</b> Working Directory and File Paths</a></li>
+<li class="chapter" data-level="3.1.3.2" data-path="project-chapter.html"><a href="project-chapter.html#centralize-analysis"><i class="fa fa-check"></i><b>3.1.3.2</b> Centralize the Analysis</a></li>
+<li class="chapter" data-level="3.1.3.3" data-path="project-chapter.html"><a href="project-chapter.html#ready-to-share-and-collaborate"><i class="fa fa-check"></i><b>3.1.3.3</b> Ready to Share and Collaborate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="project-chapter.html"><a href="project-chapter.html#rstudio-projects"><i class="fa fa-check"></i><b>3.2</b> RStudio Projects</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="project-chapter.html"><a href="project-chapter.html#create-proj"><i class="fa fa-check"></i><b>3.2.1</b> Creating a New Project</a></li>
+<li class="chapter" data-level="3.2.2" data-path="project-chapter.html"><a href="project-chapter.html#project-features-r"><i class="fa fa-check"></i><b>3.2.2</b> Project Features</a></li>
+<li class="chapter" data-level="3.2.3" data-path="project-chapter.html"><a href="project-chapter.html#advanced-features"><i class="fa fa-check"></i><b>3.2.3</b> Advanced features</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-chapter.html"><a href="data-chapter.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-chapter.html"><a href="data-chapter.html#organizing"><i class="fa fa-check"></i><b>4.1</b> Organizing Data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-chapter.html"><a href="data-chapter.html#data-structure"><i class="fa fa-check"></i><b>4.1.1</b> Data Structure</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-chapter.html"><a href="data-chapter.html#data-docs"><i class="fa fa-check"></i><b>4.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-chapter.html"><a href="data-chapter.html#data-good-practices"><i class="fa fa-check"></i><b>4.1.3</b> Data Good Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-chapter.html"><a href="data-chapter.html#sharing"><i class="fa fa-check"></i><b>4.2</b> Sharing Data</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-chapter.html"><a href="data-chapter.html#when-where-who"><i class="fa fa-check"></i><b>4.2.1</b> When, Where, Who?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-chapter.html"><a href="data-chapter.html#legal-aspects"><i class="fa fa-check"></i><b>4.2.2</b> Legal Aspects</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-chapter.html"><a href="data-chapter.html#license-data"><i class="fa fa-check"></i><b>4.2.3</b> License</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-chapter.html"><a href="data-chapter.html#metadata"><i class="fa fa-check"></i><b>4.2.4</b> Metadata</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="coding-chapter.html"><a href="coding-chapter.html"><i class="fa fa-check"></i><b>5</b> Coding</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="coding-chapter.html"><a href="coding-chapter.html#coding-style"><i class="fa fa-check"></i><b>5.1</b> Coding Style</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="coding-chapter.html"><a href="coding-chapter.html#good-practices"><i class="fa fa-check"></i><b>5.1.1</b> General Good Practices</a>
+<ul>
+<li class="chapter" data-level="5.1.1.1" data-path="coding-chapter.html"><a href="coding-chapter.html#variable-names"><i class="fa fa-check"></i><b>5.1.1.1</b> Variable Names</a></li>
+<li class="chapter" data-level="5.1.1.2" data-path="coding-chapter.html"><a href="coding-chapter.html#spacing-and-indentation"><i class="fa fa-check"></i><b>5.1.1.2</b> Spacing and Indentation</a></li>
+<li class="chapter" data-level="5.1.1.3" data-path="coding-chapter.html"><a href="coding-chapter.html#comments"><i class="fa fa-check"></i><b>5.1.1.3</b> Comments</a></li>
+<li class="chapter" data-level="5.1.1.4" data-path="coding-chapter.html"><a href="coding-chapter.html#other-tips"><i class="fa fa-check"></i><b>5.1.1.4</b> Other Tips</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.2" data-path="coding-chapter.html"><a href="coding-chapter.html#functional-style"><i class="fa fa-check"></i><b>5.1.2</b> Functional Style</a>
+<ul>
+<li class="chapter" data-level="5.1.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#functions-good-practices"><i class="fa fa-check"></i><b>5.1.2.1</b> Functions Good Practices</a></li>
+<li class="chapter" data-level="5.1.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#documentation-coding"><i class="fa fa-check"></i><b>5.1.2.2</b> Documentation</a></li>
+<li class="chapter" data-level="5.1.2.3" data-path="coding-chapter.html"><a href="coding-chapter.html#unit-tests"><i class="fa fa-check"></i><b>5.1.2.3</b> Unit Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.1.3" data-path="coding-chapter.html"><a href="coding-chapter.html#advanced"><i class="fa fa-check"></i><b>5.1.3</b> Advanced</a>
+<ul>
+<li class="chapter" data-level="5.1.3.1" data-path="coding-chapter.html"><a href="coding-chapter.html#performance"><i class="fa fa-check"></i><b>5.1.3.1</b> Performance</a></li>
+<li class="chapter" data-level="5.1.3.2" data-path="coding-chapter.html"><a href="coding-chapter.html#environments"><i class="fa fa-check"></i><b>5.1.3.2</b> Environments</a></li>
+<li class="chapter" data-level="5.1.3.3" data-path="coding-chapter.html"><a href="coding-chapter.html#classes-methods"><i class="fa fa-check"></i><b>5.1.3.3</b> Classes and Methods</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="coding-chapter.html"><a href="coding-chapter.html#R-coding"><i class="fa fa-check"></i><b>5.2</b> R Coding</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#coding-style-1"><i class="fa fa-check"></i><b>5.2.1</b> Coding Style</a></li>
+<li class="chapter" data-level="5.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#r-package-proj"><i class="fa fa-check"></i><b>5.2.2</b> R Package Project</a>
+<ul>
+<li class="chapter" data-level="5.2.2.1" data-path="coding-chapter.html"><a href="coding-chapter.html#r-package-structure"><i class="fa fa-check"></i><b>5.2.2.1</b> R Package Structure</a></li>
+<li class="chapter" data-level="5.2.2.2" data-path="coding-chapter.html"><a href="coding-chapter.html#devtools-workflow"><i class="fa fa-check"></i><b>5.2.2.2</b> The <code>devtools</code> Workflow</a></li>
+<li class="chapter" data-level="5.2.2.3" data-path="coding-chapter.html"><a href="coding-chapter.html#description"><i class="fa fa-check"></i><b>5.2.2.3</b> DESCRIPTION</a></li>
+<li class="chapter" data-level="5.2.2.4" data-path="coding-chapter.html"><a href="coding-chapter.html#documentation-roxygen"><i class="fa fa-check"></i><b>5.2.2.4</b> Documentation with <code>roxygen2</code></a></li>
+<li class="chapter" data-level="5.2.2.5" data-path="coding-chapter.html"><a href="coding-chapter.html#testthat"><i class="fa fa-check"></i><b>5.2.2.5</b> Unit Tests with <code>testthat</code></a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="terminal-chapter.html"><a href="terminal-chapter.html"><i class="fa fa-check"></i><b>6</b> Terminal</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#what-is-a-terminal"><i class="fa fa-check"></i><b>6.1</b> What is a Terminal?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#different-shells"><i class="fa fa-check"></i><b>6.1.1</b> Different Shells</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#install-bash"><i class="fa fa-check"></i><b>6.2</b> Install Bash</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#install-windows-terminal"><i class="fa fa-check"></i><b>6.2.1</b> On Windows</a></li>
+<li class="chapter" data-level="6.2.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#on-macos"><i class="fa fa-check"></i><b>6.2.2</b> On macOS</a></li>
+<li class="chapter" data-level="6.2.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#on-linux"><i class="fa fa-check"></i><b>6.2.3</b> On Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#get-started-terminal"><i class="fa fa-check"></i><b>6.3</b> Get Started</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="terminal-chapter.html"><a href="terminal-chapter.html#prompt-and-commands"><i class="fa fa-check"></i><b>6.3.1</b> Prompt and Commands</a></li>
+<li class="chapter" data-level="6.3.2" data-path="terminal-chapter.html"><a href="terminal-chapter.html#navigating-directories"><i class="fa fa-check"></i><b>6.3.2</b> Navigating Directories</a></li>
+<li class="chapter" data-level="6.3.3" data-path="terminal-chapter.html"><a href="terminal-chapter.html#modifying-files"><i class="fa fa-check"></i><b>6.3.3</b> Modifying Files</a></li>
+<li class="chapter" data-level="6.3.4" data-path="terminal-chapter.html"><a href="terminal-chapter.html#text-editors"><i class="fa fa-check"></i><b>6.3.4</b> Text Editors</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="terminal-chapter.html"><a href="terminal-chapter.html#terminal-in-rstudio"><i class="fa fa-check"></i><b>6.4</b> Terminal in RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="git-chapter.html"><a href="git-chapter.html"><i class="fa fa-check"></i><b>7</b> Git</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="git-chapter.html"><a href="git-chapter.html#version-control"><i class="fa fa-check"></i><b>7.1</b> Version Control</a></li>
+<li class="chapter" data-level="7.2" data-path="git-chapter.html"><a href="git-chapter.html#git-overview"><i class="fa fa-check"></i><b>7.2</b> Git Overview</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files"><i class="fa fa-check"></i><b>7.2.1</b> Tracking Files</a></li>
+<li class="chapter" data-level="7.2.2" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration"><i class="fa fa-check"></i><b>7.2.2</b> Managing Collaboration</a></li>
+<li class="chapter" data-level="7.2.3" data-path="git-chapter.html"><a href="git-chapter.html#branching-merging"><i class="fa fa-check"></i><b>7.2.3</b> Branching and Merging</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="git-chapter.html"><a href="git-chapter.html#install-git"><i class="fa fa-check"></i><b>7.3</b> Install Git</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="git-chapter.html"><a href="git-chapter.html#on-windows"><i class="fa fa-check"></i><b>7.3.1</b> On Windows</a></li>
+<li class="chapter" data-level="7.3.2" data-path="git-chapter.html"><a href="git-chapter.html#on-macos-1"><i class="fa fa-check"></i><b>7.3.2</b> On macOS</a></li>
+<li class="chapter" data-level="7.3.3" data-path="git-chapter.html"><a href="git-chapter.html#on-linux-1"><i class="fa fa-check"></i><b>7.3.3</b> On Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="git-chapter.html"><a href="git-chapter.html#get-started"><i class="fa fa-check"></i><b>7.4</b> Get Started</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="git-chapter.html"><a href="git-chapter.html#configure-settings"><i class="fa fa-check"></i><b>7.4.1</b> Configure Settings</a></li>
+<li class="chapter" data-level="7.4.2" data-path="git-chapter.html"><a href="git-chapter.html#initialize-a-git-repository"><i class="fa fa-check"></i><b>7.4.2</b> Initialize a Git Repository</a></li>
+<li class="chapter" data-level="7.4.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files-1"><i class="fa fa-check"></i><b>7.4.3</b> Tracking Files</a>
+<ul>
+<li class="chapter" data-level="7.4.3.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-files-to-staging-area"><i class="fa fa-check"></i><b>7.4.3.1</b> Adding Files to Staging Area</a></li>
+<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#commiting-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Commiting Changes</a></li>
+<li class="chapter" data-level="7.4.3.3" data-path="git-chapter.html"><a href="git-chapter.html#checking-commit-history"><i class="fa fa-check"></i><b>7.4.3.3</b> Checking Commit History</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.4" data-path="git-chapter.html"><a href="git-chapter.html#undoing-commits"><i class="fa fa-check"></i><b>7.4.4</b> Undoing Commits</a>
+<ul>
+<li class="chapter" data-level="7.4.4.1" data-path="git-chapter.html"><a href="git-chapter.html#checkout"><i class="fa fa-check"></i><b>7.4.4.1</b> Checkout</a></li>
+<li class="chapter" data-level="7.4.4.2" data-path="git-chapter.html"><a href="git-chapter.html#revert"><i class="fa fa-check"></i><b>7.4.4.2</b> Revert</a></li>
+<li class="chapter" data-level="7.4.4.3" data-path="git-chapter.html"><a href="git-chapter.html#reset"><i class="fa fa-check"></i><b>7.4.4.3</b> Reset</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.5" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration-1"><i class="fa fa-check"></i><b>7.4.5</b> Managing Collaboration</a>
+<ul>
+<li class="chapter" data-level="7.4.5.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-a-remote-repository"><i class="fa fa-check"></i><b>7.4.5.1</b> Adding a Remote Repository</a></li>
+<li class="chapter" data-level="7.4.5.2" data-path="git-chapter.html"><a href="git-chapter.html#pulling-commits"><i class="fa fa-check"></i><b>7.4.5.2</b> Pulling Commits</a></li>
+<li class="chapter" data-level="7.4.5.3" data-path="git-chapter.html"><a href="git-chapter.html#pushing-commits"><i class="fa fa-check"></i><b>7.4.5.3</b> Pushing Commits</a></li>
+<li class="chapter" data-level="7.4.5.4" data-path="git-chapter.html"><a href="git-chapter.html#setting-upstream"><i class="fa fa-check"></i><b>7.4.5.4</b> Setting Upstream</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.6" data-path="git-chapter.html"><a href="git-chapter.html#branching-merging-2"><i class="fa fa-check"></i><b>7.4.6</b> Branching and Merging</a>
+<ul>
+<li class="chapter" data-level="7.4.6.1" data-path="git-chapter.html"><a href="git-chapter.html#creating-branches"><i class="fa fa-check"></i><b>7.4.6.1</b> Creating Branches</a></li>
+<li class="chapter" data-level="7.4.6.2" data-path="git-chapter.html"><a href="git-chapter.html#selecting-branches"><i class="fa fa-check"></i><b>7.4.6.2</b> Selecting Branches</a></li>
+<li class="chapter" data-level="7.4.6.3" data-path="git-chapter.html"><a href="git-chapter.html#merging-branches"><i class="fa fa-check"></i><b>7.4.6.3</b> Merging Branches</a></li>
+<li class="chapter" data-level="7.4.6.4" data-path="git-chapter.html"><a href="git-chapter.html#solving-conflicts"><i class="fa fa-check"></i><b>7.4.6.4</b> Solving Conflicts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4.7" data-path="git-chapter.html"><a href="git-chapter.html#summary"><i class="fa fa-check"></i><b>7.4.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="git-chapter.html"><a href="git-chapter.html#git-workflow"><i class="fa fa-check"></i><b>7.5</b> Git Workflow</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="git-chapter.html"><a href="git-chapter.html#two-branches-approach"><i class="fa fa-check"></i><b>7.5.1</b> Two Branches Approach</a></li>
+<li class="chapter" data-level="7.5.2" data-path="git-chapter.html"><a href="git-chapter.html#multiple-branches-approach"><i class="fa fa-check"></i><b>7.5.2</b> Multiple Branches Approach</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="git-chapter.html"><a href="git-chapter.html#git-rstudio"><i class="fa fa-check"></i><b>7.6</b> RStudio Git GUI</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="git-chapter.html"><a href="git-chapter.html#configure-git-in-rstudio"><i class="fa fa-check"></i><b>7.6.1</b> Configure Git in RStudio</a></li>
+<li class="chapter" data-level="7.6.2" data-path="git-chapter.html"><a href="git-chapter.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>7.6.2</b> Using Git in Rstudio</a>
+<ul>
+<li class="chapter" data-level="7.6.2.1" data-path="git-chapter.html"><a href="git-chapter.html#create-a-git-repository"><i class="fa fa-check"></i><b>7.6.2.1</b> Create a Git Repository</a></li>
+<li class="chapter" data-level="7.6.2.2" data-path="git-chapter.html"><a href="git-chapter.html#git-panel"><i class="fa fa-check"></i><b>7.6.2.2</b> Git Panel</a></li>
+<li class="chapter" data-level="7.6.2.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-changes"><i class="fa fa-check"></i><b>7.6.2.3</b> Tracking Changes</a></li>
+<li class="chapter" data-level="7.6.2.4" data-path="git-chapter.html"><a href="git-chapter.html#managing-collaboration-2"><i class="fa fa-check"></i><b>7.6.2.4</b> Managing Collaboration</a></li>
+<li class="chapter" data-level="7.6.2.5" data-path="git-chapter.html"><a href="git-chapter.html#branching-and-merging"><i class="fa fa-check"></i><b>7.6.2.5</b> Branching and Merging</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="github-chapter.html"><a href="github-chapter.html"><i class="fa fa-check"></i><b>8</b> GitHub</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="github-chapter.html"><a href="github-chapter.html#using-github"><i class="fa fa-check"></i><b>8.1</b> Using GitHub</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="github-chapter.html"><a href="github-chapter.html#initial-set-up"><i class="fa fa-check"></i><b>8.1.1</b> Initial Set Up</a></li>
+<li class="chapter" data-level="8.1.2" data-path="github-chapter.html"><a href="github-chapter.html#authentication"><i class="fa fa-check"></i><b>8.1.2</b> Authentication</a></li>
+<li class="chapter" data-level="8.1.3" data-path="github-chapter.html"><a href="github-chapter.html#create-a-repository"><i class="fa fa-check"></i><b>8.1.3</b> Create a Repository</a></li>
+<li class="chapter" data-level="8.1.4" data-path="github-chapter.html"><a href="github-chapter.html#add-collaborators"><i class="fa fa-check"></i><b>8.1.4</b> Add Collaborators</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="github-chapter.html"><a href="github-chapter.html#main-features"><i class="fa fa-check"></i><b>8.2</b> Main Features</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="github-chapter.html"><a href="github-chapter.html#github-add-license"><i class="fa fa-check"></i><b>8.2.1</b> Adding License</a></li>
+<li class="chapter" data-level="8.2.2" data-path="github-chapter.html"><a href="github-chapter.html#documentation-github"><i class="fa fa-check"></i><b>8.2.2</b> Documentation</a></li>
+<li class="chapter" data-level="8.2.3" data-path="github-chapter.html"><a href="github-chapter.html#commit-history-and-diff"><i class="fa fa-check"></i><b>8.2.3</b> Commit History and Diff</a></li>
+<li class="chapter" data-level="8.2.4" data-path="github-chapter.html"><a href="github-chapter.html#get-doi"><i class="fa fa-check"></i><b>8.2.4</b> Get DOI</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="github-chapter.html"><a href="github-chapter.html#contributing"><i class="fa fa-check"></i><b>8.3</b> Contributing</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="github-chapter.html"><a href="github-chapter.html#issues"><i class="fa fa-check"></i><b>8.3.1</b> Issues</a></li>
+<li class="chapter" data-level="8.3.2" data-path="github-chapter.html"><a href="github-chapter.html#pull-request"><i class="fa fa-check"></i><b>8.3.2</b> Pull Request</a>
+<ul>
+<li class="chapter" data-level="8.3.2.1" data-path="github-chapter.html"><a href="github-chapter.html#fork-and-fetch"><i class="fa fa-check"></i><b>8.3.2.1</b> Fork and Fetch</a></li>
+<li class="chapter" data-level="8.3.2.2" data-path="github-chapter.html"><a href="github-chapter.html#create-a-pull-request"><i class="fa fa-check"></i><b>8.3.2.2</b> Create a Pull Request</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="github-chapter.html"><a href="github-chapter.html#github-adv-features"><i class="fa fa-check"></i><b>8.4</b> Advanced Features</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html"><i class="fa fa-check"></i><b>9</b> Workflow Analysis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducible-workflow"><i class="fa fa-check"></i><b>9.1</b> Reproducible Workflow</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#run-the-analysis"><i class="fa fa-check"></i><b>9.1.1</b> Run the Analysis</a></li>
+<li class="chapter" data-level="9.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#documentation-1"><i class="fa fa-check"></i><b>9.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="9.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility-issues"><i class="fa fa-check"></i><b>9.1.3</b> Reproducibility Issues</a></li>
+<li class="chapter" data-level="9.1.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#workflow-manager"><i class="fa fa-check"></i><b>9.1.4</b> Workflow Manager</a>
+<ul>
+<li class="chapter" data-level="9.1.4.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#make"><i class="fa fa-check"></i><b>9.1.4.1</b> Make</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#r"><i class="fa fa-check"></i><b>9.2</b> R</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#analysis-workflow"><i class="fa fa-check"></i><b>9.2.1</b> Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="9.2.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#script-sections"><i class="fa fa-check"></i><b>9.2.1.1</b> Script Sections</a></li>
+<li class="chapter" data-level="9.2.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#load-functions"><i class="fa fa-check"></i><b>9.2.1.2</b> Loading Functions</a></li>
+<li class="chapter" data-level="9.2.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#loading-r-packages"><i class="fa fa-check"></i><b>9.2.1.3</b> Loading R-packages</a></li>
+<li class="chapter" data-level="9.2.1.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility"><i class="fa fa-check"></i><b>9.2.1.4</b> Reproducibility</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#workflow-manager-1"><i class="fa fa-check"></i><b>9.2.2</b> Workflow Manager</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets"><i class="fa fa-check"></i><b>9.3</b> Targets</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#project-structure-1"><i class="fa fa-check"></i><b>9.3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="9.3.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-script"><i class="fa fa-check"></i><b>9.3.1.1</b> The <code>_targets.R</code> Script</a></li>
+<li class="chapter" data-level="9.3.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#defining-targets"><i class="fa fa-check"></i><b>9.3.1.2</b> Defining Targets</a></li>
+<li class="chapter" data-level="9.3.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-store"><i class="fa fa-check"></i><b>9.3.1.3</b> The <code>_targets/</code> Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#the-targets-workflow"><i class="fa fa-check"></i><b>9.3.2</b> The <code>targets</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="9.3.2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#check-the-pipeline"><i class="fa fa-check"></i><b>9.3.2.1</b> Check the Pipeline</a></li>
+<li class="chapter" data-level="9.3.2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#run-the-pipeline"><i class="fa fa-check"></i><b>9.3.2.2</b> Run the Pipeline</a></li>
+<li class="chapter" data-level="9.3.2.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#make-changes"><i class="fa fa-check"></i><b>9.3.2.3</b> Make Changes</a></li>
+<li class="chapter" data-level="9.3.2.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#get-the-results"><i class="fa fa-check"></i><b>9.3.2.4</b> Get the Results</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#advanced-features-1"><i class="fa fa-check"></i><b>9.3.3</b> Advanced Features</a>
+<ul>
+<li class="chapter" data-level="9.3.3.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-proj"><i class="fa fa-check"></i><b>9.3.3.1</b> Project Structure</a></li>
+<li class="chapter" data-level="9.3.3.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-rmarkdown"><i class="fa fa-check"></i><b>9.3.3.2</b> <code>targets</code> and R Markdown</a></li>
+<li class="chapter" data-level="9.3.3.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility-1"><i class="fa fa-check"></i><b>9.3.3.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="9.3.3.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#branching"><i class="fa fa-check"></i><b>9.3.3.4</b> Branching</a></li>
+<li class="chapter" data-level="9.3.3.5" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#high-performance-computing"><i class="fa fa-check"></i><b>9.3.3.5</b> High-Performance Computing</a></li>
+<li class="chapter" data-level="9.3.3.6" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#load-all-targets"><i class="fa fa-check"></i><b>9.3.3.6</b> Load All Targets</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html"><i class="fa fa-check"></i><b>10</b> Dynamic Documents</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#literate-programming"><i class="fa fa-check"></i><b>10.1</b> Literate Programming</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#analysis-code-and-dynamic-documents"><i class="fa fa-check"></i><b>10.1.1</b> Analysis Code and Dynamic Documents</a></li>
+<li class="chapter" data-level="10.1.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#output-formats"><i class="fa fa-check"></i><b>10.1.2</b> Output Formats</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#quarto"><i class="fa fa-check"></i><b>10.2</b> Quarto</a></li>
+<li class="chapter" data-level="10.3" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#trackdown-collaboration"><i class="fa fa-check"></i><b>10.3</b> <code>trackdown</code> Enhancing Collaboration</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#the-trackdown-workflow"><i class="fa fa-check"></i><b>10.3.1</b> The <code>trackdown</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#functions-and-special-features"><i class="fa fa-check"></i>Functions and Special Features</a></li>
+<li class="chapter" data-level="10.3.1.1" data-path="dynamic-documents-chapter.html"><a href="dynamic-documents-chapter.html#advantages-of-google-docs"><i class="fa fa-check"></i><b>10.3.1.1</b> Advantages of Google Docs</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="requirements-chapter.html"><a href="requirements-chapter.html"><i class="fa fa-check"></i><b>11</b> Requirements</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#project-requirements-and-installation"><i class="fa fa-check"></i><b>11.1</b> Project Requirements and Installation</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#requirements"><i class="fa fa-check"></i><b>11.1.1</b> Requirements</a>
+<ul>
+<li class="chapter" data-level="11.1.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#system-prerequisites"><i class="fa fa-check"></i><b>11.1.1.1</b> System Prerequisites</a></li>
+<li class="chapter" data-level="11.1.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#software"><i class="fa fa-check"></i><b>11.1.1.2</b> Software</a></li>
+<li class="chapter" data-level="11.1.1.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#libraries"><i class="fa fa-check"></i><b>11.1.1.3</b> Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="11.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#installation"><i class="fa fa-check"></i><b>11.1.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-dependencies"><i class="fa fa-check"></i><b>11.2</b> R Dependencies</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-version"><i class="fa fa-check"></i><b>11.2.1</b> R version</a>
+<ul>
+<li class="chapter" data-level="11.2.1.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#multiple-r-versions"><i class="fa fa-check"></i><b>11.2.1.1</b> Multiple R versions</a></li>
+<li class="chapter" data-level="11.2.1.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#other-related-software"><i class="fa fa-check"></i><b>11.2.1.2</b> Other Related Software</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#r-packages-requirements"><i class="fa fa-check"></i><b>11.2.2</b> R packages</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renv-section"><i class="fa fa-check"></i><b>11.3</b> <code>renv</code> a Package to Rule Them All</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#introduction-to-renv"><i class="fa fa-check"></i><b>11.3.1</b> Introduction to <code>renv</code></a></li>
+<li class="chapter" data-level="11.3.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#the-renv-workflow"><i class="fa fa-check"></i><b>11.3.2</b> The <code>renv</code> workflow</a></li>
+<li class="chapter" data-level="11.3.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#advanced-features-2"><i class="fa fa-check"></i><b>11.3.3</b> Advanced Features</a>
+<ul>
+<li class="chapter" data-level="11.3.3.1" data-path="requirements-chapter.html"><a href="requirements-chapter.html#reproducibility-issues-1"><i class="fa fa-check"></i><b>11.3.3.1</b> Reproducibility Issues</a></li>
+<li class="chapter" data-level="11.3.3.2" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renv-files"><i class="fa fa-check"></i><b>11.3.3.2</b> <code>renv</code> Files</a></li>
+<li class="chapter" data-level="11.3.3.3" data-path="requirements-chapter.html"><a href="requirements-chapter.html#snapshot-types"><i class="fa fa-check"></i><b>11.3.3.3</b> Snapshot Types</a></li>
+<li class="chapter" data-level="11.3.3.4" data-path="requirements-chapter.html"><a href="requirements-chapter.html#detecting-packages"><i class="fa fa-check"></i><b>11.3.3.4</b> Detecting Packages</a></li>
+<li class="chapter" data-level="11.3.3.5" data-path="requirements-chapter.html"><a href="requirements-chapter.html#renvignore-file"><i class="fa fa-check"></i><b>11.3.3.5</b> <code>.renvignore</code> File</a></li>
+<li class="chapter" data-level="11.3.3.6" data-path="requirements-chapter.html"><a href="requirements-chapter.html#restore-issue"><i class="fa fa-check"></i><b>11.3.3.6</b> Restore Issue</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="docker-chapter.html"><a href="docker-chapter.html"><i class="fa fa-check"></i><b>12</b> Docker</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="docker-chapter.html"><a href="docker-chapter.html#containers"><i class="fa fa-check"></i><b>12.1</b> Containers</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="docker-chapter.html"><a href="docker-chapter.html#containers-and-virtual-machines"><i class="fa fa-check"></i><b>12.1.1</b> Containers and Virtual Machines</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-get-started"><i class="fa fa-check"></i><b>12.2</b> Docker Getting Started</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-elements"><i class="fa fa-check"></i><b>12.2.1</b> Docker Elements</a></li>
+<li class="chapter" data-level="12.2.2" data-path="docker-chapter.html"><a href="docker-chapter.html#install-docker"><i class="fa fa-check"></i><b>12.2.2</b> Install Docker</a></li>
+<li class="chapter" data-level="12.2.3" data-path="docker-chapter.html"><a href="docker-chapter.html#dockerfile"><i class="fa fa-check"></i><b>12.2.3</b> <strong><code>Dockerfile</code></strong></a>
+<ul>
+<li class="chapter" data-level="12.2.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#layer-caching"><i class="fa fa-check"></i><b>12.2.3.1</b> Layer Caching</a></li>
+<li class="chapter" data-level="12.2.3.2" data-path="docker-chapter.html"><a href="docker-chapter.html#tag-version"><i class="fa fa-check"></i><b>12.2.3.2</b> Image Version Tag</a></li>
+<li class="chapter" data-level="12.2.3.3" data-path="docker-chapter.html"><a href="docker-chapter.html#files-permissions"><i class="fa fa-check"></i><b>12.2.3.3</b> Files Permissions</a></li>
+<li class="chapter" data-level="12.2.3.4" data-path="docker-chapter.html"><a href="docker-chapter.html#dockerignore"><i class="fa fa-check"></i><b>12.2.3.4</b> <code>.dockerignore</code> File</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2.4" data-path="docker-chapter.html"><a href="docker-chapter.html#build-an-image"><i class="fa fa-check"></i><b>12.2.4</b> Build an Image</a>
+<ul>
+<li class="chapter" data-level="12.2.4.1" data-path="docker-chapter.html"><a href="docker-chapter.html#list-and-remove-images"><i class="fa fa-check"></i><b>12.2.4.1</b> List and Remove Images</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2.5" data-path="docker-chapter.html"><a href="docker-chapter.html#run-an-image"><i class="fa fa-check"></i><b>12.2.5</b> Run an Image</a>
+<ul>
+<li class="chapter" data-level="12.2.5.1" data-path="docker-chapter.html"><a href="docker-chapter.html#stop-list-and-remove-containers"><i class="fa fa-check"></i><b>12.2.5.1</b> Stop List and Remove Containers</a></li>
+<li class="chapter" data-level="12.2.5.2" data-path="docker-chapter.html"><a href="docker-chapter.html#moving-files"><i class="fa fa-check"></i><b>12.2.5.2</b> Moving Files</a></li>
+<li class="chapter" data-level="12.2.5.3" data-path="docker-chapter.html"><a href="docker-chapter.html#running-commands"><i class="fa fa-check"></i><b>12.2.5.3</b> Running Commands</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-features"><i class="fa fa-check"></i><b>12.3</b> Other Features</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#data-storage"><i class="fa fa-check"></i><b>12.3.1</b> Data Storage</a>
+<ul>
+<li class="chapter" data-level="12.3.1.1" data-path="docker-chapter.html"><a href="docker-chapter.html#bind-mounts"><i class="fa fa-check"></i><b>12.3.1.1</b> Bind Mounts</a></li>
+<li class="chapter" data-level="12.3.1.2" data-path="docker-chapter.html"><a href="docker-chapter.html#volumes"><i class="fa fa-check"></i><b>12.3.1.2</b> Volumes</a></li>
+<li class="chapter" data-level="12.3.1.3" data-path="docker-chapter.html"><a href="docker-chapter.html#bind-mounts-vs-volumes"><i class="fa fa-check"></i><b>12.3.1.3</b> Bind Mounts VS Volumes</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3.2" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-compose"><i class="fa fa-check"></i><b>12.3.2</b> Docker Compose</a></li>
+<li class="chapter" data-level="12.3.3" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-hub"><i class="fa fa-check"></i><b>12.3.3</b> Docker Hub</a>
+<ul>
+<li class="chapter" data-level="12.3.3.1" data-path="docker-chapter.html"><a href="docker-chapter.html#sharing-images"><i class="fa fa-check"></i><b>12.3.3.1</b> Sharing Images</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3.4" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-gui"><i class="fa fa-check"></i><b>12.3.4</b> Docker GUI</a>
+<ul>
+<li class="chapter" data-level="12.3.4.1" data-path="docker-chapter.html"><a href="docker-chapter.html#docker-desktop"><i class="fa fa-check"></i><b>12.3.4.1</b> Docker Desktop</a></li>
+<li class="chapter" data-level="12.3.4.2" data-path="docker-chapter.html"><a href="docker-chapter.html#visual-studio-code"><i class="fa fa-check"></i><b>12.3.4.2</b> Visual Studio Code</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="rocker-chapter.html"><a href="rocker-chapter.html"><i class="fa fa-check"></i><b>13</b> Rocker</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#rocker-getting-started"><i class="fa fa-check"></i><b>13.1</b> Rocker Getting Started</a></li>
+<li class="chapter" data-level="13.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#data-storage-rstudio"><i class="fa fa-check"></i><b>13.2</b> Data Storage</a></li>
+<li class="chapter" data-level="13.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#custom-dockerfile"><i class="fa fa-check"></i><b>13.3</b> Custom <code>Dockerfile</code></a></li>
+<li class="chapter" data-level="13.4" data-path="rocker-chapter.html"><a href="rocker-chapter.html#docker-workflow"><i class="fa fa-check"></i><b>13.4</b> Docker Workflow</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#after-the-development"><i class="fa fa-check"></i><b>13.4.1</b> After the Development</a>
+<ul>
+<li class="chapter" data-level="13.4.1.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#fix-r-version"><i class="fa fa-check"></i><b>13.4.1.1</b> Fix R-version</a></li>
+<li class="chapter" data-level="13.4.1.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#add-r-packages"><i class="fa fa-check"></i><b>13.4.1.2</b> Add R-packages</a></li>
+<li class="chapter" data-level="13.4.1.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#run-the-analysis-and-report"><i class="fa fa-check"></i><b>13.4.1.3</b> Run the Analysis and Report</a></li>
+<li class="chapter" data-level="13.4.1.4" data-path="rocker-chapter.html"><a href="rocker-chapter.html#considerations"><i class="fa fa-check"></i><b>13.4.1.4</b> Considerations</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#rocker-as-ide"><i class="fa fa-check"></i><b>13.4.2</b> Rocker as IDE</a>
+<ul>
+<li class="chapter" data-level="13.4.2.1" data-path="rocker-chapter.html"><a href="rocker-chapter.html#renv-cache"><i class="fa fa-check"></i><b>13.4.2.1</b> <code>renv</code> Cache</a></li>
+<li class="chapter" data-level="13.4.2.2" data-path="rocker-chapter.html"><a href="rocker-chapter.html#github-authentication"><i class="fa fa-check"></i><b>13.4.2.2</b> GitHub Authentication</a></li>
+<li class="chapter" data-level="13.4.2.3" data-path="rocker-chapter.html"><a href="rocker-chapter.html#considerations-1"><i class="fa fa-check"></i><b>13.4.2.3</b> Considerations</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Open Science Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="assets/images/banner.png">
+</div>
+<div id="dynamic-documents-chapter" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Dynamic Documents<a href="dynamic-documents-chapter.html#dynamic-documents-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the previous chapters, we learned to organize all our files and data in a well structured and documented repository. Moreover, we learned how to write readable and maintainable code and to use Git and GitHub for tracking changes and managing collaboration during the development of our project. Finally, we introduced dedicated tools for managing the analysis workflow pipeline.</p>
+<p>Usually, however, the final product of most research projects is a scientific paper or some kind of report to share and discuss our results with a wider audience. In this chapter, we introduce the main tools for creating dynamic documents that integrate narrative text and code.</p>
+<div id="literate-programming" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Literate Programming<a href="dynamic-documents-chapter.html#literate-programming" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We worked so hard to create a well structured and controlled analysis workflow to enhance the reproducibility of our results. At this point, of course, we do not want to waste all our efforts by manually copying and pasting values and figures when creating the final documents and reports. We also want document creation to be part of our fully reproducible workflow. Here is where <em>literate programming</em> comes to our aid.</p>
+<p><em>Literate programming</em> allows us to create reproducible documents by combining narrative text with analysis code. First, we define all the instructions and document elements (e.g., document format and style settings, narrative text, analysis code, figures and tables) in a <strong>source file</strong>. Subsequently, the source file is <em>compiled</em> to obtain our document in the desired output format. In this way, we can create documents in a fully reproducible approach.</p>
+<p>The main advantages of literate programming are:</p>
+<ul>
+<li><strong>Reproducibility.</strong> All document elements are explicitly coded in the source file. There are no manual actions or adjustments required to create the final output. In this way, the output is completely reproducible.<br />
+</li>
+<li><strong>Automatically Updates.</strong> Reported results, figures and tables are obtained directly from the analysis code. If we make some changes to the analysis, all document elements will be automatically updated with the new values.</li>
+<li><strong>High-Quality Tables and Figures.</strong> Using dedicated packages, we can very easily obtain wonderful high-quality plots and well-formatted tables to include in our documents.</li>
+</ul>
+<div class="warning" title="Avoid Hard-Coded Values">
+<p>Ideally, when reporting the analysis results or creating tables and figures, we should avoid using any hard-coded value. Any value should be obtained directly from the analysis code.</p>
+<p>In this way, we are sure that all values will be automatically updated in case of changes to the analysis.</p>
+</div>
+<p>Main programming languages provide their own ecosystems of tools and packages to create dynamic documents. For example,</p>
+<ul>
+<li><strong>Python.</strong> Most popular tool is <em>Jupyter Notebook</em> (<a href="https://jupyter.org/" class="uri">https://jupyter.org/</a>).</li>
+<li><strong>R.</strong> Most popular tool is <em>R Markdown</em> (<a href="https://rmarkdown.rstudio.com/" class="uri">https://rmarkdown.rstudio.com/</a>) with all its related packages: <code>rmarkdown</code> <span class="citation">(<a href="#ref-R-renv" role="doc-biblioref">Ushey, 2022</a>)</span>, <code>bookdown</code> <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref">Xie, 2022</a>)</span>, etc.</li>
+</ul>
+<p>To be precise, these tools are not limited to one specific programming language. Both of them support different programming languages (e.g., we can use R code in Jupyter Notebook and Python code in R Markdown documents). However, their popularity is mainly related to a specific programming language.</p>
+<p>Surprisingly, a new contender has recently entered the scene <strong>Quarto</strong>. However, before introducing Quarto (see Section <a href="dynamic-documents-chapter.html#quarto">10.2</a>), we discuss a few other general aspects regarding dynamic documents.</p>
+<div id="analysis-code-and-dynamic-documents" class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Analysis Code and Dynamic Documents<a href="dynamic-documents-chapter.html#analysis-code-and-dynamic-documents" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are two main approaches for integrating the analysis code in a dynamic document.</p>
+<ul>
+<li><strong>Analysis code inside dynamic documents.</strong> The dynamic document is used as the primary script to run the whole analysis. Following this approach, all the analysis steps are defined and managed within the dynamic document.</li>
+<li><strong>Analysis code outside dynamic documents.</strong> The dynamic document is used only to report the analysis results. Following this approach, all the analysis steps are defined and managed outside of the dynamic document.</li>
+</ul>
+<p>Among the two approaches, we recommend the second one. Using dynamic documents as primary scripts to manage the analysis is fine in the case of simple projects. However, in the case of more complex projects, it is better to keep the actual analysis and the presentation of the results separate. This approach has the following advantages:</p>
+<ul>
+<li>The project can be maintained and developed more easily.</li>
+<li>Dynamic documents are fast to compile as they are only used to present the results and do not require running any computationally demanding task.</li>
+<li>The whole analysis is defined independently of the dynamic documents. In this way, we can report the results in multiple dynamic documents without the need of copying the whole analysis in each document but simply by loading the results.</li>
+</ul>
+<p>To summarize, dynamic documents should be lightweight with minimal code used simply to present the analysis results. Analysis results should not be computed within the dynamic documents.</p>
+</div>
+<div id="output-formats" class="section level3 hasAnchor" number="10.1.2">
+<h3><span class="header-section-number">10.1.2</span> Output Formats<a href="dynamic-documents-chapter.html#output-formats" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is not a Microsoft Word VS <span class="latex">L<sup>A</sup>T<sub>E</sub>X</span> debate. We all know who the winner is. Many literate programming tools allow us to obtain outputs in Microsoft Word as well. So, if anyone really can not live without Microsoft Word, they can still obtain their wonderful <code>.docx</code> documents. For all the others there is <span class="latex">L<sup>A</sup>T<sub>E</sub>X</span> or<span class="math inline">\(\ldots\)</span> HTML.</p>
+<p>Yes because nowadays the most common way to access information is through a web browser. So, why not create a website for presenting our project and reporting the results instead of traditional PDF documents? Let’s consider the two different approaches:</p>
+<ul>
+<li><p><strong>PDF.</strong> Traditional PDF documents are perfect for books, scientific papers, reports, or anything we could need to print on paper. Of course, it is better to read PDFs directly on computers and tablets (do not waste paper!), but yes, PDF documents are generally designed for printing and thus they are <em>static</em> documents.</p>
+<p>If we need to create a PDF document, there is nothing better than <span class="latex">L<sup>A</sup>T<sub>E</sub>X</span>. <span class="latex">L<sup>A</sup>T<sub>E</sub>X</span> allows us to create incredibly high-quality documents controlling any aspect of our documents. Most literate programming tools support <span class="latex">L<sup>A</sup>T<sub>E</sub>X</span> syntax. Of course, <span class="latex">L<sup>A</sup>T<sub>E</sub>X</span> syntax may seem quite complex at the beginning but there are many tutorials helping us to familiarize ourselves with it. For example, see Overleaf documentation at <a href="https://www.overleaf.com/learn" class="uri">https://www.overleaf.com/learn</a>.</p></li>
+<li><p><strong>Web-Site.</strong> Creating a website allows us to take advantage of all the interactive features we are used to when navigating online. For example, we can include videos, audio files, interactive plots and tables, or any other element that could help us present our project or analysis results.</p>
+<p>Most literate programming tools allow us to create HTML outputs. In this case, we need to deal with HTML, CSS and JavaScript. There are many resources available online that can help us learn all the syntaxes and language commands. Moreover, many free online services allow us to host our websites. For example, we can publish our website on GitHub Pages (<a href="https://pages.github.com/" class="uri">https://pages.github.com/</a>; see Chapter <a href="github-chapter.html#github-adv-features">8.4</a>)</p></li>
+</ul>
+<p>So depending on our specific needs, we may prefer creating traditional PDF documents or interactive websites.</p>
+<div class="tip" title="Collaborative Editing">
+<p>Honestly, there is only one good reason for which we could need Microsoft Word, that is, its useful reviewing and editing tools for collaborating with other colleagues (e.g., suggesting mode, highlight, comments).</p>
+<p>These are much-needed features that unfortunately are missing from almost any literate programming tools<span class="math inline">\(\ldots\)</span>I mean, it was missing. See Section <a href="dynamic-documents-chapter.html#trackdown-collaboration">10.3</a> for <code>trackdown</code>, a new R package proposing a simple solution for collaborative writing and editing of dynamic documents.</p>
+</div>
+</div>
+</div>
+<div id="quarto" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Quarto<a href="dynamic-documents-chapter.html#quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="packages-logo-box", style="width: 250px;"><img src="images/dynamic-documents/quarto-logo.png"></div>
+<p>At the beginning of April 2022, we witnessed a Quarto outbreak. Everyone was tweeting about Quarto (at least in the R community). But what is Quarto?</p>
+<p>Quarto (<a href="https://quarto.org/" class="uri">https://quarto.org/</a>) is an open-source scientific and technical publishing system built on Pandoc. As reported on the official website, Quarto allows to:</p>
+<ul>
+<li>Create dynamic content with Python, R, Julia, and Observable.</li>
+<li>Author documents as plain text markdown or Jupyter notebooks.</li>
+<li>Publish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.</li>
+<li>Author with scientific markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.</li>
+</ul>
+<p>We may confuse Quarto simply for an updated version of R Markdown. They seem very similar, but in reality, there is an extremely important difference:</p>
+<blockquote>
+<p>Quarto is a stand-alone tool!</p>
+</blockquote>
+<p>This means that if our document includes only Python code, we do not need to install R or RStudio. Similarly, if our document includes only R code, we do not need to install Python. Therefore, by using Quarto, we are not restricted to any specific programming language or IDE. This is what could make Quarto the definitive tool for creating dynamic documents!</p>
+<p>To understand what Quarto is, we suggest Alison Hill’s post <em>“We don’t talk about Quarto”</em> ( see <a href="https://www.apreshill.com/blog/2022-04-we-dont-talk-about-quarto" class="uri">https://www.apreshill.com/blog/2022-04-we-dont-talk-about-quarto</a>).</p>
+<p>As Quarto is a very new tool that it is rapidly changing, we prefer to point directly to the official documentation for all information and a guide on how to use Quarto:</p>
+<ul>
+<li><strong>Get started:</strong> <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></li>
+<li><strong>Quarto Guide:</strong> <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a></li>
+</ul>
+<p>Of course, Quarto will look very familiar for R Markdown users but with some subtle differences and many important improvements under the hood (see <a href="https://community.rstudio.com/t/i-use-like-r-markdown-why-should-i-try-out-quarto/133752/2" class="uri">https://community.rstudio.com/t/i-use-like-r-markdown-why-should-i-try-out-quarto/133752/2</a> ).</p>
+<div class="design" title="R Markdown is NOT Going Away">
+<p>With the arrival of Quarto, we might wonder what will happen to R Markdown? We do not have to worry. R Markdown is not going away.</p>
+<p>R Markdown and its ecosystem of packages (bookdown, blogdown, xaringan, etc.) will still be actively maintained. For further details, see <a href="https://yihui.org/en/2022/04/quarto-r-markdown/" class="uri">https://yihui.org/en/2022/04/quarto-r-markdown/</a>.</p>
+</div>
+</div>
+<div id="trackdown-collaboration" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> <code>trackdown</code> Enhancing Collaboration<a href="dynamic-documents-chapter.html#trackdown-collaboration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is common to collaborate with other colleagues when writing documents. Different colleagues are assigned different parts, or colleagues may be required to review the document. Software like Microsoft Words provides very useful tools to facilitate this process (e.g., suggesting mode, highlight, comments).</p>
+<p>Unfortunately, these very useful features are missing from almost any literate programming tool. When collaborating with other colleagues on a dynamic document, we can use Git for tracking changes (see Chapter <a href="git-chapter.html#git-chapter">7</a>). Git works greatly when developing code, however, it is not so effective for tracking changes and reviewing the narrative text. Moreover, we may need to collaborate with colleagues not familiar with Git or programming in general. We need something to facilitate collaboration. We need <code>trackdown</code>!</p>
+<div class="packages-logo-box", style="width: 200px;"><img src="images/dynamic-documents/trackdown-logo.png"></div>
+<p>One of the authors of this book is also among the maintainers of the <code>trackdown</code> R package. <code>trackdown</code> <span class="citation">(<a href="#ref-R-trackdown" role="doc-biblioref">Kothe et al., 2021</a>)</span> offers a simple solution for collaborative writing and editing of R Markdown (or Sweave) documents. Using <code>trackdown</code>, we can upload the local <code>.Rmd</code> (or <code>.Rnw</code>) file as a plain-text file to Google Drive.</p>
+<p>By taking advantage of the easily readable Markdown (or <span class="latex">L<sup>A</sup>T<sub>E</sub>X</span>) syntax and the well-known online interface offered by Google Docs, colleagues can easily contribute to the writing and editing process. After integrating all authors’ contributions, we can download the final document and render it locally.</p>
+<p>The package documentation is available at <a href="https://claudiozandonella.github.io/trackdown/" class="uri">https://claudiozandonella.github.io/trackdown/</a>.</p>
+<div id="the-trackdown-workflow" class="section level3 hasAnchor" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> The <code>trackdown</code> Workflow<a href="dynamic-documents-chapter.html#the-trackdown-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>During the collaborative writing/editing of an <code>.Rmd</code> (or <code>.Rnw</code>) document, it is important to employ different workflows for computer code and narrative text:</p>
+<ul>
+<li><strong>Code</strong> - Collaborative code writing is done most efficiently by following a traditional <strong>Git</strong>-based workflow using an online repository (e.g., GitHub or GitLab; see Chapter <a href="github-chapter.html#github-chapter">8</a>).</li>
+<li><strong>Narrative Text</strong> - Collaborative writing of the narrative text is done most efficiently using <strong>Google Docs</strong> which provides a familiar and simple online interface that allows multiple users to simultaneously write/edit the same document.</li>
+</ul>
+<p>Thus, the workflow’s main idea is simple: Upload the <code>.Rmd</code> (or <code>.Rnw</code>) document to Google Drive to collaboratively write/edit the narrative text in Google Docs; download the document locally to continue working on the code while harnessing the power of Git for version control and collaboration. This iterative process of uploading to and downloading from Google Drive continues until the desired results are obtained. The workflow can be summarized as:</p>
+<blockquote>
+<p>Collaborative <strong>code</strong> writing using <strong>Git</strong> &amp; collaborative writing of <strong>narrative text</strong> using <strong>Google Docs</strong></p>
+</blockquote>
+<p>For a detailed example of the workflow see <a href="https://claudiozandonella.github.io/trackdown/articles/trackdown-workflow.html" class="uri">https://claudiozandonella.github.io/trackdown/articles/trackdown-workflow.html</a>.</p>
+<p><img src="images/dynamic-documents/trackdown-workflow.png" width="100%" style="display: block; margin: auto;" /></p>
+<div id="functions-and-special-features" class="section level4 unnumbered hasAnchor">
+<h4>Functions and Special Features<a href="dynamic-documents-chapter.html#functions-and-special-features" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>trackdown</code> offers different functions to manage the workflow:</p>
+<ul>
+<li><code>upload_file()</code> uploads a file for the first time to Google Drive.</li>
+<li><code>update_file()</code> updates the content of an existing file in Google Drive with the contents of a local file.</li>
+<li><code>download_file()</code> downloads the edited version of a file from Google Drive and updates the local version.</li>
+<li><code>render_file()</code> downloads a file from Google Drive and renders it locally.</li>
+</ul>
+<p>Moreover, <code>trackdown</code> offers additional features to facilitate the collaborative writing and editing of documents in Google Docs. In particular, it is possible to:</p>
+<ul>
+<li><p><strong>Hide Code:</strong> Code in the header of the document (YAML header or LaTeX preamble) and code chunks are removed from the document when uploading to Google Drive and are automatically restored during download. This prevents collaborators from inadvertently making changes to the code which might corrupt the file and allows them to focus on the narrative text.</p>
+<p><img src="images/dynamic-documents/trackdown-hide-code.png" width="100%" style="display: block; margin: auto;" /></p></li>
+<li><p><strong>Upload Output:</strong> The actual output document (i.e., the rendered file) can be uploaded to Google Drive in conjunction with the <code>.Rmd</code> (or <code>.Rnw</code>) document. This helps collaborators to evaluate the overall layout including figures and tables and allows them to add comments to suggest and discuss changes.</p></li>
+<li><p><strong>Use Google Drive shared drives:</strong> The documents can be uploaded to either a personal Google Drive or to a shared drive to facilitate collaboration.</p></li>
+</ul>
+</div>
+<div id="advantages-of-google-docs" class="section level4 hasAnchor" number="10.3.1.1">
+<h4><span class="header-section-number">10.3.1.1</span> Advantages of Google Docs<a href="dynamic-documents-chapter.html#advantages-of-google-docs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Google Docs offers users a familiar, intuitive, and free web-based interface that allows multiple users to simultaneously write/edit the same document. In Google Docs it is possible to:</p>
+<ul>
+<li>track changes (incl. accepting/rejecting suggestions)</li>
+<li>add comments to suggest and discuss changes</li>
+<li>check spelling and grammar errors (potentially integrating third-party services like Grammarly)</li>
+</ul>
+<p>Moreover, Google Docs allows anyone to contribute to the writing/editing of the document. No programming experience is required, users can just focus on writing/editing the narrative text.</p>
+<p>Note that not all collaborators have to have a Google account (although this is recommended to utilize all Google Docs features). Only the person who manages the <code>trackdown</code> workflow needs to have a Google account to upload files to Google Drive. Other collaborators can be invited to contribute to the document using a shared link.</p>
+<div class="design" title="trackdown Development Version">
+<p>The developmental version of <code>trackdown</code> (v1.3.0, currently only available on GitHub), introduced a new important feature:</p>
+<ul>
+<li><strong><code>rich_text</code>.</strong> Upload rich documents to Google Docs where important text that should not be changed is automatically highlighted (e.g., placeholders hiding the code, header of the document, code chunks, and in-line code). This prevents collaborators from inadvertently making changes to the code which might corrupt the file. See rich-text feature details.</li>
+</ul>
+<p><img src="images/dynamic-documents/trackdown-rich-text.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>To install the developmental version of <code>trackdown</code> form GitHub (<a href="https://github.com/claudiozandonella/trackdown" class="uri">https://github.com/claudiozandonella/trackdown</a>),</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="dynamic-documents-chapter.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(remotes)</span></span>
+<span id="cb184-2"><a href="dynamic-documents-chapter.html#cb184-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-3"><a href="dynamic-documents-chapter.html#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install the development version</span></span>
+<span id="cb184-4"><a href="dynamic-documents-chapter.html#cb184-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;claudiozandonella/trackdown&quot;</span>,</span>
+<span id="cb184-5"><a href="dynamic-documents-chapter.html#cb184-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Very soon, we will also add support for Quarto documents as well, see <a href="https://github.com/ClaudioZandonella/trackdown/issues/33" class="uri">https://github.com/ClaudioZandonella/trackdown/issues/33</a></p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-R-trackdown" class="csl-entry">
+Kothe, E., Zandonella Callegher, C., Gambarota, F., Linkersdörfer, J., &amp; Ling, M. (2021). <em>Trackdown: Collaborative editing of rmd (or rnw) documents in google drive</em>. <a href="https://CRAN.R-project.org/package=trackdown">https://CRAN.R-project.org/package=trackdown</a>
+</div>
+<div id="ref-R-renv" class="csl-entry">
+Ushey, K. (2022). <em>Renv: Project environments</em>. <a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a>
+</div>
+<div id="ref-R-bookdown" class="csl-entry">
+Xie, Y. (2022). <em>Bookdown: Authoring books and technical documents with r markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
+    <br>
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
+    <br>
+    To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="workflow-analysis-chapter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="requirements-chapter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/arca-dpss/manual-open-science/edit/master/chapters/10-dynamic-documents.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["manual-open-science.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

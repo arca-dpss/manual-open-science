@@ -48,7 +48,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Run Targets
-        run: Rscript -e 'targets::tar_make(script = "analysis/targets-workflow.R"", store = "analysis/_targets")'
+        run: Rscript -e 'targets::tar_make(script = "analysis/targets-workflow.R", store = "analysis/_targets")'
 
       - name: Render Book
         run: Rscript -e 'rmarkdown::render_site(encoding = "UTF-8")'

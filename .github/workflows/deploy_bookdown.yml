@@ -36,7 +36,9 @@ jobs:
 
       - name: Install missing system dependencies
         if: runner.os == 'Linux'
-        run: sudo apt-get install -y libgtk2.0-dev asymptote
+        run: |
+          sudo apt-get install -y libgtk2.0-dev asymptote
+          sudo apt-get install curl
 
       - name: Cache renv
         uses: actions/cache@v2

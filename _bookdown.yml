@@ -8,7 +8,7 @@ delete_merged_file: true
 rmd_files:
   html: ["index.Rmd",
          "chapters/01-intro.Rmd",
-         # "chapters/02-osf.Rmd",
+         "chapters/02-osf.Rmd",
          # "chapters/03-projects.Rmd",
          # "chapters/04-data.Rmd",
          # "chapters/05-coding.Rmd",
@@ -23,7 +23,7 @@ rmd_files:
          "chapters/99-references.Rmd"]
   latex: ["index.Rmd",
          "chapters/01-intro.Rmd",
-         # "chapters/02-osf.Rmd",
+         "chapters/02-osf.Rmd",
          # "chapters/03-projects.Rmd",
          # "chapters/04-data.Rmd",
          # "chapters/05-coding.Rmd",

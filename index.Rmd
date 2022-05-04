@@ -127,7 +127,7 @@ View book source at GitHub repository https://github.com/arca-dpss/manual-open-s
 
 For attribution, please cite this work as:
 
-Zandonella Callegher, C., & Massidda, D. (2022). The Open Science Manual: Make Your Scientific Research Accessible and Reproducible. https://arca-dpss.github.io/manual-open-science/
+> Zandonella Callegher, C., & Massidda, D. (2022). The Open Science Manual: Make Your Scientific Research Accessible and Reproducible. https://arca-dpss.github.io/manual-open-science/
 
 BibTeX citation:
 

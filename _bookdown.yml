@@ -37,5 +37,3 @@ rmd_files:
          "chapters/13-rocker.Rmd",
          "chapters/99-references.Rmd"]
 
-# output_dir: "docs/"
-

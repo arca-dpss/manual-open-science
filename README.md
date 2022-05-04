@@ -3,10 +3,12 @@
 
 # The Open Science Manual: Make Your Scientific Research Accessible and Reproducible
 
-<!-- badges: start -->
-<!-- badges: end -->
-
 <img src="assets/images/banner.png" height="70px" width="100%">
+
+<!-- badges: start -->
+
+[![renderbook](https://github.com/arca-dpss/manual-open-science/actions/workflows/deploy_bookdown.yml/badge.svg)](https://github.com/arca-dpss/manual-open-science/actions/workflows/deploy_bookdown.yml)
+<!-- badges: end -->
 
 The present book aims to describe programming good practices and
 introduce common tools used in software development to guarantee the

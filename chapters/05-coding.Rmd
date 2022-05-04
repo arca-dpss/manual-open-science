@@ -753,7 +753,7 @@ In some projects or analyses, we may need to run some computational heavy tasks 
     
       for (i in seq_along(x)){
         
-        value <- do_stuff(x[i])
+        value <- add_one(x[i])
         
         res[i] <- value # assign single value
       }

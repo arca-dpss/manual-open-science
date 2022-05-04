@@ -78,6 +78,14 @@ li.appendix span, li.part span { /* for TOC part names */
   height: auto !important;
 }
 
+/*----    pub-book    ----*/
+
+.pub-book{
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,.07);
+  margin-left: 50px;
+  margin-right: 50px;
+}
 
 /*----------Color links---------*/
 a {

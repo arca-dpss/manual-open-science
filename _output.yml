@@ -12,7 +12,7 @@ bookdown::gitbook:
       before: |
         <li class="toc-logo"><a href="./"><img src="assets/images/arca-logo.png"></a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <div class="pub-book"><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></div>
     edit: https://github.com/arca-dpss/manual-open-science/edit/master/%s
     download: ["pdf"]
     sharing:

@@ -8,7 +8,6 @@ library(targets)
 
 # Load packages
 library("tidyverse")
-library("lme4")
 
 # List all scripts in R/
 script_list <- list.files("R", full.names = TRUE)

@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Workflow Analysis | The Open Science Manual</title>
+  <meta name="description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Workflow Analysis | The Open Science Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+  <meta property="og:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="github-repo" content="arca-dpss/manual-open-science" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Workflow Analysis | The Open Science Manual" />
+  
+  <meta name="twitter:description" content="<p>The present book aims to describe programming good practices and introduce common tools
+used in software development to guarantee reproducibility of the analysis results.
+We want to make scientific research an open-source knowledge development.</p>" />
+  <meta name="twitter:image" content="https://arca-dpss.github.io/manual-open-science//assets/images/arca-logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/toc.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="assets/images/arca-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-summary"><i class="fa fa-check"></i>Book Summary</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-the-authors"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#arca"><i class="fa fa-check"></i>ARCA</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cite"><i class="fa fa-check"></i>Cite</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#book-structure"><i class="fa fa-check"></i><b>1.1</b> Book Structure</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#instructions"><i class="fa fa-check"></i><b>1.2</b> Instructions</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#programming-language"><i class="fa fa-check"></i><b>1.2.1</b> Programming Language</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#long-journey"><i class="fa fa-check"></i><b>1.2.2</b> Long Journey</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#non-programmer-friendly"><i class="fa fa-check"></i><b>1.2.3</b> Non-Programmer Friendly</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#info-boxes"><i class="fa fa-check"></i><b>1.2.4</b> Info Boxes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html"><i class="fa fa-check"></i><b>2</b> Workflow Analysis</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducible-workflow"><i class="fa fa-check"></i><b>2.1</b> Reproducible Workflow</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#run-the-analysis"><i class="fa fa-check"></i><b>2.1.1</b> Run the Analysis</a></li>
+<li class="chapter" data-level="2.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#documentation"><i class="fa fa-check"></i><b>2.1.2</b> Documentation</a></li>
+<li class="chapter" data-level="2.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility-issues"><i class="fa fa-check"></i><b>2.1.3</b> Reproducibility Issues</a></li>
+<li class="chapter" data-level="2.1.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#workflow-manager"><i class="fa fa-check"></i><b>2.1.4</b> Workflow Manager</a>
+<ul>
+<li class="chapter" data-level="2.1.4.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#make"><i class="fa fa-check"></i><b>2.1.4.1</b> Make</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#r"><i class="fa fa-check"></i><b>2.2</b> R</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#analysis-workflow"><i class="fa fa-check"></i><b>2.2.1</b> Analysis Workflow</a>
+<ul>
+<li class="chapter" data-level="2.2.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#script-sections"><i class="fa fa-check"></i><b>2.2.1.1</b> Script Sections</a></li>
+<li class="chapter" data-level="2.2.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#load-functions"><i class="fa fa-check"></i><b>2.2.1.2</b> Loading Functions</a></li>
+<li class="chapter" data-level="2.2.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#loading-r-packages"><i class="fa fa-check"></i><b>2.2.1.3</b> Loading R-packages</a></li>
+<li class="chapter" data-level="2.2.1.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility"><i class="fa fa-check"></i><b>2.2.1.4</b> Reproducibility</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#workflow-manager-1"><i class="fa fa-check"></i><b>2.2.2</b> Workflow Manager</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets"><i class="fa fa-check"></i><b>2.3</b> Targets</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#project-structure"><i class="fa fa-check"></i><b>2.3.1</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="2.3.1.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-script"><i class="fa fa-check"></i><b>2.3.1.1</b> The <code>_targets.R</code> Script</a></li>
+<li class="chapter" data-level="2.3.1.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#defining-targets"><i class="fa fa-check"></i><b>2.3.1.2</b> Defining Targets</a></li>
+<li class="chapter" data-level="2.3.1.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-store"><i class="fa fa-check"></i><b>2.3.1.3</b> The <code>_targets/</code> Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#the-targets-workflow"><i class="fa fa-check"></i><b>2.3.2</b> The <code>targets</code> Workflow</a>
+<ul>
+<li class="chapter" data-level="2.3.2.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#check-the-pipeline"><i class="fa fa-check"></i><b>2.3.2.1</b> Check the Pipeline</a></li>
+<li class="chapter" data-level="2.3.2.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#run-the-pipeline"><i class="fa fa-check"></i><b>2.3.2.2</b> Run the Pipeline</a></li>
+<li class="chapter" data-level="2.3.2.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#make-changes"><i class="fa fa-check"></i><b>2.3.2.3</b> Make Changes</a></li>
+<li class="chapter" data-level="2.3.2.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#get-the-results"><i class="fa fa-check"></i><b>2.3.2.4</b> Get the Results</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#advanced-features"><i class="fa fa-check"></i><b>2.3.3</b> Advanced Features</a>
+<ul>
+<li class="chapter" data-level="2.3.3.1" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-proj"><i class="fa fa-check"></i><b>2.3.3.1</b> Project Structure</a></li>
+<li class="chapter" data-level="2.3.3.2" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#targets-rmarkdown"><i class="fa fa-check"></i><b>2.3.3.2</b> <code>targets</code> and R Markdown</a></li>
+<li class="chapter" data-level="2.3.3.3" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#reproducibility-1"><i class="fa fa-check"></i><b>2.3.3.3</b> Reproducibility</a></li>
+<li class="chapter" data-level="2.3.3.4" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#branching"><i class="fa fa-check"></i><b>2.3.3.4</b> Branching</a></li>
+<li class="chapter" data-level="2.3.3.5" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#high-performance-computing"><i class="fa fa-check"></i><b>2.3.3.5</b> High-Performance Computing</a></li>
+<li class="chapter" data-level="2.3.3.6" data-path="workflow-analysis-chapter.html"><a href="workflow-analysis-chapter.html#load-all-targets"><i class="fa fa-check"></i><b>2.3.3.6</b> Load All Targets</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Open Science Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <script src="assets/hideOutput.js"></script>
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+
+
+
+<div class="hero-image-container">
+  <img class= "hero-image" src="assets/images/banner.png">
+</div>
+<div id="workflow-analysis-chapter" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Workflow Analysis<a href="workflow-analysis-chapter.html#workflow-analysis-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In the previous chapters, we learned to organize all our files and data in a well structured and documented repository. Moreover, we learned how to write readable and maintainable code and to use Git and GitHub for tracking changes and managing collaboration during the development of our project.</p>
+<p>At this point, we have everything we need to run our analysis. In this chapter, we discuss how to manage the analysis workflow to enhance results reproducibility and code maintainability.</p>
+<div id="reproducible-workflow" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Reproducible Workflow<a href="workflow-analysis-chapter.html#reproducible-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To enhance results reproducibility we need to establish a workflow that will allow other colleagues to easily run the analysis. First, we describe how to organize the code used to run the analysis. Next, we discuss the importance of appropriate documentation and common issues related to results reproducibility. Finally, we discuss workflow management tools used to create specific pipelines for running our analysis. These tools allow us to improve the analysis maintainability during the project development.</p>
+<div id="run-the-analysis" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Run the Analysis<a href="workflow-analysis-chapter.html#run-the-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In Chapter <a href="#functional-style"><strong>??</strong></a>, we introduced the functional style approach that allows us to organize and develop the code required for the analysis very efficiently. In summary, instead of having a unique script, we define functions to execute each analysis step breaking down the code into small pieces. These functions are defined in separate scripts and subsequently used in another script to run the analysis.</p>
+<p>Therefore, in our project we can organize our scripts into two different directories:</p>
+<ul>
+<li><code>analysis/</code>: A directory with the scripts needed to run all the steps of the analysis.</li>
+<li><code>code/</code>: A directory with all the scripts in which we defined the functions used in the analysis.</li>
+</ul>
+<p>But how can we organize the scripts used to run the analysis? Well, of course, this will depend on the complexity of the analysis and its specific characteristics. However, let’s see some general advice:</p>
+<ul>
+<li><strong>Single Script.</strong> If the analysis is relatively short and straightforward, we can simply collect everything in a single script. Using the functions defined elsewhere, we specify all the analysis steps in the required order. To run the analysis, we execute the script line by line in the given order (from top to bottom).</li>
+<li><strong>Multiple Scripts.</strong> When the analysis is very long or composed of different distinct steps, it is preferable to break down the analysis into different scripts. In this way, each script is used to run a specific part of the analysis. A good idea is to name each script with an auto-descriptive name preceded by a <strong>progressive number</strong> (e.g., <code>xx-&lt;script-goal&gt;</code>). Auto-descriptive names allow us to easily understand the aim of each script, whereas progressive numbers indicate the required order in which scripts should be executed. As later scripts may rely on results obtained in previous ones, it is necessary to run each script in the required order one at a time.</li>
+<li><strong>Main Script.</strong> In the case of complex analysis with multiple scripts, it may be helpful to define an extra script to manage the whole analysis run. We can name this special script <code>main</code> and use it to manage the analysis by running the other scripts in the required order and dealing with other workflow aspects (e.g., settings and options). By doing this, we can run complex analyses following a simple and organized process.</li>
+</ul>
+<p>Following these general recommendations, we obtain a well-structured project that allows us to easily move between the different analysis parts and reproduce the results. As a hypothetical example, we could end up having a project with the following structure.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="workflow-analysis-chapter.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> my-project/</span>
+<span id="cb2-2"><a href="workflow-analysis-chapter.html#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span></span>
+<span id="cb2-3"><a href="workflow-analysis-chapter.html#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> analysis/</span>
+<span id="cb2-4"><a href="workflow-analysis-chapter.html#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> 01-data-preparation</span>
+<span id="cb2-5"><a href="workflow-analysis-chapter.html#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> 02-experiment-A</span>
+<span id="cb2-6"><a href="workflow-analysis-chapter.html#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> 03-experiment-B</span>
+<span id="cb2-7"><a href="workflow-analysis-chapter.html#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> 04-comparison-experiments</span>
+<span id="cb2-8"><a href="workflow-analysis-chapter.html#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> 05-sensitivity-analysis</span>
+<span id="cb2-9"><a href="workflow-analysis-chapter.html#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> main</span>
+<span id="cb2-10"><a href="workflow-analysis-chapter.html#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> code/</span>
+<span id="cb2-11"><a href="workflow-analysis-chapter.html#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> data-munging</span>
+<span id="cb2-12"><a href="workflow-analysis-chapter.html#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> models</span>
+<span id="cb2-13"><a href="workflow-analysis-chapter.html#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> plots-tables</span>
+<span id="cb2-14"><a href="workflow-analysis-chapter.html#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> utils</span></code></pre></div>
+</div>
+<div id="documentation" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Documentation<a href="workflow-analysis-chapter.html#documentation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Independently of the way we organize the scripts used to run the analysis, it is important to always provide appropriate documentation. This includes both comments within the scripts to describe all the analysis steps and step-by-step instructions on how to reproduce the analysis results.</p>
+<ul>
+<li><p><strong>Comments Analysis Steps.</strong> In Chapter <a href="#comments"><strong>??</strong></a>, we described general advice on how to write informative comments for the code. In summary, comments should explain “<em>why</em>” rather than “<em>what</em>”. However, as we are commenting on the analysis steps rather than the code itself, in this case, it is also important to clearly describe “<em>what</em>” we are doing in the different analysis steps.</p>
+<p>Of course, we still need to provide information about the “<em>why</em>” of particular choices. However, specific choices during the analysis usually have theoretical reasons and implications that could be better addressed in a report (supplemental material or paper) used to present the results. Ideally, comments should describe the analysis steps to allow colleagues (not familiar with the project) to follow and understand the whole process while reading the analysis scripts.</p></li>
+<li><p><strong>Instructions Analysis Run.</strong> Step-by-step instructions on how to run the analysis are usually provided in the <code>README</code> file. We need to provide enough details to allow colleagues (not familiar with the project) to reproduce the results.</p></li>
+</ul>
+<p>Documenting the analysis workflow is time-consuming and therefore an often overlooked aspect. However, documentation is extremely important as it allows other colleagues to easily navigate around all the files and reproduce the analysis. Remember, this could be the future us!</p>
+</div>
+<div id="reproducibility-issues" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Reproducibility Issues<a href="workflow-analysis-chapter.html#reproducibility-issues" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A well structured and documented analysis workflow is a big step toward results reproducibility. However, it is not guaranteed that everyone will obtain the exact same results. Let’s discuss some aspects that could hinder result reproducibility.</p>
+<ul>
+<li><p><strong>Random Number Generator.</strong> During the analysis, some processes may require the generation of random numbers. As these numbers are (pseudo-) random, they will be different at each analysis run. For this reason, we could obtain slightly different values when reproducing the results. Fortunately, programming languages provide ad-hoc functions to allow reproducibility of random numbers generation. We should look at the specific functions documentation and adopt the suggested solutions. Usually, we need to set the seed for initializing the state for random number generation.</p></li>
+<li><p><strong>Session Settings.</strong> Other global settings related to the specific programming language may affect the final results. We need to ensure that the analysis is run using the same settings each time. To do that we can specify the required options directly in the analysis script as code lines to be executed.</p></li>
+<li><p><strong>Project Requirements.</strong> Other elements such as operating system, specific software version, and installed libraries could affect the analysis results. In Chapter <a href="#requirements-chapter"><strong>??</strong></a> and Chapter <a href="#docker-chapter"><strong>??</strong></a>, we discuss how to manage project requirements to guarantee results reproducibility.</p></li>
+</ul>
+</div>
+<div id="workflow-manager" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Workflow Manager<a href="workflow-analysis-chapter.html#workflow-manager" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>At this point, we would like something to help us manage the workflow. In particular, we need a tool that allows us to:</p>
+<ul>
+<li><strong>Automatically Run the Analysis.</strong> Ideally, we should be able to run the whole analysis in a single click (or better a single command line), following a pre-defined analysis pipeline.</li>
+<li><strong>Discover Dependencies.</strong> Tracking the dependencies between the different analysis parts allows for identifying the objects that are affected by changes or modifications in the code.</li>
+<li><strong>Update the Analysis.</strong> Following changes in the analysis (or when new analysis parts are added), results should be updated computing only the outdated dependencies (or the new objects) that were affected by the changes made. In this way, we avoid re-running unnecessary analysis parts, optimizing the required time.</li>
+<li><strong>Caching System.</strong> Saving copies of the intermediate and final analysis objects so they can be used later avoiding to re-run the analysis at each session.</li>
+</ul>
+<p>A manager tool with these characteristics is particularly useful during the project development, allowing a very smooth workflow. In Section <a href="workflow-analysis-chapter.html#make">2.1.4.1</a>, we introduce Make, a Unix utility that allows us to automate tasks execution for general purposes. In Section <a href="workflow-analysis-chapter.html#targets">2.3</a>, we present specific solutions for the R programming language.</p>
+<div id="make" class="section level4 hasAnchor" number="2.1.4.1">
+<h4><span class="header-section-number">2.1.4.1</span> Make<a href="workflow-analysis-chapter.html#make" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Make is a Unix utility that manages the execution of general tasks. It is commonly used to automatize packages and programs installation, however, it can be also used to manage any project workflow. In Windows, an analogous tool is NMake (see <a href="https://docs.microsoft.com/en-us/cpp/build/reference/nmake-reference" class="uri">https://docs.microsoft.com/en-us/cpp/build/reference/nmake-reference</a>)</p>
+<p>Make has several powerful features. In particular, it allows us to define dependencies between the different project parts and it automatically figures out which files to update following changes or modifications. Moreover, Make is not limited to a particular language but it can be used for any purpose. See official documentation for more details <a href="https://www.gnu.org/software/make/" class="uri">https://www.gnu.org/software/make/</a>.</p>
+<p>Make requires a <code>Makefile</code> (or <code>makefile</code>) where all the tasks to be executed are defined. <code>Makefile</code> has its own syntax that is beyond the aim of the present book. Interested readers can refer to this tutorial for a general introduction to Make <a href="https://opensource.com/article/18/8/what-how-makefile" class="uri">https://opensource.com/article/18/8/what-how-makefile</a>.</p>
+<p>Ideally, we could create a <code>Makefile</code> with all the details and use Make to automatize the analysis workflow. This would be very useful but it requires some extra programming skills. In Section <a href="workflow-analysis-chapter.html#targets">2.3</a>, we introduce alternative tools specific to the R programming language. However, Make may still be the choice to go if we need to integrate multiple programs into the workflow or for more general purposes.</p>
+</div>
+</div>
+</div>
+<div id="r" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> R<a href="workflow-analysis-chapter.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we discuss how to manage the analysis workflow specifically when using the R programming language. First, we consider some general recommendations and how to solve possible reproducibility issues. Next, we describe the main R-packages available to manage the analysis workflow.</p>
+<div id="analysis-workflow" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Analysis Workflow<a href="workflow-analysis-chapter.html#analysis-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In Chapter <a href="#r-package-proj"><strong>??</strong></a>, we discussed how to create our custom functions to execute specific parts of the analysis. Following the R-packages convention, we store all the <code>.R</code> scripts with our custom functions in the <code>R/</code> directory at the root of our project.</p>
+<p>Now, we can use our custom functions to run the analysis. We do that in separate <code>.R</code> scripts saved in a different directory named, for example, <code>analysis/</code>. Of course, during the actual analysis development, this is an iterative process. We continuously switch between defining functions and adding analysis steps. It is important, however, to always keep the scripts used to run the analysis in a separate directory from the scripts with our custom functions:</p>
+<ul>
+<li><code>analysis/</code>: Scripts to run the analysis.</li>
+<li><code>R/</code>: Scripts with function definitions.</li>
+</ul>
+<p>Considering the previous example, we would have a project with the following structure.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="workflow-analysis-chapter.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> my-project/</span>
+<span id="cb3-2"><a href="workflow-analysis-chapter.html#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span></span>
+<span id="cb3-3"><a href="workflow-analysis-chapter.html#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> analysis/</span>
+<span id="cb3-4"><a href="workflow-analysis-chapter.html#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> 01-data-preparation.R</span>
+<span id="cb3-5"><a href="workflow-analysis-chapter.html#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> 02-experiment-A.R</span>
+<span id="cb3-6"><a href="workflow-analysis-chapter.html#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> 03-experiment-B.R</span>
+<span id="cb3-7"><a href="workflow-analysis-chapter.html#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> 04-comparison-experiments.R</span>
+<span id="cb3-8"><a href="workflow-analysis-chapter.html#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> 05-sensitivity-analysis.R</span>
+<span id="cb3-9"><a href="workflow-analysis-chapter.html#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> main.R</span>
+<span id="cb3-10"><a href="workflow-analysis-chapter.html#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> R/</span>
+<span id="cb3-11"><a href="workflow-analysis-chapter.html#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> data-munging.R</span>
+<span id="cb3-12"><a href="workflow-analysis-chapter.html#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> models.R</span>
+<span id="cb3-13"><a href="workflow-analysis-chapter.html#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> plots-tables.R</span>
+<span id="cb3-14"><a href="workflow-analysis-chapter.html#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> utils.R</span></code></pre></div>
+<div id="script-sections" class="section level4 hasAnchor" number="2.2.1.1">
+<h4><span class="header-section-number">2.2.1.1</span> Script Sections<a href="workflow-analysis-chapter.html#script-sections" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To enhance the readability of the analysis scripts, we can divide the code into sections. In RStudio, it is possible to create sections adding at the end of a comment line four (or more) consecutive symbols <code>####</code> (alternatively, <code>----</code> or <code>====</code>).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="workflow-analysis-chapter.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 1 ####</span></span>
+<span id="cb4-2"><a href="workflow-analysis-chapter.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="workflow-analysis-chapter.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 2 ----</span></span>
+<span id="cb4-4"><a href="workflow-analysis-chapter.html#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="workflow-analysis-chapter.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Section 3    ----</span></span>
+<span id="cb4-6"><a href="workflow-analysis-chapter.html#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="workflow-analysis-chapter.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">####   Not Valid Section   --##</span></span></code></pre></div>
+<p>Using the available characters, it is possible to create different styles. The important thing is to finish the line with four (or more) identical symbols. As an example, we could organize our script as presented below</p>
+<p><img src="images/workflow/script-sections.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>One of the advantages of organizing our script into sections is that at the top right corner we can find a navigation menu with the document outline. Section titles are given by the comment text.</p>
+<p><img src="images/workflow/nav-top.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Another navigation bar is also available at the bottom left corner.</p>
+<p><img src="images/workflow/nav-bottom.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Dividing the code into sections enhances readability and helps us to navigate between the different analysis parts. However, we should avoid creating too long scripts as they are more difficult to maintain.</p>
+<div class="trick" title="Collapsing Sections">
+<p>Note that next to the code line number, small arrows are now displayed. These arrows allow us to expand/collapse code sections.</p>
+<p><img src="images/workflow/script-collapsed.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="load-functions" class="section level4 hasAnchor" number="2.2.1.2">
+<h4><span class="header-section-number">2.2.1.2</span> Loading Functions<a href="workflow-analysis-chapter.html#load-functions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>As we have defined our custom functions in separate scripts, before we can use them, we need to load them in our session environment. To do that we have two different solutions:</p>
+<ul>
+<li><p><strong><code>source()</code>.</strong> This function allows us to read code from R scripts, see <code>?source()</code> for options and details. Assuming all the required scripts are in the <code>R/</code> directory in the project root, we can use the following code lines to list all available scripts and source them:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="workflow-analysis-chapter.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List all scripts in R/</span></span>
+<span id="cb5-2"><a href="workflow-analysis-chapter.html#cb5-2" aria-hidden="true" tabindex="-1"></a>script_list <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">&quot;R&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-3"><a href="workflow-analysis-chapter.html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="workflow-analysis-chapter.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Source scripts</span></span>
+<span id="cb5-5"><a href="workflow-analysis-chapter.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">sapply</span>(script_list, source))</span></code></pre></div></li>
+<li><p><strong><code>devtools::load_all()</code>.</strong> We briefly introduced the <code>devtools</code> R package in Chapter <a href="#devtools-workflow"><strong>??</strong></a>. This package provides many useful functions that facilitate our workflow when using the R-package project template (remember that the <code>DESCRIPTION</code> file is required). The function <code>devtools::load_all()</code> allows us to automatically source all scripts in the <code>R/</code> directory. See <code>?devtools::load_all()</code> for options and details. We can use <code>devtools::load_all()</code> in our analysis script specifying as argument the path to the project root where the <code>DESCRIPTION</code> file is present.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="workflow-analysis-chapter.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load functions</span></span>
+<span id="cb6-2"><a href="workflow-analysis-chapter.html#cb6-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>(<span class="at">path =</span> <span class="st">&quot;&lt;path-to-the-project-root&gt;&quot;</span>)</span></code></pre></div>
+<p>The keyboard shortcut <code>Ctrl/Cmd + Shift + L</code> is also available. This is very handy during the analysis development as it facilitates the common workflow:</p>
+<ol style="list-style-type: decimal">
+<li><em>Write a new function</em></li>
+<li><em>Save the script</em></li>
+<li><em>Load all functions with</em> <code>Ctrl/Cmd + Shift + L</code></li>
+<li><em>keep working on the analysis</em></li>
+</ol></li>
+</ul>
+<p>We should include the code snippet used to load our custom functions at the beginning of the analysis scripts. Alternatively, we can include it in the <code>.Rprofile</code> to automatically load all functions at the beginning of each session. The latter approach, however, may lead to some problems. In particular, it limits the code readability as colleagues not familiar with the <code>.Rprofile</code> could not understand what is going on. Moreover, <code>.Rprofile</code> is not always automatically sourced when compiling dynamic documents. When compiling a document using the <code>Knit</code> button in Rstudio, a separate R session is launched using as working directory the document location. If this is not the project root (where the <code>.Rprofile</code> is located), the <code>.Rprofile</code> is not sourced.</p>
+<p>Therefore, declaring the code snippet used to load our custom functions in the analysis scripts (or in the Rmarkdown file) following a more explicit approach is preferable (see <a href="#using-rprofile"><em>“Trick-Box: Using .Rprofile”</em></a> below for a good tip).</p>
+<p><a name="using-rprofile"></a></p>
+<div class="trick" title="Using .Rprofile">
+<p>A good tip is to use the <code>.Rprofile</code> to run all commands and set options required to work on the analysis development. By doing this we can automate all those processes routinely done at the beginning of each session allowing us to jump straight into the development workflow without wasting time.</p>
+<p>Common routine processes are loading our custom functions, loading required packages, and specifying preferred settings. For example, a possible <code>.Rprofile</code> may look like,</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="workflow-analysis-chapter.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    .Rprofile    ----#</span></span>
+<span id="cb7-2"><a href="workflow-analysis-chapter.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="workflow-analysis-chapter.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load custom functions</span></span>
+<span id="cb7-4"><a href="workflow-analysis-chapter.html#cb7-4" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()</span>
+<span id="cb7-5"><a href="workflow-analysis-chapter.html#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="workflow-analysis-chapter.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb7-7"><a href="workflow-analysis-chapter.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb7-8"><a href="workflow-analysis-chapter.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;lme4&quot;</span>)</span>
+<span id="cb7-9"><a href="workflow-analysis-chapter.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="workflow-analysis-chapter.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Settings ggplot</span></span>
+<span id="cb7-11"><a href="workflow-analysis-chapter.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span></code></pre></div>
+<p>The actual analysis run, however, should rely only on the code declared explicitly in the analysis script. This would facilitate the analysis readability for colleagues not familiar with more advanced R features and avoid possible problems related to the creation of new R sessions (as in the case of dynamic documents compilation).</p>
+<p>Note, however, that if we run the analysis script in our current session, the commands specified in the <code>.Rrofile</code> are still valid. To manage separately the session where we develop the analysis from the session where the analysis is run, we can evaluate whether the session is interactive or not. By specifying,</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="workflow-analysis-chapter.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    .Rprofile    ----#</span></span>
+<span id="cb8-2"><a href="workflow-analysis-chapter.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="workflow-analysis-chapter.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Commands for interactive and non-interactive sessions</span></span>
+<span id="cb8-4"><a href="workflow-analysis-chapter.html#cb8-4" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb8-5"><a href="workflow-analysis-chapter.html#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="workflow-analysis-chapter.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Commands only for interactive sessions</span></span>
+<span id="cb8-7"><a href="workflow-analysis-chapter.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">interactive</span>()){</span>
+<span id="cb8-8"><a href="workflow-analysis-chapter.html#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load custom functions</span></span>
+<span id="cb8-9"><a href="workflow-analysis-chapter.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  devtools<span class="sc">::</span><span class="fu">load_all</span>()</span>
+<span id="cb8-10"><a href="workflow-analysis-chapter.html#cb8-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-11"><a href="workflow-analysis-chapter.html#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load packages</span></span>
+<span id="cb8-12"><a href="workflow-analysis-chapter.html#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb8-13"><a href="workflow-analysis-chapter.html#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(<span class="st">&quot;lme4&quot;</span>)</span>
+<span id="cb8-14"><a href="workflow-analysis-chapter.html#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="workflow-analysis-chapter.html#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Settings ggplot</span></span>
+<span id="cb8-16"><a href="workflow-analysis-chapter.html#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
+<span id="cb8-17"><a href="workflow-analysis-chapter.html#cb8-17" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>commands defined inside the <code>if(interactive()){}</code> block are executed only in interactive sessions (usually when we develop the code). Note that commands defined outside the <code>if(interactive()){}</code> block will be always executed.</p>
+<p>To run the analysis in a non-interactive session, we can run the script directly from the terminal (<strong>not the R console!</strong>) using the command,</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="workflow-analysis-chapter.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> Rscript <span class="op">&lt;</span>path-to/script.R<span class="op">&gt;</span></span></code></pre></div>
+<p>For further details about running R in non-interactive mode, see <a href="https://github.com/gastonstat/tutorial-R-noninteractive" class="uri">https://github.com/gastonstat/tutorial-R-noninteractive</a>. Note that using the <code>Knit</code> button in Rstudio (or using the <code>targets</code> workflow to run the analysis; see Section <a href="workflow-analysis-chapter.html#targets">2.3</a>) automatically runs the code in a new, non-interactive session.</p>
+</div>
+</div>
+<div id="loading-r-packages" class="section level4 hasAnchor" number="2.2.1.3">
+<h4><span class="header-section-number">2.2.1.3</span> Loading R-packages<a href="workflow-analysis-chapter.html#loading-r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>During our analysis, we will likely need to load several R packages. To do that, we can use different approaches:</p>
+<ul>
+<li><strong>Analysis Scripts.</strong> We can declare the required packages directly at the beginning of the analysis scripts. The packages will be loaded when running the code.</li>
+<li><strong><code>.Rprofile</code>.</strong> Declaring the required packages in the <code>.Rprofile</code>, we can automatically load them at the beginning of each session.</li>
+<li><strong><code>DESCRIPTION</code>.</strong> When using the R-package project template, we can specify the required packages in the <code>DESCRIPTION</code> file. In particular, packages listed in the <code>Depends</code> field are automatically loaded at the beginning of each session. See <a href="https://r-pkgs.org/namespace.html?q=depends#imports" class="uri">https://r-pkgs.org/namespace.html?q=depends#imports</a> for further details.</li>
+</ul>
+<p>As in the case of loading custom functions (see Section <a href="workflow-analysis-chapter.html#load-functions">2.2.1.2</a>), it is preferable to explicitly declare the required packages in the analysis scripts. This facilitates the analysis readability for colleagues not familiar with the <code>.Rprofile</code> and the <code>DESCRIPTION</code> file functioning. However, the <code>.Rprofile</code> (and the <code>DESCRIPTION</code> file) can still be used to facilitate the workflow during the analysis development (see <a href="#using-rprofile"><em>“Trick-Box: Using .Rprofile”</em></a> above).</p>
+<div class="design" title="Conflicts">
+<p>Another aspect to take into account is the presence of <strong>conflicts among packages</strong>. Conflicts happen when two loaded packages have functions with the same name. In R, the default conflict resolution system is to give precedence to the most recently loaded package. However, this makes it difficult to detect conflicts and can waste a lot of time debugging. To avoid package conflicts, we can:</p>
+<ul>
+<li><strong><code>conflicted</code>.</strong> The R package <code>conflicted</code> <span class="citation">(<a href="#ref-R-conflicted" role="doc-biblioref">Wickham, 2021</a>)</span> adopts a different approach making every conflict an error. This forces us to solve conflicts by explicitly defining the function to use. See <a href="https://conflicted.r-lib.org/" class="uri">https://conflicted.r-lib.org/</a> for more information.</li>
+<li><strong><code>&lt;package&gt;::&lt;function&gt;</code>.</strong> We can refer to a specific function by using the syntax <code>&lt;package&gt;::&lt;function&gt;</code>. In this case, we are no longer required to load the package with the <code>library("&lt;package&gt;")</code> command avoiding possible conflicts. This approach is particularly useful if only a few functions are required from a package. However, not that not loading the package prevents also package-specific classes and methods from being available. This aspect could lead to possible errors or unexpected results. See <a href="http://adv-r.had.co.nz/OO-essentials.html" class="uri">http://adv-r.had.co.nz/OO-essentials.html</a> for more details on classes and methods.</li>
+</ul>
+<p>Common conflicts to be aware of are:</p>
+<ul>
+<li><code>dplyr::select()</code> vs <code>MASS::select()</code></li>
+<li><code>dplyr::filter()</code> vs <code>stats::filter()</code></li>
+</ul>
+</div>
+</div>
+<div id="reproducibility" class="section level4 hasAnchor" number="2.2.1.4">
+<h4><span class="header-section-number">2.2.1.4</span> Reproducibility<a href="workflow-analysis-chapter.html#reproducibility" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finally, let’s discuss some details that may hinder result reproducibility:</p>
+<ul>
+<li><strong>Random Number Generator.</strong> In R, using the function <code>set.seed()</code> we can specify the seed to allow reproducibility of random numbers generation. See <code>?set.seed()</code> for options and details. Ideally, we specify the seed at the beginning of the script used to run the analysis. Note that functions that call other software (e.g., <code>brms::brm()</code> or <code>rstan::stan()</code> which are based on Stan) may have their own <code>seed</code> argument that is independent of the seed in the R session. In this case, we need to specify both seeds to obtain reproducible results.</li>
+<li><strong>Global Options.</strong> If our project relies on some specific global options (e.g, <code>stringsAsFactors</code> or <code>contrasts</code>), we should define them explicitly at the beginning of the script used to run the analysis. See <code>?options()</code> for further details. Note that we could also specify global options in the <code>.Rprofile</code> to facilitate our workflow during the analysis development (see <a href="#using-rprofile"><em>“Trick-Box: Using .Rprofile”</em></a> above).</li>
+<li><strong>Project Requirements.</strong> To enhance results reproducibility, we should use the same R and R packages versions as in the original analysis. In Chapter <a href="#r-dependencies"><strong>??</strong></a>, we discuss how to manage project requirements.</li>
+</ul>
+<div class="tip" title="Settings Section">
+<p>We recommend creating a section <em>“Settings”</em> at the top of the main script where to collect the code used to define the setup of our analysis session. This includes:</p>
+<ul>
+<li>Loading required <strong>packages</strong></li>
+<li>Setting required <strong>session options</strong></li>
+<li>Defining the <strong>random seed</strong></li>
+<li>Defining <strong>global variables</strong></li>
+<li>Loading custom functions</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="workflow-manager-1" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Workflow Manager<a href="workflow-analysis-chapter.html#workflow-manager-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In R, two main packages are used to create pipelines and manage the analysis workflow facilitating the project maintainability and enhancing result reproducibility. These packages are:</p>
+<ul>
+<li><strong><code>targets</code></strong> (<a href="https://github.com/ropensci/targets" class="uri">https://github.com/ropensci/targets</a>). The <code>targets</code> package <span class="citation">(<a href="#ref-R-targets" role="doc-biblioref">Landau, 2022b</a>)</span> creates a Make-like pipeline. <code>targets</code> identifies dependencies between the analysis targets, skips targets that are already up to date, and runs only the necessary outdated targets. This package enables an optimal, maintainable and reproducible workflow.</li>
+<li><strong><code>workflowr</code></strong> (<a href="https://github.com/workflowr/workflowr" class="uri">https://github.com/workflowr/workflowr</a>). The <code>workflowr</code> package <span class="citation">(<a href="#ref-R-workflowr" role="doc-biblioref">Blischak et al., 2021</a>)</span> organizes the project to enhance management, reproducibility, and sharing of analysis results. In particular, <code>workflowr</code> also allows us to create a website to document the results via GitHub Pages or GitLab Pages.</li>
+</ul>
+<p>Between the two packages, <code>targets</code> serves more general purposes and has more advanced features. Therefore, it can be applied in many different scenarios. On the other hand, <code>workflowr</code> offers the interesting possibility of creating a website to document the results. However, we can create a website using other packages with lots more customizable options, such as <code>bookdown</code> (<a href="https://github.com/rstudio/bookdown" class="uri">https://github.com/rstudio/bookdown</a>), <code>blogdown</code> (<a href="https://github.com/rstudio/blogdown" class="uri">https://github.com/rstudio/blogdown</a>), or <code>pkgdown</code> (<a href="https://github.com/r-lib/pkgdown" class="uri">https://github.com/r-lib/pkgdown</a>). Moreover, using <code>targets</code> does not exclude that we can also use <code>workflowr</code> to create the website. For more details see <a href="https://books.ropensci.org/targets/markdown.html" class="uri">https://books.ropensci.org/targets/markdown.html</a>.</p>
+<p>In the next section, we discuss in more detail the <code>targets</code> workflow.</p>
+</div>
+</div>
+<div id="targets" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Targets<a href="workflow-analysis-chapter.html#targets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="packages-logo-box", style="width: 200px;"><img src="images/workflow/targets-hex.png"></div>
+<p>The <code>targets</code> package (successor of <code>drake</code>) creates a Make-like pipeline to enable an optimal, maintainable and reproducible workflow. Similar to Make, <code>targets</code> identifies dependencies between the analysis targets, skips targets that are already up to date, and runs only the necessary outdated targets. Moreover, <code>targets</code> support high-performance computing allowing us to run multiple tasks in parallel on our local machine or a computing cluster. Finally, <code>targets</code> also provide an efficient cache system to easily access all intermediate and final analysis results.</p>
+<p>In the next sections, we introduce the <code>targets</code> workflow and its main features. This should be enough to get started, however, we highly encourage everyone to take a tour of <code>targets</code> official documentation available at <a href="https://books.ropensci.org/targets/" class="uri">https://books.ropensci.org/targets/</a>. There are many more aspects to learn and solutions for possible issues.</p>
+<div id="project-structure" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Project Structure<a href="workflow-analysis-chapter.html#project-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To manage the analysis using <code>targets</code>, some specific files are required. As an example of a minimal workflow, consider the following project structure.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="workflow-analysis-chapter.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> my-project/</span>
+<span id="cb10-2"><a href="workflow-analysis-chapter.html#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span></span>
+<span id="cb10-3"><a href="workflow-analysis-chapter.html#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> _targets.R</span>
+<span id="cb10-4"><a href="workflow-analysis-chapter.html#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> _targets/</span>
+<span id="cb10-5"><a href="workflow-analysis-chapter.html#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
+<span id="cb10-6"><a href="workflow-analysis-chapter.html#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> raw-data.csv</span>
+<span id="cb10-7"><a href="workflow-analysis-chapter.html#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> R/</span>
+<span id="cb10-8"><a href="workflow-analysis-chapter.html#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> my-functions.R</span>
+<span id="cb10-9"><a href="workflow-analysis-chapter.html#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> ...</span></code></pre></div>
+In line with the common project structure, we have a fictional data set (<code>Data/raw-data.csv</code>) to analyse,
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+ID
+</th>
+<th style="text-align:left;">
+x
+</th>
+<th style="text-align:right;">
+y
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+2.583
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+2.499
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+-0.625
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+…
+</td>
+<td style="text-align:left;">
+…
+</td>
+<td style="text-align:right;">
+…
+</td>
+</tr>
+</tbody>
+</table>
+<p>and <code>R/My-functions.R</code> with our custom functions to run the analysis. In addition, we need a special R script <code>_targets.R</code> and a new directory <code>_targets/</code>.</p>
+<div id="targets-script" class="section level4 hasAnchor" number="2.3.1.1">
+<h4><span class="header-section-number">2.3.1.1</span> The <code>_targets.R</code> Script<a href="workflow-analysis-chapter.html#targets-script" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>_targets.R</code> script is a special file used to define the workflow pipeline. By default, this file is in the root directory (however, we can indicate the path to the <code>_targets.R</code> script and also specify a different name; see Section <a href="workflow-analysis-chapter.html#targets-proj">2.3.3.1</a> and <code>?tarconfig_set()</code> for special custom settings). In this case, the <code>_targets.R</code> script looks like,</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="workflow-analysis-chapter.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#==========================#</span></span>
+<span id="cb11-2"><a href="workflow-analysis-chapter.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#====    _targets.R    ====#</span></span>
+<span id="cb11-3"><a href="workflow-analysis-chapter.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#==========================#</span></span>
+<span id="cb11-4"><a href="workflow-analysis-chapter.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="workflow-analysis-chapter.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;targets&quot;</span>)</span>
+<span id="cb11-6"><a href="workflow-analysis-chapter.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="workflow-analysis-chapter.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Settings    ----</span></span>
+<span id="cb11-8"><a href="workflow-analysis-chapter.html#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="workflow-analysis-chapter.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb11-10"><a href="workflow-analysis-chapter.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb11-11"><a href="workflow-analysis-chapter.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;lme4&quot;</span>)</span>
+<span id="cb11-12"><a href="workflow-analysis-chapter.html#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="workflow-analysis-chapter.html#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Source custom functions</span></span>
+<span id="cb11-14"><a href="workflow-analysis-chapter.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;R/my-functions.R&quot;</span>)</span>
+<span id="cb11-15"><a href="workflow-analysis-chapter.html#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="workflow-analysis-chapter.html#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Options</span></span>
+<span id="cb11-17"><a href="workflow-analysis-chapter.html#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">tidyverse.quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-18"><a href="workflow-analysis-chapter.html#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="workflow-analysis-chapter.html#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Workflow    ----</span></span>
+<span id="cb11-20"><a href="workflow-analysis-chapter.html#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="workflow-analysis-chapter.html#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb11-22"><a href="workflow-analysis-chapter.html#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get data</span></span>
+<span id="cb11-23"><a href="workflow-analysis-chapter.html#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(raw_data_file, <span class="st">&quot;data/raw-data.csv&quot;</span>, <span class="at">format =</span> <span class="st">&quot;file&quot;</span>),</span>
+<span id="cb11-24"><a href="workflow-analysis-chapter.html#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(my_data, <span class="fu">get_my_data</span>(raw_data_file)),</span>
+<span id="cb11-25"><a href="workflow-analysis-chapter.html#cb11-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-26"><a href="workflow-analysis-chapter.html#cb11-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Descriptive statistics</span></span>
+<span id="cb11-27"><a href="workflow-analysis-chapter.html#cb11-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(plot_obs, <span class="fu">get_plot_obs</span>(my_data)),</span>
+<span id="cb11-28"><a href="workflow-analysis-chapter.html#cb11-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-29"><a href="workflow-analysis-chapter.html#cb11-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Inferential statistics</span></span>
+<span id="cb11-30"><a href="workflow-analysis-chapter.html#cb11-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(lm_fit, <span class="fu">get_lm_fit</span>(my_data))</span>
+<span id="cb11-31"><a href="workflow-analysis-chapter.html#cb11-31" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Let’s discuss the different parts:</p>
+<ul>
+<li><strong><code>library("targets")</code>.</strong> It is <strong>required</strong> to load the <code>targets</code> R package itself at the beginning of the script (it is only required before the workflow definition, but it is common to specify it at the top).</li>
+<li><strong>Settings.</strong> Next, we specify required R packages (also by <code>tar_option_set(packages = c("&lt;packages&gt;"))</code>; see <a href="https://books.ropensci.org/targets/packages.html" class="uri">https://books.ropensci.org/targets/packages.html</a>), load custom functions, and set the required options.</li>
+<li><strong>Workflow.</strong> Finally, we define inside a list each target of the workflow. In the example, we indicate the file with the raw data and we load the data in R. Next, we get a plot of the data and, finally, we fit a linear model.</li>
+</ul>
+</div>
+<div id="defining-targets" class="section level4 hasAnchor" number="2.3.1.2">
+<h4><span class="header-section-number">2.3.1.2</span> Defining Targets<a href="workflow-analysis-chapter.html#defining-targets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Each individual target is defined using the function <code>tar_target()</code> specifying the target name and the R expression used to compute the target. Note that all targets are collected within a list.</p>
+<p>Specifying <code>format = "file"</code>, we indicate that the specified target is a dynamic file (i.e., an external file). In this way, <code>targets</code> tracks the file to evaluate whether it is changed. For more details see <code>?tar_target()</code></p>
+<p>Each target is an intermediate step of the workflow and their results are saved to be used later. <code>targets</code> automatically identifies the dependency relations between targets and updates single targets that are invalidated due to changes made. Ideally, each target should represent a meaningful step of the analysis. However, in case of changes to the code they depend on, large targets are required to be recomputed entirely even for small changes. Breaking down a large target into smaller ones allows skipping those parts that are not invalidated by changes.</p>
+</div>
+<div id="targets-store" class="section level4 hasAnchor" number="2.3.1.3">
+<h4><span class="header-section-number">2.3.1.3</span> The <code>_targets/</code> Directory<a href="workflow-analysis-chapter.html#targets-store" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>targets</code> stores the results and all files required to run the pipeline in the <code>_targets/</code> directory. In particular, inside we can find:</p>
+<ul>
+<li><strong><code>meta/</code>.</strong> It contains metadata regarding the targets, runtimes and processes.</li>
+<li><strong><code>objects/</code>.</strong> It contains all the targets results.</li>
+<li><strong><code>users/</code>.</strong> It is used to store custom files</li>
+</ul>
+<p>This directory is automatically created the first time we run the pipeline. Therefore, we do not have to care about this directory as everything is managed by <code>targets</code>. Moreover, the entire <code>_targets/</code> directory should not be tracked by git. Only the file <code>_targets/meta/meta</code> is important. A <code>.gitignore</code> file is automatically added to track only relevant files.</p>
+<p>Note that we can also specify a location other than <code>_targets/</code> where to store the data (see <code>?tarconfig_set()</code> for special custom settings).</p>
+</div>
+</div>
+<div id="the-targets-workflow" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> The <code>targets</code> Workflow<a href="workflow-analysis-chapter.html#the-targets-workflow" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>At this point, we have everything we need to run the analysis. Let’s start the <code>targets</code> workflow.</p>
+<div id="check-the-pipeline" class="section level4 hasAnchor" number="2.3.2.1">
+<h4><span class="header-section-number">2.3.2.1</span> Check the Pipeline<a href="workflow-analysis-chapter.html#check-the-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Before running the pipeline, we can inspect it to evaluate the possible presence of errors. Using the function <code>targets::tar_manifest()</code>, we obtain a data frame with all the targets and information about them. Note that targets are ordered according to their topological order (i.e., the expected order of execution without considering parallelization and priorities). See <code>?targets::tar_manifest()</code> for further details and options.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="workflow-analysis-chapter.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_manifest</span>(<span class="at">fields =</span> <span class="st">&quot;command&quot;</span>)</span>
+<span id="cb12-2"><a href="workflow-analysis-chapter.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 4 × 2</span></span>
+<span id="cb12-3"><a href="workflow-analysis-chapter.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   name          command                       </span></span>
+<span id="cb12-4"><a href="workflow-analysis-chapter.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;         &lt;chr&gt;                         </span></span>
+<span id="cb12-5"><a href="workflow-analysis-chapter.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 raw_data_file &quot;\&quot;data/raw-data.csv\&quot;&quot;       </span></span>
+<span id="cb12-6"><a href="workflow-analysis-chapter.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 my_data       &quot;get_my_data(raw_data_file)&quot;  </span></span>
+<span id="cb12-7"><a href="workflow-analysis-chapter.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 plot_obs      &quot;get_plot_obs(data = my_data)&quot;</span></span>
+<span id="cb12-8"><a href="workflow-analysis-chapter.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 lm_fit        &quot;get_lm_fit(data = my_data)&quot;</span></span></code></pre></div>
+<p>We can also use the function <code>targets::tar_visnetwork()</code>, to visualize the pipeline and the dependency relationship between targets. The actual graph we obtain is made by the <code>visNetwork</code> package (we need to install it separately) and it is interactive (try it in RStudio). See <code>?targets::tar_visnetwork()</code> for further details and options. At the moment, all our targets are outdated.</p>
+<p><img src="images/workflow/pipeline-start.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="run-the-pipeline" class="section level4 hasAnchor" number="2.3.2.2">
+<h4><span class="header-section-number">2.3.2.2</span> Run the Pipeline<a href="workflow-analysis-chapter.html#run-the-pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Using the function <code>targets::tar_make()</code>, we can run the pipeline. All targets are evaluated in a new external session in the correct order and results are saved in the <code>_targets/</code> directory. See <code>?targets::tar_make()</code> for further details and options.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="workflow-analysis-chapter.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_make</span>()</span>
+<span id="cb13-2"><a href="workflow-analysis-chapter.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">## • start target raw_data_file</span></span>
+<span id="cb13-3"><a href="workflow-analysis-chapter.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="do">## • built target raw_data_file</span></span>
+<span id="cb13-4"><a href="workflow-analysis-chapter.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="do">## • start target my_data</span></span>
+<span id="cb13-5"><a href="workflow-analysis-chapter.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="do">## • built target my_data</span></span>
+<span id="cb13-6"><a href="workflow-analysis-chapter.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="do">## • start target plot_obs</span></span>
+<span id="cb13-7"><a href="workflow-analysis-chapter.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="do">## • built target plot_obs</span></span>
+<span id="cb13-8"><a href="workflow-analysis-chapter.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="do">## • start target lm_fit</span></span>
+<span id="cb13-9"><a href="workflow-analysis-chapter.html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="do">## • built target lm_fit</span></span>
+<span id="cb13-10"><a href="workflow-analysis-chapter.html#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="do">## • end pipeline</span></span></code></pre></div>
+<p>If we look again at <code>targets::tar_visnetwork()</code> graph, we can see that now all targets are up to date.</p>
+<p><img src="images/workflow/pipeline-end.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="make-changes" class="section level4 hasAnchor" number="2.3.2.3">
+<h4><span class="header-section-number">2.3.2.3</span> Make Changes<a href="workflow-analysis-chapter.html#make-changes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let’s say we make some changes to the function used to fit the linear model. <code>targets</code> will notice that and it will identify the invalidated targets that require to be updated. Looking at the <code>targets::tar_visnetwork()</code> graph, we can see which targets are affected by the changes made.</p>
+<p><img src="images/workflow/pipeline-new-function.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Running <code>targets::tar_make()</code> a second time, we see that up-to-date targets are skipped and only outdated targets are computed again, potentially saving us a lot of time.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="workflow-analysis-chapter.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_make</span>()</span>
+<span id="cb14-2"><a href="workflow-analysis-chapter.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">## ✔ skip target raw_data_file</span></span>
+<span id="cb14-3"><a href="workflow-analysis-chapter.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ✔ skip target my_data</span></span>
+<span id="cb14-4"><a href="workflow-analysis-chapter.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">## ✔ skip target plot_obs</span></span>
+<span id="cb14-5"><a href="workflow-analysis-chapter.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="do">## • start target lm_fit</span></span>
+<span id="cb14-6"><a href="workflow-analysis-chapter.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">## • built target lm_fit</span></span>
+<span id="cb14-7"><a href="workflow-analysis-chapter.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="do">## • end pipeline</span></span></code></pre></div>
+<p>Suppose, instead, that we made some changes to the raw data (e.g., adding new observations). <code>targets</code> will detect that as well and in this case, the whole pipeline will be invalidated.</p>
+<p><img src="images/workflow/pipeline-new-data.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="get-the-results" class="section level4 hasAnchor" number="2.3.2.4">
+<h4><span class="header-section-number">2.3.2.4</span> Get the Results<a href="workflow-analysis-chapter.html#get-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To access the targets results, we have two functions:</p>
+<ul>
+<li><strong><code>targets::tar_read()</code>.</strong> Read the target from the <code>_targets/</code> directory and return its value.<br />
+</li>
+<li><strong><code>targets::tar_load()</code>.</strong> Load the target directly into the current environment (<code>NULL</code> is returned).</li>
+</ul>
+<p>For example, we can use <code>targets::tar_read()</code> to obtain the created plot,</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="workflow-analysis-chapter.html#cb15-1" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_read</span>(plot_obs)</span></code></pre></div>
+<p><img src="manual-open-science_files/figure-html/plot-obs-1.png" width="2100" style="display: block; margin: auto;" />
+or we can use <code>targets::tar_load()</code> to load a target in the current environment so we can use it subsequently with other functions.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="workflow-analysis-chapter.html#cb16-1" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_load</span>(lm_fit)</span>
+<span id="cb16-2"><a href="workflow-analysis-chapter.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_fit)</span>
+<span id="cb16-3"><a href="workflow-analysis-chapter.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb16-4"><a href="workflow-analysis-chapter.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Call:</span></span>
+<span id="cb16-5"><a href="workflow-analysis-chapter.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="do">## lm(formula = y ~ x, data = data)</span></span>
+<span id="cb16-6"><a href="workflow-analysis-chapter.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb16-7"><a href="workflow-analysis-chapter.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Residuals:</span></span>
+<span id="cb16-8"><a href="workflow-analysis-chapter.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="do">##      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb16-9"><a href="workflow-analysis-chapter.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="do">## -1.83060 -0.70935  0.08828  0.64521  1.82840 </span></span>
+<span id="cb16-10"><a href="workflow-analysis-chapter.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb16-11"><a href="workflow-analysis-chapter.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
+<span id="cb16-12"><a href="workflow-analysis-chapter.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="do">##             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb16-13"><a href="workflow-analysis-chapter.html#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)   1.2076     0.2225   5.428 3.47e-06 ***</span></span>
+<span id="cb16-14"><a href="workflow-analysis-chapter.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="do">## xB           -1.4477     0.3146  -4.601 4.58e-05 ***</span></span>
+<span id="cb16-15"><a href="workflow-analysis-chapter.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb16-16"><a href="workflow-analysis-chapter.html#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb16-17"><a href="workflow-analysis-chapter.html#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb16-18"><a href="workflow-analysis-chapter.html#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Residual standard error: 0.995 on 38 degrees of freedom</span></span>
+<span id="cb16-19"><a href="workflow-analysis-chapter.html#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.3578, Adjusted R-squared:  0.3409 </span></span>
+<span id="cb16-20"><a href="workflow-analysis-chapter.html#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="do">## F-statistic: 21.17 on 1 and 38 DF,  p-value: 4.575e-05</span></span></code></pre></div>
+<p>Again, we stress the difference between the two functions: <code>tar_read()</code> returns the target’s value, whereas <code>tar_load()</code> loads the target in the current environment. Therefore, to subsequently use the target, we need to assign its value when using <code>tar_read()</code> or simply use the target after loading it with <code>tar_load()</code>. For example,</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="workflow-analysis-chapter.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the target&#39;s value for later use</span></span>
+<span id="cb17-2"><a href="workflow-analysis-chapter.html#cb17-2" aria-hidden="true" tabindex="-1"></a>obs <span class="ot">&lt;-</span> targets<span class="sc">::</span><span class="fu">tar_read</span>(my_data)</span>
+<span id="cb17-3"><a href="workflow-analysis-chapter.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(obs)</span>
+<span id="cb17-4"><a href="workflow-analysis-chapter.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   ID x      y</span></span>
+<span id="cb17-5"><a href="workflow-analysis-chapter.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1  1 A  1.274</span></span>
+<span id="cb17-6"><a href="workflow-analysis-chapter.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  2 A  0.169</span></span>
+<span id="cb17-7"><a href="workflow-analysis-chapter.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  3 A  2.718</span></span>
+<span id="cb17-8"><a href="workflow-analysis-chapter.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  4 A  1.588</span></span>
+<span id="cb17-9"><a href="workflow-analysis-chapter.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 5  5 A  3.001</span></span>
+<span id="cb17-10"><a href="workflow-analysis-chapter.html#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 6  6 A -0.609</span></span>
+<span id="cb17-11"><a href="workflow-analysis-chapter.html#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="workflow-analysis-chapter.html#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># my_data is not available </span></span>
+<span id="cb17-13"><a href="workflow-analysis-chapter.html#cb17-13" aria-hidden="true" tabindex="-1"></a>my_data</span>
+<span id="cb17-14"><a href="workflow-analysis-chapter.html#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in eval(expr, envir, enclos): object &#39;my_data&#39; not found</span></span>
+<span id="cb17-15"><a href="workflow-analysis-chapter.html#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="workflow-analysis-chapter.html#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Load target in the current environment</span></span>
+<span id="cb17-17"><a href="workflow-analysis-chapter.html#cb17-17" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_load</span>(my_data)</span>
+<span id="cb17-18"><a href="workflow-analysis-chapter.html#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_data)</span>
+<span id="cb17-19"><a href="workflow-analysis-chapter.html#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="do">##   ID x      y</span></span>
+<span id="cb17-20"><a href="workflow-analysis-chapter.html#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 1  1 A  1.274</span></span>
+<span id="cb17-21"><a href="workflow-analysis-chapter.html#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 2  2 A  0.169</span></span>
+<span id="cb17-22"><a href="workflow-analysis-chapter.html#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  3 A  2.718</span></span>
+<span id="cb17-23"><a href="workflow-analysis-chapter.html#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  4 A  1.588</span></span>
+<span id="cb17-24"><a href="workflow-analysis-chapter.html#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 5  5 A  3.001</span></span>
+<span id="cb17-25"><a href="workflow-analysis-chapter.html#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 6  6 A -0.609</span></span></code></pre></div>
+</div>
+</div>
+<div id="advanced-features" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Advanced Features<a href="workflow-analysis-chapter.html#advanced-features" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now we discuss some other more advanced features of <code>targets</code>. Again, <code>targets</code> is a complex package with many features and options to account for any needs. Therefore, we highly encourage everyone to take a tour of <code>targets</code> official documentation available at <a href="https://books.ropensci.org/targets/" class="uri">https://books.ropensci.org/targets/</a>. There are many more aspects to learn and solutions for possible issues.</p>
+<div id="targets-proj" class="section level4 hasAnchor" number="2.3.3.1">
+<h4><span class="header-section-number">2.3.3.1</span> Project Structure<a href="workflow-analysis-chapter.html#targets-proj" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let’s see how we can optimize our project organization when using the <code>targets</code> workflow. A possible solution is to collect all directories and files related to <code>targets</code> in the <code>analysis/</code> directory.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="workflow-analysis-chapter.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span> my-project/</span>
+<span id="cb18-2"><a href="workflow-analysis-chapter.html#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span></span>
+<span id="cb18-3"><a href="workflow-analysis-chapter.html#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> _targets.yaml</span>
+<span id="cb18-4"><a href="workflow-analysis-chapter.html#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> analysis/</span>
+<span id="cb18-5"><a href="workflow-analysis-chapter.html#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> targets-workflow.R</span>
+<span id="cb18-6"><a href="workflow-analysis-chapter.html#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> targets-analysis.R</span>
+<span id="cb18-7"><a href="workflow-analysis-chapter.html#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> _targets/</span>
+<span id="cb18-8"><a href="workflow-analysis-chapter.html#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> data/</span>
+<span id="cb18-9"><a href="workflow-analysis-chapter.html#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> raw-data.csv</span>
+<span id="cb18-10"><a href="workflow-analysis-chapter.html#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span><span class="ex">--</span> R/</span>
+<span id="cb18-11"><a href="workflow-analysis-chapter.html#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> my-functions.R</span>
+<span id="cb18-12"><a href="workflow-analysis-chapter.html#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span>     <span class="kw">|</span><span class="ex">--</span> ...</span></code></pre></div>
+<p>In particular, we have:</p>
+<ul>
+<li><p><strong><code>analysis/targets-workflow.R</code>.</strong> The R script with the definition of the workflow pipeline. This is the same as the <code>_targets.R</code> scripts described in Section <a href="workflow-analysis-chapter.html#targets-script">2.3.1.1</a>.</p></li>
+<li><p><strong><code>analysis/_targets/</code>.</strong> The directory where <code>targets</code> stores all the results and pipeline information. See Section <a href="workflow-analysis-chapter.html#targets-store">2.3.1.3</a>.</p></li>
+<li><p><strong><code>analysis/targets-analysis.R</code>.</strong> In this script we can collect all the functions required to manage and run the workflow.</p>
+<p>As we are no longer using the default <code>targets</code> project structure, it is required to modify <code>targets</code> global settings by specifying the path to the R script with the workflow pipeline (i.e., <code>analysis/targets-workflow.R</code>) and the path to the storing directory (i.e., <code>analysis/_targets/</code>). To do that, we can use the function <code>targets::tar_config_set()</code> (see the help page for more details). In our case, the <code>targets-analysis.R</code> script looks like this</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="workflow-analysis-chapter.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#================================#</span></span>
+<span id="cb19-2"><a href="workflow-analysis-chapter.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#====    Targets Analysis    ====#</span></span>
+<span id="cb19-3"><a href="workflow-analysis-chapter.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#================================#</span></span>
+<span id="cb19-4"><a href="workflow-analysis-chapter.html#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="workflow-analysis-chapter.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Targets settings</span></span>
+<span id="cb19-6"><a href="workflow-analysis-chapter.html#cb19-6" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_config_set</span>(<span class="at">script =</span> <span class="st">&quot;analysis/targets-workflow.R&quot;</span>,</span>
+<span id="cb19-7"><a href="workflow-analysis-chapter.html#cb19-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">store =</span> <span class="st">&quot;analysis/_targets/&quot;</span>)</span>
+<span id="cb19-8"><a href="workflow-analysis-chapter.html#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="workflow-analysis-chapter.html#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Analysis    ----</span></span>
+<span id="cb19-10"><a href="workflow-analysis-chapter.html#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="workflow-analysis-chapter.html#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Check workflow</span></span>
+<span id="cb19-12"><a href="workflow-analysis-chapter.html#cb19-12" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_manifest</span>(<span class="at">fields =</span> <span class="st">&quot;command&quot;</span>)</span>
+<span id="cb19-13"><a href="workflow-analysis-chapter.html#cb19-13" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_visnetwork</span>()</span>
+<span id="cb19-14"><a href="workflow-analysis-chapter.html#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="workflow-analysis-chapter.html#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Run analysis</span></span>
+<span id="cb19-16"><a href="workflow-analysis-chapter.html#cb19-16" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span>
+<span id="cb19-17"><a href="workflow-analysis-chapter.html#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="workflow-analysis-chapter.html#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co"># End</span></span>
+<span id="cb19-19"><a href="workflow-analysis-chapter.html#cb19-19" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_visnetwork</span>()</span>
+<span id="cb19-20"><a href="workflow-analysis-chapter.html#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="workflow-analysis-chapter.html#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="workflow-analysis-chapter.html#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Results    ----</span></span>
+<span id="cb19-23"><a href="workflow-analysis-chapter.html#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="workflow-analysis-chapter.html#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Aim of the study is ...</span></span>
+<span id="cb19-25"><a href="workflow-analysis-chapter.html#cb19-25" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_load</span>(my_data)</span>
+<span id="cb19-26"><a href="workflow-analysis-chapter.html#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-27"><a href="workflow-analysis-chapter.html#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Descriptive statistics</span></span>
+<span id="cb19-28"><a href="workflow-analysis-chapter.html#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span>
+<span id="cb19-29"><a href="workflow-analysis-chapter.html#cb19-29" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_read</span>(plot_obs)</span>
+<span id="cb19-30"><a href="workflow-analysis-chapter.html#cb19-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-31"><a href="workflow-analysis-chapter.html#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Inferential statistics</span></span>
+<span id="cb19-32"><a href="workflow-analysis-chapter.html#cb19-32" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_load</span>(lm_fit)</span>
+<span id="cb19-33"><a href="workflow-analysis-chapter.html#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_fit)</span>
+<span id="cb19-34"><a href="workflow-analysis-chapter.html#cb19-34" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb19-35"><a href="workflow-analysis-chapter.html#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="co">#----</span></span></code></pre></div>
+<p>After the code used to run the analysis, we can also include a section where results are loaded and briefly presented. This will allow colleagues to explore analysis results immediately. Note that appropriate documentation is required to facilitate results interpretation.</p></li>
+<li><p><strong><code>_targets.yaml</code>.</strong> A YAML file with the custom <code>targets</code> settings. This file is automatically created when <code>targets</code> global settings are modified using the <code>targets::tar_config_set()</code> function (see help page for more information about custom settings). In our case, the <code>_targets.yaml</code> file looks like this</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="workflow-analysis-chapter.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    _targets.yaml    ----#</span></span>
+<span id="cb20-2"><a href="workflow-analysis-chapter.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">main</span><span class="kw">:</span></span>
+<span id="cb20-3"><a href="workflow-analysis-chapter.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span><span class="at"> analysis/targets-workflow.R</span></span>
+<span id="cb20-4"><a href="workflow-analysis-chapter.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">store</span><span class="kw">:</span><span class="at"> analysis/_targets/</span></span></code></pre></div></li>
+</ul>
+</div>
+<div id="targets-rmarkdown" class="section level4 hasAnchor" number="2.3.3.2">
+<h4><span class="header-section-number">2.3.3.2</span> <code>targets</code> and R Markdown<a href="workflow-analysis-chapter.html#targets-rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To integrate the <code>targets</code> workflow with dynamic documents created by R Markdown, there are two main approaches</p>
+<ul>
+<li><strong>R Markdown as Primary Script.</strong> The R Markdown document is used as the primary script to manage the <code>targets</code> workflow. Following this approach, the whole pipeline is defined and managed within one or more R Markdown documents. To learn how to implement this approach, see <a href="https://books.ropensci.org/targets/markdown.html" class="uri">https://books.ropensci.org/targets/markdown.html</a>.</li>
+<li><strong>R Markdown as Target.</strong> The R Markdown document is considered as a new target in the pipeline. Following this approach, the whole pipeline is defined and managed outside of the R Markdown document. R Markdown documents should be lightweight with minimal code used simply to present the targets’ results retrieved with <code>targets::tar_read()</code> or <code>targets::tar_load()</code>. Targets should not be computed within the R Markdown documents. To learn how to implement this approach, see <a href="https://books.ropensci.org/targets/files.html#literate-programming" class="uri">https://books.ropensci.org/targets/files.html#literate-programming</a>.</li>
+</ul>
+<p>Among the two approaches, we recommend the second one. Using R Markdown documents as primary scripts to manage the analysis is fine in the case of simple projects. However, in the case of more complex projects, it is better to keep the actual analysis and the presentation of the results separate. In this way, the project can be maintained and developed more easily.</p>
+<div class="design" title="R Markdown as Target">
+<p>Following this approach, the <code>target</code> workflow is defined and managed following the usual approach and R Markdown documents are considered as targets in the pipeline.</p>
+<p>To add an R Markdown document to the pipeline, we have to define the target using <code>tarchetypes::tar_render()</code> instead of the common <code>targets::tar_target()</code> function. Note that we need to install the <code>tarchetypes</code> package <span class="citation">(<a href="#ref-R-tarchetypes" role="doc-biblioref">Landau, 2022a</a>)</span>. See the help page for function arguments and details.</p>
+<p>Suppose we created the following report saved as <code>documents/report.Rmd</code>.
+<img src="images/workflow/report-analysis.png" width="80%" style="display: block; margin: auto;" />
+Next, we add it to the workflow pipeline,</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="workflow-analysis-chapter.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    Targets-workflow.R    ----#</span></span>
+<span id="cb21-2"><a href="workflow-analysis-chapter.html#cb21-2" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb21-3"><a href="workflow-analysis-chapter.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="workflow-analysis-chapter.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb21-5"><a href="workflow-analysis-chapter.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb21-6"><a href="workflow-analysis-chapter.html#cb21-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-7"><a href="workflow-analysis-chapter.html#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Report</span></span>
+<span id="cb21-8"><a href="workflow-analysis-chapter.html#cb21-8" aria-hidden="true" tabindex="-1"></a>  tarchetypes<span class="sc">::</span><span class="fu">tar_render</span>(report, <span class="st">&quot;documents/report.Rmd&quot;</span>),</span>
+<span id="cb21-9"><a href="workflow-analysis-chapter.html#cb21-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-10"><a href="workflow-analysis-chapter.html#cb21-10" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb21-11"><a href="workflow-analysis-chapter.html#cb21-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Now, <code>targets</code> will automatically recognize the dependencies our report is based on and will add the report to the workflow pipeline. Note that to allow dependency identification, targets have to be explicitly retrieved with <code>targets::tar_read()</code> or <code>targets::tar_load()</code>.</p>
+<p><img src="images/workflow/pipeline-report.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Running <code>targets::tar_make()</code>, we can update the pipeline compiling the report as well.</p>
+<p>Alternatively, we can also compile the report outside the pipeline as usual by clicking the <code>Knit</code> button in RStudio. However, unless the report is in the root directory, we need to specify the position of the directory <code>_targets/</code> (i.e., the directory with all the targets’ results and information) relative to the report position. To do that do not use the <code>targets::tar_config_set()</code> function as this would overwrite global settings for the whole <code>targets</code> workflow. Instead, create manually a <code>_targets.yaml</code> file in the same directory as the report specifying the store location. Considering the report in the example above, we would define</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb22-1"><a href="workflow-analysis-chapter.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    documents/_targets.yaml    ----#</span></span>
+<span id="cb22-2"><a href="workflow-analysis-chapter.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">main</span><span class="kw">:</span></span>
+<span id="cb22-3"><a href="workflow-analysis-chapter.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">store</span><span class="kw">:</span><span class="at"> ../analysis/_targets/</span></span></code></pre></div>
+</div>
+</div>
+<div id="reproducibility-1" class="section level4 hasAnchor" number="2.3.3.3">
+<h4><span class="header-section-number">2.3.3.3</span> Reproducibility<a href="workflow-analysis-chapter.html#reproducibility-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>targets</code> enhance the reproducibility of the results by automatically running the pipeline in a reproducible background process. This procedure avoids that our current environment or other temporary settings affect the results.</p>
+<p>Let’s discuss some other details relevant for results reproducibility:</p>
+<ul>
+<li><strong>Random Number Generator.</strong> When running the pipeline, each target is built using a unique seed determined by the target’s name (no two targets share the same seed). In this way, each target runs with a reproducible seed and we always obtain the same results. See <code>targets::tar_meta()</code> for a list of targets’ metadata including each target specific seed. See function documentation for further details.</li>
+<li><strong>Global Settings.</strong> Global settings are usually defined explicitly in the script used to specify the workflow pipeline (see Section <a href="workflow-analysis-chapter.html#targets-script">2.3.1.1</a>). However, commands defined in the <code>.Rprofile</code> are also evaluated when running the pipeline. This is not a problem for reproducibility but it may limit the code understanding of colleagues not familiar with more advanced features of R. To overcome this issue, note that <code>targets</code> runs the analysis in a non-interactive session. Therefore, we can avoid that the <code>.Rprofile</code> code is evaluated following the suggestion described in <a href="#using-rprofile"><em>“Trick-Box: Using .Rprofile”</em></a>.</li>
+<li><strong>Project Requirements.</strong> <code>targets</code> does not track changes in the R or R-packages versions. To enhance reproducibility, it is good practice to use the <code>renv</code> package for package management (see Chapter <a href="#renv-section"><strong>??</strong></a>). <code>targets</code> and <code>renv</code> can be used together in the same project workflow without problems.</li>
+</ul>
+</div>
+<div id="branching" class="section level4 hasAnchor" number="2.3.3.4">
+<h4><span class="header-section-number">2.3.3.4</span> Branching<a href="workflow-analysis-chapter.html#branching" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A very interesting feature of <code>targets</code> is branching. When defining the analysis pipeline, many targets may be obtained iteratively from very similar tasks. If we are already used to functional style, we will always aim to write concise code without repetitions. Here is where branching comes into play as it allows to define multiple targets concisely.</p>
+<p>Conceptually branching is similar to the <code>purr::map()</code> function used to apply the same code over multiple elements. In <code>targets</code> there are two types of branching:</p>
+<ul>
+<li><strong>Dynamic Branching.</strong> The new targets are defined dynamically while the pipeline is running. The number of new targets is not necessarily known in advance. Dynamic branching is better suited for creating a large number of very similar targets. For further details on dynamic branching, see <a href="https://books.ropensci.org/targets/dynamic.html" class="uri">https://books.ropensci.org/targets/dynamic.html</a>.</li>
+<li><strong>Static Branching.</strong> The new targets are defined in bulk before the pipeline starts. The exact number of new targets is known in advance and they can be visualized with <code>targets::tar_visnetwork()</code>. Static branching is better suited for creating a small number of heterogeneous targets. For further details on static branching, see <a href="https://books.ropensci.org/targets/static.html" class="uri">https://books.ropensci.org/targets/static.html</a>.</li>
+</ul>
+<p>Branching increases a little bit the pipeline complexity as it has its own specific code syntax. However, branching allows obtaining a more concise and easier to maintain and read pipeline (once familiar with the syntax).</p>
+</div>
+<div id="high-performance-computing" class="section level4 hasAnchor" number="2.3.3.5">
+<h4><span class="header-section-number">2.3.3.5</span> High-Performance Computing<a href="workflow-analysis-chapter.html#high-performance-computing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>targets</code> supports high-performance computing allowing us to run multiple tasks in parallel on our local machine or a computing cluster. To do that, <code>targets</code> integrates in its workflow the <code>Clustermq</code> (<a href="https://mschubert.github.io/clustermq" class="uri">https://mschubert.github.io/clustermq</a>) and the <code>future</code> (<a href="https://future.futureverse.org/" class="uri">https://future.futureverse.org/</a>) R packages.</p>
+<p>In the case of large, computationally expensive projects, we can obtain valuable gains in performance by parallelizing our code execution. However, configuration details and instructions on how to integrate high-performance computing in the <code>targets</code> workflow are beyond the aim of this chapter. For further details on high-performance computing, see <a href="https://books.ropensci.org/targets/hpc.html" class="uri">https://books.ropensci.org/targets/hpc.html</a>.</p>
+</div>
+<div id="load-all-targets" class="section level4 hasAnchor" number="2.3.3.6">
+<h4><span class="header-section-number">2.3.3.6</span> Load All Targets<a href="workflow-analysis-chapter.html#load-all-targets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We have seen how targets’ results can be retrieved with <code>targets::tar_read()</code> or <code>targets::tar_load()</code>. However, it may be useful to have a function that allows us to load all required targets at once. To do that, we can define the following functions in a script named <code>R/targets-utils.R</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="workflow-analysis-chapter.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    R/Targets-utils.R    ----#</span></span>
+<span id="cb23-2"><a href="workflow-analysis-chapter.html#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="workflow-analysis-chapter.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#----    load_glob_env    ----</span></span>
+<span id="cb23-4"><a href="workflow-analysis-chapter.html#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="workflow-analysis-chapter.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load targets in the global environment</span></span>
+<span id="cb23-6"><a href="workflow-analysis-chapter.html#cb23-6" aria-hidden="true" tabindex="-1"></a>load_glob_env <span class="ot">&lt;-</span> <span class="cf">function</span>(..., <span class="at">store =</span> targets<span class="sc">::</span><span class="fu">tar_config_get</span>(<span class="st">&quot;store&quot;</span>)){</span>
+<span id="cb23-7"><a href="workflow-analysis-chapter.html#cb23-7" aria-hidden="true" tabindex="-1"></a>  targets<span class="sc">::</span><span class="fu">tar_load</span>(..., <span class="at">envir =</span> <span class="fu">globalenv</span>(), <span class="at">store =</span> store)</span>
+<span id="cb23-8"><a href="workflow-analysis-chapter.html#cb23-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-9"><a href="workflow-analysis-chapter.html#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="workflow-analysis-chapter.html#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co">#----    tar_load_all    ----</span></span>
+<span id="cb23-11"><a href="workflow-analysis-chapter.html#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="workflow-analysis-chapter.html#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Load listed targets</span></span>
+<span id="cb23-13"><a href="workflow-analysis-chapter.html#cb23-13" aria-hidden="true" tabindex="-1"></a>tar_load_all <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">store =</span> targets<span class="sc">::</span><span class="fu">tar_config_get</span>(<span class="st">&quot;store&quot;</span>)){</span>
+<span id="cb23-14"><a href="workflow-analysis-chapter.html#cb23-14" aria-hidden="true" tabindex="-1"></a>  targets <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;my_data&quot;</span>, <span class="st">&quot;lm_fit&quot;</span>, <span class="st">&quot;plot_obs&quot;</span>, <span class="st">&quot;&lt;other-targets&gt;&quot;</span>, <span class="st">&quot;...&quot;</span>)</span>
+<span id="cb23-15"><a href="workflow-analysis-chapter.html#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="workflow-analysis-chapter.html#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># load</span></span>
+<span id="cb23-17"><a href="workflow-analysis-chapter.html#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>(targets, load_glob_env, <span class="at">store =</span> store)</span>
+<span id="cb23-18"><a href="workflow-analysis-chapter.html#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="workflow-analysis-chapter.html#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">cat</span>(<span class="st">&quot;Tartgets loaded!</span><span class="sc">\n</span><span class="st">&quot;</span>))</span>
+<span id="cb23-20"><a href="workflow-analysis-chapter.html#cb23-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Where:</p>
+<ul>
+<li><strong><code>load_glob_env()</code></strong> is used to load the targets directly in the global environment (otherwise targets would be loaded only in the function environment and we could not use them).<br />
+</li>
+<li><strong><code>tar_load_all()</code></strong> is used to create a list of the targets of interest and subsequently load them into the global environment.</li>
+</ul>
+<p>Now we can use the function <code>tar_load_all()</code> to directly load all specified targets. Note, however, that loading the targets in this way in an RMarkdown document would not allow <code>targets</code> to detect dependencies correctly.</p>
+<p><img src="images/workflow/report-analysis-wrong.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="images/workflow/pipeline-report-wrong.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="trick" title="Load Targets Using .Rprofile">
+<p>We could automatically load targets into the environment by including the function <code>tar_load_all()</code> in the <code>.Rprofile</code>.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="workflow-analysis-chapter.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----    .Rprofile    ----#</span></span>
+<span id="cb24-2"><a href="workflow-analysis-chapter.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="workflow-analysis-chapter.html#cb24-3" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb24-4"><a href="workflow-analysis-chapter.html#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="workflow-analysis-chapter.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Commands only for interactive sessions</span></span>
+<span id="cb24-6"><a href="workflow-analysis-chapter.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">interactive</span>()){</span>
+<span id="cb24-7"><a href="workflow-analysis-chapter.html#cb24-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-8"><a href="workflow-analysis-chapter.html#cb24-8" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb24-9"><a href="workflow-analysis-chapter.html#cb24-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-10"><a href="workflow-analysis-chapter.html#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load custom function</span></span>
+<span id="cb24-11"><a href="workflow-analysis-chapter.html#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">source</span>(<span class="st">&quot;R/targets-utils.R&quot;</span>)</span>
+<span id="cb24-12"><a href="workflow-analysis-chapter.html#cb24-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-13"><a href="workflow-analysis-chapter.html#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># alternatively devtools::load_all()</span></span>
+<span id="cb24-14"><a href="workflow-analysis-chapter.html#cb24-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-15"><a href="workflow-analysis-chapter.html#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load targets</span></span>
+<span id="cb24-16"><a href="workflow-analysis-chapter.html#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tar_load_all</span>()</span>
+<span id="cb24-17"><a href="workflow-analysis-chapter.html#cb24-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-18"><a href="workflow-analysis-chapter.html#cb24-18" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb24-19"><a href="workflow-analysis-chapter.html#cb24-19" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>In this way, each time we restart the R session all targets are loaded in the environment and we can go back straight into the analysis development.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="doclinks">
+<div id="make-1" class="section level4 unnumbered hasAnchor">
+<h4>Make<a href="workflow-analysis-chapter.html#make-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>make official documentation<br>
+<a href="https://www.gnu.org/software/make/" class="uri">https://www.gnu.org/software/make/</a>.</li>
+<li>NMake<br>
+<a href="https://docs.microsoft.com/en-us/cpp/build/reference/nmake-reference" class="uri">https://docs.microsoft.com/en-us/cpp/build/reference/nmake-reference</a></li>
+<li>makefile<br>
+<a href="https://opensource.com/article/18/8/what-how-makefile" class="uri">https://opensource.com/article/18/8/what-how-makefile</a></li>
+</ul>
+</div>
+<div id="r-1" class="section level4 unnumbered hasAnchor">
+<h4>R<a href="workflow-analysis-chapter.html#r-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Run R non-interactive<br>
+<a href="https://github.com/gastonstat/tutorial-R-noninteractive" class="uri">https://github.com/gastonstat/tutorial-R-noninteractive</a></li>
+<li>DESCRIPTION load packages<br>
+<a href="https://r-pkgs.org/namespace.html?q=depends#imports" class="uri">https://r-pkgs.org/namespace.html?q=depends#imports</a></li>
+<li><code>conflicted</code> R package<br>
+<a href="https://conflicted.r-lib.org/" class="uri">https://conflicted.r-lib.org/</a></li>
+<li>Object Oriented<br>
+<a href="http://adv-r.had.co.nz/OO-essentials.html" class="uri">http://adv-r.had.co.nz/OO-essentials.html</a></li>
+<li>workflowr R package<br>
+<a href="https://github.com/workflowr/workflowr" class="uri">https://github.com/workflowr/workflowr</a></li>
+</ul>
+</div>
+<div id="targets-1" class="section level4 unnumbered hasAnchor">
+<h4>Targets<a href="workflow-analysis-chapter.html#targets-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Official documentation<br>
+<a href="https://books.ropensci.org/targets/" class="uri">https://books.ropensci.org/targets/</a></li>
+<li>Load packages<br>
+<a href="https://books.ropensci.org/targets/packages.html" class="uri">https://books.ropensci.org/targets/packages.html</a></li>
+<li>Literate programming<br>
+<a href="https://books.ropensci.org/targets/files.html#literate-programming" class="uri">https://books.ropensci.org/targets/files.html#literate-programming</a></li>
+<li>Dynamic branching<br>
+<a href="https://books.ropensci.org/targets/dynamic.html" class="uri">https://books.ropensci.org/targets/dynamic.html</a></li>
+<li>Static branching<br>
+<a href="https://books.ropensci.org/targets/static.html" class="uri">https://books.ropensci.org/targets/static.html</a></li>
+<li>High-performance computing<br>
+<a href="https://books.ropensci.org/targets/hpc.html" class="uri">https://books.ropensci.org/targets/hpc.html</a></li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-R-workflowr" class="csl-entry">
+Blischak, J., Carbonetto, P., &amp; Stephens, M. (2021). <em>Workflowr: A framework for reproducible and collaborative data science</em>. <a href="https://github.com/workflowr/workflowr">https://github.com/workflowr/workflowr</a>
+</div>
+<div id="ref-R-tarchetypes" class="csl-entry">
+Landau, W. M. (2022a). <em>Tarchetypes: Archetypes for targets</em>. <a href="https://CRAN.R-project.org/package=tarchetypes">https://CRAN.R-project.org/package=tarchetypes</a>
+</div>
+<div id="ref-R-targets" class="csl-entry">
+Landau, W. M. (2022b). <em>Targets: Dynamic function-oriented make-like declarative workflows</em>. <a href="https://CRAN.R-project.org/package=targets">https://CRAN.R-project.org/package=targets</a>
+</div>
+<div id="ref-R-conflicted" class="csl-entry">
+Wickham, H. (2021). <em>Conflicted: An alternative conflict resolution strategy</em>. <a href="https://CRAN.R-project.org/package=conflicted">https://CRAN.R-project.org/package=conflicted</a>
+</div>
+</div>
+<hr>
+<center>
+  <div class="footer">
+    Icons by <a href= "https://rstudio4edu.github.io/rstudio4edu-book/">rstudio4edu</a> released under <a href= "https://creativecommons.org/licenses/by-nc/2.0/"> CC BY-NC 2.0 License</a>.
+    <br>
+    All other materials are released under <a href= "https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 License</a> unless noted otherwise.
+    <br>
+    To know more about <span style="color: #8C3031; font-weight:bold"> ARCA</span> and our activities visit <a href= "https://www.dpss.unipd.it/arca/home">https://www.dpss.unipd.it/arca/home</a>.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": true
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/arca-dpss/manual-open-science/edit/master/chapters/09-workflow.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["manual-open-science.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true,
+"toc_float": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

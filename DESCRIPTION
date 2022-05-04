@@ -21,13 +21,19 @@ Depends:
     devtools,
 Imports:
     bookdown,
+    conflicted,
     kableExtra,
+    osfr,
     renv,
     rmarkdown,
+    roxygen2,
+    tarchetypes,
     targets,
+    testthat,
     tidyverse,
     trackdown,
-    visNetwork
+    visNetwork,
+    workflowr,
 Encoding: UTF-8
 LazyData: true
 URL: 

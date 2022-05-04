@@ -32,7 +32,7 @@ bookdown::pdf_book:
   # biblio-style: apa
   # bib-latex-options: "style=apa, sorting=nyt, backend=biber, maxcitenames=2, useprefix, doi=true, isbn=false, uniquename=false"
 
-  keep_tex: yes
+  # keep_tex: yes
 
 
 # bookdown::epub_book: default

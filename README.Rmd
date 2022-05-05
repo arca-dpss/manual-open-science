@@ -46,10 +46,10 @@ Examples and specific applications are based on the R programming language. Howe
 
 ## About the Authors {-}
 
-During our careers, we both moved into the field of Data Science after a PhD in Psychological Sciences. This book is our attempt to bring back into scientific research what we have learned outside of academia.
+During our careers, we both moved into the field of Data Science after a Ph.D. in Psychological Sciences. This book is our attempt to bring back into scientific research what we have learned outside of academia.
 
-- [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) (claudiozandonella@gmail.com). During my PhD, I fell in love with data science. Understanding the complex phenomena that affect our lives by exploring data, formulating hypotheses, building models, and validating them. I find this whole process extremely challenging and motivating. Moreover, I am excited about new tools and solutions to enhance the replicability and transparency of scientific results.
-- [Davide Massidda](https://www.linkedin.com/in/davidemassidda/) (d.massidda@kode-solutions.net).
+- [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) (claudiozandonella@gmail.com). During my Ph.D., I fell in love with data science. Understanding the complex phenomena that affect our lives by exploring data, formulating hypotheses, building models, and validating them. I find this whole process extremely challenging and motivating. Moreover, I am excited about new tools and solutions to enhance the replicability and transparency of scientific results.
+- [Davide Massidda](https://www.linkedin.com/in/davidemassidda/) (d.massidda@kode-solutions.net).  I am a data scientist specialized in psychometrics, trained at the University of Pauda with a Ph.D. in experimental psychology. After my academic career and several years as a freelance, I currently work in the private field. I deal with descriptive and predictive models using statistics and machine learning, developing web-based systems for human interaction with data, and automating statistical processing.
 
 ## ARCA
 

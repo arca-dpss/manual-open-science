@@ -1,0 +1,31 @@
+{
+    "description": "<p>The aim of the present book is to describe programming good practices and introduce common tools used in software development to guarantee reproducibility of the analysis results. We want to make scientific research an open-source knowledge development.</p>",
+    "license": "CC BY-NC-SA 4.0",
+    "title": "The Open Science Manual: Make Your Scientific Research Accessible and Reproducible",
+    "version": "v1.0.0",
+    "upload_type": "software",
+    "publication_date": "2022-05-05",
+    "creators": [
+        {
+            "affiliation": "Department of Developmental Psychology, University of Padua",
+            "name": "Claudio Zandonella Callegher"
+        },
+        {
+            "affiliation": "Kode S.r.l.",
+            "name": "Davide Massidda"
+        }
+    ],
+    "access_right": "open",
+    "related_identifiers": [
+        {
+            "scheme": "url",
+            "identifier": "https://github.com/arca-dpss/manual-open-science/tree/v1.0.0",
+            "relation": "isSupplementTo"
+        },
+        {
+            "scheme": "doi",
+            "identifier": "10.5281/zenodo.6521850",
+            "relation": "isVersionOf"
+        }
+    ]
+}

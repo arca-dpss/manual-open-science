@@ -8,6 +8,7 @@
 <!-- badges: start -->
 
 [![renderbook](https://github.com/arca-dpss/manual-open-science/actions/workflows/deploy_bookdown.yml/badge.svg)](https://github.com/arca-dpss/manual-open-science/actions/workflows/deploy_bookdown.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6521850.svg)](https://doi.org/10.5281/zenodo.6521850)
 <!-- badges: end -->
 
 The present book aims to describe programming good practices and
@@ -131,9 +132,10 @@ rmarkdown::render_site(encoding = "UTF-8")
 
 For attribution, please cite this work as:
 
-Zandonella Callegher, C., & Massidda, D. (2022). The Open Science
-Manual: Make Your Scientific Research Accessible and Reproducible.
-<https://arca-dpss.github.io/manual-open-science/>
+> Zandonella Callegher, C., & Massidda, D. (2022). The Open Science
+> Manual: Make Your Scientific Research Accessible and Reproducible.
+> Available at <https://arca-dpss.github.io/manual-open-science/>.
+> <https://doi.org/10.5281/zenodo.6521850>
 
 BibTeX citation:
 
@@ -142,7 +144,8 @@ BibTeX citation:
   title = {The Open Science Manual: Make Your Scientific Research Accessible and Reproducible},
   author = {Zandonella Callegher, Claudio and Massidda, Davide},
   date = {2022},
-  url = {https://arca-dpss.github.io/manual-open-science/}
+  url = {https://arca-dpss.github.io/manual-open-science/},
+  doi = {10.5281/zenodo.6521850}
 }
 ```
 

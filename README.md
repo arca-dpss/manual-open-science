@@ -61,9 +61,9 @@ into scientific research what we have learned outside of academia.
     scientific results.
 -   [Davide Massidda](https://www.linkedin.com/in/davidemassidda/)
     (<d.massidda@kode-solutions.net>). I am a data scientist specialized
-    in psychometrics, trained at the University of Pauda with a Ph.D. in
+    in psychometrics, trained at the University of Padua with a Ph.D. in
     experimental psychology. After my academic career and several years
-    as a freelance, I currently work in the private field. I deal with
+    as a freelancer, I currently work in the private field. I deal with
     descriptive and predictive models using statistics and machine
     learning, developing web-based systems for human interaction with
     data, and automating statistical processing.
@@ -78,9 +78,9 @@ Developmental and Social Psychology at the University of Padua.
 
 ## Contribute
 
-If you think there is something missing, something should be described
-better, or something is wrong, please, feel free to contribute to this
-book. Anyone is welcome to contribute to this book.
+If you think something is missing, something should be described better,
+or something is wrong, please, feel free to contribute to this book.
+Anyone is welcome to contribute to this book.
 
 This is the hearth of open-source: contribution. We will understand the
 real value of this book not by the number of people that will read it
@@ -95,6 +95,37 @@ way to organize the structure of the book.
 
 View book source at GitHub repository
 <https://github.com/arca-dpss/manual-open-science>.
+
+### Build Book Locally
+
+To build the book locally, follow these steps:
+
+1.  Clone the repository
+
+``` bash
+$ git clone git@github.com:arca-dpss/manual-open-science.git
+```
+
+1.  Open the RStudio Project `manual-open-science.Rproj`
+2.  Install required R-packages by running
+
+``` r
+renv::restore()
+```
+
+1.  Run targets analysis using the command
+
+``` r
+targets::tar_make(script = "analysis/targets-workflow.R", 
+                  store = "analysis/_targets")
+```
+
+1.  Render the book by clicking the *“Build Book”* button from the
+    *“Build”* panel, or by running
+
+``` r
+rmarkdown::render_site(encoding = "UTF-8")
+```
 
 ## Cite
 

@@ -49,7 +49,7 @@ Examples and specific applications are based on the R programming language. Howe
 During our careers, we both moved into the field of Data Science after a Ph.D. in Psychological Sciences. This book is our attempt to bring back into scientific research what we have learned outside of academia.
 
 - [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) (claudiozandonella@gmail.com). During my Ph.D., I fell in love with data science. Understanding the complex phenomena that affect our lives by exploring data, formulating hypotheses, building models, and validating them. I find this whole process extremely challenging and motivating. Moreover, I am excited about new tools and solutions to enhance the replicability and transparency of scientific results.
-- [Davide Massidda](https://www.linkedin.com/in/davidemassidda/) (d.massidda@kode-solutions.net).  I am a data scientist specialized in psychometrics, trained at the University of Pauda with a Ph.D. in experimental psychology. After my academic career and several years as a freelance, I currently work in the private field. I deal with descriptive and predictive models using statistics and machine learning, developing web-based systems for human interaction with data, and automating statistical processing.
+- [Davide Massidda](https://www.linkedin.com/in/davidemassidda/) (d.massidda@kode-solutions.net).  I am a data scientist specialized in psychometrics, trained at the University of Padua with a Ph.D. in experimental psychology. After my academic career and several years as a freelancer, I currently work in the private field. I deal with descriptive and predictive models using statistics and machine learning, developing web-based systems for human interaction with data, and automating statistical processing.
 
 ## ARCA
 
@@ -59,7 +59,7 @@ ARCA courses are advanced and highly applicable courses on modern tools for rese
 
 ## Contribute {-}
 
-If you think there is something missing, something should be described better, or something is wrong, please, feel free to contribute to this book. Anyone is welcome to contribute to this book.
+If you think something is missing, something should be described better, or something is wrong, please, feel free to contribute to this book. Anyone is welcome to contribute to this book.
 
 This is the hearth of open-source: contribution. We will understand the real value of this book not by the number of people that will read it but by the number of people who will invest their own time trying to improve it.
 
@@ -67,6 +67,29 @@ For typos (the probability of typos per page is always above 1) just send a pull
 
 View book source at GitHub repository https://github.com/arca-dpss/manual-open-science.
 
+### Build Book Locally
+
+To build the book locally, follow these steps:
+
+1. Clone the repository
+  ```bash
+  $ git clone git@github.com:arca-dpss/manual-open-science.git
+  ```
+1. Open the RStudio Project `manual-open-science.Rproj`
+1. Install required R-packages by running
+  ```{r, echo = TRUE, eval= FALSE}
+  renv::restore()
+  ```
+1. Run targets analysis using the command
+  ```{r, echo = TRUE, eval= FALSE}
+  targets::tar_make(script = "analysis/targets-workflow.R", 
+                    store = "analysis/_targets")
+  ```
+1. Render the book by clicking the *“Build Book”* button from the *“Build”* panel, or by running 
+  ```{r, echo = TRUE, eval= FALSE}
+  rmarkdown::render_site(encoding = "UTF-8")
+  ```
+  
 ## Cite {-}
 
 For attribution, please cite this work as:

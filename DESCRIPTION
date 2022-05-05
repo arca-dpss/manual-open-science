@@ -1,7 +1,7 @@
 Package: manualOpenScience
 Type: Package
 Title: The Open Science Manual: Make Your Scientific Research Accesible and Reproducible
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: 
   c(person(given = "Claudio",
            family = "Zandonella Callegher",

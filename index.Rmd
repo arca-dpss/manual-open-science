@@ -4,7 +4,9 @@ subtitle: "Make Your Scientific Research Accessible and Reproducible"
 author: |
   [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and 
   [Davide Massidda](https://www.linkedin.com/in/davidemassidda/)
-date: "`r paste(format(Sys.time(), '%d %B, %Y'), ' [last-updated]')`"
+date: |
+  | Version 1.0.0
+  | `r paste(format(Sys.time(), '%d %B, %Y'), ' [last-updated]')`
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: ["assets/bib/manual-open-science.bib", "assets/bib/packages.bib"]

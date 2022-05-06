@@ -14,7 +14,7 @@
 The present book aims to describe programming good practices and
 introduce common tools used in software development to guarantee the
 reproducibility of the analysis results. We want to make scientific
-research open-source knowledge development.
+research an open-source knowledge development.
 
 The book is available online at
 <https://arca-dpss.github.io/manual-open-science/>.

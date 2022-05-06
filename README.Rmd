@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6521850.svg)](https://doi.org/10.5281/zenodo.6521850)
 <!-- badges: end -->
 
-The present book aims to describe programming good practices and introduce common tools used in software development to guarantee the reproducibility of the analysis results. We want to make scientific research open-source knowledge development.
+The present book aims to describe programming good practices and introduce common tools used in software development to guarantee the reproducibility of the analysis results. We want to make scientific research an open-source knowledge development.
 
 The book is available online at https://arca-dpss.github.io/manual-open-science/.
 

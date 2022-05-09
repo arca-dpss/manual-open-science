@@ -102,31 +102,29 @@ View book source at GitHub repository
 To build the book locally, follow these steps:
 
 1.  Clone the repository
+    `bash     $ git clone git@github.com:arca-dpss/manual-open-science.git`
 
-``` bash
-$ git clone git@github.com:arca-dpss/manual-open-science.git
-```
+2.  Open the RStudio Project `manual-open-science.Rproj`
 
-1.  Open the RStudio Project `manual-open-science.Rproj`
-2.  Install required R-packages by running
+3.  Install required R-packages by running
 
-``` r
-renv::restore()
-```
+    ``` r
+    renv::restore()
+    ```
 
-1.  Run targets analysis using the command
+4.  Run targets analysis using the command
 
-``` r
-targets::tar_make(script = "analysis/targets-workflow.R", 
-                  store = "analysis/_targets")
-```
+    ``` r
+    targets::tar_make(script = "analysis/targets-workflow.R", 
+                      store = "analysis/_targets")
+    ```
 
-1.  Render the book by clicking the *“Build Book”* button from the
+5.  Render the book by clicking the *“Build Book”* button from the
     *“Build”* panel, or by running
 
-``` r
-rmarkdown::render_site(encoding = "UTF-8")
-```
+    ``` r
+    rmarkdown::render_site(encoding = "UTF-8")
+    ```
 
 ## Cite
 

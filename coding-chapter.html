@@ -1191,14 +1191,14 @@ div.csl-indent {
 <span id="cb66-3"><a href="coding-chapter.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad loop</span></span>
 <span id="cb66-4"><a href="coding-chapter.html#cb66-4" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(<span class="fu">bad_loop</span>(x))</span>
 <span id="cb66-5"><a href="coding-chapter.html#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Unit: milliseconds</span></span>
-<span id="cb66-6"><a href="coding-chapter.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="do">##         expr      min       lq    mean   median       uq      max neval</span></span>
-<span id="cb66-7"><a href="coding-chapter.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  bad_loop(x) 156.0506 160.7917 180.849 163.5184 167.6735 385.5071   100</span></span>
+<span id="cb66-6"><a href="coding-chapter.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="do">##         expr      min       lq     mean   median       uq      max neval</span></span>
+<span id="cb66-7"><a href="coding-chapter.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  bad_loop(x) 172.4127 177.3481 199.4267 179.7425 184.9372 436.8327   100</span></span>
 <span id="cb66-8"><a href="coding-chapter.html#cb66-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-9"><a href="coding-chapter.html#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Good loop</span></span>
 <span id="cb66-10"><a href="coding-chapter.html#cb66-10" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(<span class="fu">good_loop</span>(x))</span>
 <span id="cb66-11"><a href="coding-chapter.html#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Unit: milliseconds</span></span>
-<span id="cb66-12"><a href="coding-chapter.html#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="do">##          expr    min     lq     mean  median      uq     max neval</span></span>
-<span id="cb66-13"><a href="coding-chapter.html#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  good_loop(x) 4.7347 4.8786 5.213935 4.96365 5.09925 10.8938   100</span></span></code></pre></div>
+<span id="cb66-12"><a href="coding-chapter.html#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="do">##          expr    min      lq     mean  median      uq     max neval</span></span>
+<span id="cb66-13"><a href="coding-chapter.html#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  good_loop(x) 5.3216 5.45635 5.844472 5.52845 5.69265 12.5641   100</span></span></code></pre></div>
 <p>Another important tip to improve loop performance is to limit computations at each iteration to what is strictly necessary. All elements that are constant between iterations should be defined outside the loop.</p>
 <p>So, do not be afraid of using loops. They are not slow if we write them correctly.</p></li>
 <li><p><strong>Vectorized Operators.</strong> We have just seen that for loops are used to perform operations on the elements of an object. Most programming languages, however, also provide specific functions that atomically apply operations over all the elements of an object. These are called <em>Vectorized Operators</em>.</p>
@@ -1224,15 +1224,15 @@ div.csl-indent {
 <span id="cb68-5"><a href="coding-chapter.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Element by element operation</span></span>
 <span id="cb68-6"><a href="coding-chapter.html#cb68-6" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(<span class="fu">add_vectors</span>(x1, x2))</span>
 <span id="cb68-7"><a href="coding-chapter.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Unit: microseconds</span></span>
-<span id="cb68-8"><a href="coding-chapter.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="do">##                 expr   min     lq    mean median     uq    max neval</span></span>
-<span id="cb68-9"><a href="coding-chapter.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  add_vectors(x1, x2) 832.8 836.65 899.379  844.9 850.95 6133.8   100</span></span>
+<span id="cb68-8"><a href="coding-chapter.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="do">##                 expr   min     lq     mean median     uq    max neval</span></span>
+<span id="cb68-9"><a href="coding-chapter.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  add_vectors(x1, x2) 938.4 942.05 1005.878 944.95 949.35 6760.4   100</span></span>
 <span id="cb68-10"><a href="coding-chapter.html#cb68-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb68-11"><a href="coding-chapter.html#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectorized operation</span></span>
 <span id="cb68-12"><a href="coding-chapter.html#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="co"># - In R the `+` operator is vectorized</span></span>
 <span id="cb68-13"><a href="coding-chapter.html#cb68-13" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(x1 <span class="sc">+</span> x2)</span>
 <span id="cb68-14"><a href="coding-chapter.html#cb68-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Unit: microseconds</span></span>
-<span id="cb68-15"><a href="coding-chapter.html#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="do">##     expr  min   lq   mean median    uq  max neval</span></span>
-<span id="cb68-16"><a href="coding-chapter.html#cb68-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  x1 + x2 21.2 21.3 22.206   21.6 21.85 70.8   100</span></span></code></pre></div>
+<span id="cb68-15"><a href="coding-chapter.html#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="do">##     expr  min   lq   mean median   uq  max neval</span></span>
+<span id="cb68-16"><a href="coding-chapter.html#cb68-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  x1 + x2 23.9 24.1 25.371   24.3 24.6 84.8   100</span></span></code></pre></div>
 <p>The difference is incredible. Note that this is not because for loops are slow, but rather because vectorized operators are super fast. In fact, vectorized operations are based on really efficient code usually written in compiled languages and run in parallel (see next point). This is what makes vectorized operators so fast and efficient.</p>
 <p>So, if we want to improve performance, we should always use vectorized operators when available.</p></li>
 <li><p><strong>Compiled and Interpreted Languages.</strong> To run a program, the source code written in a given programming language needs to be translated into machine code that can be executed by the processor. How this translation occurs differs between compiled and interpreted programming languages.</p>

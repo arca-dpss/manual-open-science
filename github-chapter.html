@@ -649,7 +649,7 @@ div.csl-indent {
 <ol style="list-style-type: decimal">
 <li><p><strong>Generate SSH keys.</strong> First we need to check if we already have an SSH key-pair available. These are usually saved in the <code>"~/.ssh/"</code> directory.</p>
 <p>If no SSH key is available, we can generate a new pair following the instructions at <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" class="uri">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a>. Note that we need to choose instructions according to our operating system. Moreover, if using WLS on Windows, check the dedicated section at <a href="https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/" class="uri">https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/</a>.</p>
-<p>Alternatively, we can generate an SSH key-pair directly from RStudio (see Box below).</p></li>
+<p>Alternatively, we can generate an SSH key-pair directly from RStudio (see <a href="#ssh-rstudio"><em>“Instructions-Box: SSH Keys in RStudio”</em></a> below).</p></li>
 <li><p><strong>Copy the Public Key.</strong> Next, we need to share our public key with GitHub. By default, our public key is saved at <code>"~/.ssh/id_rsa.pub"</code>. Open the file and copy the public key. We can do that directly from the command line by running,</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb159-1"><a href="github-chapter.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
 <span id="cb159-2"><a href="github-chapter.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="ex">clip</span> <span class="op">&lt;</span> ~/.ssh/id_rsa.pub </span>
@@ -669,6 +669,7 @@ Next, we paste our public key and assign a name. Finally, we press <em>“Add SS
 <p>In particular, we should pay attention to not sharing our private keys unintentionally by saving them inside directories shared with others or synchronized with cloud services.</p>
 <p>If someone manages to copy our private key, it will be able to access all services on which we registered the SSH key pairs.</p>
 </div>
+<p><a name="ssh-rstudio"></a></p>
 <div class="deffun" title="SSH Keys in RStudio">
 <p>In RStudio, we can easily view and copy our public SSH key. From <em>Tools &gt; Global Options &gt; Git/SVN</em>, we can view and copy our public SSH key by clicking <em>“View public key”</em>. If SSH keys are not available, we can create a new pair of keys by clicking the <em>“Create RSA Key…”</em> button.</p>
 <p><img src="images/github/git-settings-2.png" width="80%" style="display: block; margin: auto;" /></p>

@@ -66,7 +66,7 @@ To enable SSH protocol:
     
     If no SSH key is available, we can generate a new pair following the instructions at https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent. Note that we need to choose instructions according to our operating system. Moreover, if using WLS on Windows, check the dedicated section at https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/.
   
-      Alternatively, we can generate an SSH key-pair directly from RStudio (see Box below).
+      Alternatively, we can generate an SSH key-pair directly from RStudio (see [*“Instructions-Box: SSH Keys in RStudio”*](#ssh-rstudio) below).
   
 1. **Copy the Public Key.** Next, we need to share our public key with GitHub. By default, our public key is saved at `"~/.ssh/id_rsa.pub"`. Open the file and copy the public key. We can do that directly from the command line by running, 
 
@@ -104,6 +104,8 @@ In particular, we should pay attention to not sharing our private keys unintenti
 
 If someone manages to copy our private key, it will be able to access all services on which we registered the SSH key pairs.
 :::
+
+<a name="ssh-rstudio"></a>
 
 :::{.deffun title="SSH Keys in RStudio" data-latex="[SSH Keys in RStudio]"}
 

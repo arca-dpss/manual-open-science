@@ -314,6 +314,8 @@ In other cases, if these dependencies are missing from the `renv.lock` file we h
   https://pip.pypa.io/en/stable/user_guide/#requirements-files
 - PipEnv`r break_line(format = output_format)`
   https://www.geeksforgeeks.org/pipenv-python-package-management-tool 
+- PIP`r break_line(format = output_format)`
+  https://www.scaler.com/topics/what-is-pip-in-python/
 
 #### R {-}
 

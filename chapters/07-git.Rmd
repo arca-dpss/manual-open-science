@@ -317,7 +317,7 @@ Note that using `git add --all` is not recommended as we may end up adding a lot
 
 The `.gitignore` file is used to list all files we want to ignore. These files will be not tracked by Git. The `.gitignore` file is usually saved in the project root.
 
-We can specifay the exact file name or we can use matching patterns (i.e., globbing patterns, see https://linux.die.net/man/7/glob) to exclude specific subset of files. For example:
+We can specify the exact file name or we can use matching patterns (i.e., globbing patterns, see https://linux.die.net/man/7/glob) to exclude specific subset of files. For example:
 
 - **`note.txt`**: ignore all files named `"note.txt"` in any directory (e.g., `"my-folder/note.txt"`)
 - **`folder-A/note.txt`**: ignore files named `"note.txt"` in `"folder-A"`. In this case the file `"folder-B/note.txt"` is not ignored.
@@ -339,7 +339,7 @@ Finally, note that if we want to ignore a file that has been already tracked, fi
 To learn more about the `.gitignore` file and all the other exclusion rules, see https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 :::
 
-#### Commiting Changes
+#### Committing Changes
 
 Now all files are in the staging area and we are ready for our first commit. To create a commit, run the command
 

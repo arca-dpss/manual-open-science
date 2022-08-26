@@ -6,7 +6,7 @@ We are only one step from guaranteeing the reproducibility of our results. In Ch
 
 ## Containers
 
-> *“But it works on my computer!?!”* -- Anonymus Programmer
+> *“But it works on my computer!?!”* -- Anonymous Programmer
 
 Sometimes it happens that our code runs fine on our machine but fails on someone else's machine. Or even worse, that we obtain unexpected different results running the same code on different machines. Well, containers are the answer to these issues.
 

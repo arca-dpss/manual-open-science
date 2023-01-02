@@ -1,12 +1,12 @@
-cff-version: 1.1.0
+cff-version: 1.2.0
 message: "For attribution, please cite it as below."
 authors:
-  - family-names: Zandonella Callegher
-    given-names: Claudio
-    orcid: https://orcid.org/0000-0001-7721-6318
-  - family-names: Massidda
-    given-names: Davide
-title: The Open Science Manual: Make Your Scientific Research Accessible and Reproducible
+- family-names: "Zandonella Callegher"
+  given-names: "Claudio"
+  orcid: "https://orcid.org/0000-0001-7721-6318""
+- family-names: "Massidda"
+  given-names: "Davide"
+title: "The Open Science Manual: Make Your Scientific Research Accessible and Reproducible"
 version: 1.0.1
 doi: 10.5281/zenodo.6521850
 date-released: 2023-01-02

@@ -330,7 +330,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.4.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files-1"><i class="fa fa-check"></i><b>7.4.3</b> Tracking Files</a>
 <ul>
 <li class="chapter" data-level="7.4.3.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-files-to-staging-area"><i class="fa fa-check"></i><b>7.4.3.1</b> Adding Files to Staging Area</a></li>
-<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#commiting-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Commiting Changes</a></li>
+<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#committing-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Committing Changes</a></li>
 <li class="chapter" data-level="7.4.3.3" data-path="git-chapter.html"><a href="git-chapter.html#checking-commit-history"><i class="fa fa-check"></i><b>7.4.3.3</b> Checking Commit History</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4.4" data-path="git-chapter.html"><a href="git-chapter.html#undoing-commits"><i class="fa fa-check"></i><b>7.4.4</b> Undoing Commits</a>
@@ -817,7 +817,7 @@ div.csl-indent {
 <p>Note that using <code>git add --all</code> is not recommended as we may end up adding a lot of not useful files (e.g., system files or build artefacts). If we added some unwanted files, we can use the command <code>git rm --cached &lt;file&gt;</code> to remove a specific file from the staging area (or <code>git reset</code> to remove all files). We should always aim to keep our repository as clean as possible tracking only relevant files. To help us with this, we can specify which files to ignore listing them in the <code>.gitignore</code> file.</p>
 <div class="design" title=".gitignore File">
 <p>The <code>.gitignore</code> file is used to list all files we want to ignore. These files will be not tracked by Git. The <code>.gitignore</code> file is usually saved in the project root.</p>
-<p>We can specifay the exact file name or we can use matching patterns (i.e., globbing patterns, see <a href="https://linux.die.net/man/7/glob" class="uri">https://linux.die.net/man/7/glob</a>) to exclude specific subset of files. For example:</p>
+<p>We can specify the exact file name or we can use matching patterns (i.e., globbing patterns, see <a href="https://linux.die.net/man/7/glob" class="uri">https://linux.die.net/man/7/glob</a>) to exclude specific subset of files. For example:</p>
 <ul>
 <li><strong><code>note.txt</code></strong>: ignore all files named <code>"note.txt"</code> in any directory (e.g., <code>"my-folder/note.txt"</code>)</li>
 <li><strong><code>folder-A/note.txt</code></strong>: ignore files named <code>"note.txt"</code> in <code>"folder-A"</code>. In this case the file <code>"folder-B/note.txt"</code> is not ignored.</li>
@@ -837,8 +837,8 @@ div.csl-indent {
 <p>To learn more about the <code>.gitignore</code> file and all the other exclusion rules, see <a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore" class="uri">https://www.atlassian.com/git/tutorials/saving-changes/gitignore</a></p>
 </div>
 </div>
-<div id="commiting-changes" class="section level4 hasAnchor" number="7.4.3.2">
-<h4><span class="header-section-number">7.4.3.2</span> Commiting Changes<a href="git-chapter.html#commiting-changes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="committing-changes" class="section level4 hasAnchor" number="7.4.3.2">
+<h4><span class="header-section-number">7.4.3.2</span> Committing Changes<a href="git-chapter.html#committing-changes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now all files are in the staging area and we are ready for our first commit. To create a commit, run the command</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb114-1"><a href="git-chapter.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit</span></code></pre></div>
 <p>This will open our preferred text editor asking us for a commit message. Each commit requires a message describing the content of the commit. In this case, we can add the following message</p>

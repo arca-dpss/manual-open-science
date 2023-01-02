@@ -330,7 +330,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.4.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files-1"><i class="fa fa-check"></i><b>7.4.3</b> Tracking Files</a>
 <ul>
 <li class="chapter" data-level="7.4.3.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-files-to-staging-area"><i class="fa fa-check"></i><b>7.4.3.1</b> Adding Files to Staging Area</a></li>
-<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#commiting-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Commiting Changes</a></li>
+<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#committing-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Committing Changes</a></li>
 <li class="chapter" data-level="7.4.3.3" data-path="git-chapter.html"><a href="git-chapter.html#checking-commit-history"><i class="fa fa-check"></i><b>7.4.3.3</b> Checking Commit History</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4.4" data-path="git-chapter.html"><a href="git-chapter.html#undoing-commits"><i class="fa fa-check"></i><b>7.4.4</b> Undoing Commits</a>
@@ -1191,14 +1191,14 @@ div.csl-indent {
 <span id="cb66-3"><a href="coding-chapter.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad loop</span></span>
 <span id="cb66-4"><a href="coding-chapter.html#cb66-4" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(<span class="fu">bad_loop</span>(x))</span>
 <span id="cb66-5"><a href="coding-chapter.html#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Unit: milliseconds</span></span>
-<span id="cb66-6"><a href="coding-chapter.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="do">##         expr      min       lq     mean  median       uq      max neval</span></span>
-<span id="cb66-7"><a href="coding-chapter.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  bad_loop(x) 138.8798 140.8665 158.2934 141.995 146.2628 340.1337   100</span></span>
+<span id="cb66-6"><a href="coding-chapter.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="do">##         expr      min       lq     mean   median      uq      max neval</span></span>
+<span id="cb66-7"><a href="coding-chapter.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  bad_loop(x) 222.9417 233.5417 260.4913 241.9232 252.619 516.0231   100</span></span>
 <span id="cb66-8"><a href="coding-chapter.html#cb66-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-9"><a href="coding-chapter.html#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Good loop</span></span>
 <span id="cb66-10"><a href="coding-chapter.html#cb66-10" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(<span class="fu">good_loop</span>(x))</span>
 <span id="cb66-11"><a href="coding-chapter.html#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Unit: milliseconds</span></span>
 <span id="cb66-12"><a href="coding-chapter.html#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="do">##          expr    min     lq     mean median      uq     max neval</span></span>
-<span id="cb66-13"><a href="coding-chapter.html#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  good_loop(x) 5.3025 5.4257 5.736564 5.5097 5.62635 10.6279   100</span></span></code></pre></div>
+<span id="cb66-13"><a href="coding-chapter.html#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  good_loop(x) 6.3827 6.8557 7.684867 7.2625 7.88455 14.9255   100</span></span></code></pre></div>
 <p>Another important tip to improve loop performance is to limit computations at each iteration to what is strictly necessary. All elements that are constant between iterations should be defined outside the loop.</p>
 <p>So, do not be afraid of using loops. They are not slow if we write them correctly.</p></li>
 <li><p><strong>Vectorized Operators.</strong> We have just seen that for loops are used to perform operations on the elements of an object. Most programming languages, however, also provide specific functions that atomically apply operations over all the elements of an object. These are called <em>Vectorized Operators</em>.</p>
@@ -1223,16 +1223,16 @@ div.csl-indent {
 <span id="cb68-4"><a href="coding-chapter.html#cb68-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb68-5"><a href="coding-chapter.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Element by element operation</span></span>
 <span id="cb68-6"><a href="coding-chapter.html#cb68-6" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(<span class="fu">add_vectors</span>(x1, x2))</span>
-<span id="cb68-7"><a href="coding-chapter.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Unit: microseconds</span></span>
-<span id="cb68-8"><a href="coding-chapter.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="do">##                 expr   min    lq     mean median     uq    max neval</span></span>
-<span id="cb68-9"><a href="coding-chapter.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  add_vectors(x1, x2) 939.5 943.6 1002.443  946.1 949.75 6325.8   100</span></span>
+<span id="cb68-7"><a href="coding-chapter.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Unit: milliseconds</span></span>
+<span id="cb68-8"><a href="coding-chapter.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="do">##                 expr  min     lq     mean median     uq   max neval</span></span>
+<span id="cb68-9"><a href="coding-chapter.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  add_vectors(x1, x2) 1.06 1.1643 1.315741 1.2203 1.2924 8.751   100</span></span>
 <span id="cb68-10"><a href="coding-chapter.html#cb68-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb68-11"><a href="coding-chapter.html#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Vectorized operation</span></span>
 <span id="cb68-12"><a href="coding-chapter.html#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="co"># - In R the `+` operator is vectorized</span></span>
 <span id="cb68-13"><a href="coding-chapter.html#cb68-13" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(x1 <span class="sc">+</span> x2)</span>
 <span id="cb68-14"><a href="coding-chapter.html#cb68-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Unit: microseconds</span></span>
-<span id="cb68-15"><a href="coding-chapter.html#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="do">##     expr  min lq   mean median   uq max neval</span></span>
-<span id="cb68-16"><a href="coding-chapter.html#cb68-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  x1 + x2 23.9 24 24.619   24.1 24.2  66   100</span></span></code></pre></div>
+<span id="cb68-15"><a href="coding-chapter.html#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="do">##     expr  min   lq   mean median   uq   max neval</span></span>
+<span id="cb68-16"><a href="coding-chapter.html#cb68-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  x1 + x2 19.6 20.3 24.498   20.6 20.8 374.1   100</span></span></code></pre></div>
 <p>The difference is incredible. Note that this is not because for loops are slow, but rather because vectorized operators are super fast. In fact, vectorized operations are based on really efficient code usually written in compiled languages and run in parallel (see next point). This is what makes vectorized operators so fast and efficient.</p>
 <p>So, if we want to improve performance, we should always use vectorized operators when available.</p></li>
 <li><p><strong>Compiled and Interpreted Languages.</strong> To run a program, the source code written in a given programming language needs to be translated into machine code that can be executed by the processor. How this translation occurs differs between compiled and interpreted programming languages.</p>
@@ -1635,13 +1635,13 @@ So each time we run a function, commands are executed inside a newly created env
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
 <div id="ref-R-testthat" class="csl-entry">
-Wickham, H. (2022). <em>Testthat: Unit testing for r</em>. <a href="https://CRAN.R-project.org/package=testthat">https://CRAN.R-project.org/package=testthat</a>
+Wickham, H. (2022). <em>Testthat: Unit testing for r</em>.
 </div>
 <div id="ref-R-roxygen2" class="csl-entry">
-Wickham, H., Danenberg, P., Csárdi, G., &amp; Eugster, M. (2021). <em>roxygen2: In-line documentation for r</em>. <a href="https://CRAN.R-project.org/package=roxygen2">https://CRAN.R-project.org/package=roxygen2</a>
+Wickham, H., Danenberg, P., Csárdi, G., &amp; Eugster, M. (2021). <em>roxygen2: In-line documentation for r</em>.
 </div>
 <div id="ref-R-devtools" class="csl-entry">
-Wickham, H., Hester, J., Chang, W., &amp; Bryan, J. (2021). <em>Devtools: Tools to make developing r packages easier</em>. <a href="https://CRAN.R-project.org/package=devtools">https://CRAN.R-project.org/package=devtools</a>
+Wickham, H., Hester, J., Chang, W., &amp; Bryan, J. (2021). <em>Devtools: Tools to make developing r packages easier</em>.
 </div>
 </div>
 <hr>

@@ -330,7 +330,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.4.3" data-path="git-chapter.html"><a href="git-chapter.html#tracking-files-1"><i class="fa fa-check"></i><b>7.4.3</b> Tracking Files</a>
 <ul>
 <li class="chapter" data-level="7.4.3.1" data-path="git-chapter.html"><a href="git-chapter.html#adding-files-to-staging-area"><i class="fa fa-check"></i><b>7.4.3.1</b> Adding Files to Staging Area</a></li>
-<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#commiting-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Commiting Changes</a></li>
+<li class="chapter" data-level="7.4.3.2" data-path="git-chapter.html"><a href="git-chapter.html#committing-changes"><i class="fa fa-check"></i><b>7.4.3.2</b> Committing Changes</a></li>
 <li class="chapter" data-level="7.4.3.3" data-path="git-chapter.html"><a href="git-chapter.html#checking-commit-history"><i class="fa fa-check"></i><b>7.4.3.3</b> Checking Commit History</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4.4" data-path="git-chapter.html"><a href="git-chapter.html#undoing-commits"><i class="fa fa-check"></i><b>7.4.4</b> Undoing Commits</a>
@@ -626,10 +626,10 @@ div.csl-indent {
 <p>The most important thing, surely, is to list all the software required for the project. These can be our favourite programming language for statistical analysis (e.g., R, Python, or Julia), software to create documents (e.g., <span class="latex">L<sup>A</sup>T<sub>E</sub>X</span> or Pandoc), specific compilers (e.g., Clang or GCC) or other software for any particular needs.</p>
 <p>Note that it is not enough to indicate only the name of the software, but is also necessary to specify the exact software version. Most software is actively developed and new versions are regularly released. Usually, new versions bring some new features or some bugs are fixed. In the case of major releases, however, changes are so important that backward compatibility is no longer guaranteed. This means that our old code may no longer work using the new software versions. Specifying the required software version allows for avoiding these issues.</p>
 <div class="design" title="Versioning">
-<p>Software version numbers usually have three components <code>major.minor.patch</code> (e.g. R version 4.2.0). New version number is decided according to the actual changes made:</p>
+<p>Software version numbers usually have three components <code>major.minor.patch</code> (e.g. R version 4.1.2). New version number is decided according to the actual changes made:</p>
 <ul>
-<li><strong>Patch</strong>. When some bugs are fixed but no new feature is added, the <code>patch</code> value is incremented (e.g. R version 4.2.1).</li>
-<li><strong>Minor Release</strong>. When a new feature is added (with or without bug fixes), the <code>minor</code> value is incremented (e.g. R version 4.3.0).</li>
+<li><strong>Patch</strong>. When some bugs are fixed but no new feature is added, the <code>patch</code> value is incremented (e.g. R version 4.1.3).</li>
+<li><strong>Minor Release</strong>. When a new feature is added (with or without bug fixes), the <code>minor</code> value is incremented (e.g. R version 4.2.0).</li>
 <li><strong>Major Release</strong>. When changes affect backward compatibility, the <code>major</code> value is incremented (e.g. R version 5.0.0).</li>
 </ul>
 <p>Note that, in the case of a minor or a major release, all previous values are set to zero. For example, if the current version is <code>2.1.11</code>, with a new minor release we obtain <code>2.2.0</code> and with a new major release <code>3.0.0</code>.</p>
@@ -674,14 +674,14 @@ div.csl-indent {
 <span id="cb186-6"><a href="requirements-chapter.html#cb186-6" aria-hidden="true" tabindex="-1"></a><span class="do">## system         x86_64, linux-gnu           </span></span>
 <span id="cb186-7"><a href="requirements-chapter.html#cb186-7" aria-hidden="true" tabindex="-1"></a><span class="do">## status                                     </span></span>
 <span id="cb186-8"><a href="requirements-chapter.html#cb186-8" aria-hidden="true" tabindex="-1"></a><span class="do">## major          4                           </span></span>
-<span id="cb186-9"><a href="requirements-chapter.html#cb186-9" aria-hidden="true" tabindex="-1"></a><span class="do">## minor          2.0                         </span></span>
-<span id="cb186-10"><a href="requirements-chapter.html#cb186-10" aria-hidden="true" tabindex="-1"></a><span class="do">## year           2022                        </span></span>
-<span id="cb186-11"><a href="requirements-chapter.html#cb186-11" aria-hidden="true" tabindex="-1"></a><span class="do">## month          04                          </span></span>
-<span id="cb186-12"><a href="requirements-chapter.html#cb186-12" aria-hidden="true" tabindex="-1"></a><span class="do">## day            22                          </span></span>
-<span id="cb186-13"><a href="requirements-chapter.html#cb186-13" aria-hidden="true" tabindex="-1"></a><span class="do">## svn rev        82229                       </span></span>
+<span id="cb186-9"><a href="requirements-chapter.html#cb186-9" aria-hidden="true" tabindex="-1"></a><span class="do">## minor          1.2                         </span></span>
+<span id="cb186-10"><a href="requirements-chapter.html#cb186-10" aria-hidden="true" tabindex="-1"></a><span class="do">## year           2021                        </span></span>
+<span id="cb186-11"><a href="requirements-chapter.html#cb186-11" aria-hidden="true" tabindex="-1"></a><span class="do">## month          11                          </span></span>
+<span id="cb186-12"><a href="requirements-chapter.html#cb186-12" aria-hidden="true" tabindex="-1"></a><span class="do">## day            01                          </span></span>
+<span id="cb186-13"><a href="requirements-chapter.html#cb186-13" aria-hidden="true" tabindex="-1"></a><span class="do">## svn rev        81115                       </span></span>
 <span id="cb186-14"><a href="requirements-chapter.html#cb186-14" aria-hidden="true" tabindex="-1"></a><span class="do">## language       R                           </span></span>
-<span id="cb186-15"><a href="requirements-chapter.html#cb186-15" aria-hidden="true" tabindex="-1"></a><span class="do">## version.string R version 4.2.0 (2022-04-22)</span></span>
-<span id="cb186-16"><a href="requirements-chapter.html#cb186-16" aria-hidden="true" tabindex="-1"></a><span class="do">## nickname       Vigorous Calisthenics</span></span></code></pre></div>
+<span id="cb186-15"><a href="requirements-chapter.html#cb186-15" aria-hidden="true" tabindex="-1"></a><span class="do">## version.string R version 4.1.2 (2021-11-01)</span></span>
+<span id="cb186-16"><a href="requirements-chapter.html#cb186-16" aria-hidden="true" tabindex="-1"></a><span class="do">## nickname       Bird Hippie</span></span></code></pre></div>
 <div class="design" title="R Release Updates">
 <p><strong>Info-Box: R Release Updates</strong>
 To know the new feature introduced in R 4.0.0 see <a href="https://www.r-bloggers.com/2020/04/r-4-0-0-now-available-and-a-look-back-at-rs-history/" class="uri">https://www.r-bloggers.com/2020/04/r-4-0-0-now-available-and-a-look-back-at-rs-history/</a></p>
@@ -699,15 +699,15 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 <p>Using the function <code>sessioninfo::session_info()$platform</code>, we get a list of useful information about the current R session. These include the R version, the pandoc version, the operating system, CPU, and other local settings. The RStudio version is also provided if used in the session (check on your machine). See <code>?sessioninfo::session_info()</code> for further details.</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="requirements-chapter.html#cb187-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()<span class="sc">$</span>platform</span>
 <span id="cb187-2"><a href="requirements-chapter.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  setting  value</span></span>
-<span id="cb187-3"><a href="requirements-chapter.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  version  R version 4.2.0 (2022-04-22)</span></span>
-<span id="cb187-4"><a href="requirements-chapter.html#cb187-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  os       Ubuntu 20.04.4 LTS</span></span>
+<span id="cb187-3"><a href="requirements-chapter.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  version  R version 4.1.2 (2021-11-01)</span></span>
+<span id="cb187-4"><a href="requirements-chapter.html#cb187-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  os       Ubuntu 22.04.1 LTS</span></span>
 <span id="cb187-5"><a href="requirements-chapter.html#cb187-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  system   x86_64, linux-gnu</span></span>
 <span id="cb187-6"><a href="requirements-chapter.html#cb187-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  ui       X11</span></span>
 <span id="cb187-7"><a href="requirements-chapter.html#cb187-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  language (EN)</span></span>
 <span id="cb187-8"><a href="requirements-chapter.html#cb187-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  collate  C.UTF-8</span></span>
 <span id="cb187-9"><a href="requirements-chapter.html#cb187-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  ctype    C.UTF-8</span></span>
 <span id="cb187-10"><a href="requirements-chapter.html#cb187-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  tz       UTC</span></span>
-<span id="cb187-11"><a href="requirements-chapter.html#cb187-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  date     2022-05-14</span></span>
+<span id="cb187-11"><a href="requirements-chapter.html#cb187-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  date     2023-01-02</span></span>
 <span id="cb187-12"><a href="requirements-chapter.html#cb187-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  pandoc   2.17.1.1 @ /usr/bin/ (via rmarkdown)</span></span></code></pre></div>
 <p>Providing all this information about the session used to obtain the original results may be useful in the case of inexplicable reproducibility issues. For example, we can save the output as an object or print it in the project <code>README</code> or another file.</p>
 </div>
@@ -719,35 +719,35 @@ To know the new feature introduced in R 4.0.0 see <a href="https://www.r-blogger
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="requirements-chapter.html#cb188-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
 <pre><code>## ─ Session info ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  setting  value
-##  version  R version 4.2.0 (2022-04-22)
-##  os       Ubuntu 20.04.4 LTS
+##  version  R version 4.1.2 (2021-11-01)
+##  os       Ubuntu 22.04.1 LTS
 ##  system   x86_64, linux-gnu
 ##  ui       X11
 ##  language (EN)
 ##  collate  C.UTF-8
 ##  ctype    C.UTF-8
 ##  tz       UTC
-##  date     2022-05-14
+##  date     2023-01-02
 ##  pandoc   2.17.1.1 @ /usr/bin/ (via rmarkdown)
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  ! package   * version date (UTC) lib source
-##  P ggplot2   * 3.3.5   2021-06-25 [?] CRAN (R 4.2.0)
-##    renv        0.15.4  2022-03-03 [1] CRAN (R 4.2.0)
-##  P rmarkdown   2.13    2022-03-10 [?] CRAN (R 4.2.0)
-##  P tidyverse * 1.3.1   2021-04-15 [?] CRAN (R 4.2.0)
-##  P trackdown   1.1.1   2021-12-19 [?] CRAN (R 4.2.0)
+##  P ggplot2   * 3.3.5   2021-06-25 [?] RSPM (R 4.1.0)
+##    renv        0.15.4  2022-03-03 [1] RSPM (R 4.1.0)
+##  P rmarkdown   2.13    2022-03-10 [?] RSPM (R 4.1.0)
+##  P tidyverse * 1.3.1   2021-04-15 [?] RSPM (R 4.1.0)
+##  P trackdown   1.1.1   2021-12-19 [?] RSPM (R 4.1.0)
 ## 
-##  [1] /home/runner/.cache/R/renv/library/manual-open-science-776cc00a/R-4.2/x86_64-pc-linux-gnu
-##  [2] /opt/R/4.2.0/lib/R/library
+##  [1] /home/runner/.cache/R/renv/library/manual-open-science-776cc00a/R-4.1/x86_64-pc-linux-gnu
+##  [2] /opt/R/4.1.2/lib/R/library
 ## 
 ##  P ── Loaded and on-disk path mismatch.
 ## 
 ## ─ Python configuration ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  python:         /usr/bin/python3
-##  libpython:      /usr/lib/python3.8/config-3.8-x86_64-linux-gnu/libpython3.8.so
+##  libpython:      /usr/lib/python3.10/config-3.10-x86_64-linux-gnu/libpython3.10.so
 ##  pythonhome:     //usr://usr
-##  version:        3.8.10 (default, Mar 15 2022, 12:22:08)  [GCC 9.4.0]
+##  version:        3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0]
 ##  numpy:           [NOT FOUND]
 ##  
 ##  python versions found: 

@@ -364,7 +364,7 @@ To create a new RStudio project:
     knitr::include_graphics("images/projects/new-proj-3.png")
     ```
 
-1. Finally, we can indicate the location where to create the project directory and specify the sdirectory name.  This will be used also as the project name. Note that two more options are available *“Create a git repository”* and *“Use renv with this project”*. We discuss these options in Chapter \@ref(git-rstudio) and Chapter \@ref(renv-section), respectively. 
+1. Finally, we can indicate the location where to create the project directory and specify the directory's name.  This will be used also as the project name. Note that two more options are available *“Create a git repository”* and *“Use renv with this project”*. We discuss these options in Chapter \@ref(git-rstudio) and Chapter \@ref(renv-section), respectively. 
 
     ```{r, out.width="60%"}
     knitr::include_graphics("images/projects/new-proj-4.png")

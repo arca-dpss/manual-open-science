@@ -5,7 +5,7 @@ author: |
   [Claudio Zandonella Callegher](https://claudiozandonella.netlify.app/) and 
   [Davide Massidda](https://www.linkedin.com/in/davidemassidda/)
 date: |
-  | Version 1.0.0
+  | Version 1.0.1
   | `r paste(format(Sys.time(), '%d %B, %Y'), ' [last-updated]')`
 site: bookdown::bookdown_site
 documentclass: book

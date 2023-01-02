@@ -1,7 +1,7 @@
 Package: manualOpenScience
 Type: Package
 Title: The Open Science Manual: Make Your Scientific Research Accesible and Reproducible
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
   c(person(given = "Claudio",
            family = "Zandonella Callegher",
@@ -17,6 +17,7 @@ Description: The aim of the present book is to describe programming good
   guarantee reproducibility of the analysis results. We want to make scientific 
   research an open-source knowledge development.
 License: CC-BY-NC-SA
+Date:2023-01-02
 Depends:
     devtools,
 Imports:

@@ -2,9 +2,9 @@
     "description": "<p>The aim of the present book is to describe programming good practices and introduce common tools used in software development to guarantee reproducibility of the analysis results. We want to make scientific research an open-source knowledge development.</p>",
     "license": "CC BY-NC-SA 4.0",
     "title": "The Open Science Manual: Make Your Scientific Research Accessible and Reproducible",
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "upload_type": "software",
-    "publication_date": "2022-05-05",
+    "publication_date": "2023-01-02",
     "creators": [
         {
             "affiliation": "Department of Developmental Psychology, University of Padua",
@@ -19,7 +19,7 @@
     "related_identifiers": [
         {
             "scheme": "url",
-            "identifier": "https://github.com/arca-dpss/manual-open-science/tree/v1.0.0",
+            "identifier": "https://github.com/arca-dpss/manual-open-science/tree/v1.0.1",
             "relation": "isSupplementTo"
         },
         {

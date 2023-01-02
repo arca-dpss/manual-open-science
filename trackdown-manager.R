@@ -62,6 +62,6 @@ trackdown::update_file("chapters/13-rocker.Rmd", gpath = "trackdown/ARCA")
 trackdown::download_file("chapters/13-rocker.Rmd", gpath = "trackdown/ARCA")
 
 #----    make_book    ----
-make_my_book()
+rmarkdown::render_site(encoding = 'UTF-8')
 
 bookdown::preview_chapter("chapters/06-terminal.Rmd", 'bookdown::pdf_book')

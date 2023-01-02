@@ -44,6 +44,7 @@ jobs:
         run: |
           sudo apt-get install -y libgtk2.0-dev asymptote
           sudo apt-get install libcurl4-openssl-dev
+          sudo apt install libglpk-dev
 
       - name: Cache renv
         uses: actions/cache@v3
@@ -66,7 +67,6 @@ jobs:
       - name: Run Targets
         shell: Rscript {0}
         run: |
-          install.packages('igraph') # fix issue dyn.load
           targets::tar_make(script = "analysis/targets-workflow.R", store = "analysis/_targets")
 
       - name: Render Book
